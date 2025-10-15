@@ -1,0 +1,278 @@
+{
+    "termsOfService": {
+        "backToHome": "Back to Home",
+        "downloadPdf": "Download PDF",
+        "hero": {
+            "tagline": "Terms You Can Trust",
+            "title": "Terms of Service - SimplyBox",
+            "subtitle": "Please read these terms carefully before using SimplyBox services.",
+            "lastUpdated": "Last Updated: October 14, 2025",
+            "effectiveDate": "Effective Date: October 14, 2025"
+        },
+        "sidebar": {
+            "title": "Contents"
+        },
+        "sections": {
+            "1": {
+                "title": "Scope & Acceptance",
+                "content": "By accessing or using SimplyBox (the \"Service\"), you agree to be bound by these Terms of Service (\"Terms\"). If you do not agree, do not use the Service."
+            },
+            "2": {
+                "title": "Definitions & Eligibility",
+                "subsections": {
+                    "1": {
+                        "title": "User Definition",
+                        "content": "User / You: an individual or entity using the Service."
+                    },
+                    "2": {
+                        "title": "Age and Capacity Requirements",
+                        "content": [
+                            "Users must be at least 18 years old and have legal capacity to enter contracts.",
+                            "If acting on behalf of an entity, you represent you have authority to bind that entity.",
+                            "The Service is intended for business use; personal use may be subject to different terms."
+                        ]
+                    }
+                }
+            },
+            "3": {
+                "title": "Service Description",
+                "content": "SimplyBox is a cloud-based SaaS communication management platform providing unified inbox, AI-powered responses (including Llama-based and RAG techniques), team collaboration, knowledge management, real-time processing, and analytics. Feature availability depends on subscription tier."
+            },
+            "4": {
+                "title": "Accounts, Security & Verification",
+                "subsections": {
+                    "1": {
+                        "title": "Account Requirements",
+                        "content": [
+                            "Accurate registration information is required.",
+                            "You are responsible for account credentials and all activity occurring under your account.",
+                            "Email verification is required."
+                        ]
+                    },
+                    "2": {
+                        "title": "Business Verification",
+                        "content": "For certain integrations (e.g., Meta/WhatsApp), additional business verification documents may be requested."
+                    },
+                    "3": {
+                        "title": "Meta Business Verification Note",
+                        "content": "Provide your official company name, registered address, business registration number, active website, and legal contact email/phone when submitting verification documents to Meta."
+                    }
+                }
+            },
+            "5": {
+                "title": "Plans, Pricing & Payment",
+                "subsections": {
+                    "1": {
+                        "title": "Available Plans",
+                        "content": [
+                            "Free (Demo): Basic features for testing",
+                            "Starter: Rp 399,000/month",
+                            "Professional: Rp 699,000/month",
+                            "Enterprise: Custom pricing"
+                        ]
+                    },
+                    "2": {
+                        "title": "Payment Terms",
+                        "content": [
+                            "Payments are processed in IDR unless otherwise agreed.",
+                            "All prices exclude applicable taxes.",
+                            "Subscriptions auto-renew unless cancelled.",
+                            "No refunds for partial months.",
+                            "Annual subscriptions may be eligible for pro-rated refunds within 30 days per our policy."
+                        ]
+                    }
+                }
+            },
+            "6": {
+                "title": "Acceptable Use Policy",
+                "content": [
+                    "You may not use the Service for:",
+                    "Spam or unsolicited communications",
+                    "Unlawful activities or illegal purposes",
+                    "Intellectual property infringement",
+                    "Malware distribution or creation",
+                    "Bypassing security measures",
+                    "You must comply with applicable communication laws and opt-out requirements in all jurisdictions where you operate."
+                ]
+            },
+            "7": {
+                "title": "Intellectual Property",
+                "subsections": {
+                    "1": {
+                        "title": "SimplyBox Ownership",
+                        "content": "SimplyBox owns all rights to the platform IP, trademarks, proprietary technology, software, and documentation."
+                    },
+                    "2": {
+                        "title": "Your Data Ownership",
+                        "content": "You retain ownership of your uploaded data and content. You grant SimplyBox a non-exclusive license to process and use your data solely to provide the Service."
+                    }
+                }
+            },
+            "8": {
+                "title": "Privacy & Data Protection",
+                "subsections": {
+                    "1": {
+                        "title": "Key Privacy Points",
+                        "content": [
+                            "You own your data and content.",
+                            "We process data to deliver the Service and improve AI using aggregated/anonymized data.",
+                            "Cross-border data transfers are protected with appropriate safeguards.",
+                            "For verification purposes, we may request legal company documents."
+                        ]
+                    },
+                    "2": {
+                        "title": "Full Privacy Details",
+                        "content": "See our Privacy Policy for comprehensive information about data collection, processing, and protection practices."
+                    }
+                },
+                "contact": "Privacy contact: support@simplybox.id"
+            },
+            "9": {
+                "title": "Third-Party Integrations",
+                "content": [
+                    "SimplyBox integrates with third-party services including:",
+                    "Gmail (Google Workspace)",
+                    "Meta/WhatsApp Business API",
+                    "Instagram",
+                    "TikTok",
+                    "Resend",
+                    "Supabase",
+                    "Pinecone",
+                    "All integrations are subject to respective third-party terms of service and privacy policies. We are not responsible for third-party privacy practices, service changes, or API modifications."
+                ]
+            },
+            "10": {
+                "title": "Disclaimers & Limitations of Liability",
+                "subsections": {
+                    "1": {
+                        "title": "Service Warranty Disclaimer",
+                        "content": "The Service is provided \"AS IS\" and \"AS AVAILABLE\" without warranties of any kind, either express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement."
+                    },
+                    "2": {
+                        "title": "AI Output Responsibility",
+                        "content": "AI-generated responses and suggestions are provided as assistance only. You are solely responsible for reviewing, verifying, and approving all AI outputs before using them in communications with your customers."
+                    },
+                    "3": {
+                        "title": "Liability Limitations",
+                        "content": [
+                            "To the maximum extent permitted by law, SimplyBox's total liability is capped at the fees you paid in the 12 months prior to the claim.",
+                            "We are not liable for indirect, incidental, consequential, special, or punitive damages.",
+                            "This includes damages for loss of profits, revenue, data, or business opportunities."
+                        ]
+                    }
+                }
+            },
+            "11": {
+                "title": "Indemnification",
+                "content": "You agree to indemnify, defend, and hold harmless SimplyBox, its affiliates, officers, directors, employees, and agents from any claims, damages, losses, liabilities, and expenses (including legal fees) arising from: your breach of these Terms, infringement of intellectual property rights, unlawful use of the Service, or failure to secure your account credentials."
+            },
+            "12": {
+                "title": "Termination & Effect",
+                "subsections": {
+                    "1": {
+                        "title": "Voluntary Termination",
+                        "content": "You may cancel your subscription at any time through your account settings. Cancellation will take effect at the end of your current billing period."
+                    },
+                    "2": {
+                        "title": "Termination by SimplyBox",
+                        "content": "We may suspend or terminate your account immediately for: material breach of these Terms, non-payment of fees, violation of Acceptable Use Policy, or fraudulent or illegal activities."
+                    },
+                    "3": {
+                        "title": "Data Retention After Termination",
+                        "content": "Upon termination, your data is typically retained for 30 days to allow for data export or account reactivation. After this period, data will be permanently deleted in accordance with our Privacy Policy. You are responsible for exporting your data before termination."
+                    }
+                }
+            },
+            "13": {
+                "title": "Changes to Service & Terms",
+                "subsections": {
+                    "1": {
+                        "title": "Service Modifications",
+                        "content": "We may modify, update, or discontinue features of the Service at any time. We will make reasonable efforts to notify users of material changes in advance."
+                    },
+                    "2": {
+                        "title": "Terms Updates",
+                        "content": [
+                            "We may update these Terms from time to time.",
+                            "Material changes will be communicated at least 30 days in advance when practicable.",
+                            "Notice will be provided via email, in-app notification, or website announcement.",
+                            "Continued use of the Service after changes take effect constitutes acceptance of the updated Terms."
+                        ]
+                    }
+                }
+            },
+            "14": {
+                "title": "Dispute Resolution & Governing Law",
+                "subsections": {
+                    "1": {
+                        "title": "Governing Law",
+                        "content": "These Terms are governed by and construed in accordance with the laws of the Republic of Indonesia, without regard to conflict of law principles."
+                    },
+                    "2": {
+                        "title": "Dispute Escalation Process",
+                        "content": [
+                            "Step 1: Direct Negotiation - Parties will attempt to resolve disputes through good-faith negotiation.",
+                            "Step 2: Mediation - If negotiation fails, disputes will be submitted to mediation in Jakarta, Indonesia.",
+                            "Step 3: Binding Arbitration - Unresolved disputes will be settled through binding arbitration under Indonesian Arbitration Rules.",
+                            "Step 4: Court Jurisdiction - Courts in Indonesia retain jurisdiction where arbitration does not apply or is not available."
+                        ]
+                    }
+                }
+            },
+            "15": {
+                "title": "Miscellaneous",
+                "subsections": {
+                    "1": {
+                        "title": "Survival of Terms",
+                        "content": "Provisions regarding intellectual property, indemnification, liability limitations, and dispute resolution survive termination of these Terms."
+                    },
+                    "2": {
+                        "title": "Force Majeure",
+                        "content": "Neither party is liable for failure to perform obligations due to circumstances beyond reasonable control, including natural disasters, war, terrorism, labor disputes, or government actions."
+                    },
+                    "3": {
+                        "title": "Assignment",
+                        "content": "You may not assign or transfer your rights under these Terms without our prior written consent. SimplyBox may assign its rights and obligations without restriction."
+                    },
+                    "4": {
+                        "title": "Severability",
+                        "content": "If any provision of these Terms is found invalid or unenforceable, the remaining provisions continue in full force and effect."
+                    },
+                    "5": {
+                        "title": "No Waiver",
+                        "content": "Failure to enforce any provision does not constitute a waiver of that provision or any other provision."
+                    },
+                    "6": {
+                        "title": "Entire Agreement",
+                        "content": "These Terms, together with our Privacy Policy, constitute the entire agreement between you and SimplyBox regarding the Service."
+                    },
+                    "7": {
+                        "title": "Language",
+                        "content": "These Terms are available in both English and Indonesian (Bahasa Indonesia). In case of conflict or discrepancy between versions, the English version controls."
+                    }
+                }
+            },
+            "16": {
+                "title": "Contact Information",
+                "subsections": {
+                    "1": {
+                        "title": "Legal & Support Contact",
+                        "content": "Email: admin@simplybox.id, simplybox.business@gmail.com"
+                    },
+                    "2": {
+                        "title": "Business Information",
+                        "content": "Website: https://simplybox.vercel.app, Phone: +62 815-1012-3155, Business Hours: Monday-Friday, 9 AM - 6 PM WIB"
+                    }
+                },
+                "companyInfo": {
+                    "name": "SimplyBox",
+                    "address": "Jebres, Surakarta, 15726, Indonesia",
+                    "phone": "+62 815-1012-3155",
+                    "email": "admin@simplybox.id",
+                    "website": "https://simplybox.vercel.app",
+                    "registrationNote": "Business Registration Number: [To be provided]"
+                }
+            }
+        }
+    }
+}

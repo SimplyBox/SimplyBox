@@ -1,0 +1,315 @@
+{
+    "hero": {
+        "title": "Smart Inbox, Simplify Business.",
+        "subtitle": "Reply faster, track follow-ups, and grow sales without chaos.",
+        "tryFree": "Try Free",
+        "watchDemo": "Watch Demo",
+        "languageLabel": "Language:",
+        "aiPowered": "AI-Powered",
+        "dashboardTitle": "SimplyBox Dashboard",
+        "whatsappBusiness": "WhatsApp Business",
+        "newCustomerInquiry": "New customer inquiry",
+        "demoTitle": "SimplyBox Demo",
+        "demoPlaceholder": "Demo video placeholder",
+        "stats": {
+            "response": {
+                "value": "80%",
+                "label": "Faster Response"
+            },
+            "leads": {
+                "value": "+35%",
+                "label": "More Leads"
+            },
+            "timeSaved": {
+                "value": "+3h",
+                "label": "Time Saved Daily"
+            }
+        }
+    },
+    "problemSolution": {
+        "problemTitle": "Challenges SMEs Face Today",
+        "solutionTitle": "How SimplyBox Solves These Problems",
+        "problems": {
+            "fragmented": {
+                "title": "Fragmented Communication",
+                "description": "SMEs receive 50+ messages daily across multiple channels, causing confusion and missed opportunities."
+            },
+            "slowResponse": {
+                "title": "Slow Response Times",
+                "description": "Limited resources lead to 2-7 hour response times, potentially losing 35% of leads."
+            },
+            "manualOverwhelm": {
+                "title": "Manual Overwhelm",
+                "description": "Business owners spend 2-4 hours daily just replying to messages instead of growing their business."
+            }
+        },
+        "solutions": {
+            "unifiedInbox": {
+                "title": "Unified Smart Inbox",
+                "description": "All your WhatsApp and Email messages in one place with AI-powered organization."
+            },
+            "intelligentReplies": {
+                "title": "Intelligent Auto-Replies",
+                "description": "Respond faster with AI-suggested replies that maintain your personal touch."
+            },
+            "visualWorkflow": {
+                "title": "Visual Workflow Management",
+                "description": "Track conversations from To-Do to Done with our intuitive Kanban system."
+            }
+        }
+    },
+    "howItWorks": {
+        "title": "How SimplyBox Works",
+        "steps": {
+            "connect": {
+                "title": "Connect Your Channels",
+                "description": "Link your WhatsApp Business and Email accounts in minutes."
+            },
+            "organize": {
+                "title": "Organize & Respond",
+                "description": "Use AI-powered suggestions to reply faster and track conversations visually."
+            },
+            "grow": {
+                "title": "Grow Your Business",
+                "description": "Analyze insights, improve response times, and convert more customers."
+            }
+        }
+    },
+    "features": {
+        "title": "Powerful Features for Your Business",
+        "subtitle": "Everything you need to streamline your communication and boost productivity",
+        "tryFree": "Try Free",
+        "tabs": {
+            "unifiedInbox": "Unified Inbox",
+            "aiAssistant": "AI Assistant",
+            "kanbanBoard": "Kanban Board",
+            "businessInsights": "Business Insights"
+        },
+        "items": {
+            "unifiedInbox": {
+                "title": "All Your Messages in One Place",
+                "description": "Connect WhatsApp and Email in a single dashboard. No more switching between apps to manage customer communications.",
+                "benefits": {
+                    "0": "Real-time message synchronization",
+                    "1": "Unified contact management",
+                    "2": "Message filtering and search",
+                    "3": "Quick access to conversation history"
+                }
+            },
+            "aiAssistant": {
+                "title": "Smart Responses Powered by LLama",
+                "description": "Our AI assistant automatically classifies messages and suggests contextual responses based on your previous communications.",
+                "benefits": {
+                    "0": "Automatic intent recognition",
+                    "1": "Personalized response suggestions",
+                    "2": "Contextual replies that maintain your brand voice",
+                    "3": "Time-saving quick replies for common questions"
+                }
+            },
+            "kanbanBoard": {
+                "title": "Visual Workflow Management",
+                "description": "Track follow-ups and manage customer inquiries with our intuitive Kanban board system.",
+                "benefits": {
+                    "0": "Drag-and-drop message status tracking",
+                    "1": "Visual clarity for message priorities",
+                    "2": "Prevent missed follow-ups",
+                    "3": "Team collaboration capabilities"
+                }
+            },
+            "businessInsights": {
+                "title": "Data-Driven Decision Making",
+                "description": "Gain valuable insights into your communication patterns and customer interactions.",
+                "benefits": {
+                    "0": "Message volume analytics",
+                    "1": "Response time tracking",
+                    "2": "Peak hours visualization",
+                    "3": "Customer sentiment analysis"
+                }
+            }
+        },
+        "comingSoon": {
+            "badge": "Coming Soon",
+            "title": "Powerful E-Commerce Integration",
+            "description": "Connect your online store and manage all customer inquiries in one place.",
+            "platforms": {
+                "shopee": "Shopee",
+                "tokopedia": "Tokopedia",
+                "blibli": "Blibli",
+                "lazada": "Lazada"
+            },
+            "waitlist": {
+                "title": "Join the Waitlist",
+                "description": "Be the first to know when our e-commerce integrations are ready.",
+                "placeholder": "Enter your email",
+                "button": "Join Waitlist",
+                "success": "Thank you! We'll notify you when e-commerce integrations are available."
+            }
+        }
+    },
+    "pricing": {
+        "title": "Simple, Transparent Pricing",
+        "subtitle": "Choose the plan that fits your business needs. No hidden fees, no surprises.",
+        "mostPopular": "Most Popular",
+        "plans": {
+            "free": {
+                "name": "Free",
+                "description": "One-time demo to explore SimplyBox",
+                "price": "Rp 0",
+                "period": "one-time demo",
+                "features": {
+                    "companyRegistration": "1 company registration (permanent)",
+                    "channels": "2 channels max (WhatsApp, Email)",
+                    "messages": "100 messages/month",
+                    "fileUploads": "2 file uploads",
+                    "aiAgent": "Single AI Agent with basic RAG",
+                    "aiAgentTooltip": "AI assistant that can understand context and suggest responses",
+                    "kanbanBoard": "Basic Kanban Board",
+                    "analytics": "Simple data analytics",
+                    "ecommerce": "E-Commerce Integration"
+                }
+            },
+            "starter": {
+                "name": "Starter",
+                "description": "Perfect for small businesses and solopreneurs",
+                "price": "Rp 399.000",
+                "period": "/month",
+                "features": {
+                    "everythingFree": "Everything in Free",
+                    "channels": "5 channels (WhatsApp, Email, E-Commerce Integration)",
+                    "messages": "600 messages/month",
+                    "fileUploads": "10 file uploads",
+                    "teamMembers": "3 Team Members",
+                    "enhancedAI": "Enhanced AI responses with better context",
+                    "enhancedAITooltip": "More accurate responses based on conversation history and business context",
+                    "advancedKanban": "Advanced Kanban with due dates",
+                    "weeklyAnalytics": "Weekly analytics & insights",
+                    "emailSupport": "Email support"
+                }
+            },
+            "professional": {
+                "name": "Professional",
+                "description": "For growing teams with higher volume needs",
+                "price": "Rp 699.000",
+                "period": "/month",
+                "features": {
+                    "everythingStarter": "Everything in Starter",
+                    "channels": "12 channels (WhatsApp, Email, E-Commerce Integration)",
+                    "messages": "2500 messages/month",
+                    "fileUploads": "Up to 50 file uploads",
+                    "teamMembers": "8 Team Members",
+                    "advancedAI": "Advanced AI with custom prompts",
+                    "advancedAITooltip": "Create your own AI response templates and customize how the AI responds",
+                    "advancedAnalytics": "Advanced analytics & reporting",
+                    "prioritySupport": "Priority support"
+                }
+            },
+            "enterprise": {
+                "name": "Enterprise",
+                "description": "Custom solutions for larger organizations",
+                "price": "Custom",
+                "period": "",
+                "features": {
+                    "customizable": "Everything is customizable",
+                    "marketingAutomation": "Marketing Automation",
+                    "crmIntegration": "CRM Integration",
+                    "orderTracking": "Order Tracking",
+                    "freeSetup": "FREE setup and integration",
+                    "accountManager": "Dedicated account manager",
+                    "whiteLabel": "White-label options"
+                }
+            }
+        }
+    },
+    "faq": {
+        "title": "Frequently Asked Questions",
+        "questions": {
+            "planUpgrade": {
+                "question": "Can I upgrade or downgrade my plan anytime?",
+                "answer": "Yes, you can upgrade your plan at any time. Downgrades will take effect at the end of your current billing cycle."
+            },
+            "messageLimit": {
+                "question": "What happens when I reach my message limit?",
+                "answer": "You'll receive a notification when you reach 80% of your limit. Once you hit 100%, you can upgrade your plan to continue receiving messages or wait until the next billing cycle."
+            },
+            "contract": {
+                "question": "Is there a long-term contract?",
+                "answer": "No, all paid plans are billed monthly with no long-term commitment. You can cancel anytime."
+            },
+            "aiAssistant": {
+                "question": "How does the AI assistant work?",
+                "answer": "Our AI assistant uses LLama technology to analyze incoming messages, classify their intent (lead, complaint, order, info), and suggest contextual responses based on your previous communications and business context."
+            },
+            "dataSecurity": {
+                "question": "Is my data secure and private?",
+                "answer": "Yes, we take data security seriously. All messages are encrypted end-to-end, we comply with Indonesian data protection laws (UU PDP), and your business data is isolated using namespace technology."
+            },
+            "support": {
+                "question": "What kind of support do you provide?",
+                "answer": "We offer email support for Starter plans, priority support for Professional plans, and dedicated account managers for Enterprise customers. All plans include comprehensive documentation and video tutorials."
+            },
+            "aiAccuracy": {
+                "question": "How accurate is the AI message classification?",
+                "answer": "Our AI achieves 80-85% accuracy in message classification and routing. The system continuously learns from your corrections and feedback to improve accuracy over time for your specific business context."
+            },
+            "aiCustomization": {
+                "question": "Can I customize the AI responses?",
+                "answer": "Yes, Professional and Enterprise plans allow you to create custom prompts and response templates. You can train the AI to match your brand voice and specific business requirements."
+            },
+            "ecommerce": {
+                "question": "What e-commerce platforms do you support?",
+                "answer": "We support major Indonesian marketplaces including Shopee, Tokopedia, Blibli, and Lazada. We're continuously adding more platforms based on customer demand, but for this feature is still in progress."
+            }
+        }
+    },
+    "footer": {
+        "cta": {
+            "title": "Ready to simplify your business communications?",
+            "subtitle": "Managing customer messages across WhatsApp, email, and marketplaces is overwhelming most business owners",
+            "primary": "Try Free",
+            "secondary": "Contact Sales"
+        },
+        "company": {
+            "description": "AI-powered smart inbox that unifies business communications for Indonesian SMEs. Simplify your customer interactions and grow your business.",
+            "tagline": "Unify all your customer conversations in one smart inbox that actually understands your business"
+        },
+        "contact": {
+            "title": "Contact Information",
+            "email": "hello@simplybox.id",
+            "phone": "+62 21 1234 5678",
+            "address": "Jakarta, Indonesia"
+        },
+        "sections": {
+            "company": "Company",
+            "product": "Product",
+            "support": "Support",
+            "legal": "Legal"
+        },
+        "links": {
+            "aboutUs": "About Us",
+            "careers": "Careers",
+            "blog": "Blog",
+            "newsroom": "Newsroom",
+            "features": "Features",
+            "pricing": "Pricing",
+            "integrations": "Integrations",
+            "apiDocs": "API Documentation",
+            "helpCenter": "Help Center",
+            "contactSupport": "Contact Support",
+            "communityForum": "Community Forum",
+            "statusPage": "Status Page",
+            "privacyPolicy": "Privacy Policy",
+            "termsOfService": "Terms of Service",
+            "cookiePolicy": "Cookie Policy"
+        },
+        "social": {
+            "linkedin": "LinkedIn",
+            "twitter": "Twitter",
+            "facebook": "Facebook",
+            "instagram": "Instagram"
+        },
+        "language": {
+            "label": "Language"
+        },
+        "copyright": "© 2024 SimplyBox. All rights reserved."
+    }
+}

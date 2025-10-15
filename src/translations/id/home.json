@@ -1,0 +1,315 @@
+{
+    "hero": {
+        "title": "Inbox Pintar untuk Mempermudah Bisnis Anda.",
+        "subtitle": "Balasan lebih cepat dan follow-up yang rapi membuat penjualan semakin lancar.",
+        "tryFree": "Coba Gratis",
+        "watchDemo": "Lihat Demo",
+        "languageLabel": "Bahasa:",
+        "aiPowered": "Didukung AI",
+        "dashboardTitle": "Dashboard SimplyBox",
+        "whatsappBusiness": "WhatsApp Bisnis",
+        "newCustomerInquiry": "Pertanyaan pelanggan baru",
+        "demoTitle": "Demo SimplyBox",
+        "demoPlaceholder": "Placeholder video demo",
+        "stats": {
+            "response": {
+                "value": "80%",
+                "label": "Respon Lebih Cepat"
+            },
+            "leads": {
+                "value": "+35%",
+                "label": "Lebih Banyak Leads"
+            },
+            "timeSaved": {
+                "value": "+3h",
+                "label": "Waktu Tersimpan"
+            }
+        }
+    },
+    "problemSolution": {
+        "problemTitle": "Tantangan UMKM Saat Ini",
+        "solutionTitle": "Bagaimana SimplyBox Menyelesaikan Masalah Ini",
+        "problems": {
+            "fragmented": {
+                "title": "Komunikasi Terfragmentasi",
+                "description": "UMKM menerima 50+ pesan setiap hari dari berbagai channel, menyebabkan kebingungan dan peluang terlewatkan."
+            },
+            "slowResponse": {
+                "title": "Waktu Respons Lambat",
+                "description": "Keterbatasan sumber daya menyebabkan waktu respons 2-7 jam, berpotensi kehilangan 35% leads."
+            },
+            "manualOverwhelm": {
+                "title": "Kewalahan dengan Pekerjaan Manual",
+                "description": "Pemilik bisnis menghabiskan 2-4 jam setiap hari hanya untuk membalas pesan, bukan mengembangkan bisnis."
+            }
+        },
+        "solutions": {
+            "unifiedInbox": {
+                "title": "Inbox Pintar Terpadu",
+                "description": "Semua pesan WhatsApp dan Email Anda dalam satu tempat dengan organisasi berbasis AI."
+            },
+            "intelligentReplies": {
+                "title": "Balasan Otomatis Cerdas",
+                "description": "Respons lebih cepat dengan balasan yang disarankan AI yang tetap mempertahankan sentuhan personal Anda."
+            },
+            "visualWorkflow": {
+                "title": "Manajemen Alur Kerja Visual",
+                "description": "Lacak percakapan dari To-Do hingga Selesai dengan sistem Kanban intuitif kami."
+            }
+        }
+    },
+    "howItWorks": {
+        "title": "Cara Kerja SimplyBox",
+        "steps": {
+            "connect": {
+                "title": "Hubungkan Channel Anda",
+                "description": "Hubungkan akun WhatsApp Business dan Email Anda dalam hitungan menit."
+            },
+            "organize": {
+                "title": "Organisasi & Respons",
+                "description": "Gunakan saran bertenaga AI untuk membalas lebih cepat dan melacak percakapan secara visual."
+            },
+            "grow": {
+                "title": "Kembangkan Bisnis Anda",
+                "description": "Analisis wawasan, tingkatkan waktu respons, dan konversi lebih banyak pelanggan."
+            }
+        }
+    },
+    "features": {
+        "title": "Fitur Unggulan untuk Bisnis Anda",
+        "subtitle": "Semua yang Anda butuhkan untuk mengoptimalkan komunikasi dan meningkatkan produktivitas",
+        "tryFree": "Coba Gratis",
+        "tabs": {
+            "unifiedInbox": "Inbox Terpadu",
+            "aiAssistant": "Asisten AI",
+            "kanbanBoard": "Papan Kanban",
+            "businessInsights": "Wawasan Bisnis"
+        },
+        "items": {
+            "unifiedInbox": {
+                "title": "Semua Pesan Anda dalam Satu Tempat",
+                "description": "Hubungkan WhatsApp dan Email dalam satu dasbor. Tidak perlu lagi beralih antar aplikasi untuk mengelola komunikasi pelanggan.",
+                "benefits": {
+                    "0": "Sinkronisasi pesan real-time",
+                    "1": "Manajemen kontak terpadu",
+                    "2": "Penyaringan dan pencarian pesan",
+                    "3": "Akses cepat ke riwayat percakapan"
+                }
+            },
+            "aiAssistant": {
+                "title": "Respons Cerdas dengan Teknologi LLama",
+                "description": "Asisten AI kami secara otomatis mengklasifikasikan pesan dan menyarankan respons kontekstual berdasarkan komunikasi Anda sebelumnya.",
+                "benefits": {
+                    "0": "Pengenalan maksud otomatis",
+                    "1": "Saran respons yang dipersonalisasi",
+                    "2": "Balasan kontekstual yang mempertahankan suara merek Anda",
+                    "3": "Balasan cepat yang menghemat waktu untuk pertanyaan umum"
+                }
+            },
+            "kanbanBoard": {
+                "title": "Manajemen Alur Kerja Visual",
+                "description": "Lacak tindak lanjut dan kelola pertanyaan pelanggan dengan sistem papan Kanban yang intuitif.",
+                "benefits": {
+                    "0": "Pelacakan status pesan dengan drag-and-drop",
+                    "1": "Kejelasan visual untuk prioritas pesan",
+                    "2": "Mencegah tindak lanjut yang terlewat",
+                    "3": "Kemampuan kolaborasi tim"
+                }
+            },
+            "businessInsights": {
+                "title": "Pengambilan Keputusan Berbasis Data",
+                "description": "Dapatkan wawasan berharga tentang pola komunikasi dan interaksi pelanggan Anda.",
+                "benefits": {
+                    "0": "Analitik volume pesan",
+                    "1": "Pelacakan waktu respons",
+                    "2": "Visualisasi jam sibuk",
+                    "3": "Analisis sentimen pelanggan"
+                }
+            }
+        },
+        "comingSoon": {
+            "badge": "Segera Hadir",
+            "title": "Integrasi E-Commerce yang Powerful",
+            "description": "Hubungkan toko online Anda dan kelola semua pertanyaan pelanggan dalam satu tempat.",
+            "platforms": {
+                "shopee": "Shopee",
+                "tokopedia": "Tokopedia",
+                "blibli": "Blibli",
+                "lazada": "Lazada"
+            },
+            "waitlist": {
+                "title": "Bergabung dengan Daftar Tunggu",
+                "description": "Jadilah yang pertama tahu ketika integrasi e-commerce kami siap.",
+                "placeholder": "Masukkan email Anda",
+                "button": "Gabung Daftar Tunggu",
+                "success": "Terima kasih! Kami akan memberi tahu Anda ketika integrasi e-commerce tersedia."
+            }
+        }
+    },
+    "pricing": {
+        "title": "Harga Transparan dan Sederhana",
+        "subtitle": "Pilih paket yang sesuai dengan kebutuhan bisnis Anda. Tanpa biaya tersembunyi, tanpa kejutan.",
+        "mostPopular": "Paling Populer",
+        "plans": {
+            "free": {
+                "name": "Gratis",
+                "description": "Demo satu kali untuk menjelajahi SimplyBox",
+                "price": "Rp 0",
+                "period": "demo satu kali",
+                "features": {
+                    "companyRegistration": "1 pendaftaran perusahaan (permanen)",
+                    "channels": "Maksimal 2 saluran (WhatsApp, Email)",
+                    "messages": "100 pesan/bulan",
+                    "fileUploads": "2 unggahan file",
+                    "aiAgent": "Agen AI tunggal dengan RAG dasar",
+                    "aiAgentTooltip": "Asisten AI yang dapat memahami konteks dan menyarankan respons",
+                    "kanbanBoard": "Papan Kanban Dasar",
+                    "analytics": "Analitik data sederhana",
+                    "ecommerce": "Integrasi E-Commerce"
+                }
+            },
+            "starter": {
+                "name": "Pemula",
+                "description": "Sempurna untuk bisnis kecil dan solopreneur",
+                "price": "Rp 399.000",
+                "period": "/bulan",
+                "features": {
+                    "everythingFree": "Semua fitur di paket Gratis",
+                    "channels": "5 saluran (WhatsApp, Email, Integrasi E-Commerce)",
+                    "messages": "600 pesan/bulan",
+                    "fileUploads": "10 unggahan file",
+                    "teamMembers": "3 Anggota Tim",
+                    "enhancedAI": "Respons AI yang ditingkatkan dengan konteks yang lebih baik",
+                    "enhancedAITooltip": "Respons yang lebih akurat berdasarkan riwayat percakapan dan konteks bisnis",
+                    "advancedKanban": "Kanban lanjutan dengan tenggat waktu",
+                    "weeklyAnalytics": "Analitik & wawasan mingguan",
+                    "emailSupport": "Dukungan email"
+                }
+            },
+            "professional": {
+                "name": "Profesional",
+                "description": "Untuk tim yang berkembang dengan kebutuhan volume lebih tinggi",
+                "price": "Rp 699.000",
+                "period": "/bulan",
+                "features": {
+                    "everythingStarter": "Semua fitur di paket Starter",
+                    "channels": "12 saluran (WhatsApp, Email, Integrasi E-Commerce)",
+                    "messages": "2500 pesan/bulan",
+                    "fileUploads": "Hingga 50 unggahan file",
+                    "teamMembers": "8 Anggota Tim",
+                    "advancedAI": "AI lanjutan dengan prompt kustom",
+                    "advancedAITooltip": "Buat template respons AI Anda sendiri dan sesuaikan bagaimana AI merespons",
+                    "advancedAnalytics": "Analitik & pelaporan lanjutan",
+                    "prioritySupport": "Dukungan prioritas"
+                }
+            },
+            "enterprise": {
+                "name": "Enterprise",
+                "description": "Solusi kustom untuk organisasi yang lebih besar",
+                "price": "Kustom",
+                "period": "",
+                "features": {
+                    "customizable": "Semua dapat disesuaikan",
+                    "marketingAutomation": "Otomatisasi Pemasaran",
+                    "crmIntegration": "Integrasi CRM",
+                    "orderTracking": "Pelacakan Pesanan",
+                    "freeSetup": "Pengaturan dan integrasi GRATIS",
+                    "accountManager": "Manajer akun khusus",
+                    "whiteLabel": "Opsi white-label"
+                }
+            }
+        }
+    },
+    "faq": {
+        "title": "Pertanyaan yang Sering Diajukan",
+        "questions": {
+            "planUpgrade": {
+                "question": "Bisakah saya meningkatkan atau menurunkan paket saya kapan saja?",
+                "answer": "Ya, Anda dapat meningkatkan paket Anda kapan saja. Penurunan paket akan berlaku pada akhir siklus penagihan Anda saat ini."
+            },
+            "messageLimit": {
+                "question": "Apa yang terjadi ketika saya mencapai batas pesan saya?",
+                "answer": "Anda akan menerima notifikasi ketika mencapai 80% dari batas Anda. Setelah mencapai 100%, Anda dapat meningkatkan paket untuk terus menerima pesan atau menunggu hingga siklus penagihan berikutnya."
+            },
+            "contract": {
+                "question": "Apakah ada kontrak jangka panjang?",
+                "answer": "Tidak, semua paket berbayar ditagih bulanan tanpa komitmen jangka panjang. Anda dapat membatalkan kapan saja."
+            },
+            "aiAssistant": {
+                "question": "Bagaimana cara kerja asisten AI?",
+                "answer": "Asisten AI kami menggunakan teknologi LLama untuk menganalisis pesan masuk, mengklasifikasikan maksudnya (lead, keluhan, pesanan, info), dan menyarankan respons kontekstual berdasarkan komunikasi sebelumnya dan konteks bisnis Anda."
+            },
+            "dataSecurity": {
+                "question": "Apakah data saya aman dan pribadi?",
+                "answer": "Ya, kami sangat serius dengan keamanan data. Semua pesan dienkripsi end-to-end, kami mematuhi undang-undang perlindungan data Indonesia (UU PDP), dan data bisnis Anda diisolasi menggunakan teknologi namespace."
+            },
+            "support": {
+                "question": "Jenis dukungan apa yang Anda berikan?",
+                "answer": "Kami menawarkan dukungan email untuk paket Starter, dukungan prioritas untuk paket Professional, dan manajer akun khusus untuk pelanggan Enterprise. Semua paket termasuk dokumentasi lengkap dan tutorial video."
+            },
+            "aiAccuracy": {
+                "question": "Seberapa akurat klasifikasi pesan AI?",
+                "answer": "AI kami mencapai akurasi 80-85% dalam klasifikasi dan routing pesan. Sistem terus belajar dari koreksi dan umpan balik Anda untuk meningkatkan akurasi dari waktu ke waktu untuk konteks bisnis spesifik Anda."
+            },
+            "aiCustomization": {
+                "question": "Bisakah saya menyesuaikan respons AI?",
+                "answer": "Ya, paket Professional dan Enterprise memungkinkan Anda membuat prompt kustom dan template respons. Anda dapat melatih AI untuk mencocokkan suara merek dan persyaratan bisnis spesifik Anda."
+            },
+            "ecommerce": {
+                "question": "Platform e-commerce apa yang Anda dukung?",
+                "answer": "Kami mendukung marketplace Indonesia utama termasuk Shopee, Tokopedia, Blibli, dan Lazada. Kami terus menambahkan lebih banyak platform berdasarkan permintaan pelanggan, tetapi untuk fitur ini masih dalam tahap pengembangan."
+            }
+        }
+    },
+    "footer": {
+        "cta": {
+            "title": "Siap untuk menyederhanakan komunikasi bisnis Anda?",
+            "subtitle": "Mengelola pesan pelanggan melalui WhatsApp, email, dan marketplace sangat menguras tenaga para pemilik bisnis",
+            "primary": "Coba Gratis",
+            "secondary": "Hubungi Sales"
+        },
+        "company": {
+            "description": "Inbox pintar bertenaga AI yang menyatukan komunikasi bisnis untuk UMKM Indonesia. Sederhanakan interaksi pelanggan dan kembangkan bisnis Anda.",
+            "tagline": "Satukan semua percakapan pelanggan Anda dalam satu inbox pintar yang benar-benar memahami bisnis Anda"
+        },
+        "contact": {
+            "title": "Informasi Kontak",
+            "email": "hello@simplybox.id",
+            "phone": "+62 21 1234 5678",
+            "address": "Jakarta, Indonesia"
+        },
+        "sections": {
+            "company": "Perusahaan",
+            "product": "Produk",
+            "support": "Dukungan",
+            "legal": "Legal"
+        },
+        "links": {
+            "aboutUs": "Tentang Kami",
+            "careers": "Karir",
+            "blog": "Blog",
+            "newsroom": "Ruang Berita",
+            "features": "Fitur",
+            "pricing": "Harga",
+            "integrations": "Integrasi",
+            "apiDocs": "Dokumentasi API",
+            "helpCenter": "Pusat Bantuan",
+            "contactSupport": "Hubungi Dukungan",
+            "communityForum": "Forum Komunitas",
+            "statusPage": "Halaman Status",
+            "privacyPolicy": "Kebijakan Privasi",
+            "termsOfService": "Syarat Layanan",
+            "cookiePolicy": "Kebijakan Cookie"
+        },
+        "social": {
+            "linkedin": "LinkedIn",
+            "twitter": "Twitter",
+            "facebook": "Facebook",
+            "instagram": "Instagram"
+        },
+        "language": {
+            "label": "Bahasa"
+        },
+        "copyright": "© 2024 SimplyBox. Seluruh hak cipta."
+    }
+}

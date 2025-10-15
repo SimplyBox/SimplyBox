@@ -1,0 +1,270 @@
+{
+    "layout": {
+        "usage": {
+            "messages": "{{used}}/{{total}} messages",
+            "files": "{{used}}/{{total}} files"
+        },
+        "plan": {
+            "free": "Free",
+            "starter": "Starter",
+            "professional": "Professional",
+            "enterprise": "Enterprise"
+        },
+        "upgradeButton": "Upgrade",
+        "tabs": {
+            "inbox": "Inbox",
+            "kanban": "Kanban",
+            "insights": "Insights",
+            "contacts": "Contacts",
+            "team": "Team",
+            "files": "Files",
+            "settings": "Settings"
+        }
+    },
+    "InboxPage": {
+        "title": "Inbox",
+        "filterAll": "All",
+        "filterPinned": "Pinned",
+        "filterChannel": "Filter by Channel",
+        "filterChannelAll": "All Channels",
+        "filterChannelWhatsapp": "WhatsApp",
+        "filterChannelInstagram": "Instagram",
+        "filterChannelEmail": "Email",
+        "searchPlaceholder": "Search conversations...",
+        "loadingConversations": "Loading conversations...",
+        "noConversations": "No conversations found",
+        "noMessages": "No messages yet",
+        "pin": "Pin",
+        "unpin": "Unpin",
+        "delete": "Delete",
+        "autoRespond": "Auto Respond",
+        "autoRespondOn": "ON",
+        "autoRespondOff": "OFF",
+        "messagePlaceholder": "Type your message...",
+        "selectConversationTitle": "Select a conversation",
+        "selectConversationDescription": "Choose a conversation from the list to start messaging",
+        "status": {
+            "sent": "Sent",
+            "delivered": "Delivered",
+            "read": "Read",
+            "received": "received"
+        }
+    },
+    "upgrade": {
+        "backToDashboard": "Back to Dashboard",
+        "title": "Choose Your Perfect Plan",
+        "subtitle": "Unlock the full potential of SimplyBox with advanced features designed for your business growth",
+        "mostPopular": "Most Popular",
+        "benefits": {
+            "moneyBack": "30-day money-back guarantee",
+            "instantActivation": "Instant activation",
+            "support": "24/7 support"
+        },
+        "plans": {
+            "free": {
+                "name": "Free",
+                "description": "One-time demo to explore SimplyBox",
+                "price": "Rp 0",
+                "period": "one-time demo",
+                "features": {
+                    "companyRegistration": "1 company registration (permanent)",
+                    "channels": "2 channels max (WhatsApp, Email)",
+                    "messages": "100 messages/month",
+                    "fileUploads": "2 file uploads",
+                    "aiAgent": "Single AI Agent with basic RAG",
+                    "aiAgentTooltip": "AI assistant that can understand context and suggest responses",
+                    "kanbanBoard": "Basic Kanban Board",
+                    "analytics": "Simple data analytics",
+                    "ecommerce": "E-Commerce Integration"
+                },
+                "buttonText": {
+                    "current": "Current Demo Plan",
+                    "unavailable": "Demo Not Available"
+                }
+            },
+            "starter": {
+                "name": "Starter",
+                "description": "Perfect for small businesses and solopreneurs",
+                "price": "Rp 399.000",
+                "period": "/month",
+                "features": {
+                    "everythingFree": "Everything in Free",
+                    "channels": "5 channels (WhatsApp, Email, E-Commerce Integration)",
+                    "messages": "600 messages/month",
+                    "fileUploads": "10 file uploads",
+                    "teamMembers": "3 Team Members",
+                    "enhancedAI": "Enhanced AI responses with better context",
+                    "enhancedAITooltip": "More accurate responses based on conversation history and business context",
+                    "advancedKanban": "Advanced Kanban with due dates",
+                    "weeklyAnalytics": "Weekly analytics & insights",
+                    "emailSupport": "Email support"
+                },
+                "buttonText": {
+                    "current": "Current Plan",
+                    "upgrade": "Upgrade to Starter",
+                    "downgrade": "Downgrade to Starter"
+                }
+            },
+            "professional": {
+                "name": "Professional",
+                "description": "For growing teams with higher volume needs",
+                "price": "Rp 699.000",
+                "period": "/month",
+                "features": {
+                    "everythingStarter": "Everything in Starter",
+                    "channels": "12 channels (WhatsApp, Email, E-Commerce Integration)",
+                    "messages": "2500 messages/month",
+                    "fileUploads": "Up to 50 file uploads",
+                    "teamMembers": "8 Team Members",
+                    "advancedAI": "Advanced AI with custom prompts",
+                    "advancedAITooltip": "Create your own AI response templates and customize how the AI responds",
+                    "advancedAnalytics": "Advanced analytics & reporting",
+                    "prioritySupport": "Priority support"
+                },
+                "buttonText": {
+                    "current": "Current Plan",
+                    "upgrade": "Upgrade to Professional",
+                    "downgrade": "Downgrade to Professional"
+                }
+            },
+            "enterprise": {
+                "name": "Enterprise",
+                "description": "Custom solutions for larger organizations",
+                "price": "Custom",
+                "period": "",
+                "features": {
+                    "customizable": "Everything is customizable",
+                    "marketingAutomation": "Marketing Automation",
+                    "crmIntegration": "CRM Integration",
+                    "orderTracking": "Order Tracking",
+                    "freeSetup": "FREE setup and integration",
+                    "accountManager": "Dedicated account manager",
+                    "whiteLabel": "White-label options"
+                },
+                "buttonText": {
+                    "current": "Current Plan",
+                    "upgrade": "Contact Sales"
+                }
+            }
+        },
+        "faq": {
+            "title": "Frequently Asked Questions",
+            "items": {
+                "1": {
+                    "question": "Can I change my plan anytime?",
+                    "answer": "Yes, you can upgrade or downgrade your plan anytime. The change will take effect immediately."
+                },
+                "2": {
+                    "question": "What happens to my data if I downgrade?",
+                    "answer": "Your data will always be safe. You will only have access to fewer features based on your new plan."
+                },
+                "3": {
+                    "question": "Do you offer refunds?",
+                    "answer": "Yes, we offer a 30-day money-back guarantee for all paid plans."
+                },
+                "4": {
+                    "question": "Are there any setup fees?",
+                    "answer": "No setup fees. You only pay the monthly subscription fee for the selected plan."
+                }
+            },
+            "help": {
+                "title": "Need help choosing the right plan?",
+                "description": "Our team is ready to help you find the perfect solution for your business.",
+                "cta": "Contact Our Team"
+            }
+        }
+    },
+    "InviteTeamMemberModal": {
+        "title": "Invite Team Member",
+        "description": "Enter the email address of the person you want to invite to your team.",
+        "emailLabel": "Email",
+        "emailPlaceholder": "team.member@example.com",
+        "cancelButton": "Cancel",
+        "sendButton": "Send Invitation",
+        "sendingButton": "Sending...",
+        "invalidEmailError": "Please enter a valid email address",
+        "ownerOnlyError": "Only owners can invite team members",
+        "failedInvitationError": "Failed to send invitation"
+    },
+    "TeamManagementPage": {
+        "title": "Manage Your Team",
+        "description": "View team members and their access to your SimplyBox workspace.",
+        "teamUsage": "Team Usage",
+        "seatsUsed": "{{used}} of {{total}} seats used",
+        "refreshButton": "Refresh",
+        "inviteMemberButton": "Invite Member",
+        "teamSeatsUsage": "Team Seats Usage",
+        "planName": "{{plan}} Plan - {{used}} of {{total}} seats used",
+        "usedPercentage": "{{percentage}}% Used",
+        "approachingLimitTitle": "Approaching Limit",
+        "approachingLimitDescription": "You're using {{used}} of {{total}} team seats. Consider upgrading for more capacity.",
+        "upgradeButton": "Upgrade",
+        "loadingTeamMembers": "Loading team members...",
+        "ownerTitle": "Owner",
+        "ownerDescription": "The owner has full control over the workspace.",
+        "teamMembersTitle": "Team Members ({{count}})",
+        "noTeamMembersTitle": "No team members yet",
+        "noTeamMembersDescription": "Start building your team by inviting members to collaborate.",
+        "inviteFirstMemberButton": "Invite Your First Member",
+        "confirmRemovalTitle": "Confirm Team Member Removal",
+        "confirmRemovalDescription": "Are you sure you want to remove this team member? This action cannot be undone.",
+        "removeButton": "Remove",
+        "roles": {
+            "owner": "Owner",
+            "admin": "Admin",
+            "you": "You"
+        }
+    },
+    "FilesPage": {
+        "title": "Knowledge Base",
+        "description": "Upload and manage your company files for AI-based responses.",
+        "fileUsage": "File Usage",
+        "filesUsed": "{{used}} of {{total}} files uploaded",
+        "addFileButton": "Add File",
+        "addFirstFileButton": "Add Your First File",
+        "planName": "{{plan}} Plan - {{used}} of {{total}} files used",
+        "usedPercentage": "{{percentage}}% Used",
+        "approachingLimitTitle": "Approaching File Limit",
+        "approachingLimitDescription": "You're using {{used}} of {{total}} files. Consider upgrading for more capacity.",
+        "upgradeButton": "Upgrade",
+        "loadingFiles": "Loading your files...",
+        "noFilesTitle": "No files uploaded yet",
+        "noFilesDescription": "Upload your first file to start building your knowledge base.",
+        "confirmDeleteTitle": "Confirm File Deletion",
+        "confirmDeleteDescription": "Are you sure you want to delete this file? This action cannot be undone.",
+        "viewButton": "View",
+        "downloadButton": "Download",
+        "deleteButton": "Delete",
+        "uploadModal": {
+            "title": "Add New Knowledge File",
+            "description": "Upload a file to your knowledge base for AI-based customer responses.",
+            "dragDropText": "Drag and drop your file here",
+            "orText": "or",
+            "selectFileButton": "Select File",
+            "acceptedFilesText": "Accepted: PDF, DOCX, TXT, up to 10MB",
+            "fileNameLabel": "File Name *",
+            "fileNamePlaceholder": "Enter file name",
+            "categoryLabel": "Category *",
+            "categoryPlaceholder": "Select category",
+            "tagsLabel": "Tags (Optional)",
+            "tagsPlaceholder": "Enter tags separated by commas",
+            "tagsExample": "Example: refund, policy, september-2025",
+            "descriptionLabel": "Description (Optional)",
+            "descriptionPlaceholder": "Example: Refund policy update for September 2025",
+            "cancelButton": "Cancel",
+            "uploadButton": "Upload & Add to Knowledge Base",
+            "uploadingButton": "Processing...",
+            "successTitle": "File uploaded successfully!",
+            "successDescription": "Your file has been processed and added to the knowledge base.",
+            "addAnotherButton": "Add Another File",
+            "backToKnowledgeBaseButton": "Back to Knowledge Base",
+            "processingFile": "Processing file...",
+            "unsupportedFileTypeError": "Unsupported file type. Please upload a PDF, DOCX, or TXT file.",
+            "fileTooLargeError": "File is too large. Maximum size is 10MB. Your file is {{size}}MB.",
+            "duplicateFileError": "A file named \"{{name}}\" already exists in your knowledge base.",
+            "uploadFailedError": "Upload failed",
+            "downloadFailedError": "Failed to download file",
+            "deleteFailedError": "Failed to delete file"
+        }
+    }
+}

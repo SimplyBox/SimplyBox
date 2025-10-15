@@ -1,0 +1,278 @@
+{
+    "termsOfService": {
+        "backToHome": "Kembali ke Beranda",
+        "downloadPdf": "Unduh PDF",
+        "hero": {
+            "tagline": "Syarat yang Dapat Dipercaya",
+            "title": "Syarat Layanan - SimplyBox",
+            "subtitle": "Mohon baca syarat ini dengan seksama sebelum menggunakan layanan SimplyBox.",
+            "lastUpdated": "Terakhir Diperbarui: 14 Oktober 2025",
+            "effectiveDate": "Tanggal Berlaku: 14 Oktober 2025"
+        },
+        "sidebar": {
+            "title": "Konten"
+        },
+        "sections": {
+            "1": {
+                "title": "Ruang Lingkup dan Persetujuan",
+                "content": "Dengan mengakses atau menggunakan SimplyBox (\"Layanan\"), Anda menyatakan setuju untuk terikat oleh Syarat Layanan (\"Syarat\") ini. Jika Anda tidak menyetujui syarat ini, mohon jangan gunakan Layanan."
+            },
+            "2": {
+                "title": "Definisi & Kelayakan",
+                "subsections": {
+                    "1": {
+                        "title": "Definisi Pengguna",
+                        "content": "Pengguna / Anda: orang atau badan usaha yang menggunakan Layanan."
+                    },
+                    "2": {
+                        "title": "Persyaratan Usia dan Kapasitas",
+                        "content": [
+                            "Pengguna harus berusia minimal 18 tahun dan mempunyai kapasitas hukum untuk membuat perjanjian.",
+                            "Jika bertindak atas nama entitas, Anda menjamin memiliki wewenang untuk mengikat entitas tersebut.",
+                            "Layanan ditujukan untuk penggunaan bisnis; penggunaan personal dapat tunduk pada ketentuan terpisah."
+                        ]
+                    }
+                }
+            },
+            "3": {
+                "title": "Deskripsi Layanan",
+                "content": "SimplyBox adalah platform SaaS berbasis cloud untuk manajemen komunikasi yang menyediakan inbox terpadu, respons bertenaga AI (termasuk teknik berbasis Llama dan RAG), kolaborasi tim, manajemen knowledge base, pemrosesan real-time, dan analitik. Ketersediaan fitur bergantung pada paket langganan."
+            },
+            "4": {
+                "title": "Pembuatan Akun, Keamanan & Verifikasi",
+                "subsections": {
+                    "1": {
+                        "title": "Persyaratan Akun",
+                        "content": [
+                            "Anda wajib memberikan informasi pendaftaran yang akurat.",
+                            "Anda bertanggung jawab atas kerahasiaan kredensial akun dan semua aktivitas di bawah akun Anda.",
+                            "Verifikasi email diperlukan."
+                        ]
+                    },
+                    "2": {
+                        "title": "Verifikasi Bisnis",
+                        "content": "Untuk beberapa integrasi (misalnya Meta/WhatsApp), verifikasi bisnis tambahan atau dokumen mungkin diminta."
+                    },
+                    "3": {
+                        "title": "Catatan untuk Verifikasi Bisnis Meta",
+                        "content": "Sertakan nama perusahaan resmi, alamat terdaftar, nomor registrasi perusahaan, website aktif, serta kontak legal (email & nomor telepon) ketika mengajukan dokumen verifikasi ke Meta."
+                    }
+                }
+            },
+            "5": {
+                "title": "Paket, Harga & Pembayaran",
+                "subsections": {
+                    "1": {
+                        "title": "Paket yang Tersedia",
+                        "content": [
+                            "Free (Demo): Fitur dasar untuk percobaan",
+                            "Starter: Rp 399.000/bulan",
+                            "Professional: Rp 699.000/bulan",
+                            "Enterprise: Harga kustom"
+                        ]
+                    },
+                    "2": {
+                        "title": "Ketentuan Pembayaran",
+                        "content": [
+                            "Pembayaran diproses dalam IDR kecuali terdapat kesepakatan lain.",
+                            "Semua harga belum termasuk pajak yang berlaku.",
+                            "Langganan diperpanjang otomatis kecuali dibatalkan.",
+                            "Tidak ada pengembalian untuk bulan parsial.",
+                            "Langganan tahunan dapat memenuhi syarat untuk pengembalian pro-rata dalam 30 hari sesuai kebijakan kami."
+                        ]
+                    }
+                }
+            },
+            "6": {
+                "title": "Kebijakan Penggunaan yang Dapat Diterima",
+                "content": [
+                    "Anda tidak boleh menggunakan Layanan untuk:",
+                    "Spam atau komunikasi yang tidak diminta",
+                    "Aktivitas ilegal atau tujuan melanggar hukum",
+                    "Pelanggaran hak kekayaan intelektual",
+                    "Distribusi atau pembuatan malware",
+                    "Melewati/bypass langkah-langkah keamanan",
+                    "Anda wajib mematuhi hukum komunikasi yang berlaku dan aturan opt-out di semua yurisdiksi tempat Anda beroperasi."
+                ]
+            },
+            "7": {
+                "title": "Kekayaan Intelektual",
+                "subsections": {
+                    "1": {
+                        "title": "Kepemilikan SimplyBox",
+                        "content": "SimplyBox mempertahankan semua hak atas IP platform, merek dagang, teknologi proprietary, perangkat lunak, dan dokumentasi."
+                    },
+                    "2": {
+                        "title": "Kepemilikan Data Anda",
+                        "content": "Anda mempertahankan kepemilikan atas data dan konten yang Anda unggah. Anda memberikan SimplyBox lisensi non-eksklusif untuk memproses dan menggunakan data Anda semata-mata untuk menyediakan Layanan."
+                    }
+                }
+            },
+            "8": {
+                "title": "Privasi & Perlindungan Data",
+                "subsections": {
+                    "1": {
+                        "title": "Poin Privasi Utama",
+                        "content": [
+                            "Anda memiliki data dan konten Anda.",
+                            "Kami memproses data untuk menyediakan Layanan dan meningkatkan AI menggunakan data teragregasi/anonymized.",
+                            "Transfer data lintas batas dilindungi dengan perlindungan yang sesuai.",
+                            "Untuk keperluan verifikasi, kami mungkin memerlukan dokumen legal perusahaan."
+                        ]
+                    },
+                    "2": {
+                        "title": "Detail Privasi Lengkap",
+                        "content": "Lihat Kebijakan Privasi kami untuk informasi komprehensif tentang pengumpulan, pemrosesan, dan praktik perlindungan data."
+                    }
+                },
+                "contact": "Kontak privasi: support@simplybox.id"
+            },
+            "9": {
+                "title": "Integrasi Pihak Ketiga",
+                "content": [
+                    "SimplyBox terintegrasi dengan layanan pihak ketiga termasuk:",
+                    "Gmail (Google Workspace)",
+                    "Meta/WhatsApp Business API",
+                    "Instagram",
+                    "TikTok",
+                    "Resend",
+                    "Supabase",
+                    "Pinecone",
+                    "Semua integrasi tunduk pada syarat layanan dan kebijakan privasi pihak ketiga masing-masing. Kami tidak bertanggung jawab atas praktik privasi pihak ketiga, perubahan layanan, atau modifikasi API."
+                ]
+            },
+            "10": {
+                "title": "Penafian & Batasan Tanggung Jawab",
+                "subsections": {
+                    "1": {
+                        "title": "Penafian Jaminan Layanan",
+                        "content": "Layanan disediakan \"SEBAGAIMANA ADANYA\" dan \"SEBAGAIMANA TERSEDIA\" tanpa jaminan apapun, baik tersurat maupun tersirat, termasuk namun tidak terbatas pada jaminan dapat diperjualbelikan, kesesuaian untuk tujuan tertentu, atau tidak adanya pelanggaran."
+                    },
+                    "2": {
+                        "title": "Tanggung Jawab Output AI",
+                        "content": "Respons dan saran yang dihasilkan AI disediakan hanya sebagai bantuan. Anda sepenuhnya bertanggung jawab untuk meninjau, memverifikasi, dan menyetujui semua output AI sebelum menggunakannya dalam komunikasi dengan pelanggan Anda."
+                    },
+                    "3": {
+                        "title": "Batasan Tanggung Jawab",
+                        "content": [
+                            "Sejauh maksimum yang diizinkan oleh hukum, total tanggung jawab SimplyBox dibatasi pada biaya yang Anda bayarkan dalam 12 bulan sebelum klaim.",
+                            "Kami tidak bertanggung jawab atas kerugian tidak langsung, insidental, konsekuensial, khusus, atau hukuman.",
+                            "Ini termasuk kerugian atas kehilangan keuntungan, pendapatan, data, atau peluang bisnis."
+                        ]
+                    }
+                }
+            },
+            "11": {
+                "title": "Ganti Rugi",
+                "content": "Anda setuju untuk mengganti rugi, membela, dan membebaskan SimplyBox, afiliasinya, pejabat, direktur, karyawan, dan agennya dari setiap klaim, kerusakan, kerugian, kewajiban, dan biaya (termasuk biaya hukum) yang timbul dari: pelanggaran Anda terhadap Syarat ini, pelanggaran hak kekayaan intelektual, penggunaan Layanan yang melanggar hukum, atau kegagalan mengamankan kredensial akun Anda."
+            },
+            "12": {
+                "title": "Penghentian & Dampaknya",
+                "subsections": {
+                    "1": {
+                        "title": "Penghentian Sukarela",
+                        "content": "Anda dapat membatalkan langganan kapan saja melalui pengaturan akun. Pembatalan akan berlaku pada akhir periode penagihan Anda saat ini."
+                    },
+                    "2": {
+                        "title": "Penghentian oleh SimplyBox",
+                        "content": "Kami dapat menangguhkan atau menghentikan akun Anda segera karena: pelanggaran material terhadap Syarat ini, tidak membayar biaya, pelanggaran Kebijakan Penggunaan yang Dapat Diterima, atau aktivitas penipuan atau ilegal."
+                    },
+                    "3": {
+                        "title": "Retensi Data Setelah Penghentian",
+                        "content": "Setelah penghentian, data Anda biasanya disimpan selama 30 hari untuk memungkinkan ekspor data atau reaktivasi akun. Setelah periode ini, data akan dihapus secara permanen sesuai dengan Kebijakan Privasi kami. Anda bertanggung jawab untuk mengekspor data Anda sebelum penghentian."
+                    }
+                }
+            },
+            "13": {
+                "title": "Perubahan Layanan & Ketentuan",
+                "subsections": {
+                    "1": {
+                        "title": "Modifikasi Layanan",
+                        "content": "Kami dapat memodifikasi, memperbarui, atau menghentikan fitur Layanan kapan saja. Kami akan melakukan upaya yang wajar untuk memberi tahu pengguna tentang perubahan material sebelumnya."
+                    },
+                    "2": {
+                        "title": "Pembaruan Ketentuan",
+                        "content": [
+                            "Kami dapat memperbarui Syarat ini dari waktu ke waktu.",
+                            "Perubahan material akan dikomunikasikan setidaknya 30 hari sebelumnya bila memungkinkan.",
+                            "Pemberitahuan akan diberikan melalui email, notifikasi in-app, atau pengumuman website.",
+                            "Penggunaan Layanan yang berkelanjutan setelah perubahan berlaku merupakan penerimaan terhadap Syarat yang diperbarui."
+                        ]
+                    }
+                }
+            },
+            "14": {
+                "title": "Penyelesaian Sengketa & Hukum yang Mengatur",
+                "subsections": {
+                    "1": {
+                        "title": "Hukum yang Mengatur",
+                        "content": "Syarat ini diatur oleh dan ditafsirkan sesuai dengan hukum Republik Indonesia, tanpa memperhatikan prinsip konflik hukum."
+                    },
+                    "2": {
+                        "title": "Proses Eskalasi Sengketa",
+                        "content": [
+                            "Langkah 1: Negosiasi Langsung - Para pihak akan berusaha menyelesaikan sengketa melalui negosiasi dengan itikad baik.",
+                            "Langkah 2: Mediasi - Jika negosiasi gagal, sengketa akan diajukan ke mediasi di Jakarta, Indonesia.",
+                            "Langkah 3: Arbitrase Mengikat - Sengketa yang belum terselesaikan akan diselesaikan melalui arbitrase mengikat berdasarkan Aturan Arbitrase Indonesia.",
+                            "Langkah 4: Yurisdiksi Pengadilan - Pengadilan di Indonesia mempertahankan yurisdiksi di mana arbitrase tidak berlaku atau tidak tersedia."
+                        ]
+                    }
+                }
+            },
+            "15": {
+                "title": "Ketentuan Lain-lain",
+                "subsections": {
+                    "1": {
+                        "title": "Kelangsungan Ketentuan",
+                        "content": "Ketentuan mengenai kekayaan intelektual, ganti rugi, batasan tanggung jawab, dan penyelesaian sengketa tetap berlaku setelah pengakhiran Syarat ini."
+                    },
+                    "2": {
+                        "title": "Force Majeure",
+                        "content": "Tidak ada pihak yang bertanggung jawab atas kegagalan melaksanakan kewajiban karena keadaan di luar kendali yang wajar, termasuk bencana alam, perang, terorisme, perselisihan tenaga kerja, atau tindakan pemerintah."
+                    },
+                    "3": {
+                        "title": "Pengalihan",
+                        "content": "Anda tidak dapat mengalihkan atau mentransfer hak Anda berdasarkan Syarat ini tanpa persetujuan tertulis sebelumnya dari kami. SimplyBox dapat mengalihkan hak dan kewajibannya tanpa batasan."
+                    },
+                    "4": {
+                        "title": "Keterpisahan",
+                        "content": "Jika ada ketentuan dari Syarat ini dinyatakan tidak sah atau tidak dapat diberlakukan, ketentuan yang tersisa tetap berlaku sepenuhnya."
+                    },
+                    "5": {
+                        "title": "Tidak Ada Pengabaian",
+                        "content": "Kegagalan untuk menegakkan ketentuan apa pun tidak merupakan pengabaian ketentuan tersebut atau ketentuan lainnya."
+                    },
+                    "6": {
+                        "title": "Keseluruhan Perjanjian",
+                        "content": "Syarat ini, bersama dengan Kebijakan Privasi kami, merupakan keseluruhan perjanjian antara Anda dan SimplyBox mengenai Layanan."
+                    },
+                    "7": {
+                        "title": "Bahasa",
+                        "content": "Syarat ini tersedia dalam bahasa Inggris dan Indonesia (Bahasa Indonesia). Jika terdapat konflik atau perbedaan antara versi, versi bahasa Inggris yang berlaku."
+                    }
+                }
+            },
+            "16": {
+                "title": "Informasi Kontak",
+                "subsections": {
+                    "1": {
+                        "title": "Kontak Legal & Dukungan",
+                        "content": "Email: admin@simplybox.id, simplybox.business@gmail.com"
+                    },
+                    "2": {
+                        "title": "Informasi Bisnis",
+                        "content": "Website: https://simplybox.vercel.app, Telepon: +62 815-1012-3155, Jam Kerja: Senin-Jumat, 09.00 - 18.00 WIB"
+                    }
+                },
+                "infoPerusahaan": {
+                    "name": "SimplyBox",
+                    "address": "Jebres, Surakarta, 15726, Indonesia",
+                    "phone": "+62 815-1012-3155",
+                    "email": "admin@simplybox.id",
+                    "website": "https://simplybox.vercel.app",
+                    "registrationNote": "Nomor Registrasi Perusahaan: [Akan disediakan]"
+                }
+            }
+        }
+    }
+}

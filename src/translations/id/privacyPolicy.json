@@ -1,0 +1,326 @@
+{
+    "privacyPolicy": {
+        "backToHome": "Kembali ke Beranda",
+        "downloadPdf": "Unduh PDF",
+        "hero": {
+            "tagline": "Privasi Anda, Prioritas Kami",
+            "title": "Kebijakan Privasi - SimplyBox",
+            "subtitle": "Kami berkomitmen untuk melindungi data dan informasi pribadi Anda saat menggunakan SimplyBox.",
+            "lastUpdated": "Terakhir Diperbarui: 14 Oktober 2025",
+            "effectiveDate": "Tanggal Berlaku: 14 Oktober 2025 - TBA"
+        },
+        "sidebar": {
+            "title": "Konten"
+        },
+        "sections": {
+            "1": {
+                "title": "Pengantar",
+                "content": "SimplyBox (\"kami,\" \"milik kami,\" atau \"kita\") mengoperasikan platform manajemen komunikasi bertenaga AI yang membantu usaha kecil dan menengah (UKM) dalam menyederhanakan komunikasi pelanggan melalui manajemen inbox terpadu, respons otomatis, dan pemrosesan pesan cerdas. Kebijakan Privasi ini menjelaskan bagaimana kami mengumpulkan, menggunakan, memproses, dan melindungi informasi pribadi Anda saat menggunakan layanan kami, termasuk situs web, dashboard, aplikasi mobile, dan layanan terkait (secara kolektif, \"Layanan\")."
+            },
+            "2": {
+                "title": "Informasi yang Kami Kumpulkan",
+                "subsections": {
+                    "1": {
+                        "title": "Informasi Akun",
+                        "content": [
+                            "Detail Kontak: Nama, alamat email, nomor telepon, nama bisnis",
+                            "Data Otentikasi: Kredensial login, token OAuth untuk integrasi pihak ketiga",
+                            "Informasi Bisnis: Nama perusahaan, jenis bisnis, volume pesan yang diharapkan, ukuran tim",
+                            "Informasi Penagihan: Metode pembayaran, alamat penagihan, riwayat transaksi (diproses dengan aman melalui penyedia layanan pembayaran pihak ketiga)"
+                        ]
+                    },
+                    "2": {
+                        "title": "Data Komunikasi",
+                        "content": [
+                            "Pesan Email: Konten, informasi pengirim/penerima, timestamp, lampiran",
+                            "Pesan WhatsApp: Konten pesan, nomor telepon, status pesan, konfirmasi pengiriman",
+                            "Metadata Pesan: Thread percakapan, waktu respons, klasifikasi pesan",
+                            "Lampiran File: Dokumen, gambar, dan file lain yang dibagikan melalui saluran komunikasi terintegrasi"
+                        ]
+                    },
+                    "3": {
+                        "title": "Data Penggunaan dan Analitik",
+                        "content": [
+                            "Penggunaan Platform: Interaksi dashboard, pola penggunaan fitur, durasi sesi",
+                            "Data Kinerja: Waktu respons, log kesalahan, metrik kinerja sistem",
+                            "Informasi Perangkat: Alamat IP, jenis browser, sistem operasi, identifikasi perangkat",
+                            "Pola Komunikasi: Volume pesan, waktu penggunaan puncak, analitik percakapan"
+                        ]
+                    },
+                    "4": {
+                        "title": "Data Pemrosesan AI",
+                        "content": [
+                            "Konten Knowledge Base: Dokumen bisnis, FAQ, informasi produk yang diunggah pengguna",
+                            "Data Pelatihan AI: Pola percakapan, metrik efektivitas respons",
+                            "Log Pemrosesan: Interaksi model AI, metadata generasi respons"
+                        ]
+                    }
+                }
+            },
+            "3": {
+                "title": "Bagaimana Kami Menggunakan Informasi Anda",
+                "subsections": {
+                    "1": {
+                        "title": "Penyediaan Layanan",
+                        "content": [
+                            "Manajemen Komunikasi Terpadu: Menggabungkan dan menampilkan pesan dari berbagai saluran",
+                            "Respons Bertenaga AI: Menghasilkan respons kontekstual dan personal menggunakan pipeline RAG (Retrieval-Augmented Generation)",
+                            "Kolaborasi Tim: Memungkinkan beberapa anggota tim mengelola komunikasi",
+                            "Manajemen Pengetahuan: Menyimpan dan mengambil informasi spesifik bisnis untuk respons akurat"
+                        ]
+                    },
+                    "2": {
+                        "title": "Peningkatan Layanan",
+                        "content": [
+                            "Optimasi Platform: Menganalisis pola penggunaan untuk meningkatkan pengalaman pengguna",
+                            "Peningkatan Model AI: Menggunakan data teragregasi dan anonim untuk meningkatkan akurasi respons",
+                            "Pengembangan Fitur: Mengembangkan fitur baru berdasarkan kebutuhan dan umpan balik pengguna",
+                            "Pemantauan Kinerja: Memastikan keandalan sistem dan kinerja optimal"
+                        ]
+                    },
+                    "3": {
+                        "title": "Komunikasi dan Dukungan",
+                        "content": [
+                            "Dukungan Pelanggan: Memberikan bantuan teknis dan mengatasi masalah",
+                            "Pembaruan Layanan: Memberi tahu pengguna tentang fitur baru, perubahan, atau pemeliharaan",
+                            "Manajemen Akun: Mengirim notifikasi penagihan, pengingat pembaruan, dan pembaruan status akun"
+                        ]
+                    },
+                    "4": {
+                        "title": "Legal dan Keamanan",
+                        "content": [
+                            "Kepatuhan: Memenuhi kewajiban hukum di bawah undang-undang perlindungan data Indonesia (UU PDP)",
+                            "Keamanan: Mendeteksi dan mencegah aktivitas penipuan, ancaman keamanan, dan penyalahgunaan",
+                            "Operasi Bisnis: Melakukan analitik internal, pelaporan keuangan, dan perencanaan bisnis"
+                        ]
+                    }
+                }
+            },
+            "4": {
+                "title": "Pemrosesan Data dan Integrasi AI",
+                "subsections": {
+                    "1": {
+                        "title": "Kerangka Pemrosesan AI",
+                        "content": [
+                            "Kami menggunakan model AI canggih, termasuk model bahasa berbasis Llama, untuk memberikan saran respons cerdas dan wawasan bisnis:",
+                            "Pemrosesan Kontekstual: Pesan Anda diproses secara real-time untuk menghasilkan respons yang relevan",
+                            "Integrasi Pengetahuan: Dokumen bisnis dan FAQ divektorisasi dan disimpan untuk pengambilan kontekstual",
+                            "AI yang Menjaga Privasi: Pemrosesan AI terjadi dengan data terenkripsi, dan informasi pribadi disamarkan jika memungkinkan"
+                        ]
+                    },
+                    "2": {
+                        "title": "Pipeline RAG",
+                        "content": [
+                            "Sistem Retrieval-Augmented Generation kami:",
+                            "Menyimpan pengetahuan spesifik bisnis Anda dalam database vektor terenkripsi (Pinecone)",
+                            "Mengambil informasi relevan berdasarkan pertanyaan pelanggan",
+                            "Menghasilkan respons yang sesuai konteks menggunakan model AI",
+                            "Belajar dari pola interaksi untuk meningkatkan kualitas respons dari waktu ke waktu"
+                        ]
+                    },
+                    "3": {
+                        "title": "Enkripsi Data",
+                        "content": [
+                            "At Rest: Semua data yang tersimpan dienkripsi menggunakan enkripsi AES-256",
+                            "In Transit: Transmisi data diamankan menggunakan enkripsi TLS 1.3",
+                            "Pemrosesan: Dekripsi sementara hanya terjadi di RAM aman selama pemrosesan AI",
+                            "Kontrol Akses: Akses berbasis peran memastikan hanya anggota tim yang berwenang yang dapat melihat data sensitif"
+                        ]
+                    }
+                }
+            },
+            "5": {
+                "title": "Berbagi Data dan Layanan Pihak Ketiga",
+                "subsections": {
+                    "1": {
+                        "title": "Penyedia Layanan",
+                        "content": [
+                            "Kami bekerja sama dengan layanan pihak ketiga terpercaya untuk menyediakan platform kami:",
+                            "Google Cloud Platform: Integrasi Gmail API, Cloud Pub/Sub untuk notifikasi real-time",
+                            "Meta Platforms: WhatsApp Business API untuk layanan perpesanan",
+                            "Twilio: Layanan perpesanan WhatsApp dan SMS cadangan",
+                            "Supabase: Hosting database dan layanan backend",
+                            "Pinecone: Database vektor untuk penyimpanan pengetahuan AI",
+                            "Groq: Layanan inferensi model AI",
+                            "Vercel: Hosting dan deployment aplikasi"
+                        ]
+                    },
+                    "2": {
+                        "title": "Perjanjian Pemrosesan Data",
+                        "content": [
+                            "Semua prosesor pihak ketiga terikat oleh perjanjian pemrosesan data yang memastikan:",
+                            "Data diproses hanya untuk tujuan yang ditentukan",
+                            "Langkah-langkah keamanan yang sesuai diimplementasikan",
+                            "Data tidak digunakan untuk tujuan mereka sendiri tanpa persetujuan",
+                            "Kepatuhan terhadap undang-undang perlindungan data yang berlaku"
+                        ]
+                    },
+                    "3": {
+                        "title": "Transfer Bisnis",
+                        "content": "Dalam kasus merger, akuisisi, atau penjualan bisnis, informasi Anda dapat ditransfer ke pemilik baru dengan perlindungan privasi yang sama."
+                    },
+                    "4": {
+                        "title": "Persyaratan Hukum",
+                        "content": "Kami dapat mengungkapkan informasi saat diwajibkan oleh hukum, perintah pengadilan, atau untuk melindungi hak dan keamanan kami."
+                    }
+                }
+            },
+            "6": {
+                "title": "Penyimpanan dan Retensi Data",
+                "subsections": {
+                    "1": {
+                        "title": "Periode Retensi",
+                        "content": [
+                            "Data Akun: Disimpan selama akun Anda aktif dan selama 12 bulan setelah penghapusan",
+                            "Data Komunikasi: Disimpan selama 24 bulan atau sesuai kebutuhan bisnis Anda",
+                            "Data Pelatihan AI: Pola anonim dapat disimpan tanpa batas waktu untuk peningkatan layanan",
+                            "Catatan Penagihan: Disimpan selama 7 tahun sesuai persyaratan pajak Indonesia"
+                        ]
+                    },
+                    "2": {
+                        "title": "Lokasi Data",
+                        "content": [
+                            "Penyimpanan Utama: Indonesia dan Singapura (wilayah AWS Asia Pacific)",
+                            "Penyimpanan Cadangan: Cadangan terenkripsi di berbagai lokasi geografis",
+                            "Pemrosesan AI: Dapat terjadi di wilayah AS atau EU dengan perlindungan yang sesuai"
+                        ]
+                    },
+                    "3": {
+                        "title": "Penghapusan Data",
+                        "content": [
+                            "Pengguna dapat meminta penghapusan data kapan saja. Setelah penghapusan:",
+                            "Data pribadi dihapus secara permanen dalam 30 hari",
+                            "Data analitik anonim dapat disimpan untuk peningkatan layanan",
+                            "Persyaratan retensi hukum atau regulasi dihormati"
+                        ]
+                    }
+                }
+            },
+            "7": {
+                "title": "Hak dan Pilihan Anda",
+                "subsections": {
+                    "1": {
+                        "title": "Akses dan Portabilitas",
+                        "content": [
+                            "Akses: Meminta salinan data pribadi Anda",
+                            "Portabilitas: Mengekspor data Anda dalam format yang dapat dibaca mesin",
+                            "Transparansi: Memahami bagaimana data Anda diproses"
+                        ]
+                    },
+                    "2": {
+                        "title": "Koreksi dan Pembaruan",
+                        "content": [
+                            "Akurasi: Memperbaiki informasi yang tidak akurat atau tidak lengkap",
+                            "Pembaruan: Memodifikasi informasi akun dan bisnis Anda",
+                            "Manajemen Profil: Mengontrol profil bisnis publik Anda"
+                        ]
+                    },
+                    "3": {
+                        "title": "Penghapusan dan Pembatasan",
+                        "content": [
+                            "Penghapusan: Meminta penghapusan akun dan data secara lengkap",
+                            "Pembatasan: Membatasi pemrosesan kategori data tertentu",
+                            "Keberatan: Menolak jenis pemrosesan data tertentu"
+                        ]
+                    },
+                    "4": {
+                        "title": "Preferensi Komunikasi",
+                        "content": [
+                            "Pemasaran: Berhenti dari komunikasi promosi",
+                            "Notifikasi: Mengontrol notifikasi layanan dan keamanan",
+                            "Pembaruan: Memilih cara menerima pembaruan platform"
+                        ]
+                    }
+                },
+                "contact": "Untuk menggunakan hak-hak ini, hubungi Data Protection Officer kami di privacy@simplybox.id"
+            },
+            "8": {
+                "title": "Langkah-Langkah Keamanan",
+                "subsections": {
+                    "1": {
+                        "title": "Perlindungan Teknis",
+                        "content": [
+                            "Enkripsi: Enkripsi end-to-end untuk komunikasi sensitif",
+                            "Kontrol Akses: Otentikasi multi-faktor dan izin berbasis peran",
+                            "Keamanan Jaringan: Firewall, deteksi intrusi, dan endpoint API yang aman",
+                            "Audit Rutin: Penilaian keamanan dan pengujian kerentanan"
+                        ]
+                    },
+                    "2": {
+                        "title": "Keamanan Operasional",
+                        "content": [
+                            "Pelatihan Staf: Pelatihan privasi dan keamanan rutin untuk semua karyawan",
+                            "Respons Insiden: Prosedur respons cepat untuk pelanggaran keamanan",
+                            "Minimalisasi Data: Mengumpulkan dan memproses hanya informasi yang diperlukan",
+                            "Cadangan Rutin: Sistem cadangan terenkripsi yang terdistribusi secara geografis"
+                        ]
+                    },
+                    "3": {
+                        "title": "Kerangka Kepatuhan",
+                        "content": [
+                            "ISO 27001: Mengikuti standar manajemen keamanan internasional",
+                            "SOC 2: Kepatuhan dengan persyaratan Service Organization Control",
+                            "Prinsip GDPR: Menerapkan praktik terbaik perlindungan data Eropa",
+                            "Kepatuhan Lokal: Kepatuhan terhadap persyaratan UU PDP Indonesia"
+                        ]
+                    }
+                }
+            },
+            "9": {
+                "title": "Transfer Data Internasional",
+                "content": [
+                    "Saat data ditransfer ke luar Indonesia:",
+                    "Keputusan Kecukupan: Transfer ke negara dengan tingkat perlindungan yang memadai",
+                    "Standard Contractual Clauses: Kerangka hukum untuk transfer internasional yang aman",
+                    "Persyaratan Enkripsi: Semua transfer internasional menggunakan enkripsi kuat",
+                    "Review Rutin: Penilaian berkelanjutan terhadap pengaturan transfer internasional"
+                ]
+            },
+            "10": {
+                "title": "Privasi Anak",
+                "content": "SimplyBox dirancang untuk penggunaan bisnis dan tidak ditujukan untuk anak-anak di bawah 13 tahun. Kami tidak dengan sengaja mengumpulkan informasi pribadi dari anak-anak. Jika kami menemukan bahwa kami telah mengumpulkan informasi dari anak di bawah 13 tahun, kami akan segera menghapusnya."
+            },
+            "11": {
+                "title": "Perubahan pada Kebijakan Privasi Ini",
+                "subsections": {
+                    "1": {
+                        "title": "Proses Notifikasi",
+                        "content": [
+                            "Notifikasi Email: Dikirim ke semua pengguna aktif setidaknya 30 hari sebelum perubahan berlaku",
+                            "Notifikasi Platform: Notifikasi dalam aplikasi dan pengumuman dashboard",
+                            "Pembaruan Situs Web: Kebijakan yang diperbarui diposting di situs web kami dengan tanggal revisi",
+                            "Perubahan Signifikan: Persetujuan tambahan mungkin diperlukan untuk perubahan material"
+                        ]
+                    },
+                    "2": {
+                        "title": "Penggunaan Berkelanjutan",
+                        "content": "Penggunaan berkelanjutan layanan kami setelah perubahan kebijakan menunjukkan penerimaan terhadap ketentuan yang diperbarui."
+                    }
+                }
+            },
+            "12": {
+                "title": "Informasi Kontak",
+                "subsections": {
+                    "1": {
+                        "title": "Data Protection Officer",
+                        "content": "Email: simplybox.business@gmail.com, Alamat: Surakarta, Waktu Respons: Kami merespons pertanyaan privasi dalam 72 jam"
+                    },
+                    "2": {
+                        "title": "Dukungan Umum",
+                        "content": "Email: simplybox.business@gmail.com, Website: https://simplybox.vercel.app, Jam Bisnis: Senin-Jumat, 9 AM - 6 PM WIB"
+                    },
+                    "3": {
+                        "title": "Kontak Regulasi",
+                        "content": "Untuk keluhan tentang praktik privasi kami, Anda juga dapat menghubungi: Otoritas Perlindungan Data Indonesia: [Informasi kontak saat tersedia]"
+                    }
+                },
+                "companyInfo": {
+                    "name": "SimplyBox Indonesia",
+                    "address": "Surakarta",
+                    "phone": "+6281510123155"
+                },
+                "legalNote": "Kebijakan Privasi ini diatur oleh hukum Indonesia dan tersedia dalam bahasa Inggris dan Indonesia. Dalam kasus perbedaan, versi Indonesia yang berlaku."
+            }
+        }
+    }
+}

@@ -1,0 +1,68 @@
+{
+    "contactSales": {
+        "backToHome": "Back to Home",
+        "backToPlans": "Back to Plans",
+        "hero": {
+            "tagline": "Trusted by 500+ Indonesian SMEs",
+            "titlePrefix": "Ready to",
+            "titleHighlight": "Transform",
+            "titleSuffix": "Your Business?",
+            "subtitle": "Stop juggling WhatsApp, email, and phone calls. SimplyBox unifies all your customer communications into one intelligent workspace, powered by AI that understands Indonesian business culture and language nuances."
+        },
+        "stats": {
+            "responseTime": {
+                "value": "85%",
+                "label": "Faster Response Time"
+            },
+            "salesConversions": {
+                "value": "3x",
+                "label": "More Sales Conversions"
+            },
+            "timeSaved": {
+                "value": "60%",
+                "label": "Time Saved Daily"
+            }
+        },
+        "contactOptions": {
+            "title": "Get in Touch with Our Sales Team",
+            "subtitle": "Every Indonesian business has unique communication challenges. Contact us to see how SimplyBox can help you serve customers better, close more deals, and grow faster.",
+            "whatsapp": {
+                "title": "WhatsApp Our Sales Team",
+                "description": "Get instant answers and schedule a live demo",
+                "phone": "+62 815-1012-3155"
+            },
+            "email": {
+                "title": "Email for Detailed Discussions",
+                "description": "Perfect for custom requirements and enterprise needs",
+                "address": "dylansiusputra.business@gmail.com"
+            }
+        },
+        "demoBenefits": {
+            "title": "What You'll Get in Your Demo",
+            "items": {
+                "whatsappIntegration": {
+                    "title": "Live WhatsApp Integration",
+                    "description": "See how your actual WhatsApp Business connects seamlessly"
+                },
+                "aiResponses": {
+                    "title": "AI Response Suggestions",
+                    "description": "Watch AI craft perfect replies in Bahasa Indonesia"
+                },
+                "roiAnalysis": {
+                    "title": "Custom ROI Analysis",
+                    "description": "Calculate exactly how much time and money you'll save"
+                },
+                "implementationRoadmap": {
+                    "title": "Implementation Roadmap",
+                    "description": "Get a clear plan for rolling out SimplyBox to your team"
+                }
+            }
+        },
+        "businessHours": {
+            "title": "Business Hours",
+            "mondayFriday": "Monday - Friday: 9:00 AM - 6:00 PM (WIB)",
+            "saturday": "Saturday: 9:00 AM - 2:00 PM (WIB)",
+            "responseTime": "We typically respond within 2 hours"
+        }
+    }
+}

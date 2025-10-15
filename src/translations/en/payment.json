@@ -1,0 +1,154 @@
+{
+    "payment": {
+        "header": {
+            "helpLink": "Need Help?"
+        },
+        "title": "Complete Your Purchase",
+        "subtitle": "You're just one step away from transforming your business communications",
+        "backToPlans": "Back to Plans",
+        "orderSummary": {
+            "title": "Your Plan Summary"
+        },
+        "mostPopular": "Most Popular",
+        "billingCycle": {
+            "label": "Billing Cycle",
+            "monthly": "Monthly",
+            "annual": "Annual",
+            "save": "Save {{discount}}%",
+            "savings": "You save {{amount}} per year!"
+        },
+        "features": {
+            "label": "What's Included"
+        },
+        "totalDue": "Total Due Today",
+        "effectivePrice": "Effective: {{amount}}/month",
+        "paymentDetail": {
+            "title": "Payment Detail",
+            "selectedPlan": "Selected Plan",
+            "billingCycle": "Billing Cycle",
+            "totalAmount": "Total Amount",
+            "paymentMethod": "Payment Method",
+            "autoRenew": "Auto Renew",
+            "notSelected": "Not selected yet",
+            "yes": "Yes",
+            "no": "No"
+        },
+        "paymentMethods": {
+            "title": "Choose Payment Method",
+            "bank": "Bank Transfer",
+            "bankShort": "Bank",
+            "qris": "QRIS",
+            "ewallet": "E-Wallet",
+            "ewalletShort": "Wallet",
+            "selectBank": "Select Bank",
+            "selectEWallet": "Select E-Wallet",
+            "transferDetails": "Transfer Details",
+            "accountNumber": "Account Number",
+            "accountHolder": "Account Holder",
+            "qrCodePlaceholder": "QR Code will appear here",
+            "qrCodeDescription": "Open your e-wallet app and scan to pay instantly"
+        },
+        "autoRenew": "Enable Auto Renew",
+        "completePurchase": "Complete Purchase",
+        "processing": "Processing Your Payment...",
+        "cancel": "Cancel & Go Back",
+        "termsAndPrivacy": {
+            "text": "By completing this purchase, you agree to our",
+            "termsLink": "Terms of Service",
+            "and": "and",
+            "privacyLink": "Privacy Policy"
+        },
+        "security": {
+            "ssl": "SSL Secured",
+            "bankLevel": "Bank-Level Security"
+        },
+        "errors": {
+            "noSubscription": "No subscription found to update",
+            "paymentFailed": "Failed to process payment. Please try again."
+        },
+        "plans": {
+            "starter": {
+                "name": "Starter",
+                "monthlyPrice": "399000",
+                "annualPrice": "4000000",
+                "discount": "17",
+                "channels": "5",
+                "period": "/month",
+                "features": {
+                    "everythingFree": "Everything in Free",
+                    "channels": "5 channels (WhatsApp, Email, E-Commerce Integration)",
+                    "messages": "600 messages/month",
+                    "fileUploads": "10 file uploads",
+                    "teamMembers": "3 Team Members",
+                    "enhancedAI": "Enhanced AI responses with better context",
+                    "advancedKanban": "Advanced Kanban with due dates",
+                    "weeklyAnalytics": "Weekly analytics & insights",
+                    "emailSupport": "Email support"
+                }
+            },
+            "professional": {
+                "name": "Professional",
+                "monthlyPrice": "699000",
+                "annualPrice": "6900000",
+                "discount": "18",
+                "channels": "12",
+                "period": "/month",
+                "features": {
+                    "everythingStarter": "Everything in Starter",
+                    "channels": "12 channels (WhatsApp, Email, E-Commerce Integration)",
+                    "messages": "2500 messages/month",
+                    "fileUploads": "Up to 50 file uploads",
+                    "teamMembers": "8 Team Members",
+                    "advancedAI": "Advanced AI with custom prompts",
+                    "advancedAnalytics": "Advanced analytics & reporting",
+                    "prioritySupport": "Priority support"
+                }
+            }
+        }
+    },
+    "paymentSuccess": {
+        "header": {
+            "support": "Support"
+        },
+        "title": "Thank You, {{companyName}}!",
+        "subtitle": "Your payment was successful and your account has been upgraded.",
+        "summary": {
+            "title": "Payment Summary",
+            "orderId": "Order #{{orderId}}",
+            "planDetails": "Plan Details",
+            "plan": "Plan",
+            "billingCycle": "Billing Cycle",
+            "amountPaid": "Amount Paid",
+            "contactInfo": "Contact Information",
+            "paymentMethod": "Payment Method",
+            "nextBillingDate": "Next Billing Date"
+        },
+        "actions": {
+            "goToDashboard": "Go to Dashboard",
+            "downloadReceipt": "Download Receipt"
+        },
+        "support": {
+            "title": "Need Help Getting Started?",
+            "description": "Our support team is here to help you make the most of SimplyBox.",
+            "emailSupport": "Email Support",
+            "whatsappSupport": "WhatsApp Support"
+        },
+        "receipt": {
+            "header": "SIMPLYBOX PAYMENT RECEIPT",
+            "orderId": "Order ID",
+            "date": "Date",
+            "company": "Company",
+            "email": "Email",
+            "planDetails": "PLAN DETAILS",
+            "plan": "Plan",
+            "billing": "Billing",
+            "amount": "Amount",
+            "paymentMethod": "Payment Method",
+            "bank": "Bank",
+            "ewallet": "E-Wallet",
+            "nextBillingDate": "Next Billing Date",
+            "thankYou": "Thank you for choosing SimplyBox!",
+            "support": "Support"
+        }
+    }
+}

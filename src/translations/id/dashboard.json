@@ -1,0 +1,270 @@
+{
+    "layout": {
+        "usage": {
+            "messages": "{{used}}/{{total}} pesan",
+            "files": "{{used}}/{{total}} berkas"
+        },
+        "plan": {
+            "free": "Gratis",
+            "starter": "Pemula",
+            "professional": "Profesional",
+            "enterprise": "Enterprise"
+        },
+        "upgradeButton": "Tingkatkan",
+        "tabs": {
+            "inbox": "Kotak Masuk",
+            "kanban": "Kanban",
+            "insights": "Wawasan",
+            "contacts": "Kontak",
+            "team": "Tim",
+            "files": "Berkas",
+            "settings": "Pengaturan"
+        }
+    },
+    "InboxPage": {
+        "title": "Kotak Masuk",
+        "filterAll": "Semua",
+        "filterPinned": "Disematkan",
+        "filterChannel": "Filter berdasarkan Channel",
+        "filterChannelAll": "Semua Channel",
+        "filterChannelWhatsapp": "WhatsApp",
+        "filterChannelInstagram": "Instagram",
+        "filterChannelEmail": "Email",
+        "searchPlaceholder": "Cari percakapan...",
+        "loadingConversations": "Memuat percakapan...",
+        "noConversations": "Tidak ada percakapan ditemukan",
+        "noMessages": "Belum ada pesan",
+        "pin": "Sematkan",
+        "unpin": "Lepas Sematan",
+        "delete": "Hapus",
+        "autoRespond": "Respons Otomatis",
+        "autoRespondOn": "ON",
+        "autoRespondOff": "OFF",
+        "messagePlaceholder": "Ketik pesan Anda...",
+        "selectConversationTitle": "Pilih percakapan",
+        "selectConversationDescription": "Pilih percakapan dari daftar untuk mulai mengirim pesan",
+        "status": {
+            "sent": "Dikirim",
+            "delivered": "Terkirim",
+            "read": "Dibaca",
+            "received": "Diterima"
+        }
+    },
+    "upgrade": {
+        "backToDashboard": "Kembali ke Dashboard",
+        "title": "Pilih Paket yang Tepat untuk Anda",
+        "subtitle": "Maksimalkan potensi penuh SimplyBox dengan fitur-fitur canggih yang dirancang untuk pertumbuhan bisnis Anda",
+        "mostPopular": "Paling Populer",
+        "benefits": {
+            "moneyBack": "Garansi uang kembali 30 hari",
+            "instantActivation": "Aktivasi instan",
+            "support": "Dukungan 24/7"
+        },
+        "plans": {
+            "free": {
+                "name": "Gratis",
+                "description": "Demo satu kali untuk menjelajahi SimplyBox",
+                "price": "Rp 0",
+                "period": "demo satu kali",
+                "features": {
+                    "companyRegistration": "1 pendaftaran perusahaan (permanen)",
+                    "channels": "Maksimal 2 saluran (WhatsApp, Email)",
+                    "messages": "100 pesan/bulan",
+                    "fileUploads": "2 unggahan file",
+                    "aiAgent": "Agen AI tunggal dengan RAG dasar",
+                    "aiAgentTooltip": "Asisten AI yang dapat memahami konteks dan menyarankan respons",
+                    "kanbanBoard": "Papan Kanban Dasar",
+                    "analytics": "Analitik data sederhana",
+                    "ecommerce": "Integrasi E-Commerce"
+                },
+                "buttonText": {
+                    "current": "Paket Demo Saat Ini",
+                    "unavailable": "Demo Tidak Tersedia"
+                }
+            },
+            "starter": {
+                "name": "Pemula",
+                "description": "Sempurna untuk bisnis kecil dan solopreneur",
+                "price": "Rp 399.000",
+                "period": "/bulan",
+                "features": {
+                    "everythingFree": "Semua fitur di paket Gratis",
+                    "channels": "5 saluran (WhatsApp, Email, Integrasi E-Commerce)",
+                    "messages": "600 pesan/bulan",
+                    "fileUploads": "10 unggahan file",
+                    "teamMembers": "3 Anggota Tim",
+                    "enhancedAI": "Respons AI yang ditingkatkan dengan konteks yang lebih baik",
+                    "enhancedAITooltip": "Respons yang lebih akurat berdasarkan riwayat percakapan dan konteks bisnis",
+                    "advancedKanban": "Kanban lanjutan dengan tenggat waktu",
+                    "weeklyAnalytics": "Analitik & wawasan mingguan",
+                    "emailSupport": "Dukungan email"
+                },
+                "buttonText": {
+                    "current": "Paket Saat Ini",
+                    "upgrade": "Tingkatkan ke Pemula",
+                    "downgrade": "Turun ke Pemula"
+                }
+            },
+            "professional": {
+                "name": "Profesional",
+                "description": "Untuk tim yang berkembang dengan kebutuhan volume lebih tinggi",
+                "price": "Rp 699.000",
+                "period": "/bulan",
+                "features": {
+                    "everythingStarter": "Semua fitur di paket Starter",
+                    "channels": "12 saluran (WhatsApp, Email, Integrasi E-Commerce)",
+                    "messages": "2500 pesan/bulan",
+                    "fileUploads": "Hingga 50 unggahan file",
+                    "teamMembers": "8 Anggota Tim",
+                    "advancedAI": "AI lanjutan dengan prompt kustom",
+                    "advancedAITooltip": "Buat template respons AI Anda sendiri dan sesuaikan bagaimana AI merespons",
+                    "advancedAnalytics": "Analitik & pelaporan lanjutan",
+                    "prioritySupport": "Dukungan prioritas"
+                },
+                "buttonText": {
+                    "current": "Paket Saat Ini",
+                    "upgrade": "Upgrade ke Profesional",
+                    "downgrade": "Turun ke Profesional"
+                }
+            },
+            "enterprise": {
+                "name": "Enterprise",
+                "description": "Solusi kustom untuk organisasi yang lebih besar",
+                "price": "Kustom",
+                "period": "",
+                "features": {
+                    "customizable": "Semua dapat disesuaikan",
+                    "marketingAutomation": "Otomatisasi Pemasaran",
+                    "crmIntegration": "Integrasi CRM",
+                    "orderTracking": "Pelacakan Pesanan",
+                    "freeSetup": "Pengaturan dan integrasi GRATIS",
+                    "accountManager": "Manajer akun khusus",
+                    "whiteLabel": "Opsi white-label"
+                },
+                "buttonText": {
+                    "current": "Paket Saat Ini",
+                    "upgrade": "Hubungi Tim Penjualan"
+                }
+            }
+        },
+        "faq": {
+            "title": "Pertanyaan yang Sering Diajukan",
+            "items": {
+                "1": {
+                    "question": "Bisakah saya mengganti paket kapan saja?",
+                    "answer": "Ya, Anda dapat mengupgrade atau menurunkan paket kapan saja. Perubahan akan berlaku segera."
+                },
+                "2": {
+                    "question": "Apa yang terjadi dengan data saya jika saya menurunkan paket?",
+                    "answer": "Data Anda selalu aman. Anda hanya akan memiliki akses ke fitur yang lebih sedikit berdasarkan paket baru Anda."
+                },
+                "3": {
+                    "question": "Apakah ada pengembalian dana?",
+                    "answer": "Ya, kami menawarkan jaminan uang kembali 30 hari untuk semua paket berbayar."
+                },
+                "4": {
+                    "question": "Apakah ada biaya pengaturan?",
+                    "answer": "Tidak ada biaya pengaturan. Anda hanya membayar biaya langganan bulanan untuk paket yang dipilih."
+                }
+            },
+            "help": {
+                "title": "Perlu bantuan memilih paket yang tepat?",
+                "description": "Tim kami siap membantu Anda menemukan solusi yang sempurna untuk bisnis Anda.",
+                "cta": "Hubungi Tim Kami"
+            }
+        }
+    },
+    "InviteTeamMemberModal": {
+        "title": "Undang Anggota Tim",
+        "description": "Masukkan alamat email orang yang ingin Anda undang ke tim Anda.",
+        "emailLabel": "Email",
+        "emailPlaceholder": "anggota.tim@contoh.com",
+        "cancelButton": "Batal",
+        "sendButton": "Kirim Undangan",
+        "sendingButton": "Mengirim...",
+        "invalidEmailError": "Harap masukkan alamat email yang valid",
+        "ownerOnlyError": "Hanya pemilik yang dapat mengundang anggota tim",
+        "failedInvitationError": "Gagal mengirim undangan"
+    },
+    "TeamManagementPage": {
+        "title": "Kelola Tim Anda",
+        "description": "Lihat anggota tim dan akses mereka ke ruang kerja SimplyBox Anda.",
+        "teamUsage": "Penggunaan Tim",
+        "seatsUsed": "{{used}} dari {{total}} kursi digunakan",
+        "refreshButton": "Muat Ulang",
+        "inviteMemberButton": "Undang Anggota",
+        "teamSeatsUsage": "Penggunaan Kursi Tim",
+        "planName": "Paket {{plan}} - {{used}} dari {{total}} kursi digunakan",
+        "usedPercentage": "{{percentage}}% Terpakai",
+        "approachingLimitTitle": "Mendekati Batas",
+        "approachingLimitDescription": "Anda menggunakan {{used}} dari {{total}} kursi tim. Pertimbangkan untuk meningkatkan kapasitas.",
+        "upgradeButton": "Tingkatkan",
+        "loadingTeamMembers": "Memuat anggota tim...",
+        "ownerTitle": "Pemilik",
+        "ownerDescription": "Pemilik memiliki kendali penuh atas ruang kerja.",
+        "teamMembersTitle": "Anggota Tim ({{count}})",
+        "noTeamMembersTitle": "Belum ada anggota tim",
+        "noTeamMembersDescription": "Mulai bangun tim Anda dengan mengundang anggota untuk berkolaborasi.",
+        "inviteFirstMemberButton": "Undang Anggota Pertama Anda",
+        "confirmRemovalTitle": "Konfirmasi Penghapusan Anggota Tim",
+        "confirmRemovalDescription": "Apakah Anda yakin ingin menghapus anggota tim ini? Tindakan ini tidak dapat dibatalkan.",
+        "removeButton": "Hapus",
+        "roles": {
+            "owner": "Pemilik",
+            "admin": "Admin",
+            "you": "Anda"
+        }
+    },
+    "FilesPage": {
+        "title": "Basis Pengetahuan",
+        "description": "Unggah dan kelola file perusahaan Anda untuk respons berbasis AI.",
+        "fileUsage": "Penggunaan File",
+        "filesUsed": "{{used}} dari {{total}} file terupload",
+        "addFileButton": "Tambah File",
+        "addFirstFileButton": "Tambah File Pertama Anda",
+        "planName": "Paket {{plan}} - {{used}} dari {{total}} file digunakan",
+        "usedPercentage": "{{percentage}}% Terpakai",
+        "approachingLimitTitle": "Mendekati Batas File",
+        "approachingLimitDescription": "Anda menggunakan {{used}} dari {{total}} file. Pertimbangkan untuk meningkatkan kapasitas.",
+        "upgradeButton": "Tingkatkan",
+        "loadingFiles": "Memuat file Anda...",
+        "noFilesTitle": "Belum ada file yang diunggah",
+        "noFilesDescription": "Unggah file pertama Anda untuk mulai membangun basis pengetahuan.",
+        "confirmDeleteTitle": "Konfirmasi Penghapusan File",
+        "confirmDeleteDescription": "Apakah Anda yakin ingin menghapus file ini? Tindakan ini tidak dapat dibatalkan.",
+        "viewButton": "Lihat",
+        "downloadButton": "Unduh",
+        "deleteButton": "Hapus",
+        "uploadModal": {
+            "title": "Tambah File Pengetahuan Baru",
+            "description": "Unggah file ke basis pengetahuan Anda untuk respons pelanggan berbasis AI.",
+            "dragDropText": "Seret dan lepas file Anda di sini",
+            "orText": "atau",
+            "selectFileButton": "Pilih File",
+            "acceptedFilesText": "Diterima: PDF, DOCX, TXT, hingga 10MB",
+            "fileNameLabel": "Nama File *",
+            "fileNamePlaceholder": "Masukkan nama file",
+            "categoryLabel": "Kategori *",
+            "categoryPlaceholder": "Pilih kategori",
+            "tagsLabel": "Tag (Opsional)",
+            "tagsPlaceholder": "Masukkan tag dipisahkan dengan koma",
+            "tagsExample": "Contoh: refund, policy, september-2025",
+            "descriptionLabel": "Deskripsi (Opsional)",
+            "descriptionPlaceholder": "Contoh: Pembaruan kebijakan refund per September 2025",
+            "cancelButton": "Batal",
+            "uploadButton": "Unggah & Tambah ke Basis Pengetahuan",
+            "uploadingButton": "Memproses...",
+            "successTitle": "File berhasil diunggah!",
+            "successDescription": "File Anda telah diproses dan ditambahkan ke basis pengetahuan.",
+            "addAnotherButton": "Tambah File Lain",
+            "backToKnowledgeBaseButton": "Kembali ke Basis Pengetahuan",
+            "processingFile": "Memproses file...",
+            "unsupportedFileTypeError": "Tipe file tidak didukung. Harap unggah file PDF, DOCX, atau TXT.",
+            "fileTooLargeError": "File terlalu besar. Ukuran maksimum adalah 10MB. File Anda {{size}}MB.",
+            "duplicateFileError": "File dengan nama \"{{name}}\" sudah ada di basis pengetahuan Anda.",
+            "uploadFailedError": "Upload gagal",
+            "downloadFailedError": "Gagal mengunduh file",
+            "deleteFailedError": "Hapus gagal"
+        }
+    }
+}

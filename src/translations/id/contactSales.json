@@ -1,0 +1,68 @@
+{
+    "contactSales": {
+        "backToHome": "Kembali ke Beranda",
+        "backToPlans": "Kembali ke Paket",
+        "hero": {
+            "tagline": "Dipercaya oleh 500+ UMKM Indonesia",
+            "titlePrefix": "Siap untuk",
+            "titleHighlight": "Mengubah",
+            "titleSuffix": "Bisnis Anda?",
+            "subtitle": "Hentikan kerumitan mengelola WhatsApp, email, dan panggilan telepon. SimplyBox menyatukan semua komunikasi pelanggan Anda ke dalam satu workspace cerdas, didukung oleh AI yang memahami budaya bisnis dan nuansa bahasa Indonesia."
+        },
+        "stats": {
+            "responseTime": {
+                "value": "85%",
+                "label": "Waktu Respons Lebih Cepat"
+            },
+            "salesConversions": {
+                "value": "3x",
+                "label": "Konversi Penjualan Lebih Banyak"
+            },
+            "timeSaved": {
+                "value": "60%",
+                "label": "Waktu yang Dihemat Setiap Hari"
+            }
+        },
+        "contactOptions": {
+            "title": "Hubungi Tim Penjualan Kami",
+            "subtitle": "Setiap bisnis Indonesia memiliki tantangan komunikasi yang unik. Hubungi kami untuk melihat bagaimana SimplyBox dapat membantu Anda melayani pelanggan lebih baik, menutup lebih banyak transaksi, dan berkembang lebih cepat.",
+            "whatsapp": {
+                "title": "WhatsApp Tim Penjualan Kami",
+                "description": "Dapatkan jawaban instan dan jadwalkan demo langsung",
+                "phone": "+62 815-1012-3155"
+            },
+            "email": {
+                "title": "Email untuk Diskusi Mendalam",
+                "description": "Sempurna untuk kebutuhan khusus dan kebutuhan enterprise",
+                "address": "dylansiusputra.business@gmail.com"
+            }
+        },
+        "demoBenefits": {
+            "title": "Apa yang Anda Dapatkan di Demo Anda",
+            "items": {
+                "whatsappIntegration": {
+                    "title": "Integrasi WhatsApp Langsung",
+                    "description": "Lihat bagaimana WhatsApp Business Anda terhubung dengan mulus"
+                },
+                "aiResponses": {
+                    "title": "Saran Respons AI",
+                    "description": "Saksikan AI membuat balasan sempurna dalam Bahasa Indonesia"
+                },
+                "roiAnalysis": {
+                    "title": "Analisis ROI Khusus",
+                    "description": "Hitung dengan tepat berapa banyak waktu dan uang yang akan Anda hemat"
+                },
+                "implementationRoadmap": {
+                    "title": "Peta Implementasi",
+                    "description": "Dapatkan rencana jelas untuk menerapkan SimplyBox ke tim Anda"
+                }
+            }
+        },
+        "businessHours": {
+            "title": "Jam Operasional",
+            "mondayFriday": "Senin - Jumat: 09.00 - 18.00 (WIB)",
+            "saturday": "Sabtu: 09.00 - 14.00 (WIB)",
+            "responseTime": "Kami biasanya merespons dalam waktu 2 jam"
+        }
+    }
+}
