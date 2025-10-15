@@ -210,7 +210,7 @@ const InteractiveInbox: React.FC<InteractiveInboxProps> = ({
                                 <DropdownMenuItem
                                     onClick={() => setChannelFilter("whatsapp")}
                                 >
-                                    {t("InboxPage.filterChannelWhatsApp")}
+                                    {t("InboxPage.filterChannelWhatsapp")}
                                 </DropdownMenuItem>
                                 <DropdownMenuItem
                                     onClick={() =>
