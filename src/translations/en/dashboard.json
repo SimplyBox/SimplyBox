@@ -43,11 +43,13 @@
         "messagePlaceholder": "Type your message...",
         "selectConversationTitle": "Select a conversation",
         "selectConversationDescription": "Choose a conversation from the list to start messaging",
+        "whatsappWindowExpired": "The 24-hour reply window has expired. You can only send template messages or wait for the customer's next message.",
         "status": {
             "sent": "Sent",
             "delivered": "Delivered",
             "read": "Read",
-            "received": "received"
+            "received": "Received",
+            "failed": "Failed"
         }
     },
     "upgrade": {

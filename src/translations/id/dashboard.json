@@ -43,11 +43,13 @@
         "messagePlaceholder": "Ketik pesan Anda...",
         "selectConversationTitle": "Pilih percakapan",
         "selectConversationDescription": "Pilih percakapan dari daftar untuk mulai mengirim pesan",
+        "whatsappWindowExpired": "Jendela balasan 24 jam telah berakhir. Anda hanya dapat mengirim pesan template atau menunggu pesan berikutnya dari pelanggan.",
         "status": {
             "sent": "Dikirim",
             "delivered": "Terkirim",
             "read": "Dibaca",
-            "received": "Diterima"
+            "received": "Diterima",
+            "failed": "Gagal"
         }
     },
     "upgrade": {
@@ -186,7 +188,7 @@
         "activeLeads": "Prospek Aktif",
         "thisWeek": "Minggu Ini",
         "tabs": {
-            "overview": "Ikhtisar",
+            "overview": "Ringkasan",
             "allContacts": "Semua Kontak"
         },
         "recentContacts": {

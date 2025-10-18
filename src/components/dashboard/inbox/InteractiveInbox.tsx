@@ -20,6 +20,7 @@ import {
     RefreshCw,
     Search,
     Instagram,
+    AlertTriangle,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -121,8 +122,31 @@ const InteractiveInbox: React.FC<InteractiveInboxProps> = ({
         (c) => c.id === selectedConversation
     );
 
+    const isWhatsAppWindowExpired = () => {
+        if (!selectedConv || selectedConv.channel !== "whatsapp") return false;
+
+        const lastInboundMessage = selectedConv.messages
+            .filter((m) => m.direction === "inbound")
+            .sort(
+                (a, b) =>
+                    new Date(b.created_at).getTime() -
+                    new Date(a.created_at).getTime()
+            )[0];
+
+        if (!lastInboundMessage) return true;
+
+        const lastMessageTime = new Date(
+            lastInboundMessage.created_at
+        ).getTime();
+        const currentTime = new Date().getTime();
+        const hoursDiff = (currentTime - lastMessageTime) / (1000 * 60 * 60);
+
+        return hoursDiff > 24;
+    };
+
     const handleSendMessage = async () => {
-        if (!messageText.trim() || isSending) return;
+        if (!messageText.trim() || isSending || isWhatsAppWindowExpired())
+            return;
         setIsSending(true);
         try {
             await sendMessage(messageText);
@@ -661,54 +685,72 @@ const InteractiveInbox: React.FC<InteractiveInboxProps> = ({
 
                         {/* Input Area */}
                         <div className="bg-white border-t border-gray-200 p-4">
-                            <div className="flex items-center space-x-2">
-                                <Textarea
-                                    value={messageText}
-                                    onChange={(e) =>
-                                        setMessageText(e.target.value)
-                                    }
-                                    placeholder={t(
-                                        "InboxPage.messagePlaceholder"
-                                    )}
-                                    className="flex-1 min-h-[40px] max-h-32 resize-none"
-                                    onKeyDown={(e) => {
-                                        if (e.key === "Enter" && !e.shiftKey) {
-                                            e.preventDefault();
-                                            handleSendMessage();
+                            {selectedConv.channel === "whatsapp" &&
+                            isWhatsAppWindowExpired() ? (
+                                <div className="flex items-center space-x-2 bg-yellow-50 border border-yellow-200 p-3 rounded-lg">
+                                    <AlertTriangle className="h-5 w-5 text-yellow-600" />
+                                    <p className="text-sm text-yellow-800">
+                                        {t("InboxPage.whatsappWindowExpired")}
+                                    </p>
+                                </div>
+                            ) : (
+                                <div className="flex items-center space-x-2">
+                                    <Textarea
+                                        value={messageText}
+                                        onChange={(e) =>
+                                            setMessageText(e.target.value)
                                         }
-                                    }}
-                                />
+                                        placeholder={t(
+                                            "InboxPage.messagePlaceholder"
+                                        )}
+                                        className="flex-1 min-h-[40px] max-h-32 resize-none"
+                                        disabled={isWhatsAppWindowExpired()}
+                                        onKeyDown={(e) => {
+                                            if (
+                                                e.key === "Enter" &&
+                                                !e.shiftKey
+                                            ) {
+                                                e.preventDefault();
+                                                handleSendMessage();
+                                            }
+                                        }}
+                                    />
 
-                                <Button
-                                    variant="ghost"
-                                    size="sm"
-                                    className="h-8 w-8 p-0"
-                                    disabled
-                                >
-                                    <Zap className="h-4 w-4" />
-                                </Button>
+                                    <Button
+                                        variant="ghost"
+                                        size="sm"
+                                        className="h-8 w-8 p-0"
+                                        disabled
+                                    >
+                                        <Zap className="h-4 w-4" />
+                                    </Button>
 
-                                <Button
-                                    onClick={handleSendMessage}
-                                    disabled={!messageText.trim() || isSending}
-                                    className="h-10"
-                                >
-                                    {isSending ? (
-                                        <motion.div
-                                            animate={{ rotate: 360 }}
-                                            transition={{
-                                                duration: 1,
-                                                repeat: Infinity,
-                                                ease: "linear",
-                                            }}
-                                        >
-                                            <RefreshCw className="h-4 w-4" />
-                                        </motion.div>
-                                    ) : (
-                                        <Send className="h-4 w-4" />
-                                    )}
-                                </Button>
-                            </div>
+                                    <Button
+                                        onClick={handleSendMessage}
+                                        disabled={
+                                            !messageText.trim() ||
+                                            isSending ||
+                                            isWhatsAppWindowExpired()
+                                        }
+                                        className="h-10"
+                                    >
+                                        {isSending ? (
+                                            <motion.div
+                                                animate={{ rotate: 360 }}
+                                                transition={{
+                                                    duration: 1,
+                                                    repeat: Infinity,
+                                                    ease: "linear",
+                                                }}
+                                            >
+                                                <RefreshCw className="h-4 w-4" />
+                                            </motion.div>
+                                        ) : (
+                                            <Send className="h-4 w-4" />
+                                        )}
+                                    </Button>
+                                </div>
+                            )}
                         </div>
                     </>
                 ) : (
