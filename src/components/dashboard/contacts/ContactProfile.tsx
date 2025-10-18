@@ -192,14 +192,14 @@ const ContactProfile: React.FC<ContactProfileProps> = ({
                                     }}
                                 >
                                     <X className="h-4 w-4 mr-2" />
-                                    Cancel
+                                    {t("ContactProfile.cancelButton")}
                                 </Button>
                                 <Button
                                     onClick={handleSave}
                                     className="bg-[#2ECC71] hover:bg-[#27AE60]"
                                 >
                                     <Save className="h-4 w-4 mr-2" />
-                                    Save Changes
+                                    {t("ContactProfile.saveButton")}
                                 </Button>
                             </>
                         ) : (
@@ -208,7 +208,7 @@ const ContactProfile: React.FC<ContactProfileProps> = ({
                                 variant="outline"
                             >
                                 <Edit className="h-4 w-4 mr-2" />
-                                Edit Contact
+                                {t("ContactProfile.editContactButton")}
                             </Button>
                         )}
                     </div>
@@ -221,14 +221,16 @@ const ContactProfile: React.FC<ContactProfileProps> = ({
                             <CardHeader>
                                 <CardTitle className="flex items-center gap-2">
                                     <User className="h-5 w-5 text-[#3A9BDC]" />
-                                    Contact Information
+                                    {t("ContactProfile.contactInfo.title")}
                                 </CardTitle>
                             </CardHeader>
                             <CardContent className="space-y-4">
                                 {isEditing ? (
                                     <div>
                                         <label className="text-sm font-medium text-gray-700">
-                                            Name
+                                            {t(
+                                                "ContactProfile.contactInfo.nameLabel"
+                                            )}
                                         </label>
                                         <Input
                                             value={editedContact.name}
@@ -251,19 +253,25 @@ const ContactProfile: React.FC<ContactProfileProps> = ({
                                             )}
                                             <span className="text-sm text-gray-600 capitalize">
                                                 {editedContact.identifier ||
-                                                    "No identifier"}
+                                                    t(
+                                                        "ContactProfile.contactInfo.noIdentifier"
+                                                    )}
                                             </span>
                                         </div>
                                         <div className="flex items-center gap-2">
                                             <Link className="h-4 w-4 text-gray-500" />
                                             <span className="text-sm text-gray-600 capitalize">
-                                                {editedContact.mainChannel}
+                                                {t(
+                                                    `ContactProfile.channel.${editedContact.mainChannel.toLowerCase()}`
+                                                )}
                                             </span>
                                         </div>
                                         <div className="flex items-center gap-2">
                                             <Clock className="h-4 w-4 text-gray-500" />
                                             <span className="text-sm text-gray-600">
-                                                Last contacted:{" "}
+                                                {t(
+                                                    "ContactProfile.contactInfo.lastContacted"
+                                                )}{" "}
                                                 {formatTimestamp(
                                                     editedContact.lastContacted
                                                 )}
@@ -279,7 +287,7 @@ const ContactProfile: React.FC<ContactProfileProps> = ({
                             <CardHeader>
                                 <CardTitle className="flex items-center gap-2">
                                     <Tag className="h-5 w-5 text-[#3A9BDC]" />
-                                    Tags
+                                    {t("ContactProfile.tags.title")}
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
@@ -311,7 +319,7 @@ const ContactProfile: React.FC<ContactProfileProps> = ({
                                         )
                                     ) : (
                                         <p className="text-sm text-gray-600">
-                                            No tags added yet.
+                                            {t("ContactProfile.tags.noTags")}
                                         </p>
                                     )}
                                 </div>
@@ -319,7 +327,11 @@ const ContactProfile: React.FC<ContactProfileProps> = ({
                                 {isEditing && (
                                     <Select onValueChange={handleAddTag}>
                                         <SelectTrigger>
-                                            <SelectValue placeholder="Add a tag" />
+                                            <SelectValue
+                                                placeholder={t(
+                                                    "ContactProfile.tags.addTagPlaceholder"
+                                                )}
+                                            />
                                         </SelectTrigger>
                                         <SelectContent>
                                             {availableTags
@@ -348,7 +360,7 @@ const ContactProfile: React.FC<ContactProfileProps> = ({
                             <CardHeader>
                                 <CardTitle className="flex items-center gap-2">
                                     <Edit className="h-5 w-5 text-[#3A9BDC]" />
-                                    Notes
+                                    {t("ContactProfile.notes.title")}
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
@@ -361,7 +373,9 @@ const ContactProfile: React.FC<ContactProfileProps> = ({
                                                 notes: e.target.value,
                                             }))
                                         }
-                                        placeholder="Add notes about this contact..."
+                                        placeholder={t(
+                                            "ContactProfile.notes.placeholder"
+                                        )}
                                         rows={4}
                                     />
                                 ) : (
@@ -380,7 +394,7 @@ const ContactProfile: React.FC<ContactProfileProps> = ({
                                                                   1 && <br />}
                                                       </span>
                                                   ))
-                                            : "No notes added yet."}
+                                            : t("ContactProfile.notes.noNotes")}
                                     </p>
                                 )}
                             </CardContent>
@@ -392,13 +406,13 @@ const ContactProfile: React.FC<ContactProfileProps> = ({
                         <Tabs defaultValue="conversations" className="w-full">
                             <TabsList className="grid w-full grid-cols-2">
                                 <TabsTrigger value="conversations">
-                                    Conversations
+                                    {t("ContactProfile.tabs.conversations")}
                                 </TabsTrigger>
                                 <TabsTrigger
                                     value="activities"
                                     className="relative"
                                 >
-                                    Activities
+                                    {t("ContactProfile.tabs.activities")}
                                     {isProfessionalFeature && (
                                         <Crown className="h-3 w-3 text-[#F1C40F] ml-1" />
                                     )}
@@ -412,10 +426,14 @@ const ContactProfile: React.FC<ContactProfileProps> = ({
                                 <Card>
                                     <CardHeader>
                                         <CardTitle>
-                                            Conversation History
+                                            {t(
+                                                "ContactProfile.conversationHistory.title"
+                                            )}
                                         </CardTitle>
                                         <CardDescription>
-                                            All messages with this contact
+                                            {t(
+                                                "ContactProfile.conversationHistory.description"
+                                            )}
                                         </CardDescription>
                                     </CardHeader>
                                     <CardContent className="p-0">
@@ -571,7 +589,9 @@ const ContactProfile: React.FC<ContactProfileProps> = ({
                                                 })()
                                             ) : (
                                                 <div className="text-center text-gray-500">
-                                                    No messages
+                                                    {t(
+                                                        "ContactProfile.conversationHistory.noMessages"
+                                                    )}
                                                 </div>
                                             )}
                                             <div ref={messagesEndRef} />
@@ -582,7 +602,9 @@ const ContactProfile: React.FC<ContactProfileProps> = ({
                                                 className="w-full"
                                             >
                                                 <MessageSquare className="h-4 w-4 mr-2" />
-                                                Open in Inbox
+                                                {t(
+                                                    "ContactProfile.conversationHistory.openInInbox"
+                                                )}
                                             </Button>
                                         </div>
                                     </CardContent>
@@ -598,17 +620,19 @@ const ContactProfile: React.FC<ContactProfileProps> = ({
                                         <CardContent className="p-6 text-center">
                                             <Crown className="h-12 w-12 text-[#F1C40F] mx-auto mb-4" />
                                             <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                                                Professional Feature
+                                                {t(
+                                                    "ContactProfile.activities.professionalFeature.title"
+                                                )}
                                             </h3>
                                             <p className="text-gray-600 mb-4">
-                                                Activity management is available
-                                                for Professional plan users.
-                                                Track follow-ups, schedule
-                                                tasks, and monitor team
-                                                activities.
+                                                {t(
+                                                    "ContactProfile.activities.professionalFeature.description"
+                                                )}
                                             </p>
                                             <Button className="bg-[#F1C40F] hover:bg-[#E6B800] text-gray-900">
-                                                Upgrade to Professional
+                                                {t(
+                                                    "ContactProfile.activities.professionalFeature.upgradeButton"
+                                                )}
                                             </Button>
                                         </CardContent>
                                     </Card>

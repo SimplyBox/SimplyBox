@@ -174,6 +174,238 @@
             }
         }
     },
+    "ContactManagement": {
+        "title": "Manajemen Kontak",
+        "description": "Kelola hubungan pelanggan Anda untuk {{companyName}}",
+        "addContactButton": "Tambah Kontak",
+        "importContacts": "Impor Kontak",
+        "sendBulkMessage": "Kirim Pesan Massal",
+        "manageTags": "Kelola Tag",
+        "totalContacts": "Total Kontak",
+        "vipContacts": "Kontak VIP",
+        "activeLeads": "Prospek Aktif",
+        "thisWeek": "Minggu Ini",
+        "tabs": {
+            "overview": "Ikhtisar",
+            "allContacts": "Semua Kontak"
+        },
+        "recentContacts": {
+            "title": "Kontak Terbaru",
+            "description": "Interaksi pelanggan terbaru Anda"
+        },
+        "importContactsCard": {
+            "title": "Impor Kontak",
+            "description": "Unggah dari CSV, Google Contacts, atau WhatsApp"
+        },
+        "bulkMessageCard": {
+            "title": "Kirim Pesan Massal",
+            "description": "Kirim pesan ke beberapa kontak sekaligus"
+        },
+        "tagManagementCard": {
+            "title": "Kelola Tag",
+            "description": "Atur kontak dengan tag khusus"
+        },
+        "searchPlaceholder": "Cari kontak berdasarkan nama atau telepon...",
+        "sortOptions": {
+            "lastContacted": "Terakhir Dihubungi",
+            "name": "Nama",
+            "totalMessages": "Pesan"
+        },
+        "filterByTags": "Filter berdasarkan Tag",
+        "clearFilters": "Hapus Filter",
+        "noContactsFound": {
+            "title": "Tidak ada kontak ditemukan",
+            "description": "Coba sesuaikan pencarian atau filter Anda",
+            "addFirstContactButton": "Tambah Kontak Pertama Anda"
+        },
+        "channel": {
+            "whatsapp": "WhatsApp",
+            "email": "Email",
+            "phone": "Telepon"
+        },
+        "timeAgo": {
+            "justNow": "Baru saja",
+            "minutes": "{{count}} menit lalu",
+            "hours": "{{count}} jam lalu",
+            "yesterday": "Kemarin",
+            "days": "{{count}} hari lalu",
+            "weeks": "{{count}} minggu lalu",
+            "months": "{{count}} bulan lalu",
+            "years": "{{count}} tahun lalu"
+        }
+    },
+    "ContactProfile": {
+        "cancelButton": "Batal",
+        "saveButton": "Simpan Perubahan",
+        "editContactButton": "Edit Kontak",
+        "contactInfo": {
+            "title": "Informasi Kontak",
+            "nameLabel": "Nama",
+            "noIdentifier": "Tidak ada pengenal",
+            "lastContacted": "Terakhir Dihubungi:"
+        },
+        "channel": {
+            "whatsapp": "WhatsApp",
+            "email": "Email",
+            "phone": "Telepon"
+        },
+        "tags": {
+            "title": "Tag",
+            "noTags": "Belum ada tag yang ditambahkan.",
+            "addTagPlaceholder": "Tambah tag"
+        },
+        "notes": {
+            "title": "Catatan",
+            "noNotes": "Belum ada catatan yang ditambahkan.",
+            "placeholder": "Tambah catatan tentang kontak ini..."
+        },
+        "tabs": {
+            "conversations": "Percakapan",
+            "activities": "Aktivitas"
+        },
+        "conversationHistory": {
+            "title": "Riwayat Percakapan",
+            "description": "Semua pesan dengan kontak ini",
+            "noMessages": "Tidak ada pesan",
+            "openInInbox": "Buka di Kotak Masuk"
+        },
+        "activities": {
+            "professionalFeature": {
+                "title": "Fitur Profesional",
+                "description": "Manajemen aktivitas tersedia untuk pengguna paket Profesional. Lacak tindak lanjut, jadwalkan tugas, dan pantau aktivitas tim.",
+                "upgradeButton": "Tingkatkan ke Profesional"
+            }
+        }
+    },
+    "TagManagement": {
+        "title": "Kelola Tag Kontak",
+        "cancelButton": "Batal",
+        "saveButton": "Simpan Perubahan",
+        "addNewTag": {
+            "title": "Tambah Tag Baru",
+            "description": "Buat tag baru dengan nama dan pilih warna",
+            "placeholder": "Masukkan nama tag...",
+            "colorPlaceholder": "Pilih warna",
+            "addButton": "Tambah Tag"
+        },
+        "existingTags": {
+            "title": "Tag yang Ada ({{count}})",
+            "description": "Edit nama, warna, atau hapus tag yang ada (Tag global tidak dapat dihapus)",
+            "resetButton": "Atur Ulang Perubahan",
+            "loading": "Memuat tag...",
+            "noTags": "Belum ada tag yang dibuat",
+            "noTagsDescription": "Tambah tag pertama Anda di atas",
+            "tagNamePlaceholder": "Nama tag",
+            "noColor": "Tidak ada warna",
+            "changeColor": "Ubah ke {{color}}"
+        },
+        "colors": {
+            "blue": "Biru",
+            "green": "Hijau",
+            "yellow": "Kuning",
+            "purple": "Ungu",
+            "indigo": "Indigo",
+            "red": "Merah",
+            "pink": "Merah Muda",
+            "orange": "Oranye",
+            "teal": "Teal",
+            "cyan": "Sian"
+        },
+        "bestPractices": {
+            "title": "Praktik Terbaik Tag",
+            "clearNames": "Gunakan nama yang jelas seperti 'VIP' dan 'Prospek'.",
+            "shortNames": "Jaga nama tag tetap pendek dan konsisten",
+            "colorGrouping": "Gunakan warna untuk mengelompokkan tag terkait (misalnya, semua tahap penjualan berwarna hijau)",
+            "reviewTags": "Tinjau dan bersihkan tag khusus yang tidak digunakan secara rutin",
+            "businessSegments": "Pertimbangkan membuat tag untuk segmen bisnis yang berbeda"
+        }
+    },
+    "ContactProfile": {
+        "cancelButton": "Cancel",
+        "saveButton": "Save Changes",
+        "editContactButton": "Edit Contact",
+        "contactInfo": {
+            "title": "Contact Information",
+            "nameLabel": "Name",
+            "noIdentifier": "No identifier",
+            "lastContacted": "Last contacted:"
+        },
+        "channel": {
+            "whatsapp": "WhatsApp",
+            "email": "Email",
+            "phone": "Phone"
+        },
+        "tags": {
+            "title": "Tags",
+            "noTags": "No tags added yet.",
+            "addTagPlaceholder": "Add a tag"
+        },
+        "notes": {
+            "title": "Notes",
+            "noNotes": "No notes added yet.",
+            "placeholder": "Add notes about this contact..."
+        },
+        "tabs": {
+            "conversations": "Conversations",
+            "activities": "Activities"
+        },
+        "conversationHistory": {
+            "title": "Conversation History",
+            "description": "All messages with this contact",
+            "noMessages": "No messages",
+            "openInInbox": "Open in Inbox"
+        },
+        "activities": {
+            "professionalFeature": {
+                "title": "Professional Feature",
+                "description": "Activity management is available for Professional plan users. Track follow-ups, schedule tasks, and monitor team activities.",
+                "upgradeButton": "Upgrade to Professional"
+            }
+        }
+    },
+    "TagManagement": {
+        "title": "Manage Contact Tags",
+        "cancelButton": "Cancel",
+        "saveButton": "Save Changes",
+        "addNewTag": {
+            "title": "Add New Tag",
+            "description": "Create a new tag with a name and select a color",
+            "placeholder": "Enter tag name...",
+            "colorPlaceholder": "Select color",
+            "addButton": "Add Tag"
+        },
+        "existingTags": {
+            "title": "Existing Tags ({{count}})",
+            "description": "Edit name, color, or delete existing tags (Global tags cannot be deleted)",
+            "resetButton": "Reset Changes",
+            "loading": "Loading tags...",
+            "noTags": "No tags created yet",
+            "noTagsDescription": "Add your first tag above",
+            "tagNamePlaceholder": "Tag name",
+            "noColor": "No color",
+            "changeColor": "Change to {{color}}"
+        },
+        "colors": {
+            "blue": "Blue",
+            "green": "Green",
+            "yellow": "Yellow",
+            "purple": "Purple",
+            "indigo": "Indigo",
+            "red": "Red",
+            "pink": "Pink",
+            "orange": "Orange",
+            "teal": "Teal",
+            "cyan": "Cyan"
+        },
+        "bestPractices": {
+            "title": "Tag Best Practices",
+            "clearNames": "Use clear names like 'VIP' and 'Lead.'",
+            "shortNames": "Keep tag names short and consistent",
+            "colorGrouping": "Use colors to group related tags (e.g., all sales stages in green)",
+            "reviewTags": "Regularly review and clean up unused custom tags",
+            "businessSegments": "Consider creating tags for different business segments"
+        }
+    },
     "InviteTeamMemberModal": {
         "title": "Undang Anggota Tim",
         "description": "Masukkan alamat email orang yang ingin Anda undang ke tim Anda.",

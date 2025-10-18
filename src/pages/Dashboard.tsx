@@ -13,7 +13,7 @@ import InsightsDashboard from "@/components/dashboard/insights/InsightsDashboard
 import ProfilePage from "@/components/profile/ProfilePage";
 import TeamManagementPage from "@/components/dashboard/team/TeamManagementPage";
 import FilesPage from "@/components/dashboard/files/FilesPage";
-import ContactManagement from "@/components/contacts/ContactManagement";
+import ContactManagement from "@/components/dashboard/contacts/ContactManagement";
 import InteractiveInbox from "@/components/dashboard/inbox/InteractiveInbox";
 import AIInsightPage from "@/components/dashboard/insights/AIInsightPage";
 import SettingsPage from "@/components/dashboard/settings/SettingsPage";

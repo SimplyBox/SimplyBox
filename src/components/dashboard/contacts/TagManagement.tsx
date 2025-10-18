@@ -37,6 +37,7 @@ import {
     SelectValue,
 } from "@/components/ui/select";
 import { useInbox } from "@/contexts/InboxContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface TagManagementProps {
     isOpen: boolean;
@@ -66,6 +67,7 @@ const TagManagement: React.FC<TagManagementProps> = ({ isOpen, onClose }) => {
         handleSaveTagChanges,
         handleResetTags,
     } = useInbox();
+    const { t } = useLanguage();
 
     const predefinedColors = [
         "bg-blue-100 text-blue-800 hover:bg-blue-200 hover:text-blue-900",
@@ -107,7 +109,7 @@ const TagManagement: React.FC<TagManagementProps> = ({ isOpen, onClose }) => {
                 <DialogHeader>
                     <DialogTitle className="text-xl font-semibold text-gray-900 flex items-center gap-2">
                         <Tag className="h-5 w-5 text-[#3A9BDC]" />
-                        Manage Contact Tags
+                        {t("TagManagement.title")}
                     </DialogTitle>
                 </DialogHeader>
 
@@ -123,10 +125,10 @@ const TagManagement: React.FC<TagManagementProps> = ({ isOpen, onClose }) => {
                         <CardHeader>
                             <CardTitle className="flex items-center gap-2">
                                 <Plus className="h-5 w-5 text-[#2ECC71]" />
-                                Add New Tag
+                                {t("TagManagement.addNewTag.title")}
                             </CardTitle>
                             <CardDescription>
-                                Create a new tag with a name and select a color
+                                {t("TagManagement.addNewTag.description")}
                             </CardDescription>
                         </CardHeader>
                         <CardContent>
@@ -136,7 +138,9 @@ const TagManagement: React.FC<TagManagementProps> = ({ isOpen, onClose }) => {
                                     onChange={(e) =>
                                         setNewTagName(e.target.value)
                                     }
-                                    placeholder="Enter tag name..."
+                                    placeholder={t(
+                                        "TagManagement.addNewTag.placeholder"
+                                    )}
                                     className="flex-1"
                                     disabled={tagsLoading}
                                 />
@@ -145,7 +149,11 @@ const TagManagement: React.FC<TagManagementProps> = ({ isOpen, onClose }) => {
                                     onValueChange={setNewTagColor}
                                 >
                                     <SelectTrigger className="w-48">
-                                        <SelectValue placeholder="Select color" />
+                                        <SelectValue
+                                            placeholder={t(
+                                                "TagManagement.addNewTag.colorPlaceholder"
+                                            )}
+                                        />
                                     </SelectTrigger>
                                     <SelectContent>
                                         {predefinedColors.map((color) => (
@@ -173,7 +181,7 @@ const TagManagement: React.FC<TagManagementProps> = ({ isOpen, onClose }) => {
                                     className="bg-[#2ECC71] hover:bg-[#27AE60]"
                                 >
                                     <Plus className="h-4 w-4 mr-2" />
-                                    Add Tag
+                                    {t("TagManagement.addNewTag.addButton")}
                                 </Button>
                             </div>
                         </CardContent>
@@ -184,12 +192,11 @@ const TagManagement: React.FC<TagManagementProps> = ({ isOpen, onClose }) => {
                             <CardTitle className="flex items-center justify-between">
                                 <div className="flex items-center gap-2">
                                     <Edit className="h-5 w-5 text-[#3A9BDC]" />
-                                    Existing Tags (
-                                    {
-                                        tags.filter((tag) => !tag.isDeleted)
-                                            .length
-                                    }
-                                    )
+                                    {t("TagManagement.existingTags.title", {
+                                        count: tags.filter(
+                                            (tag) => !tag.isDeleted
+                                        ).length,
+                                    })}
                                 </div>
                                 <Button
                                     variant="outline"
@@ -197,26 +204,31 @@ const TagManagement: React.FC<TagManagementProps> = ({ isOpen, onClose }) => {
                                     onClick={handleResetTags}
                                     disabled={tagsLoading}
                                 >
-                                    Reset Changes
+                                    {t(
+                                        "TagManagement.existingTags.resetButton"
+                                    )}
                                 </Button>
                             </CardTitle>
                             <CardDescription>
-                                Edit name, color, or delete existing tags
-                                (Global tags cannot be deleted)
+                                {t("TagManagement.existingTags.description")}
                             </CardDescription>
                         </CardHeader>
                         <CardContent>
                             {tagsLoading ? (
                                 <div className="text-center py-8">
-                                    Loading tags...
+                                    {t("TagManagement.existingTags.loading")}
                                 </div>
                             ) : tags.filter((tag) => !tag.isDeleted).length ===
                               0 ? (
                                 <div className="text-center py-8 text-gray-500">
                                     <Tag className="h-12 w-12 mx-auto mb-4 text-gray-300" />
-                                    <p>No tags created yet</p>
+                                    <p>
+                                        {t("TagManagement.existingTags.noTags")}
+                                    </p>
                                     <p className="text-sm mt-1">
-                                        Add your first tag above
+                                        {t(
+                                            "TagManagement.existingTags.noTagsDescription"
+                                        )}
                                     </p>
                                 </div>
                             ) : (
@@ -241,7 +253,9 @@ const TagManagement: React.FC<TagManagementProps> = ({ isOpen, onClose }) => {
                                                                             .value
                                                                     )
                                                                 }
-                                                                placeholder="Tag name"
+                                                                placeholder={t(
+                                                                    "TagManagement.existingTags.tagNamePlaceholder"
+                                                                )}
                                                                 className="w-40"
                                                                 autoFocus
                                                                 disabled={
@@ -257,7 +271,11 @@ const TagManagement: React.FC<TagManagementProps> = ({ isOpen, onClose }) => {
                                                                 }
                                                             >
                                                                 <SelectTrigger className="w-40">
-                                                                    <SelectValue placeholder="Select color" />
+                                                                    <SelectValue
+                                                                        placeholder={t(
+                                                                            "TagManagement.addNewTag.colorPlaceholder"
+                                                                        )}
+                                                                    />
                                                                 </SelectTrigger>
                                                                 <SelectContent>
                                                                     {predefinedColors.map(
@@ -345,10 +363,16 @@ const TagManagement: React.FC<TagManagementProps> = ({ isOpen, onClose }) => {
                                                             </Badge>
                                                             <span className="text-sm text-gray-600">
                                                                 {tag.color
-                                                                    ? tag.color.split(
-                                                                          "-"
-                                                                      )[1]
-                                                                    : "No color"}
+                                                                    ? t(
+                                                                          `TagManagement.colors.${
+                                                                              tag.color.split(
+                                                                                  "-"
+                                                                              )[1]
+                                                                          }`
+                                                                      )
+                                                                    : t(
+                                                                          "TagManagement.existingTags.noColor"
+                                                                      )}
                                                             </span>
                                                         </div>
 
@@ -382,11 +406,14 @@ const TagManagement: React.FC<TagManagementProps> = ({ isOpen, onClose }) => {
                                                                                         color
                                                                                     )
                                                                                 }
-                                                                                title={`Change to ${
-                                                                                    color.split(
-                                                                                        "-"
-                                                                                    )[1]
-                                                                                }`}
+                                                                                title={t(
+                                                                                    "TagManagement.existingTags.changeColor",
+                                                                                    {
+                                                                                        color: color.split(
+                                                                                            "-"
+                                                                                        )[1],
+                                                                                    }
+                                                                                )}
                                                                                 disabled={
                                                                                     tagsLoading
                                                                                 }
@@ -455,26 +482,35 @@ const TagManagement: React.FC<TagManagementProps> = ({ isOpen, onClose }) => {
                         <CardHeader>
                             <CardTitle className="flex items-center gap-2 text-blue-900">
                                 <CheckCircle className="h-5 w-5" />
-                                Tag Best Practices
+                                {t("TagManagement.bestPractices.title")}
                             </CardTitle>
                         </CardHeader>
                         <CardContent className="text-blue-800">
                             <ul className="space-y-2 text-sm">
                                 <li>
-                                    • Use clear names like “VIP” and “Lead.”
-                                </li>
-                                <li>• Keep tag names short and consistent</li>
-                                <li>
-                                    • Use colors to group related tags (e.g.,
-                                    all sales stages in green)
+                                    {t(
+                                        "TagManagement.bestPractices.clearNames"
+                                    )}
                                 </li>
                                 <li>
-                                    • Regularly review and clean up unused
-                                    custom tags
+                                    {t(
+                                        "TagManagement.bestPractices.shortNames"
+                                    )}
                                 </li>
                                 <li>
-                                    • Consider creating tags for different
-                                    business segments
+                                    {t(
+                                        "TagManagement.bestPractices.colorGrouping"
+                                    )}
+                                </li>
+                                <li>
+                                    {t(
+                                        "TagManagement.bestPractices.reviewTags"
+                                    )}
+                                </li>
+                                <li>
+                                    {t(
+                                        "TagManagement.bestPractices.businessSegments"
+                                    )}
                                 </li>
                             </ul>
                         </CardContent>
@@ -487,7 +523,7 @@ const TagManagement: React.FC<TagManagementProps> = ({ isOpen, onClose }) => {
                         onClick={handleCancel}
                         disabled={tagsLoading}
                     >
-                        Cancel
+                        {t("TagManagement.cancelButton")}
                     </Button>
                     <Button
                         onClick={handleSave}
@@ -499,7 +535,7 @@ const TagManagement: React.FC<TagManagementProps> = ({ isOpen, onClose }) => {
                         ) : (
                             <Save className="h-4 w-4 mr-2" />
                         )}
-                        Save Changes
+                        {t("TagManagement.saveButton")}
                     </Button>
                 </div>
             </DialogContent>

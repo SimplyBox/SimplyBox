@@ -48,6 +48,7 @@ import BulkMessageModal from "./BulkMessageModal";
 import TagManagement from "./TagManagement";
 import { useInbox } from "@/contexts/InboxContext";
 import { useAuth } from "@/contexts/AuthContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { useSearchParams, useNavigate } from "react-router-dom";
 
 interface ContactManagementProps {
@@ -57,6 +58,7 @@ interface ContactManagementProps {
 const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
     const { conversations, availableTags, tags } = useInbox();
     const { company } = useAuth();
+    const { t } = useLanguage();
     const [selectedContact, setSelectedContact] = useState<any | null>(null);
     const [searchQuery, setSearchQuery] = useState("");
     const [selectedTags, setSelectedTags] = useState<string[]>([]);
@@ -167,27 +169,27 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
         const diffTime = Math.floor((now.getTime() - date.getTime()) / 1000);
 
         if (diffTime < 60) {
-            return "Just now";
+            return t("ContactManagement.timeAgo.justNow");
         } else if (diffTime < 3600) {
             const minutes = Math.floor(diffTime / 60);
-            return `${minutes} minute${minutes > 1 ? "s" : ""} ago`;
+            return t("ContactManagement.timeAgo.minutes", { count: minutes });
         } else if (diffTime < 86400) {
             const hours = Math.floor(diffTime / 3600);
-            return `${hours} hour${hours > 1 ? "s" : ""} ago`;
+            return t("ContactManagement.timeAgo.hours", { count: hours });
         } else if (diffTime < 172800) {
-            return "Yesterday";
+            return t("ContactManagement.timeAgo.yesterday");
         } else if (diffTime < 604800) {
             const days = Math.floor(diffTime / 86400);
-            return `${days} day${days > 1 ? "s" : ""} ago`;
+            return t("ContactManagement.timeAgo.days", { count: days });
         } else if (diffTime < 2592000) {
             const weeks = Math.floor(diffTime / 604800);
-            return `${weeks} week${weeks > 1 ? "s" : ""} ago`;
+            return t("ContactManagement.timeAgo.weeks", { count: weeks });
         } else if (diffTime < 31536000) {
             const months = Math.floor(diffTime / 2592000);
-            return `${months} month${months > 1 ? "s" : ""} ago`;
+            return t("ContactManagement.timeAgo.months", { count: months });
         } else {
             const years = Math.floor(diffTime / 31536000);
-            return `${years} year${years > 1 ? "s" : ""} ago`;
+            return t("ContactManagement.timeAgo.years", { count: years });
         }
     };
 
@@ -220,11 +222,12 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
                     <div>
                         <h1 className="text-3xl font-bold text-gray-900 mb-2">
-                            Contact Management
+                            {t("ContactManagement.title")}
                         </h1>
                         <p className="text-gray-600">
-                            Manage your customer relationships for{" "}
-                            {company.name}
+                            {t("ContactManagement.description", {
+                                companyName: company.name,
+                            })}
                         </p>
                     </div>
                     <div className="flex gap-2">
@@ -233,7 +236,7 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
                             className="bg-[#3A9BDC] hover:bg-[#2E8BC7]"
                         >
                             <Plus className="h-4 w-4 mr-2" />
-                            Add Contact
+                            {t("ContactManagement.addContactButton")}
                         </Button>
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
@@ -246,19 +249,19 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
                                     onClick={() => setShowImportContacts(true)}
                                 >
                                     <Upload className="h-4 w-4 mr-2" />
-                                    Import Contacts
+                                    {t("ContactManagement.importContacts")}
                                 </DropdownMenuItem>
                                 <DropdownMenuItem
                                     onClick={() => setShowBulkMessage(true)}
                                 >
                                     <MessageSquare className="h-4 w-4 mr-2" />
-                                    Send Bulk Message
+                                    {t("ContactManagement.sendBulkMessage")}
                                 </DropdownMenuItem>
                                 <DropdownMenuItem
                                     onClick={() => setShowTagManagement(true)}
                                 >
                                     <Tag className="h-4 w-4 mr-2" />
-                                    Manage Tags
+                                    {t("ContactManagement.manageTags")}
                                 </DropdownMenuItem>
                             </DropdownMenuContent>
                         </DropdownMenu>
@@ -271,7 +274,7 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
                             <div className="flex items-center justify-between">
                                 <div>
                                     <p className="text-sm text-gray-600">
-                                        Total Contacts
+                                        {t("ContactManagement.totalContacts")}
                                     </p>
                                     <p className="text-2xl font-bold text-gray-900">
                                         {mappedContacts.length}
@@ -286,7 +289,7 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
                             <div className="flex items-center justify-between">
                                 <div>
                                     <p className="text-sm text-gray-600">
-                                        VIP Contacts
+                                        {t("ContactManagement.vipContacts")}
                                     </p>
                                     <p className="text-2xl font-bold text-gray-900">
                                         {
@@ -305,7 +308,7 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
                             <div className="flex items-center justify-between">
                                 <div>
                                     <p className="text-sm text-gray-600">
-                                        Active Leads
+                                        {t("ContactManagement.activeLeads")}
                                     </p>
                                     <p className="text-2xl font-bold text-gray-900">
                                         {
@@ -324,7 +327,7 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
                             <div className="flex items-center justify-between">
                                 <div>
                                     <p className="text-sm text-gray-600">
-                                        This Week
+                                        {t("ContactManagement.thisWeek")}
                                     </p>
                                     <p className="text-2xl font-bold text-gray-900">
                                         {
@@ -348,9 +351,11 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
 
                 <Tabs defaultValue="overview" className="w-full mt-6">
                     <TabsList className="grid w-full grid-cols-2">
-                        <TabsTrigger value="overview">Overview</TabsTrigger>
+                        <TabsTrigger value="overview">
+                            {t("ContactManagement.tabs.overview")}
+                        </TabsTrigger>
                         <TabsTrigger value="all-contacts">
-                            All Contacts
+                            {t("ContactManagement.tabs.allContacts")}
                         </TabsTrigger>
                     </TabsList>
 
@@ -359,10 +364,14 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
                             <CardHeader>
                                 <CardTitle className="flex items-center gap-2">
                                     <Clock className="h-5 w-5 text-[#3A9BDC]" />
-                                    Recent Contacts
+                                    {t(
+                                        "ContactManagement.recentContacts.title"
+                                    )}
                                 </CardTitle>
                                 <CardDescription>
-                                    Your most recent customer interactions
+                                    {t(
+                                        "ContactManagement.recentContacts.description"
+                                    )}
                                 </CardDescription>
                             </CardHeader>
                             <CardContent>
@@ -461,11 +470,14 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
                                 <CardContent className="p-6 text-center">
                                     <Upload className="h-12 w-12 text-[#3A9BDC] mx-auto mb-4" />
                                     <h3 className="font-semibold text-gray-900 mb-2">
-                                        Import Contacts
+                                        {t(
+                                            "ContactManagement.importContactsCard.title"
+                                        )}
                                     </h3>
                                     <p className="text-sm text-gray-600">
-                                        Upload from CSV, Google Contacts, or
-                                        WhatsApp
+                                        {t(
+                                            "ContactManagement.importContactsCard.description"
+                                        )}
                                     </p>
                                 </CardContent>
                             </Card>
@@ -476,10 +488,14 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
                                 <CardContent className="p-6 text-center">
                                     <MessageSquare className="h-12 w-12 text-[#2ECC71] mx-auto mb-4" />
                                     <h3 className="font-semibold text-gray-900 mb-2">
-                                        Send Bulk Message
+                                        {t(
+                                            "ContactManagement.bulkMessageCard.title"
+                                        )}
                                     </h3>
                                     <p className="text-sm text-gray-600">
-                                        Message multiple contacts at once
+                                        {t(
+                                            "ContactManagement.bulkMessageCard.description"
+                                        )}
                                     </p>
                                 </CardContent>
                             </Card>
@@ -490,10 +506,14 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
                                 <CardContent className="p-6 text-center">
                                     <Tag className="h-12 w-12 text-[#F1C40F] mx-auto mb-4" />
                                     <h3 className="font-semibold text-gray-900 mb-2">
-                                        Manage Tags
+                                        {t(
+                                            "ContactManagement.tagManagementCard.title"
+                                        )}
                                     </h3>
                                     <p className="text-sm text-gray-600">
-                                        Organize contacts with custom tags
+                                        {t(
+                                            "ContactManagement.tagManagementCard.description"
+                                        )}
                                     </p>
                                 </CardContent>
                             </Card>
@@ -505,7 +525,9 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
                             <div className="relative flex-1">
                                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
                                 <Input
-                                    placeholder="Search contacts by name or phone..."
+                                    placeholder={t(
+                                        "ContactManagement.searchPlaceholder"
+                                    )}
                                     value={searchQuery}
                                     onChange={(e) =>
                                         setSearchQuery(e.target.value)
@@ -525,13 +547,19 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
                                     </SelectTrigger>
                                     <SelectContent>
                                         <SelectItem value="lastContacted">
-                                            Last Contacted
+                                            {t(
+                                                "ContactManagement.sortOptions.lastContacted"
+                                            )}
                                         </SelectItem>
                                         <SelectItem value="name">
-                                            Name
+                                            {t(
+                                                "ContactManagement.sortOptions.name"
+                                            )}
                                         </SelectItem>
                                         <SelectItem value="totalMessages">
-                                            Messages
+                                            {t(
+                                                "ContactManagement.sortOptions.totalMessages"
+                                            )}
                                         </SelectItem>
                                     </SelectContent>
                                 </Select>
@@ -555,7 +583,7 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
 
                         <div className="flex flex-wrap gap-2 items-center">
                             <span className="text-sm text-gray-600">
-                                Filter by tags:
+                                {t("ContactManagement.filterByTags")}
                             </span>
                             {availableTags.map((tag) => (
                                 <Button
@@ -585,7 +613,7 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
                                     onClick={() => setSelectedTags([])}
                                     className="text-xs"
                                 >
-                                    Clear filters
+                                    {t("ContactManagement.clearFilters")}
                                 </Button>
                             )}
                         </div>
@@ -642,7 +670,9 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
                                                             {
                                                                 contact.totalMessages
                                                             }{" "}
-                                                            messages
+                                                            {t(
+                                                                "ContactManagement.sortOptions.totalMessages"
+                                                            ).toLowerCase()}
                                                         </span>
                                                     </div>
                                                 </div>
@@ -686,10 +716,14 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
                                     <div className="text-center py-12">
                                         <Users className="h-12 w-12 text-gray-400 mx-auto mb-4" />
                                         <h3 className="text-lg font-medium text-gray-900 mb-2">
-                                            No contacts found
+                                            {t(
+                                                "ContactManagement.noContactsFound.title"
+                                            )}
                                         </h3>
                                         <p className="text-gray-600 mb-4">
-                                            Try adjusting your search or filters
+                                            {t(
+                                                "ContactManagement.noContactsFound.description"
+                                            )}
                                         </p>
                                         <Button
                                             onClick={() =>
@@ -698,7 +732,9 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
                                             className="bg-[#3A9BDC] hover:bg-[#2E8BC7]"
                                         >
                                             <Plus className="h-4 w-4 mr-2" />
-                                            Add Your First Contact
+                                            {t(
+                                                "ContactManagement.noContactsFound.addFirstContactButton"
+                                            )}
                                         </Button>
                                     </div>
                                 )}
