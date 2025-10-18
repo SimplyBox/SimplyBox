@@ -234,6 +234,92 @@
             "years": "{{count}} year{{count > 1 ? 's' : ''}} ago"
         }
     },
+    "ContactProfile": {
+        "cancelButton": "Cancel",
+        "saveButton": "Save Changes",
+        "editContactButton": "Edit Contact",
+        "contactInfo": {
+            "title": "Contact Information",
+            "nameLabel": "Name",
+            "noIdentifier": "No identifier",
+            "lastContacted": "Last contacted:"
+        },
+        "channel": {
+            "whatsapp": "WhatsApp",
+            "email": "Email",
+            "phone": "Phone"
+        },
+        "tags": {
+            "title": "Tags",
+            "noTags": "No tags added yet.",
+            "addTagPlaceholder": "Add a tag"
+        },
+        "notes": {
+            "title": "Notes",
+            "noNotes": "No notes added yet.",
+            "placeholder": "Add notes about this contact..."
+        },
+        "tabs": {
+            "conversations": "Conversations",
+            "activities": "Activities"
+        },
+        "conversationHistory": {
+            "title": "Conversation History",
+            "description": "All messages with this contact",
+            "noMessages": "No messages",
+            "openInInbox": "Open in Inbox"
+        },
+        "activities": {
+            "professionalFeature": {
+                "title": "Professional Feature",
+                "description": "Activity management is available for Professional plan users. Track follow-ups, schedule tasks, and monitor team activities.",
+                "upgradeButton": "Upgrade to Professional"
+            }
+        }
+    },
+    "TagManagement": {
+        "title": "Manage Contact Tags",
+        "cancelButton": "Cancel",
+        "saveButton": "Save Changes",
+        "addNewTag": {
+            "title": "Add New Tag",
+            "description": "Create a new tag with a name and select a color",
+            "placeholder": "Enter tag name...",
+            "colorPlaceholder": "Select color",
+            "addButton": "Add Tag"
+        },
+        "existingTags": {
+            "title": "Existing Tags ({{count}})",
+            "description": "Edit name, color, or delete existing tags (Global tags cannot be deleted)",
+            "resetButton": "Reset Changes",
+            "loading": "Loading tags...",
+            "noTags": "No tags created yet",
+            "noTagsDescription": "Add your first tag above",
+            "tagNamePlaceholder": "Tag name",
+            "noColor": "No color",
+            "changeColor": "Change to {{color}}"
+        },
+        "colors": {
+            "blue": "Blue",
+            "green": "Green",
+            "yellow": "Yellow",
+            "purple": "Purple",
+            "indigo": "Indigo",
+            "red": "Red",
+            "pink": "Pink",
+            "orange": "Orange",
+            "teal": "Teal",
+            "cyan": "Cyan"
+        },
+        "bestPractices": {
+            "title": "Tag Best Practices",
+            "clearNames": "Use clear names like 'VIP' and 'Lead.'",
+            "shortNames": "Keep tag names short and consistent",
+            "colorGrouping": "Use colors to group related tags (e.g., all sales stages in green)",
+            "reviewTags": "Regularly review and clean up unused custom tags",
+            "businessSegments": "Consider creating tags for different business segments"
+        }
+    },
     "InviteTeamMemberModal": {
         "title": "Invite Team Member",
         "description": "Enter the email address of the person you want to invite to your team.",
