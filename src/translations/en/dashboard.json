@@ -225,13 +225,19 @@
         },
         "timeAgo": {
             "justNow": "Just now",
-            "minutes": "{{count}} minute{{count > 1 ? 's' : ''}} ago",
-            "hours": "{{count}} hour{{count > 1 ? 's' : ''}} ago",
+            "minutes_one": "{{count}} minute ago",
+            "minutes_other": "{{count}} minutes ago",
+            "hours_one": "{{count}} hour ago",
+            "hours_other": "{{count}} hours ago",
             "yesterday": "Yesterday",
-            "days": "{{count}} day{{count > 1 ? 's' : ''}} ago",
-            "weeks": "{{count}} week{{count > 1 ? 's' : ''}} ago",
-            "months": "{{count}} month{{count > 1 ? 's' : ''}} ago",
-            "years": "{{count}} year{{count > 1 ? 's' : ''}} ago"
+            "days_one": "{{count}} day ago",
+            "days_other": "{{count}} days ago",
+            "weeks_one": "{{count}} week ago",
+            "weeks_other": "{{count}} weeks ago",
+            "months_one": "{{count}} month ago",
+            "months_other": "{{count}} months ago",
+            "years_one": "{{count}} year ago",
+            "years_other": "{{count}} years ago"
         }
     },
     "ContactProfile": {

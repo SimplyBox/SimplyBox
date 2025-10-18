@@ -225,13 +225,19 @@
         },
         "timeAgo": {
             "justNow": "Baru saja",
-            "minutes": "{{count}} menit lalu",
-            "hours": "{{count}} jam lalu",
+            "minutes_one": "{{count}} menit lalu",
+            "minutes_other": "{{count}} menit lalu",
+            "hours_one": "{{count}} jam lalu",
+            "hours_other": "{{count}} jam lalu",
             "yesterday": "Kemarin",
-            "days": "{{count}} hari lalu",
-            "weeks": "{{count}} minggu lalu",
-            "months": "{{count}} bulan lalu",
-            "years": "{{count}} tahun lalu"
+            "days_one": "{{count}} hari lalu",
+            "days_other": "{{count}} hari lalu",
+            "weeks_one": "{{count}} minggu lalu",
+            "weeks_other": "{{count}} minggu lalu",
+            "months_one": "{{count}} bulan lalu",
+            "months_other": "{{count}} bulan lalu",
+            "years_one": "{{count}} tahun lalu",
+            "years_other": "{{count}} tahun lalu"
         }
     },
     "ContactProfile": {

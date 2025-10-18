@@ -168,28 +168,36 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
         const now = new Date();
         const diffTime = Math.floor((now.getTime() - date.getTime()) / 1000);
 
+        const getText = (key: string, count?: number) => {
+            if (count !== undefined) {
+                const pluralKey = count === 1 ? `${key}_one` : `${key}_other`;
+                return t(`ContactManagement.timeAgo.${pluralKey}`, { count });
+            }
+            return t(`ContactManagement.timeAgo.${key}`);
+        };
+
         if (diffTime < 60) {
-            return t("ContactManagement.timeAgo.justNow");
+            return getText("justNow");
         } else if (diffTime < 3600) {
             const minutes = Math.floor(diffTime / 60);
-            return t("ContactManagement.timeAgo.minutes", { count: minutes });
+            return getText("minutes", minutes);
         } else if (diffTime < 86400) {
             const hours = Math.floor(diffTime / 3600);
-            return t("ContactManagement.timeAgo.hours", { count: hours });
+            return getText("hours", hours);
         } else if (diffTime < 172800) {
-            return t("ContactManagement.timeAgo.yesterday");
+            return getText("yesterday");
         } else if (diffTime < 604800) {
             const days = Math.floor(diffTime / 86400);
-            return t("ContactManagement.timeAgo.days", { count: days });
+            return getText("days", days);
         } else if (diffTime < 2592000) {
             const weeks = Math.floor(diffTime / 604800);
-            return t("ContactManagement.timeAgo.weeks", { count: weeks });
+            return getText("weeks", weeks);
         } else if (diffTime < 31536000) {
             const months = Math.floor(diffTime / 2592000);
-            return t("ContactManagement.timeAgo.months", { count: months });
+            return getText("months", months);
         } else {
             const years = Math.floor(diffTime / 31536000);
-            return t("ContactManagement.timeAgo.years", { count: years });
+            return getText("years", years);
         }
     };
 
