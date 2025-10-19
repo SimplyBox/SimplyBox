@@ -34,7 +34,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                             Login
                         </Button>
                         <Button
-                            className="bg-[#2ECC71] hover:bg-[#27AE60] text-white font-medium px-6"
+                            className="bg-green-500 hover:bg-green-600 text-white font-medium px-6"
                             onClick={() => onSignUp && onSignUp()}
                         >
                             Sign Up
@@ -75,7 +75,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <Button
                                     size="lg"
-                                    className="bg-[#2ECC71] hover:bg-[#27AE60] text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                                    className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                                     onClick={onTryFree}
                                 >
                                     {t("hero.tryFree")}
@@ -83,7 +83,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                                 <Button
                                     variant="outline"
                                     size="lg"
-                                    className="border-2 border-[#3A9BDC] text-[#3A9BDC] hover:bg-[#3A9BDC] hover:text-white px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300 transform hover:scale-105"
+                                    className="border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300 transform hover:scale-105"
                                     onClick={() => setShowDemo(true)}
                                 >
                                     <PlayCircle className="mr-2 h-5 w-5" />
@@ -101,7 +101,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                                         onClick={() => onLanguageChange("en")}
                                         className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
                                             language === "en"
-                                                ? "bg-[#3A9BDC] text-white"
+                                                ? "bg-blue-500 text-white"
                                                 : "text-gray-600 hover:text-gray-800"
                                         }`}
                                     >
@@ -111,7 +111,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                                         onClick={() => onLanguageChange("id")}
                                         className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
                                             language === "id"
-                                                ? "bg-[#3A9BDC] text-white"
+                                                ? "bg-blue-500 text-white"
                                                 : "text-gray-600 hover:text-gray-800"
                                         }`}
                                     >
@@ -125,7 +125,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                         <div className="flex-1 relative z-10">
                             <div className="relative bg-white rounded-3xl shadow-2xl p-8 max-w-lg mx-auto border border-gray-100">
                                 {/* AI Badge */}
-                                <div className="absolute -top-4 left-8 bg-gradient-to-r from-[#3A9BDC] to-[#2ECC71] text-white px-6 py-3 rounded-full text-sm font-semibold shadow-lg">
+                                <div className="absolute -top-4 left-8 bg-gradient-to-r from-blue-500 to-green-500 text-white px-6 py-3 rounded-full text-sm font-semibold shadow-lg">
                                     {t("hero.aiPowered")}
                                 </div>
 
@@ -200,7 +200,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                                 {/* Stats */}
                                 <div className="grid grid-cols-3 gap-4">
                                     <div className="bg-blue-50 p-4 rounded-xl text-center hover:bg-blue-100 transition-colors">
-                                        <div className="text-3xl font-bold text-[#3A9BDC]">
+                                        <div className="text-3xl font-bold text-blue-500">
                                             {t("hero.stats.response.value")}
                                         </div>
                                         <div className="text-xs text-gray-600 font-medium">
@@ -208,7 +208,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                                         </div>
                                     </div>
                                     <div className="bg-green-50 p-4 rounded-xl text-center hover:bg-green-100 transition-colors">
-                                        <div className="text-3xl font-bold text-[#2ECC71]">
+                                        <div className="text-3xl font-bold text-green-500">
                                             {t("hero.stats.leads.value")}
                                         </div>
                                         <div className="text-xs text-gray-600 font-medium">
@@ -216,7 +216,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                                         </div>
                                     </div>
                                     <div className="bg-yellow-50 p-4 rounded-xl text-center hover:bg-yellow-100 transition-colors">
-                                        <div className="text-3xl font-bold text-[#F1C40F]">
+                                        <div className="text-3xl font-bold text-yellow-500">
                                             {t("hero.stats.timeSaved.value")}
                                         </div>
                                         <div className="text-xs text-gray-600 font-medium">

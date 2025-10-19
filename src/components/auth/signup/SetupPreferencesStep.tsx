@@ -245,12 +245,12 @@ const SetupPreferencesStep: React.FC<SetupPreferencesStepProps> = ({
 
             {/* Recommendation */}
             {businessData.dailyMessages && businessData.teamSize && (
-                <div className="bg-gradient-to-r from-[#3A9BDC]/10 to-[#2ECC71]/10 border border-[#3A9BDC]/20 rounded-lg p-4">
+                <div className="bg-gradient-to-r from-blue-500/10 to-green-500/10 border border-blue-500/20 rounded-lg p-4">
                     <h4 className="font-semibold text-gray-900 mb-2">
                         {t("signup.step2.recommendation.title")}
                     </h4>
                     <div className="flex items-center gap-2 mb-2">
-                        <span className="bg-[#3A9BDC] text-white px-3 py-1 rounded-full text-sm font-medium">
+                        <span className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">
                             {getRecommendedTier()}
                         </span>
                         <span className="text-sm text-gray-600">
@@ -265,7 +265,7 @@ const SetupPreferencesStep: React.FC<SetupPreferencesStepProps> = ({
 
             <Button
                 onClick={onNext}
-                className="w-full h-12 bg-[#2ECC71] hover:bg-[#27AE60] text-white font-medium"
+                className="w-full h-12 bg-green-500 hover:bg-green-600 text-white font-medium"
             >
                 {t("signup.step2.continueButton")}
                 <ArrowRight className="h-4 w-4 ml-2" />

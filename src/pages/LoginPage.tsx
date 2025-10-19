@@ -141,7 +141,7 @@ const LoginPage: React.FC = () => {
                                 <Button
                                     variant="link"
                                     onClick={handleSignUp}
-                                    className="text-[#3A9BDC] hover:text-[#2980B9] p-0"
+                                    className="text-blue-500 hover:text-blue-600 p-0"
                                     disabled={isLoading}
                                 >
                                     {t("login.form.createAccount")}

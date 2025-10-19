@@ -108,7 +108,7 @@ const TermsOfServicePage: React.FC = () => {
                                         onClick={() =>
                                             scrollToSection(section.id)
                                         }
-                                        className="text-left w-full text-sm text-gray-600 hover:text-[#3A9BDC] transition-colors"
+                                        className="text-left w-full text-sm text-gray-600 hover:text-blue-500 transition-colors"
                                     >
                                         {t(
                                             `termsOfService.${section.key}.title`
@@ -125,7 +125,7 @@ const TermsOfServicePage: React.FC = () => {
                                                                 `${section.id}-${subId}`
                                                             )
                                                         }
-                                                        className="text-left w-full text-xs text-gray-500 hover:text-[#2ECC71] transition-colors"
+                                                        className="text-left w-full text-xs text-gray-500 hover:text-green-500 transition-colors"
                                                     >
                                                         {t(
                                                             `termsOfService.${section.key}.subsections.${subId}.title`
@@ -158,7 +158,7 @@ const TermsOfServicePage: React.FC = () => {
                                 onClick={() => setLanguage("en")}
                                 className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
                                     language === "en"
-                                        ? "bg-[#3A9BDC] text-white"
+                                        ? "bg-blue-500 text-white"
                                         : "text-gray-600 hover:text-gray-800"
                                 }`}
                             >
@@ -168,7 +168,7 @@ const TermsOfServicePage: React.FC = () => {
                                 onClick={() => setLanguage("id")}
                                 className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
                                     language === "id"
-                                        ? "bg-[#3A9BDC] text-white"
+                                        ? "bg-blue-500 text-white"
                                         : "text-gray-600 hover:text-gray-800"
                                 }`}
                             >
@@ -229,7 +229,7 @@ const TermsOfServicePage: React.FC = () => {
                             >
                                 <CardHeader>
                                     <CardTitle className="flex items-center gap-2 text-xl">
-                                        <FileText className="h-5 w-5 text-[#3A9BDC]" />
+                                        <FileText className="h-5 w-5 text-blue-500" />
                                         {t(
                                             `termsOfService.${section.key}.title`
                                         ) || section.id}

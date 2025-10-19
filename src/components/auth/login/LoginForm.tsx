@@ -139,7 +139,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, t }) => {
                 </div>
                 <Button
                     variant="link"
-                    className="text-sm text-[#3A9BDC] hover:text-[#2980B9] p-0"
+                    className="text-sm text-blue-500 hover:text-blue-600 p-0"
                 >
                     {t("login.form.forgotPassword")}
                 </Button>
@@ -147,7 +147,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, t }) => {
 
             <Button
                 type="submit"
-                className="w-full h-12 bg-[#3A9BDC] hover:bg-[#2980B9] text-white font-medium"
+                className="w-full h-12 bg-blue-500 hover:bg-blue-600 text-white font-medium"
                 disabled={isLoading}
             >
                 {isLoading ? t("login.form.signingIn") : t("login.form.signIn")}

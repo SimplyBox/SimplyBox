@@ -64,7 +64,7 @@ const AccountSetupStep: React.FC<AccountSetupStepProps> = ({
     return (
         <div className="space-y-6">
             {/* Owner Account Setup */}
-            <div className="bg-gradient-to-r from-[#2ECC71]/10 to-[#3A9BDC]/10 border border-[#2ECC71]/20 rounded-lg p-4">
+            <div className="bg-gradient-to-r from-green-500/10 to-blue-500/10 border border-green-500/20 rounded-lg p-4">
                 <h4 className="font-semibold text-gray-900 mb-2">
                     {t("signup.step3.ownerAccount.title")}
                 </h4>
@@ -217,7 +217,7 @@ const AccountSetupStep: React.FC<AccountSetupStepProps> = ({
                             <span className="text-gray-600">
                                 {t("signup.step3.summary.recommended")}
                             </span>
-                            <span className="font-medium text-[#3A9BDC]">
+                            <span className="font-medium text-blue-500">
                                 {getRecommendedTier()}
                             </span>
                         </div>
@@ -226,7 +226,7 @@ const AccountSetupStep: React.FC<AccountSetupStepProps> = ({
             </div>
 
             {/* CTA Section */}
-            <div className="bg-gradient-to-r from-[#2ECC71] to-[#3A9BDC] rounded-lg p-6 text-white text-center">
+            <div className="bg-gradient-to-r from-green-500 to-blue-500 rounded-lg p-6 text-white text-center">
                 <h4 className="font-bold text-lg mb-2">
                     {t("signup.step3.cta.title")}
                 </h4>
@@ -237,7 +237,7 @@ const AccountSetupStep: React.FC<AccountSetupStepProps> = ({
 
             <Button
                 onClick={onComplete}
-                className="w-full h-12 bg-[#3A9BDC] hover:bg-[#2980B9] text-white font-medium"
+                className="w-full h-12 bg-blue-500 hover:bg-blue-600 text-white font-medium"
                 disabled={isLoading}
             >
                 {isLoading

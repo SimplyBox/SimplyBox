@@ -221,7 +221,7 @@ const UpgradePage: React.FC = () => {
                         >
                             {plan.popular && (
                                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                                    <Badge className="bg-blue-500 text-white px-4 py-1 text-sm font-semibold">
+                                    <Badge className="bg-blue-500 text-white px-4 py-1 text-sm font-semibold pointer-events-none">
                                         <Star className="h-4 w-4 mr-1" />
                                         {t("upgrade.mostPopular")}
                                     </Badge>

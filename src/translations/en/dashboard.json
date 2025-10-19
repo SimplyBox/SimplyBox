@@ -70,7 +70,7 @@
                 "period": "one-time demo",
                 "features": {
                     "companyRegistration": "1 company registration (permanent)",
-                    "channels": "2 channels max (WhatsApp, Email)",
+                    "channels": "2 channels max (WhatsApp, Instagram)",
                     "messages": "100 messages/month",
                     "fileUploads": "2 file uploads",
                     "aiAgent": "Single AI Agent with basic RAG",
@@ -91,7 +91,7 @@
                 "period": "/month",
                 "features": {
                     "everythingFree": "Everything in Free",
-                    "channels": "5 channels (WhatsApp, Email, E-Commerce Integration)",
+                    "channels": "5 channels (WhatsApp, Instagram, E-Commerce Integration)",
                     "messages": "600 messages/month",
                     "fileUploads": "10 file uploads",
                     "teamMembers": "3 Team Members",
@@ -114,7 +114,7 @@
                 "period": "/month",
                 "features": {
                     "everythingStarter": "Everything in Starter",
-                    "channels": "12 channels (WhatsApp, Email, E-Commerce Integration)",
+                    "channels": "12 channels (WhatsApp, Instagram, E-Commerce Integration)",
                     "messages": "2500 messages/month",
                     "fileUploads": "Up to 50 file uploads",
                     "teamMembers": "8 Team Members",

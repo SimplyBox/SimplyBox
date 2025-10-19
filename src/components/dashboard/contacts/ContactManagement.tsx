@@ -241,7 +241,7 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
                     <div className="flex gap-2">
                         <Button
                             onClick={() => setShowAddContact(true)}
-                            className="bg-[#3A9BDC] hover:bg-[#2E8BC7]"
+                            className="bg-blue-500 hover:bg-blue-600"
                         >
                             <Plus className="h-4 w-4 mr-2" />
                             {t("ContactManagement.addContactButton")}
@@ -288,7 +288,7 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
                                         {mappedContacts.length}
                                     </p>
                                 </div>
-                                <Users className="h-8 w-8 text-[#3A9BDC]" />
+                                <Users className="h-8 w-8 text-blue-500" />
                             </div>
                         </CardContent>
                     </Card>
@@ -307,7 +307,7 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
                                         }
                                     </p>
                                 </div>
-                                <Star className="h-8 w-8 text-[#F1C40F]" />
+                                <Star className="h-8 w-8 text-yellow-500" />
                             </div>
                         </CardContent>
                     </Card>
@@ -326,7 +326,7 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
                                         }
                                     </p>
                                 </div>
-                                <Activity className="h-8 w-8 text-[#2ECC71]" />
+                                <Activity className="h-8 w-8 text-green-500" />
                             </div>
                         </CardContent>
                     </Card>
@@ -371,7 +371,7 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
                         <Card>
                             <CardHeader>
                                 <CardTitle className="flex items-center gap-2">
-                                    <Clock className="h-5 w-5 text-[#3A9BDC]" />
+                                    <Clock className="h-5 w-5 text-blue-500" />
                                     {t(
                                         "ContactManagement.recentContacts.title"
                                     )}
@@ -410,7 +410,7 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
                                                             {contact.name}
                                                         </p>
                                                         {contact.isVip && (
-                                                            <Star className="h-4 w-4 text-[#F1C40F] fill-current" />
+                                                            <Star className="h-4 w-4 text-yellow-500 fill-current" />
                                                         )}
                                                     </div>
                                                     <div className="flex items-center gap-2 mt-1">
@@ -476,7 +476,7 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
                                 onClick={() => setShowImportContacts(true)}
                             >
                                 <CardContent className="p-6 text-center">
-                                    <Upload className="h-12 w-12 text-[#3A9BDC] mx-auto mb-4" />
+                                    <Upload className="h-12 w-12 text-blue-500 mx-auto mb-4" />
                                     <h3 className="font-semibold text-gray-900 mb-2">
                                         {t(
                                             "ContactManagement.importContactsCard.title"
@@ -494,7 +494,7 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
                                 onClick={() => setShowBulkMessage(true)}
                             >
                                 <CardContent className="p-6 text-center">
-                                    <MessageSquare className="h-12 w-12 text-[#2ECC71] mx-auto mb-4" />
+                                    <MessageSquare className="h-12 w-12 text-green-500 mx-auto mb-4" />
                                     <h3 className="font-semibold text-gray-900 mb-2">
                                         {t(
                                             "ContactManagement.bulkMessageCard.title"
@@ -512,7 +512,7 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
                                 onClick={() => setShowTagManagement(true)}
                             >
                                 <CardContent className="p-6 text-center">
-                                    <Tag className="h-12 w-12 text-[#F1C40F] mx-auto mb-4" />
+                                    <Tag className="h-12 w-12 text-yellow-500 mx-auto mb-4" />
                                     <h3 className="font-semibold text-gray-900 mb-2">
                                         {t(
                                             "ContactManagement.tagManagementCard.title"
@@ -655,7 +655,7 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
                                                             {contact.name}
                                                         </h3>
                                                         {contact.isVip && (
-                                                            <Star className="h-4 w-4 text-[#F1C40F] fill-current" />
+                                                            <Star className="h-4 w-4 text-yellow-500 fill-current" />
                                                         )}
                                                     </div>
                                                     <div className="flex items-center gap-4 mt-1">
@@ -737,7 +737,7 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
                                             onClick={() =>
                                                 setShowAddContact(true)
                                             }
-                                            className="bg-[#3A9BDC] hover:bg-[#2E8BC7]"
+                                            className="bg-blue-500 hover:bg-blue-600"
                                         >
                                             <Plus className="h-4 w-4 mr-2" />
                                             {t(

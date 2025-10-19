@@ -125,19 +125,27 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({
                                         )}
                                     </p>
                                     <ul className="space-y-2">
-                                        {Array.from({ length: 4 }, (_, i) => (
-                                            <li
-                                                key={i}
-                                                className="flex items-center gap-2"
-                                            >
-                                                <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
-                                                <span>
-                                                    {t(
-                                                        `features.items.${feature}.benefits.${i}`
-                                                    )}
-                                                </span>
-                                            </li>
-                                        ))}
+                                        {Array.isArray(
+                                            t(
+                                                `features.items.${feature}.benefits`
+                                            )
+                                        ) &&
+                                            t(
+                                                `features.items.${feature}.benefits`
+                                            ).map(
+                                                (
+                                                    benefit: string,
+                                                    index: number
+                                                ) => (
+                                                    <li
+                                                        key={index}
+                                                        className="flex items-center gap-2"
+                                                    >
+                                                        <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
+                                                        <span>{benefit}</span>
+                                                    </li>
+                                                )
+                                            )}
                                     </ul>
                                     <Button
                                         className="mt-6"
@@ -212,10 +220,6 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({
                                                 `features.comingSoon.platforms.${platform}`
                                             )}
                                             className="h-12 w-12 object-contain"
-                                        />
-                                        <ShoppingBag
-                                            className="h-10 w-10 text-[#3A9BDC] hidden"
-                                            style={{ display: "none" }}
                                         />
                                     </div>
                                 </CardHeader>

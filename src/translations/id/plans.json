@@ -1,0 +1,75 @@
+{
+    "plans": {
+        "mostPopular": "Paling Populer",
+        "free": {
+            "name": "Gratis",
+            "description": "Demo satu kali untuk menjelajahi SimplyBox",
+            "price": "Rp 0",
+            "period": "demo satu kali",
+            "features": [
+                "1 pendaftaran perusahaan (permanen)",
+                "Maksimal 2 saluran (WhatsApp, Instagram)",
+                "100 pesan/bulan",
+                "2 unggahan file",
+                "Agen AI tunggal dengan RAG dasar",
+                "Asisten AI yang dapat memahami konteks dan menyarankan respons",
+                "Papan Kanban Dasar",
+                "Analitik data sederhana"
+            ]
+        },
+        "starter": {
+            "name": "Pemula",
+            "description": "Sempurna untuk bisnis kecil dan solopreneur",
+            "price": "Rp 399.000",
+            "period": "/bulan",
+            "features": [
+                "Semua fitur di paket Gratis",
+                "5 saluran (WhatsApp, Instagram, Integrasi E-Commerce)",
+                "600 pesan/bulan",
+                "10 unggahan file",
+                "3 Anggota Tim",
+                {
+                    "text": "Respons AI yang ditingkatkan dengan konteks yang lebih baik",
+                    "tooltip": "Respons yang lebih akurat berdasarkan riwayat percakapan dan konteks bisnis"
+                },
+                "Kanban lanjutan dengan tenggat waktu",
+                "Analitik & wawasan mingguan",
+                "Dukungan email"
+            ]
+        },
+        "professional": {
+            "name": "Profesional",
+            "description": "Untuk tim yang berkembang dengan kebutuhan volume lebih tinggi",
+            "price": "Rp 699.000",
+            "period": "/bulan",
+            "features": [
+                "Semua fitur di paket Starter",
+                "12 saluran (WhatsApp, Instagram, Integrasi E-Commerce)",
+                "2500 pesan/bulan",
+                "Hingga 50 unggahan file",
+                "8 Anggota Tim",
+                {
+                    "text": "AI lanjutan dengan prompt kustom",
+                    "tooltip": "Buat template respons AI Anda sendiri dan sesuaikan bagaimana AI merespons"
+                },
+                "Analitik & pelaporan lanjutan",
+                "Dukungan prioritas"
+            ]
+        },
+        "enterprise": {
+            "name": "Enterprise",
+            "description": "Solusi kustom untuk organisasi yang lebih besar",
+            "price": "Kustom",
+            "period": "",
+            "features": [
+                "Semua dapat disesuaikan",
+                "Otomatisasi Pemasaran",
+                "Integrasi CRM",
+                "Pelacakan Pesanan",
+                "Pengaturan dan integrasi GRATIS",
+                "Manajer akun khusus",
+                "Opsi white-label"
+            ]
+        }
+    }
+}

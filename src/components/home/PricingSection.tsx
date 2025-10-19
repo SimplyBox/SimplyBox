@@ -6,7 +6,7 @@ import {
     CardHeader,
     CardTitle,
 } from "../ui/card";
-import { Check, HelpCircle, X } from "lucide-react";
+import { Check, HelpCircle, Star } from "lucide-react";
 import {
     Tooltip,
     TooltipContent,
@@ -14,16 +14,15 @@ import {
     TooltipTrigger,
 } from "../ui/tooltip";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Badge } from "../ui/badge";
 
-interface PricingFeature {
-    key: string;
-    included: boolean;
-    hasTooltip?: boolean;
+interface FeatureItem {
+    text: string;
+    tooltip?: string;
 }
 
 interface PricingPlan {
     planKey: string;
-    features: PricingFeature[];
     popular?: boolean;
 }
 
@@ -31,59 +30,10 @@ const PricingSection: React.FC = () => {
     const { t } = useLanguage();
 
     const plans: PricingPlan[] = [
-        {
-            planKey: "free",
-            features: [
-                { key: "companyRegistration", included: true },
-                { key: "channels", included: true },
-                { key: "messages", included: true },
-                { key: "fileUploads", included: true },
-                { key: "aiAgent", included: true, hasTooltip: true },
-                { key: "kanbanBoard", included: true },
-                { key: "analytics", included: true },
-                { key: "ecommerce", included: false },
-            ],
-        },
-        {
-            planKey: "starter",
-            popular: true,
-            features: [
-                { key: "everythingFree", included: true },
-                { key: "channels", included: true },
-                { key: "messages", included: true },
-                { key: "fileUploads", included: true },
-                { key: "teamMembers", included: true },
-                { key: "enhancedAI", included: true, hasTooltip: true },
-                { key: "advancedKanban", included: true },
-                { key: "weeklyAnalytics", included: true },
-                { key: "emailSupport", included: true },
-            ],
-        },
-        {
-            planKey: "professional",
-            features: [
-                { key: "everythingStarter", included: true },
-                { key: "channels", included: true },
-                { key: "messages", included: true },
-                { key: "fileUploads", included: true },
-                { key: "teamMembers", included: true },
-                { key: "advancedAI", included: true, hasTooltip: true },
-                { key: "advancedAnalytics", included: true },
-                { key: "prioritySupport", included: true },
-            ],
-        },
-        {
-            planKey: "enterprise",
-            features: [
-                { key: "customizable", included: true },
-                { key: "marketingAutomation", included: true },
-                { key: "crmIntegration", included: true },
-                { key: "orderTracking", included: true },
-                { key: "freeSetup", included: true },
-                { key: "accountManager", included: true },
-                { key: "whiteLabel", included: true },
-            ],
-        },
+        { planKey: "free" },
+        { planKey: "starter", popular: true },
+        { planKey: "professional" },
+        { planKey: "enterprise" },
     ];
 
     return (
@@ -99,85 +49,93 @@ const PricingSection: React.FC = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {plans.map((plan, index) => (
-                        <Card
-                            key={index}
-                            className={`flex flex-col h-full ${
-                                plan.popular
-                                    ? "border-primary border-2 shadow-lg"
-                                    : "border shadow"
-                            } bg-white`}
-                        >
-                            {plan.popular && (
-                                <div className="bg-primary text-primary-foreground text-center rounded-t-md py-1 text-sm font-medium">
-                                    {t("pricing.mostPopular")}
-                                </div>
-                            )}
-                            <CardHeader>
-                                <CardTitle className="text-2xl font-bold">
-                                    {t(`pricing.plans.${plan.planKey}.name`)}
-                                </CardTitle>
-                                <CardDescription className="text-gray-600">
-                                    {t(
-                                        `pricing.plans.${plan.planKey}.description`
-                                    )}
-                                </CardDescription>
-                                <div className="mt-4">
-                                    <span className="text-3xl font-bold">
-                                        {t(
-                                            `pricing.plans.${plan.planKey}.price`
+                    {plans.map((plan) => {
+                        const planData = t(`plans.${plan.planKey}`);
+                        const features = planData.features as (
+                            | string
+                            | FeatureItem
+                        )[];
+
+                        return (
+                            <Card
+                                key={plan.planKey}
+                                className={`relative flex flex-col ${
+                                    plan.popular
+                                        ? "border-primary border-2 shadow-lg"
+                                        : "border shadow"
+                                } bg-white`}
+                            >
+                                {plan.popular && (
+                                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                                        <Badge className="bg-primary text-white px-4 py-1 text-sm font-semibold pointer-events-none">
+                                            <Star className="h-4 w-4 mr-1" />
+                                            {t("plans.mostPopular")}
+                                        </Badge>
+                                    </div>
+                                )}
+
+                                <CardHeader className="text-center pb-4">
+                                    <CardTitle className="text-2xl font-bold">
+                                        {planData.name}
+                                    </CardTitle>
+                                    <CardDescription className="text-gray-600 mb-4">
+                                        {planData.description}
+                                    </CardDescription>
+                                    <div className="mt-4">
+                                        <span className="text-4xl font-bold text-gray-900">
+                                            {planData.price}
+                                        </span>
+                                        {planData.period && (
+                                            <span className="text-gray-600 ml-1">
+                                                {planData.period}
+                                            </span>
                                         )}
-                                    </span>
-                                    <span className="text-gray-600 ml-1">
-                                        {t(
-                                            `pricing.plans.${plan.planKey}.period`
-                                        )}
-                                    </span>
-                                </div>
-                            </CardHeader>
-                            <CardContent className="flex-grow">
-                                <ul className="space-y-3">
-                                    {plan.features.map(
-                                        (feature, featureIndex) => (
-                                            <li
-                                                key={featureIndex}
-                                                className="flex items-start"
-                                            >
-                                                {feature.included ? (
+                                    </div>
+                                </CardHeader>
+
+                                <CardContent className="flex-1">
+                                    <ul className="space-y-2">
+                                        {features.map((feature, index) => {
+                                            const item =
+                                                typeof feature === "string"
+                                                    ? { text: feature }
+                                                    : feature;
+
+                                            return (
+                                                <li
+                                                    key={index}
+                                                    className="flex items-start"
+                                                >
                                                     <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                                                ) : (
-                                                    <X className="h-5 w-5 text-gray-300 mr-2 mt-0.5 flex-shrink-0" />
-                                                )}
-                                                <span className="text-gray-700">
-                                                    {t(
-                                                        `pricing.plans.${plan.planKey}.features.${feature.key}`
-                                                    )}
-                                                    {feature.hasTooltip && (
-                                                        <TooltipProvider>
-                                                            <Tooltip>
-                                                                <TooltipTrigger
-                                                                    asChild
-                                                                >
-                                                                    <HelpCircle className="h-4 w-4 inline-block ml-1 text-gray-400 cursor-help" />
-                                                                </TooltipTrigger>
-                                                                <TooltipContent>
-                                                                    <p className="w-64">
-                                                                        {t(
-                                                                            `pricing.plans.${plan.planKey}.features.${feature.key}Tooltip`
-                                                                        )}
-                                                                    </p>
-                                                                </TooltipContent>
-                                                            </Tooltip>
-                                                        </TooltipProvider>
-                                                    )}
-                                                </span>
-                                            </li>
-                                        )
-                                    )}
-                                </ul>
-                            </CardContent>
-                        </Card>
-                    ))}
+                                                    <span className="text-sm text-gray-700">
+                                                        {item.text}
+                                                        {item.tooltip && (
+                                                            <TooltipProvider>
+                                                                <Tooltip>
+                                                                    <TooltipTrigger
+                                                                        asChild
+                                                                    >
+                                                                        <HelpCircle className="h-4 w-4 inline-block ml-1 text-gray-400 cursor-help" />
+                                                                    </TooltipTrigger>
+                                                                    <TooltipContent>
+                                                                        <p className="w-64">
+                                                                            {
+                                                                                item.tooltip
+                                                                            }
+                                                                        </p>
+                                                                    </TooltipContent>
+                                                                </Tooltip>
+                                                            </TooltipProvider>
+                                                        )}
+                                                    </span>
+                                                </li>
+                                            );
+                                        })}
+                                    </ul>
+                                </CardContent>
+                            </Card>
+                        );
+                    })}
                 </div>
             </div>
         </section>

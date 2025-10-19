@@ -1,18 +1,12 @@
 import React from "react";
 
 interface BrandSectionProps {
-    t: (key: string) => string;
+    t: (key: string) => any;
 }
 
 const BrandSection: React.FC<BrandSectionProps> = ({ t }) => {
-    const featureHighlights = [
-        "unifiedInbox",
-        "aiResponses",
-        "followUpTracking",
-    ];
-
     return (
-        <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-[#3A9BDC] to-[#2ECC71] p-12 flex-col justify-between relative overflow-hidden">
+        <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-blue-500 to-green-500 p-12 flex-col justify-between relative overflow-hidden">
             {/* Background decorative elements */}
             <div className="absolute top-20 right-20 w-32 h-32 bg-white/10 rounded-full blur-xl"></div>
             <div className="absolute bottom-40 left-20 w-24 h-24 bg-white/10 rounded-full blur-xl"></div>
@@ -38,14 +32,20 @@ const BrandSection: React.FC<BrandSectionProps> = ({ t }) => {
 
                 {/* Feature highlights */}
                 <div className="space-y-4">
-                    {featureHighlights.map((feature) => (
-                        <div key={feature} className="flex items-center gap-3">
-                            <div className="w-2 h-2 bg-white rounded-full"></div>
-                            <span className="text-blue-100">
-                                {t(`login.brand.features.${feature}`)}
-                            </span>
-                        </div>
-                    ))}
+                    {Array.isArray(t("login.brand.features")) &&
+                        t("login.brand.features").map(
+                            (feature: string, index: number) => (
+                                <div
+                                    key={index}
+                                    className="flex items-center gap-3"
+                                >
+                                    <div className="w-2 h-2 bg-white rounded-full"></div>
+                                    <span className="text-blue-100">
+                                        {feature}
+                                    </span>
+                                </div>
+                            )
+                        )}
                 </div>
             </div>
 

@@ -70,7 +70,7 @@
                 "period": "demo satu kali",
                 "features": {
                     "companyRegistration": "1 pendaftaran perusahaan (permanen)",
-                    "channels": "Maksimal 2 saluran (WhatsApp, Email)",
+                    "channels": "Maksimal 2 saluran (WhatsApp, Instagram)",
                     "messages": "100 pesan/bulan",
                     "fileUploads": "2 unggahan file",
                     "aiAgent": "Agen AI tunggal dengan RAG dasar",
@@ -91,7 +91,7 @@
                 "period": "/bulan",
                 "features": {
                     "everythingFree": "Semua fitur di paket Gratis",
-                    "channels": "5 saluran (WhatsApp, Email, Integrasi E-Commerce)",
+                    "channels": "5 saluran (WhatsApp, Instagram, Integrasi E-Commerce)",
                     "messages": "600 pesan/bulan",
                     "fileUploads": "10 unggahan file",
                     "teamMembers": "3 Anggota Tim",
@@ -114,7 +114,7 @@
                 "period": "/bulan",
                 "features": {
                     "everythingStarter": "Semua fitur di paket Starter",
-                    "channels": "12 saluran (WhatsApp, Email, Integrasi E-Commerce)",
+                    "channels": "12 saluran (WhatsApp, Instagram, Integrasi E-Commerce)",
                     "messages": "2500 pesan/bulan",
                     "fileUploads": "Hingga 50 unggahan file",
                     "teamMembers": "8 Anggota Tim",

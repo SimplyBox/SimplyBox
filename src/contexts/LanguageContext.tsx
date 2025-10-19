@@ -36,6 +36,8 @@ interface LanguageProviderProps {
 
 import dateEn from "@/translations/en/date.json";
 import dateId from "@/translations/id/date.json";
+import plansEn from "@/translations/en/plans.json";
+import plansId from "@/translations/id/plans.json";
 import homeEn from "@/translations/en/home.json";
 import homeId from "@/translations/id/home.json";
 import authEn from "@/translations/en/auth.json";
@@ -54,6 +56,7 @@ import termsOfServiceId from "@/translations/id/termsOfService.json";
 const translations = {
     en: {
         ...dateEn,
+        ...plansEn,
         ...homeEn,
         ...authEn,
         ...dashboardEn,
@@ -64,6 +67,7 @@ const translations = {
     },
     id: {
         ...dateId,
+        ...plansId,
         ...homeId,
         ...authId,
         ...dashboardId,

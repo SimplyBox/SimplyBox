@@ -1,5 +1,5 @@
 import React from "react";
-import { useLanguage } from "@/contexts/LanguageContext"; // Adjust the import path as needed
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface FooterSectionProps {
     onLanguageChange?: (language: "en" | "id") => void;
@@ -53,7 +53,7 @@ const FooterSection: React.FC<FooterSectionProps> = ({
     return (
         <footer className="bg-gray-900 text-white">
             {/* CTA Section */}
-            <div className="bg-gradient-to-r from-[#3A9BDC] to-[#2ECC71] py-16 px-4 md:px-8 lg:px-16">
+            <div className="bg-gradient-to-r from-blue-500 to-green-500 py-16 px-4 md:px-8 lg:px-16">
                 <div className="max-w-7xl mx-auto text-center">
                     <h2 className="text-3xl font-bold mb-4 text-white">
                         {t("footer.cta.title")}
@@ -65,7 +65,7 @@ const FooterSection: React.FC<FooterSectionProps> = ({
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
                         <button
                             onClick={onTryFree}
-                            className="bg-white text-[#3A9BDC] hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg transition-colors"
+                            className="bg-white text-blue-500 hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg transition-colors"
                         >
                             {t("footer.cta.primary")}
                         </button>
@@ -231,7 +231,7 @@ const FooterSection: React.FC<FooterSectionProps> = ({
                                             }
                                             className={`px-3 py-1 rounded-full text-sm transition-colors ${
                                                 language === "en"
-                                                    ? "bg-[#3A9BDC] text-white"
+                                                    ? "bg-blue-500 text-white"
                                                     : "text-gray-400 hover:text-white"
                                             }`}
                                         >
@@ -243,7 +243,7 @@ const FooterSection: React.FC<FooterSectionProps> = ({
                                             }
                                             className={`px-3 py-1 rounded-full text-sm transition-colors ${
                                                 language === "id"
-                                                    ? "bg-[#3A9BDC] text-white"
+                                                    ? "bg-blue-500 text-white"
                                                     : "text-gray-400 hover:text-white"
                                             }`}
                                         >

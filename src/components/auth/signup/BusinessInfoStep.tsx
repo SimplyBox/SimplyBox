@@ -162,7 +162,7 @@ const BusinessInfoStep: React.FC<BusinessInfoStepProps> = ({
 
             <Button
                 onClick={onNext}
-                className="w-full h-12 bg-[#2ECC71] hover:bg-[#27AE60] text-white font-medium"
+                className="w-full h-12 bg-green-500 hover:bg-green-600 text-white font-medium"
             >
                 {t("signup.step1.continueButton")}
                 <ArrowRight className="h-4 w-4 ml-2" />

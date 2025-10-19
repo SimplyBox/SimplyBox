@@ -11,9 +11,9 @@ const ProblemSolutionSection: React.FC = () => {
     ];
 
     const solutionsData = [
-        { key: "unifiedInbox", borderColor: "border-[#3A9BDC]" },
-        { key: "intelligentReplies", borderColor: "border-[#3A9BDC]" },
-        { key: "visualWorkflow", borderColor: "border-[#3A9BDC]" },
+        { key: "unifiedInbox", borderColor: "border-blue-500" },
+        { key: "intelligentReplies", borderColor: "border-blue-500" },
+        { key: "visualWorkflow", borderColor: "border-blue-500" },
     ];
 
     return (

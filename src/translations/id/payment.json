@@ -76,7 +76,7 @@
                 "period": "/bulan",
                 "features": {
                     "everythingFree": "Semua fitur di paket Gratis",
-                    "channels": "5 saluran (WhatsApp, Email, Integrasi E-Commerce)",
+                    "channels": "5 saluran (WhatsApp, Instagram, Integrasi E-Commerce)",
                     "messages": "600 pesan/bulan",
                     "fileUploads": "10 unggahan file",
                     "teamMembers": "3 Anggota Tim",
@@ -95,7 +95,7 @@
                 "period": "/bulan",
                 "features": {
                     "everythingStarter": "Semua fitur di paket Pemula",
-                    "channels": "12 saluran (WhatsApp, Email, Integrasi E-Commerce)",
+                    "channels": "12 saluran (WhatsApp, Instagram, Integrasi E-Commerce)",
                     "messages": "2500 pesan/bulan",
                     "fileUploads": "Hingga 50 unggahan file",
                     "teamMembers": "8 Anggota Tim",

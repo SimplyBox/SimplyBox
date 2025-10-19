@@ -125,7 +125,7 @@ ${t("paymentSuccess.receipt.support")}: dylansiusputra.business@gmail.com
                     </div>
                     <a
                         href="mailto:dylansiusputra.business@gmail.com"
-                        className="text-[#3A9BDC] hover:text-[#2980B9] font-medium"
+                        className="text-blue-500 hover:text-blue-600 font-medium"
                     >
                         {t("paymentSuccess.header.support")}
                     </a>
@@ -137,7 +137,7 @@ ${t("paymentSuccess.receipt.support")}: dylansiusputra.business@gmail.com
                 <div className="text-center mb-8">
                     <div className="relative inline-block">
                         <div className="absolute inset-0 bg-green-100 rounded-full animate-ping opacity-75"></div>
-                        <CheckCircle className="relative h-20 w-20 text-[#2ECC71] mx-auto" />
+                        <CheckCircle className="relative h-20 w-20 text-green-500 mx-auto" />
                     </div>
                     <h1 className="text-3xl font-bold text-gray-900 mt-6 mb-2">
                         {t("paymentSuccess.title", {
@@ -216,7 +216,7 @@ ${t("paymentSuccess.receipt.support")}: dylansiusputra.business@gmail.com
                                                     "paymentSuccess.summary.amountPaid"
                                                 )}
                                             </span>
-                                            <span className="font-bold text-[#2ECC71]">
+                                            <span className="font-bold text-green-500">
                                                 {formatCurrency(data.amount)}
                                             </span>
                                         </div>
@@ -254,7 +254,7 @@ ${t("paymentSuccess.receipt.support")}: dylansiusputra.business@gmail.com
                         {/* Next Billing */}
                         <div className="flex items-center justify-between bg-blue-50 rounded-lg p-4">
                             <div className="flex items-center gap-3">
-                                <Calendar className="h-5 w-5 text-[#3A9BDC]" />
+                                <Calendar className="h-5 w-5 text-blue-500" />
                                 <div>
                                     <p className="font-medium text-gray-900">
                                         {t(
@@ -281,7 +281,7 @@ ${t("paymentSuccess.receipt.support")}: dylansiusputra.business@gmail.com
                 {/* Action Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Button
-                        className="bg-[#2ECC71] hover:bg-[#27AE60] text-white px-8 py-3"
+                        className="bg-green-500 hover:bg-green-600 text-white px-8 py-3"
                         onClick={handleGoToDashboard}
                     >
                         {t("paymentSuccess.actions.goToDashboard")}
@@ -311,7 +311,7 @@ ${t("paymentSuccess.receipt.support")}: dylansiusputra.business@gmail.com
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                 <a
                                     href="mailto:simplybox.business@gmail.com"
-                                    className="inline-flex items-center justify-center px-4 py-2 text-[#3A9BDC] hover:text-[#2980B9] font-medium"
+                                    className="inline-flex items-center justify-center px-4 py-2 text-blue-500 hover:text-blue-600 font-medium"
                                 >
                                     <Mail className="h-4 w-4 mr-2" />
                                     {t("paymentSuccess.support.emailSupport")}
@@ -320,7 +320,7 @@ ${t("paymentSuccess.receipt.support")}: dylansiusputra.business@gmail.com
                                     href="https://wa.me/6281510123155"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center justify-center px-4 py-2 text-[#2ECC71] hover:text-[#27AE60] font-medium"
+                                    className="inline-flex items-center justify-center px-4 py-2 text-green-500 hover:text-green-600 font-medium"
                                 >
                                     <Phone className="h-4 w-4 mr-2" />
                                     {t(

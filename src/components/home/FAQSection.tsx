@@ -10,7 +10,6 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const FAQSection: React.FC = () => {
     const { t } = useLanguage();
 
-    // Array of FAQ keys for easy mapping
     const faqKeys = [
         "planUpgrade",
         "messageLimit",
@@ -18,7 +17,6 @@ const FAQSection: React.FC = () => {
         "aiAssistant",
         "dataSecurity",
         "support",
-        "aiAccuracy",
         "aiCustomization",
         "ecommerce",
     ];

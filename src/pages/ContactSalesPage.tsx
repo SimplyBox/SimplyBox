@@ -20,7 +20,6 @@ const ContactSalesPage: React.FC = () => {
         if (from) {
             navigate(from);
         } else {
-            // Fallback: kembali ke halaman sebelumnya menggunakan history
             navigate(-1);
         }
     };
@@ -30,19 +29,19 @@ const ContactSalesPage: React.FC = () => {
         if (from === "/dashboard/upgrade") {
             return t("contactSales.backToPlans");
         }
-        return t("contactSales.backToHome"); // Default ke "Back to Home"
+        return t("contactSales.backToHome");
     };
 
     const handleWhatsAppClick = () => {
         window.open(
-            "https://wa.me/6281510123155?text=Hi%20SimplyBox%20team%2C%20I%27m%20interested%20in%20discussing%20how%20SimplyBox%20can%20help%20streamline%20my%20business%20communications.%20Can%20we%20schedule%20a%20demo%3F",
+            "https://wa.me/628811710715?text=Hi%20SimplyBox%20team%2C%20I%27m%20interested%20in%20discussing%20how%20SimplyBox%20can%20help%20streamline%20my%20business%20communications.%20Can%20we%20schedule%20a%20demo%3F",
             "_blank"
         );
     };
 
     const handleEmailClick = () => {
         window.open(
-            "mailto:dylansiusputra.business@gmail.com?subject=SimplyBox%20Demo%20Request&body=Hi%20SimplyBox%20team%2C%0A%0AI%27m%20interested%20in%20seeing%20how%20SimplyBox%20can%20help%20my%20business%20manage%20customer%20communications%20more%20effectively.%0A%0ACould%20we%20schedule%20a%20personalized%20demo%3F%0A%0AThank%20you!",
+            "mailto:admin@simplybox.id?subject=SimplyBox%20Demo%20Request&body=Hi%20SimplyBox%20team%2C%0A%0AI%27m%20interested%20in%20seeing%20how%20SimplyBox%20can%20help%20my%20business%20manage%20customer%20communications%20more%20effectively.%0A%0ACould%20we%20schedule%20a%20personalized%20demo%3F%0A%0AThank%20you!",
             "_blank"
         );
     };
@@ -67,7 +66,7 @@ const ContactSalesPage: React.FC = () => {
                     </div>
                     <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
                         {t("contactSales.hero.titlePrefix")}{" "}
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3A9BDC] to-[#2ECC71]">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-green-500">
                             {t("contactSales.hero.titleHighlight")}
                         </span>{" "}
                         {t("contactSales.hero.titleSuffix")}
@@ -79,7 +78,7 @@ const ContactSalesPage: React.FC = () => {
                     {/* Stats */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto">
                         <div className="text-center">
-                            <div className="text-3xl font-bold text-[#3A9BDC] mb-2">
+                            <div className="text-3xl font-bold text-blue-500 mb-2">
                                 {t("contactSales.stats.responseTime.value")}
                             </div>
                             <div className="text-sm text-gray-600">
@@ -87,7 +86,7 @@ const ContactSalesPage: React.FC = () => {
                             </div>
                         </div>
                         <div className="text-center">
-                            <div className="text-3xl font-bold text-[#2ECC71] mb-2">
+                            <div className="text-3xl font-bold text-green-500 mb-2">
                                 {t("contactSales.stats.salesConversions.value")}
                             </div>
                             <div className="text-sm text-gray-600">

@@ -148,7 +148,7 @@ const DashboardLayout = ({
                                         onClick={() => setLanguage("en")}
                                         className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
                                             language === "en"
-                                                ? "bg-[#3A9BDC] text-white"
+                                                ? "bg-blue-500 text-white"
                                                 : "text-gray-600 hover:text-gray-800"
                                         }`}
                                     >
@@ -158,7 +158,7 @@ const DashboardLayout = ({
                                         onClick={() => setLanguage("id")}
                                         className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
                                             language === "id"
-                                                ? "bg-[#3A9BDC] text-white"
+                                                ? "bg-blue-500 text-white"
                                                 : "text-gray-600 hover:text-gray-800"
                                         }`}
                                     >

@@ -108,7 +108,7 @@ const TagManagement: React.FC<TagManagementProps> = ({ isOpen, onClose }) => {
             <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
                 <DialogHeader>
                     <DialogTitle className="text-xl font-semibold text-gray-900 flex items-center gap-2">
-                        <Tag className="h-5 w-5 text-[#3A9BDC]" />
+                        <Tag className="h-5 w-5 text-blue-500" />
                         {t("TagManagement.title")}
                     </DialogTitle>
                 </DialogHeader>
@@ -124,7 +124,7 @@ const TagManagement: React.FC<TagManagementProps> = ({ isOpen, onClose }) => {
                     <Card>
                         <CardHeader>
                             <CardTitle className="flex items-center gap-2">
-                                <Plus className="h-5 w-5 text-[#2ECC71]" />
+                                <Plus className="h-5 w-5 text-green-500" />
                                 {t("TagManagement.addNewTag.title")}
                             </CardTitle>
                             <CardDescription>
@@ -178,7 +178,7 @@ const TagManagement: React.FC<TagManagementProps> = ({ isOpen, onClose }) => {
                                 <Button
                                     onClick={handleAddTag}
                                     disabled={!newTagName.trim() || tagsLoading}
-                                    className="bg-[#2ECC71] hover:bg-[#27AE60]"
+                                    className="bg-green-500 hover:bg-green-600"
                                 >
                                     <Plus className="h-4 w-4 mr-2" />
                                     {t("TagManagement.addNewTag.addButton")}
@@ -191,7 +191,7 @@ const TagManagement: React.FC<TagManagementProps> = ({ isOpen, onClose }) => {
                         <CardHeader>
                             <CardTitle className="flex items-center justify-between">
                                 <div className="flex items-center gap-2">
-                                    <Edit className="h-5 w-5 text-[#3A9BDC]" />
+                                    <Edit className="h-5 w-5 text-blue-500" />
                                     {t("TagManagement.existingTags.title", {
                                         count: tags.filter(
                                             (tag) => !tag.isDeleted
@@ -339,7 +339,7 @@ const TagManagement: React.FC<TagManagementProps> = ({ isOpen, onClose }) => {
                                                                 onClick={
                                                                     handleSaveEdit
                                                                 }
-                                                                className="bg-[#2ECC71] hover:bg-[#27AE60]"
+                                                                className="bg-green-500 hover:bg-green-600"
                                                                 disabled={
                                                                     tagsLoading
                                                                 }
@@ -527,7 +527,7 @@ const TagManagement: React.FC<TagManagementProps> = ({ isOpen, onClose }) => {
                     </Button>
                     <Button
                         onClick={handleSave}
-                        className="bg-[#3A9BDC] hover:bg-[#2E8BC7]"
+                        className="bg-blue-500 hover:bg-blue-600"
                         disabled={tagsLoading}
                     >
                         {tagsLoading ? (

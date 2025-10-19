@@ -176,7 +176,7 @@ const ContactProfile: React.FC<ContactProfileProps> = ({
                                     {editedContact.name}
                                 </h1>
                                 {editedContact.isVip && (
-                                    <Star className="h-5 w-5 text-[#F1C40F] fill-current" />
+                                    <Star className="h-5 w-5 text-yellow-500 fill-current" />
                                 )}
                             </div>
                         </div>
@@ -196,7 +196,7 @@ const ContactProfile: React.FC<ContactProfileProps> = ({
                                 </Button>
                                 <Button
                                     onClick={handleSave}
-                                    className="bg-[#2ECC71] hover:bg-[#27AE60]"
+                                    className="bg-green-500 hover:bg-green-600"
                                 >
                                     <Save className="h-4 w-4 mr-2" />
                                     {t("ContactProfile.saveButton")}
@@ -220,7 +220,7 @@ const ContactProfile: React.FC<ContactProfileProps> = ({
                         <Card>
                             <CardHeader>
                                 <CardTitle className="flex items-center gap-2">
-                                    <User className="h-5 w-5 text-[#3A9BDC]" />
+                                    <User className="h-5 w-5 text-blue-500" />
                                     {t("ContactProfile.contactInfo.title")}
                                 </CardTitle>
                             </CardHeader>
@@ -286,7 +286,7 @@ const ContactProfile: React.FC<ContactProfileProps> = ({
                         <Card>
                             <CardHeader>
                                 <CardTitle className="flex items-center gap-2">
-                                    <Tag className="h-5 w-5 text-[#3A9BDC]" />
+                                    <Tag className="h-5 w-5 text-blue-500" />
                                     {t("ContactProfile.tags.title")}
                                 </CardTitle>
                             </CardHeader>
@@ -359,7 +359,7 @@ const ContactProfile: React.FC<ContactProfileProps> = ({
                         <Card>
                             <CardHeader>
                                 <CardTitle className="flex items-center gap-2">
-                                    <Edit className="h-5 w-5 text-[#3A9BDC]" />
+                                    <Edit className="h-5 w-5 text-blue-500" />
                                     {t("ContactProfile.notes.title")}
                                 </CardTitle>
                             </CardHeader>
@@ -414,7 +414,7 @@ const ContactProfile: React.FC<ContactProfileProps> = ({
                                 >
                                     {t("ContactProfile.tabs.activities")}
                                     {isProfessionalFeature && (
-                                        <Crown className="h-3 w-3 text-[#F1C40F] ml-1" />
+                                        <Crown className="h-3 w-3 text-yellow-500 ml-1" />
                                     )}
                                 </TabsTrigger>
                             </TabsList>
@@ -518,7 +518,7 @@ const ContactProfile: React.FC<ContactProfileProps> = ({
                                                                                 className={`max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${
                                                                                     message.direction ===
                                                                                     "outbound"
-                                                                                        ? "bg-[#3A9BDC] text-white"
+                                                                                        ? "bg-blue-500 text-white"
                                                                                         : "bg-white border border-gray-200"
                                                                                 }`}
                                                                             >
@@ -616,9 +616,9 @@ const ContactProfile: React.FC<ContactProfileProps> = ({
                                 className="space-y-4"
                             >
                                 {isProfessionalFeature ? (
-                                    <Card className="border-[#F1C40F] bg-gradient-to-r from-yellow-50 to-orange-50">
+                                    <Card className="border-yellow-500 bg-gradient-to-r from-yellow-50 to-orange-50">
                                         <CardContent className="p-6 text-center">
-                                            <Crown className="h-12 w-12 text-[#F1C40F] mx-auto mb-4" />
+                                            <Crown className="h-12 w-12 text-yellow-500 mx-auto mb-4" />
                                             <h3 className="text-lg font-semibold text-gray-900 mb-2">
                                                 {t(
                                                     "ContactProfile.activities.professionalFeature.title"
@@ -629,7 +629,7 @@ const ContactProfile: React.FC<ContactProfileProps> = ({
                                                     "ContactProfile.activities.professionalFeature.description"
                                                 )}
                                             </p>
-                                            <Button className="bg-[#F1C40F] hover:bg-[#E6B800] text-gray-900">
+                                            <Button className="bg-yellow-500 hover:bg-yellow-600 text-gray-900">
                                                 {t(
                                                     "ContactProfile.activities.professionalFeature.upgradeButton"
                                                 )}

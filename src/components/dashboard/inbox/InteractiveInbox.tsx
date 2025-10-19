@@ -272,7 +272,7 @@ const InteractiveInbox: React.FC<InteractiveInboxProps> = ({
                                     exit={{ opacity: 0, x: -20 }}
                                     className={`p-4 border-b border-gray-100 cursor-pointer hover:bg-gray-50 transition-colors ${
                                         selectedConversation === conversation.id
-                                            ? "bg-blue-50 border-l-4 border-l-[#3A9BDC]"
+                                            ? "bg-blue-50 border-l-4 border-l-blue-500"
                                             : ""
                                     }`}
                                     onClick={() =>
@@ -473,7 +473,7 @@ const InteractiveInbox: React.FC<InteractiveInboxProps> = ({
                                                 className={`px-2 py-0.5 rounded-full text-xs font-medium transition-colors ${
                                                     selectedConv.contact
                                                         .auto_respond
-                                                        ? "bg-[#3A9BDC] text-white"
+                                                        ? "bg-blue-500 text-white"
                                                         : "text-gray-600"
                                                 }`}
                                             >
@@ -488,7 +488,7 @@ const InteractiveInbox: React.FC<InteractiveInboxProps> = ({
                                                 className={`px-2 py-0.5 rounded-full text-xs font-medium transition-colors ${
                                                     !selectedConv.contact
                                                         .auto_respond
-                                                        ? "bg-[#3A9BDC] text-white"
+                                                        ? "bg-blue-500 text-white"
                                                         : "text-gray-600"
                                                 }`}
                                             >
@@ -616,7 +616,7 @@ const InteractiveInbox: React.FC<InteractiveInboxProps> = ({
                                                             className={`max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${
                                                                 message.direction ===
                                                                 "outbound"
-                                                                    ? "bg-[#3A9BDC] text-white"
+                                                                    ? "bg-blue-500 text-white"
                                                                     : "bg-white border border-gray-200"
                                                             }`}
                                                         >

@@ -3,61 +3,35 @@ import { CheckCircle, MessageSquare, Mail, Zap, Lock } from "lucide-react";
 
 interface BrandSectionProps {
     currentStep: number;
-    t: (key: string) => string;
+    t: (key: string) => any;
 }
 
 const BrandSection: React.FC<BrandSectionProps> = ({ currentStep, t }) => {
-    const stepOneFeatures = [
-        "unifyChannels",
-        "aiResponses",
-        "followUpTracking",
-        "teamCollaboration",
-    ];
-
-    const stepTwoFeatures = [
-        "whatsappApi",
-        "emailIntegration",
-        "personalizedRecommendations",
-    ];
-
-    const stepThreeFeatures = ["secureData", "instantAccess", "fullControl"];
-
-    const getCurrentFeatures = () => {
-        if (currentStep === 1) return stepOneFeatures;
-        if (currentStep === 2) return stepTwoFeatures;
-        return stepThreeFeatures;
+    const getFeatures = () => {
+        if (currentStep === 1) return t("signup.brand.featuresStep1");
+        if (currentStep === 2) return t("signup.brand.featuresStep2");
+        return t("signup.brand.featuresStep3");
     };
 
-    const getStepTitle = () => {
-        if (currentStep === 1) return "titleStep1";
-        if (currentStep === 2) return "titleStep2";
-        return "titleStep3";
-    };
+    const getStepTitle = () => `titleStep${currentStep}`;
+    const getStepSubtitle = () => `subtitleStep${currentStep}`;
 
-    const getStepSubtitle = () => {
-        if (currentStep === 1) return "subtitleStep1";
-        if (currentStep === 2) return "subtitleStep2";
-        return "subtitleStep3";
-    };
-
-    const getFeatureIcon = (feature: string) => {
-        if (currentStep === 1) {
+    const getFeatureIcon = (index: number) => {
+        if (currentStep === 1)
             return <CheckCircle className="w-5 h-5 text-white" />;
-        } else if (currentStep === 2) {
-            if (feature === "whatsappApi") {
-                return <MessageSquare className="w-5 h-5 text-white" />;
-            } else if (feature === "emailIntegration") {
-                return <Mail className="w-5 h-5 text-white" />;
-            } else {
-                return <Zap className="w-5 h-5 text-white" />;
-            }
-        } else {
-            return <Lock className="w-5 h-5 text-white" />;
+        if (currentStep === 2) {
+            const icons = [<MessageSquare />, <Mail />, <Zap />];
+            return React.cloneElement(icons[index % icons.length], {
+                className: "w-5 h-5 text-white",
+            });
         }
+        return <Lock className="w-5 h-5 text-white" />;
     };
+
+    const features = Array.isArray(getFeatures()) ? getFeatures() : [];
 
     return (
-        <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-[#2ECC71] to-[#3A9BDC] p-12 flex-col justify-between relative overflow-hidden">
+        <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-green-500 to-blue-500 p-12 flex-col justify-between relative overflow-hidden">
             {/* Background decorative elements */}
             <div className="absolute top-20 right-20 w-32 h-32 bg-white/10 rounded-full blur-xl"></div>
             <div className="absolute bottom-40 left-20 w-24 h-24 bg-white/10 rounded-full blur-xl"></div>
@@ -81,14 +55,12 @@ const BrandSection: React.FC<BrandSectionProps> = ({ currentStep, t }) => {
                     {t(`signup.brand.${getStepSubtitle()}`)}
                 </p>
 
-                {/* Step-specific content */}
+                {/* Features list */}
                 <div className="space-y-4">
-                    {getCurrentFeatures().map((feature) => (
-                        <div key={feature} className="flex items-center gap-3">
-                            {getFeatureIcon(feature)}
-                            <span className="text-green-100">
-                                {t(`signup.brand.features.${feature}`)}
-                            </span>
+                    {features.map((feature: string, index: number) => (
+                        <div key={index} className="flex items-center gap-3">
+                            {getFeatureIcon(index)}
+                            <span className="text-green-100">{feature}</span>
                         </div>
                     ))}
                 </div>

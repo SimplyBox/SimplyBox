@@ -1,5 +1,5 @@
 import React from "react";
-import { useLanguage } from "@/contexts/LanguageContext"; // Adjust the import path as needed
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const HowItWorksSection: React.FC = () => {
     const { t } = useLanguage();
@@ -22,7 +22,7 @@ const HowItWorksSection: React.FC = () => {
                             key={`step-${index}`}
                             className="flex flex-col items-center text-center max-w-xs"
                         >
-                            <div className="w-16 h-16 rounded-full bg-[#3A9BDC] text-white flex items-center justify-center text-2xl font-bold mb-4">
+                            <div className="w-16 h-16 rounded-full bg-blue-500 text-white flex items-center justify-center text-2xl font-bold mb-4">
                                 {index + 1}
                             </div>
                             <h3 className="text-xl font-semibold mb-2">

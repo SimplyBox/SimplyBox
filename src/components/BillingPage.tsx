@@ -135,7 +135,7 @@ const BillingPage: React.FC<BillingPageProps> = ({ onBack, onUpgrade }) => {
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div className="flex items-center gap-3">
-                                        <Calendar className="h-5 w-5 text-[#3A9BDC]" />
+                                        <Calendar className="h-5 w-5 text-blue-500" />
                                         <div>
                                             <p className="text-sm font-medium text-gray-900">
                                                 Next Billing Date
@@ -146,7 +146,7 @@ const BillingPage: React.FC<BillingPageProps> = ({ onBack, onUpgrade }) => {
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-3">
-                                        <CreditCard className="h-5 w-5 text-[#3A9BDC]" />
+                                        <CreditCard className="h-5 w-5 text-blue-500" />
                                         <div>
                                             <p className="text-sm font-medium text-gray-900">
                                                 Payment Method
@@ -176,7 +176,7 @@ const BillingPage: React.FC<BillingPageProps> = ({ onBack, onUpgrade }) => {
                                             }
                                             className={
                                                 billingCycle === "monthly"
-                                                    ? "bg-[#3A9BDC] hover:bg-[#2980B9]"
+                                                    ? "bg-blue-500 hover:bg-blue-600"
                                                     : ""
                                             }
                                         >
@@ -194,7 +194,7 @@ const BillingPage: React.FC<BillingPageProps> = ({ onBack, onUpgrade }) => {
                                             }
                                             className={
                                                 billingCycle === "annual"
-                                                    ? "bg-[#3A9BDC] hover:bg-[#2980B9]"
+                                                    ? "bg-blue-500 hover:bg-blue-600"
                                                     : ""
                                             }
                                         >
@@ -268,7 +268,7 @@ const BillingPage: React.FC<BillingPageProps> = ({ onBack, onUpgrade }) => {
                             <CardContent className="space-y-3">
                                 <Button
                                     onClick={onUpgrade}
-                                    className="w-full bg-[#2ECC71] hover:bg-[#27AE60] text-white"
+                                    className="w-full bg-green-500 hover:bg-green-600 text-white"
                                 >
                                     Upgrade Plan
                                 </Button>
@@ -297,7 +297,7 @@ const BillingPage: React.FC<BillingPageProps> = ({ onBack, onUpgrade }) => {
                                     </div>
                                     <div className="w-full bg-gray-200 rounded-full h-2">
                                         <div
-                                            className="bg-[#3A9BDC] h-2 rounded-full"
+                                            className="bg-blue-500 h-2 rounded-full"
                                             style={{ width: "50%" }}
                                         ></div>
                                     </div>
@@ -309,7 +309,7 @@ const BillingPage: React.FC<BillingPageProps> = ({ onBack, onUpgrade }) => {
                                     </div>
                                     <div className="w-full bg-gray-200 rounded-full h-2">
                                         <div
-                                            className="bg-[#2ECC71] h-2 rounded-full"
+                                            className="bg-green-500 h-2 rounded-full"
                                             style={{ width: "37.5%" }}
                                         ></div>
                                     </div>
@@ -321,7 +321,7 @@ const BillingPage: React.FC<BillingPageProps> = ({ onBack, onUpgrade }) => {
                                     </div>
                                     <div className="w-full bg-gray-200 rounded-full h-2">
                                         <div
-                                            className="bg-[#3A9BDC] h-2 rounded-full"
+                                            className="bg-blue-500 h-2 rounded-full"
                                             style={{ width: "46%" }}
                                         ></div>
                                     </div>

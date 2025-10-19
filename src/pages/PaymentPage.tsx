@@ -256,7 +256,7 @@ const PaymentPage: React.FC = () => {
                     </div>
                     <a
                         href="mailto:dylansiusputra.business@gmail.com"
-                        className="text-[#3A9BDC] hover:text-[#2980B9] font-medium"
+                        className="text-blue-500 hover:text-blue-600 font-medium"
                     >
                         {t("payment.header.helpLink")}
                     </a>
@@ -286,10 +286,10 @@ const PaymentPage: React.FC = () => {
                     <Card className="h-fit shadow-lg border-0 bg-white/90 backdrop-blur-sm">
                         <CardHeader>
                             <CardTitle className="flex items-center gap-2 text-xl">
-                                <div className="w-2 h-8 bg-gradient-to-b from-[#3A9BDC] to-[#2ECC71] rounded-full"></div>
+                                <div className="w-2 h-8 bg-gradient-to-b from-blue-500 to-green-500 rounded-full"></div>
                                 {t("payment.orderSummary.title")}
                                 {tierData.popular && (
-                                    <Badge className="bg-gradient-to-r from-[#2ECC71] to-[#27AE60] text-white border-0">
+                                    <Badge className="bg-gradient-to-r from-green-500 to-green-600 text-white border-0">
                                         ⭐ {t("payment.mostPopular")}
                                     </Badge>
                                 )}
@@ -382,7 +382,7 @@ const PaymentPage: React.FC = () => {
                                             key={index}
                                             className="flex items-start gap-2"
                                         >
-                                            <Check className="h-4 w-4 text-[#2ECC71] mt-0.5 flex-shrink-0" />
+                                            <Check className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
                                             <span className="text-sm text-gray-600">
                                                 {t(
                                                     `payment.plans.${selectedTier}.features.${feature.key}`
@@ -420,7 +420,7 @@ const PaymentPage: React.FC = () => {
                     <Card className="shadow-lg border-0 bg-white/90 backdrop-blur-sm">
                         <CardHeader>
                             <CardTitle className="flex items-center gap-2 text-xl">
-                                <div className="w-2 h-8 bg-gradient-to-b from-[#2ECC71] to-[#3A9BDC] rounded-full"></div>
+                                <div className="w-2 h-8 bg-gradient-to-b from-green-500 to-blue-500 rounded-full"></div>
                                 {t("payment.paymentMethods.title")}
                             </CardTitle>
                         </CardHeader>
@@ -517,7 +517,7 @@ const PaymentPage: React.FC = () => {
                                                 <CardContent className="pt-4">
                                                     <div className="space-y-3">
                                                         <p className="font-semibold text-gray-900 flex items-center gap-2">
-                                                            <div className="w-2 h-2 bg-[#3A9BDC] rounded-full"></div>
+                                                            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                                                             {t(
                                                                 "payment.paymentMethods.transferDetails"
                                                             )}
@@ -588,10 +588,10 @@ const PaymentPage: React.FC = () => {
                                         className="space-y-4"
                                     >
                                         <div className="text-center space-y-4">
-                                            <div className="bg-gradient-to-br from-white to-gray-50 border-2 border-dashed border-gray-300 rounded-xl p-8 hover:border-[#2ECC71] transition-colors">
+                                            <div className="bg-gradient-to-br from-white to-gray-50 border-2 border-dashed border-gray-300 rounded-xl p-8 hover:border-green-500 transition-colors">
                                                 <div className="relative">
                                                     <QrCode className="h-32 w-32 mx-auto text-gray-400 mb-4" />
-                                                    <div className="absolute inset-0 bg-gradient-to-r from-[#3A9BDC]/10 to-[#2ECC71]/10 rounded-lg"></div>
+                                                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-green-500/10 rounded-lg"></div>
                                                 </div>
                                                 <p className="text-gray-700 font-medium">
                                                     {t(
@@ -604,9 +604,9 @@ const PaymentPage: React.FC = () => {
                                                     )}
                                                 </p>
                                                 <div className="flex justify-center gap-2 mt-3">
-                                                    <div className="w-2 h-2 bg-[#3A9BDC] rounded-full animate-pulse"></div>
-                                                    <div className="w-2 h-2 bg-[#2ECC71] rounded-full animate-pulse delay-100"></div>
-                                                    <div className="w-2 h-2 bg-[#3A9BDC] rounded-full animate-pulse delay-200"></div>
+                                                    <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                                                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse delay-100"></div>
+                                                    <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse delay-200"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -666,7 +666,7 @@ const PaymentPage: React.FC = () => {
                             {/* Payment Detail Section */}
                             <div className="space-y-4">
                                 <h4 className="font-semibold text-gray-900 flex items-center gap-2">
-                                    <div className="w-1.5 h-6 bg-[#3A9BDC] rounded-full"></div>
+                                    <div className="w-1.5 h-6 bg-blue-500 rounded-full"></div>
                                     {t("payment.paymentDetail.title")}
                                 </h4>
                                 <div className="space-y-3 text-sm">
@@ -746,7 +746,7 @@ const PaymentPage: React.FC = () => {
 
                             <div className="space-y-4">
                                 <Button
-                                    className="w-full bg-gradient-to-r from-[#2ECC71] to-[#27AE60] hover:from-[#27AE60] hover:to-[#229954] text-white font-semibold py-3 shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-[1.02]"
+                                    className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold py-3 shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-[1.02]"
                                     onClick={handlePayment}
                                     disabled={isProcessing}
                                 >
@@ -771,14 +771,14 @@ const PaymentPage: React.FC = () => {
                                 🔒 {t("payment.termsAndPrivacy.text")}{" "}
                                 <a
                                     href="#"
-                                    className="text-[#3A9BDC] hover:underline font-medium"
+                                    className="text-blue-500 hover:underline font-medium"
                                 >
                                     {t("payment.termsAndPrivacy.termsLink")}
                                 </a>{" "}
                                 {t("payment.termsAndPrivacy.and")}{" "}
                                 <a
                                     href="#"
-                                    className="text-[#3A9BDC] hover:underline font-medium"
+                                    className="text-blue-500 hover:underline font-medium"
                                 >
                                     {t("payment.termsAndPrivacy.privacyLink")}
                                 </a>
