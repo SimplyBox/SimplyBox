@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Button } from "../components/ui/button";
 import {
     Card,
@@ -30,13 +30,6 @@ interface BusinessData {
     ownerPhone: string;
     ownerEmail: string;
     ownerPassword: string;
-    wa_data?: {
-        waba_id: string;
-        phone_number: string;
-        phone_number_id: string;
-        meta_business_id: string;
-        access_token: string;
-    };
 }
 
 const SignUpPage: React.FC = () => {
@@ -61,105 +54,7 @@ const SignUpPage: React.FC = () => {
     const { signUp } = useAuth();
     const navigate = useNavigate();
 
-    // Handle OAuth success and restore form data (tidak berubah)
-    useEffect(() => {
-        const urlParams = new URLSearchParams(window.location.search);
-        const oauthSuccess = urlParams.get("oauth") === "success";
-        const tempWaData = localStorage.getItem("temp_wa_data");
-        const savedFormData = localStorage.getItem("signup_form_data");
-        const savedStep = localStorage.getItem("signup_current_step");
-
-        console.log("SignUpPage useEffect - OAuth check:", {
-            oauthSuccess,
-            tempWaData: !!tempWaData,
-            savedFormData: !!savedFormData,
-            savedStep,
-        });
-
-        // Restore saved form data if available
-        if (savedFormData) {
-            try {
-                const formData = JSON.parse(savedFormData);
-                console.log("Restoring form data:", formData);
-                setBusinessData((prev) => ({
-                    ...prev,
-                    ...formData,
-                }));
-            } catch (error) {
-                console.error("Error parsing saved form data:", error);
-            }
-        }
-
-        // Restore saved step
-        if (savedStep) {
-            const stepNumber = parseInt(savedStep, 10);
-            if (stepNumber >= 1 && stepNumber <= 3) {
-                setCurrentStep(stepNumber);
-            }
-        }
-
-        // Handle OAuth success
-        if (oauthSuccess && tempWaData) {
-            try {
-                const waData = JSON.parse(tempWaData);
-                console.log("Processing OAuth success with WA data:", waData);
-
-                setBusinessData((prev) => ({
-                    ...prev,
-                    wa_data: waData,
-                }));
-
-                // Clean up temporary OAuth storage
-                localStorage.removeItem("temp_wa_data");
-                localStorage.removeItem("oauth_success");
-
-                // Set to step 2 since OAuth was completed from step 2
-                setCurrentStep(2);
-
-                // Clean up URL
-                window.history.replaceState(
-                    {},
-                    document.title,
-                    window.location.pathname
-                );
-            } catch (error) {
-                console.error("Error parsing temporary WhatsApp data:", error);
-            }
-        }
-    }, []);
-
-    // Save form data whenever businessData changes (tidak berubah)
-    useEffect(() => {
-        // Only save if we have some meaningful data
-        if (businessData.businessName || businessData.businessType) {
-            const formDataToSave = {
-                businessName: businessData.businessName,
-                businessType: businessData.businessType,
-                businessNIB: businessData.businessNIB,
-                businessPhone: businessData.businessPhone,
-                businessEmail: businessData.businessEmail,
-                teamSize: businessData.teamSize,
-                dailyMessages: businessData.dailyMessages,
-                ownerName: businessData.ownerName,
-                ownerPhone: businessData.ownerPhone,
-                ownerEmail: businessData.ownerEmail,
-                ownerPassword: businessData.ownerPassword,
-            };
-
-            localStorage.setItem(
-                "signup_form_data",
-                JSON.stringify(formDataToSave)
-            );
-            localStorage.setItem("signup_current_step", currentStep.toString());
-
-            console.log("Auto-saving form data:", formDataToSave);
-        }
-    }, [businessData, currentStep]);
-
     const handleBack = () => {
-        // Clean up localStorage when going back to home
-        localStorage.removeItem("signup_form_data");
-        localStorage.removeItem("signup_current_step");
         navigate("/");
     };
 
@@ -169,7 +64,6 @@ const SignUpPage: React.FC = () => {
 
     const handleNext = () => {
         if (currentStep === 1) {
-            // Validate required fields for step 1
             if (
                 !businessData.businessName ||
                 !businessData.businessType ||
@@ -183,7 +77,6 @@ const SignUpPage: React.FC = () => {
             setErrorMessage("");
             setCurrentStep(2);
         } else if (currentStep === 2) {
-            // Validate step 2 fields
             if (!businessData.teamSize || !businessData.dailyMessages) {
                 setErrorMessage(t("signup.step2.validation.fillRequired"));
                 return;
@@ -194,7 +87,6 @@ const SignUpPage: React.FC = () => {
     };
 
     const handleComplete = async () => {
-        // Validate step 3 fields
         if (
             !businessData.ownerName ||
             !businessData.ownerPhone ||
@@ -213,18 +105,11 @@ const SignUpPage: React.FC = () => {
         setIsLoading(true);
         setErrorMessage("");
 
-        console.log("Completing signup with data:", businessData);
-
         try {
             const result = await signUp(businessData);
 
             if (result.success) {
-                // Clean up localStorage on successful signup
-                localStorage.removeItem("signup_form_data");
-                localStorage.removeItem("signup_current_step");
-
                 if (result.needsVerification) {
-                    // Navigate ke verify email page, pass email via state
                     navigate("/verify-email", {
                         state: { email: businessData.ownerEmail },
                     });
@@ -309,7 +194,7 @@ const SignUpPage: React.FC = () => {
             <BrandSection currentStep={currentStep} t={t} />
 
             {/* Right Side - Form */}
-            <div className="w-full lg:w-1/2 flex items-center justify-center p-8 bg-gray-50">
+            <div className="w-full lg:w-1/2 lg:ml-[50%] flex items-center justify-center p-8 bg-gray-50 overflow-y-auto">
                 <div className="w-full max-w-md">
                     {/* Back button */}
                     <Button

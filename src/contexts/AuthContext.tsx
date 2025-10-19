@@ -32,13 +32,13 @@ interface SignUpData {
     ownerPhone: string;
     ownerEmail: string;
     ownerPassword: string;
-    wa_data?: {
-        waba_id: string;
-        phone_number: string;
-        phone_number_id: string;
-        meta_business_id: string;
-        access_token: string;
-    };
+    // wa_data?: {
+    //     waba_id: string;
+    //     phone_number: string;
+    //     phone_number_id: string;
+    //     meta_business_id: string;
+    //     access_token: string;
+    // };
 }
 
 interface TeamMemberSignUpData {
@@ -325,35 +325,35 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
                     return { success: false, error: usageError.message };
                 }
 
-                if (businessData.wa_data) {
-                    const { error: waError } = await supabase
-                        .from("whatsapp_integrations")
-                        .insert([
-                            {
-                                company_id: companyData.id,
-                                waba_id: businessData.wa_data.waba_id,
-                                phone_number: businessData.wa_data.phone_number,
-                                phone_number_id:
-                                    businessData.wa_data.phone_number_id,
-                                access_token: businessData.wa_data.access_token,
-                                meta_business_id:
-                                    businessData.wa_data.meta_business_id,
-                                updated_at: new Date().toISOString(),
-                                token_expires_at: new Date(
-                                    Date.now() + 60 * 24 * 60 * 60 * 1000
-                                ).toISOString(),
-                            },
-                        ]);
+                // if (businessData.wa_data) {
+                //     const { error: waError } = await supabase
+                //         .from("whatsapp_integrations")
+                //         .insert([
+                //             {
+                //                 company_id: companyData.id,
+                //                 waba_id: businessData.wa_data.waba_id,
+                //                 phone_number: businessData.wa_data.phone_number,
+                //                 phone_number_id:
+                //                     businessData.wa_data.phone_number_id,
+                //                 access_token: businessData.wa_data.access_token,
+                //                 meta_business_id:
+                //                     businessData.wa_data.meta_business_id,
+                //                 updated_at: new Date().toISOString(),
+                //                 token_expires_at: new Date(
+                //                     Date.now() + 60 * 24 * 60 * 60 * 1000
+                //                 ).toISOString(),
+                //             },
+                //         ]);
 
-                    if (waError) {
-                        await supabase
-                            .from("companies")
-                            .delete()
-                            .eq("id", companyData.id);
-                        await supabase.auth.admin.deleteUser(authData.user.id);
-                        return { success: false, error: waError.message };
-                    }
-                }
+                //     if (waError) {
+                //         await supabase
+                //             .from("companies")
+                //             .delete()
+                //             .eq("id", companyData.id);
+                //         await supabase.auth.admin.deleteUser(authData.user.id);
+                //         return { success: false, error: waError.message };
+                //     }
+                // }
 
                 const { error: teamError } = await supabase
                     .from("team")

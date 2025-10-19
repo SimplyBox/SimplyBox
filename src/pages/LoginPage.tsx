@@ -80,7 +80,7 @@ const LoginPage: React.FC = () => {
             <BrandSection t={t} />
 
             {/* Right Side - Login Form */}
-            <div className="w-full lg:w-1/2 flex items-center justify-center p-8 bg-gray-50">
+            <div className="w-full lg:w-1/2 lg:ml-[50%] flex items-center justify-center p-8 bg-gray-50 overflow-y-auto">
                 <div className="w-full max-w-md">
                     {/* Back button */}
                     <Button

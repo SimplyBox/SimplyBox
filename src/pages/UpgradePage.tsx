@@ -35,6 +35,17 @@ interface FAQItem {
     answer: string;
 }
 
+interface FeatureItem {
+    text: string;
+    tooltip?: string;
+}
+
+interface PricingPlan {
+    name: string;
+    popular?: boolean;
+    disabled?: boolean;
+}
+
 const UpgradePage: React.FC = () => {
     const { t } = useLanguage();
     const navigate = useNavigate();
@@ -42,7 +53,7 @@ const UpgradePage: React.FC = () => {
 
     const activePlan = subscription?.tier;
 
-    const plans = [
+    const plans: PricingPlan[] = [
         {
             name: "free",
             popular: false,
@@ -51,61 +62,21 @@ const UpgradePage: React.FC = () => {
                 activePlan === "starter" ||
                 activePlan === "professional" ||
                 activePlan === "enterprise",
-            features: [
-                { key: "companyRegistration", included: true },
-                { key: "channels", included: true },
-                { key: "messages", included: true },
-                { key: "fileUploads", included: true },
-                { key: "aiAgent", included: true, hasTooltip: true },
-                { key: "kanbanBoard", included: true },
-                { key: "analytics", included: true },
-                { key: "ecommerce", included: false },
-            ],
         },
         {
             name: "starter",
             popular: true,
             disabled: activePlan === "starter",
-            features: [
-                { key: "everythingFree", included: true },
-                { key: "channels", included: true },
-                { key: "messages", included: true },
-                { key: "fileUploads", included: true },
-                { key: "teamMembers", included: true },
-                { key: "enhancedAI", included: true, hasTooltip: true },
-                { key: "advancedKanban", included: true },
-                { key: "weeklyAnalytics", included: true },
-                { key: "emailSupport", included: true },
-            ],
         },
         {
             name: "professional",
             popular: false,
             disabled: activePlan === "professional",
-            features: [
-                { key: "everythingStarter", included: true },
-                { key: "channels", included: true },
-                { key: "messages", included: true },
-                { key: "fileUploads", included: true },
-                { key: "teamMembers", included: true },
-                { key: "advancedAI", included: true, hasTooltip: true },
-                { key: "advancedAnalytics", included: true },
-                { key: "prioritySupport", included: true },
-            ],
         },
         {
             name: "enterprise",
             popular: false,
             disabled: activePlan === "enterprise",
-            features: [
-                { key: "customizable", included: true },
-                { key: "marketingAutomation", included: true },
-                { key: "crmIntegration", included: true },
-                { key: "orderTracking", included: true },
-                { key: "freeSetup", included: true },
-                { key: "accountManager", included: true },
-                { key: "whiteLabel", included: true },
-            ],
         },
     ];
 
@@ -129,9 +100,8 @@ const UpgradePage: React.FC = () => {
     ];
 
     const handleSelectPlan = (plan: string) => {
-        // Cegah downgrade ke Free Plan
         if (plan === "free") {
-            return; // Tidak melakukan apa-apa karena Free Plan hanya one-time demo
+            return;
         }
         if (plan === "enterprise") {
             navigate("/contact-sales", {
@@ -145,20 +115,20 @@ const UpgradePage: React.FC = () => {
     const getButtonText = (plan: string) => {
         if (plan === "free") {
             return activePlan === "free"
-                ? t("upgrade.plans.free.buttonText.current")
-                : t("upgrade.plans.free.buttonText.unavailable");
+                ? t("plans.free.buttonText.current")
+                : t("plans.free.buttonText.unavailable");
         }
         if (plan === activePlan) {
-            return t(`upgrade.plans.${plan}.buttonText.current`);
+            return t(`plans.${plan}.buttonText.current`);
         }
         if (
             (activePlan === "professional" && plan === "starter") ||
             (activePlan === "enterprise" &&
                 (plan === "starter" || plan === "professional"))
         ) {
-            return t(`upgrade.plans.${plan}.buttonText.downgrade`);
+            return t(`plans.${plan}.buttonText.downgrade`);
         }
-        return t(`upgrade.plans.${plan}.buttonText.upgrade`);
+        return t(`plans.${plan}.buttonText.upgrade`);
     };
 
     const handleBack = () => {
@@ -210,109 +180,114 @@ const UpgradePage: React.FC = () => {
             {/* Pricing Cards */}
             <div className="container mx-auto px-4 py-16">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mx-auto">
-                    {plans.map((plan, index) => (
-                        <Card
-                            key={plan.name}
-                            className={`relative flex flex-col ${
-                                plan.popular
-                                    ? "border-2 border-blue-500 shadow-xl"
-                                    : "border border-gray-200"
-                            } ${plan.disabled ? "opacity-75" : ""}`}
-                        >
-                            {plan.popular && (
-                                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                                    <Badge className="bg-blue-500 text-white px-4 py-1 text-sm font-semibold pointer-events-none">
-                                        <Star className="h-4 w-4 mr-1" />
-                                        {t("upgrade.mostPopular")}
-                                    </Badge>
-                                </div>
-                            )}
+                    {plans.map((plan) => {
+                        const planData = t(`plans.${plan.name}`);
+                        const features = planData.features as (
+                            | string
+                            | FeatureItem
+                        )[];
 
-                            <CardHeader className="text-center pb-4">
-                                <CardTitle className="text-2xl font-bold">
-                                    {t(`upgrade.plans.${plan.name}.name`)}
-                                </CardTitle>
-                                <CardDescription className="text-gray-600 mb-4">
-                                    {t(
-                                        `upgrade.plans.${plan.name}.description`
-                                    )}
-                                </CardDescription>
-                                <div className="mb-4">
-                                    <span className="text-4xl font-bold text-gray-900">
-                                        {t(`upgrade.plans.${plan.name}.price`)}
-                                    </span>
-                                    <span className="text-gray-600 ml-1">
-                                        {t(`upgrade.plans.${plan.name}.period`)}
-                                    </span>
-                                </div>
-                            </CardHeader>
+                        return (
+                            <Card
+                                key={plan.name}
+                                className={`relative flex flex-col ${
+                                    plan.popular
+                                        ? "border-2 border-blue-500 shadow-xl"
+                                        : "border border-gray-200"
+                                } ${plan.disabled ? "opacity-75" : ""}`}
+                            >
+                                {plan.popular && (
+                                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                                        <Badge className="bg-blue-500 text-white px-4 py-1 text-sm font-semibold pointer-events-none">
+                                            <Star className="h-4 w-4 mr-1" />
+                                            {t("plans.mostPopular")}
+                                        </Badge>
+                                    </div>
+                                )}
 
-                            <CardContent className="space-y-4 flex-1">
-                                <div>
-                                    <ul className="space-y-2">
-                                        {plan.features.map(
-                                            (feature, featureIndex) => (
-                                                <li
-                                                    key={featureIndex}
-                                                    className="flex items-start"
-                                                >
-                                                    {feature.included ? (
+                                <CardHeader className="text-center pb-4">
+                                    <CardTitle className="text-2xl font-bold">
+                                        {planData.name}
+                                    </CardTitle>
+                                    <CardDescription className="text-gray-600 mb-4">
+                                        {planData.description}
+                                    </CardDescription>
+                                    <div className="mb-4">
+                                        <span className="text-4xl font-bold text-gray-900">
+                                            {planData.price}
+                                        </span>
+                                        <span className="text-gray-600 ml-1">
+                                            {planData.period}
+                                        </span>
+                                    </div>
+                                </CardHeader>
+
+                                <CardContent className="space-y-4 flex-1">
+                                    <div>
+                                        <ul className="space-y-2">
+                                            {features.map((feature, index) => {
+                                                const item =
+                                                    typeof feature === "string"
+                                                        ? { text: feature }
+                                                        : feature;
+
+                                                return (
+                                                    <li
+                                                        key={index}
+                                                        className="flex items-start"
+                                                    >
                                                         <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                                                    ) : (
-                                                        <X className="h-5 w-5 text-gray-300 mr-2 mt-0.5 flex-shrink-0" />
-                                                    )}
-                                                    <span className="text-sm text-gray-700">
-                                                        {t(
-                                                            `upgrade.plans.${plan.name}.features.${feature.key}`
-                                                        )}
-                                                        {feature.hasTooltip && (
-                                                            <TooltipProvider>
-                                                                <Tooltip>
-                                                                    <TooltipTrigger
-                                                                        asChild
-                                                                    >
-                                                                        <HelpCircle className="h-4 w-4 inline-block ml-1 text-gray-400 cursor-help" />
-                                                                    </TooltipTrigger>
-                                                                    <TooltipContent>
-                                                                        <p className="w-64">
-                                                                            {t(
-                                                                                `upgrade.plans.${plan.name}.features.${feature.key}Tooltip`
-                                                                            )}
-                                                                        </p>
-                                                                    </TooltipContent>
-                                                                </Tooltip>
-                                                            </TooltipProvider>
-                                                        )}
-                                                    </span>
-                                                </li>
-                                            )
-                                        )}
-                                    </ul>
-                                </div>
-                            </CardContent>
+                                                        <span className="text-sm text-gray-700">
+                                                            {item.text}
+                                                            {item.tooltip && (
+                                                                <TooltipProvider>
+                                                                    <Tooltip>
+                                                                        <TooltipTrigger
+                                                                            asChild
+                                                                        >
+                                                                            <HelpCircle className="h-4 w-4 inline-block ml-1 text-gray-400 cursor-help" />
+                                                                        </TooltipTrigger>
+                                                                        <TooltipContent>
+                                                                            <p className="w-64">
+                                                                                {
+                                                                                    item.tooltip
+                                                                                }
+                                                                            </p>
+                                                                        </TooltipContent>
+                                                                    </Tooltip>
+                                                                </TooltipProvider>
+                                                            )}
+                                                        </span>
+                                                    </li>
+                                                );
+                                            })}
+                                        </ul>
+                                    </div>
+                                </CardContent>
 
-                            <CardFooter className="mt-auto">
-                                <Button
-                                    className={`w-full ${
-                                        plan.popular
-                                            ? "bg-blue-600 hover:bg-blue-700"
-                                            : ""
-                                    }`}
-                                    variant={
-                                        plan.popular ? "default" : "outline"
-                                    }
-                                    disabled={plan.disabled}
-                                    onClick={() =>
-                                        handleSelectPlan(
-                                            plan.name.toLowerCase()
-                                        )
-                                    }
-                                >
-                                    {getButtonText(plan.name.toLowerCase())}
-                                </Button>
-                            </CardFooter>
-                        </Card>
-                    ))}
+                                <CardFooter className="mt-auto">
+                                    <Button
+                                        className={`w-full ${
+                                            plan.popular
+                                                ? "bg-blue-600 hover:bg-blue-700"
+                                                : ""
+                                        }`}
+                                        variant={
+                                            plan.popular ? "default" : "outline"
+                                        }
+                                        disabled={plan.disabled}
+                                        onClick={() =>
+                                            handleSelectPlan(
+                                                plan.name.toLowerCase()
+                                            )
+                                        }
+                                    >
+                                        {getButtonText(plan.name.toLowerCase())}
+                                    </Button>
+                                </CardFooter>
+                            </Card>
+                        );
+                    })}
                 </div>
 
                 {/* FAQ Section */}

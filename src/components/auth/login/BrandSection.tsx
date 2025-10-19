@@ -6,7 +6,7 @@ interface BrandSectionProps {
 
 const BrandSection: React.FC<BrandSectionProps> = ({ t }) => {
     return (
-        <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-blue-500 to-green-500 p-12 flex-col justify-between relative overflow-hidden">
+        <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-blue-500 to-green-500 p-12 flex-col justify-between relative overflow-hidden lg:fixed lg:left-0 lg:top-0 lg:h-screen">
             {/* Background decorative elements */}
             <div className="absolute top-20 right-20 w-32 h-32 bg-white/10 rounded-full blur-xl"></div>
             <div className="absolute bottom-40 left-20 w-24 h-24 bg-white/10 rounded-full blur-xl"></div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { CheckCircle, MessageSquare, Mail, Zap, Lock } from "lucide-react";
+import { CheckCircle, Users, ArrowRight, Lock } from "lucide-react";
 
 interface BrandSectionProps {
     currentStep: number;
@@ -20,7 +20,7 @@ const BrandSection: React.FC<BrandSectionProps> = ({ currentStep, t }) => {
         if (currentStep === 1)
             return <CheckCircle className="w-5 h-5 text-white" />;
         if (currentStep === 2) {
-            const icons = [<MessageSquare />, <Mail />, <Zap />];
+            const icons = [<Users />, <ArrowRight />, <CheckCircle />];
             return React.cloneElement(icons[index % icons.length], {
                 className: "w-5 h-5 text-white",
             });
@@ -31,7 +31,7 @@ const BrandSection: React.FC<BrandSectionProps> = ({ currentStep, t }) => {
     const features = Array.isArray(getFeatures()) ? getFeatures() : [];
 
     return (
-        <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-green-500 to-blue-500 p-12 flex-col justify-between relative overflow-hidden">
+        <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-green-500 to-blue-500 p-12 flex-col justify-between relative overflow-hidden lg:fixed lg:left-0 lg:top-0 lg:h-screen">
             {/* Background decorative elements */}
             <div className="absolute top-20 right-20 w-32 h-32 bg-white/10 rounded-full blur-xl"></div>
             <div className="absolute bottom-40 left-20 w-24 h-24 bg-white/10 rounded-full blur-xl"></div>

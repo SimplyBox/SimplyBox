@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import { Button } from "../../ui/button";
 import { Input } from "../../ui/input";
-import { Mail, Lock, Eye, EyeOff } from "lucide-react";
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+} from "../../ui/select";
+import { Mail, Lock, Eye, EyeOff, Phone, User } from "lucide-react";
 
 interface BusinessData {
     businessName: string;
@@ -33,6 +39,17 @@ const AccountSetupStep: React.FC<AccountSetupStepProps> = ({
     t,
 }) => {
     const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const [selectedCountryCode, setSelectedCountryCode] = useState("+62");
+    const [phoneNumber, setPhoneNumber] = useState("");
+    const [errors, setErrors] = useState({
+        ownerName: "",
+        ownerPhone: "",
+        ownerEmail: "",
+        ownerPassword: "",
+        confirmPassword: "",
+    });
 
     const teamSizes = [
         "1 person (Solo)",
@@ -48,6 +65,14 @@ const AccountSetupStep: React.FC<AccountSetupStepProps> = ({
         "100+ messages",
     ];
 
+    const countryCodes = [
+        { code: "+62", label: "Indonesia" },
+        { code: "+1", label: "United States" },
+        { code: "+44", label: "United Kingdom" },
+        { code: "+81", label: "Japan" },
+        { code: "+65", label: "Singapore" },
+    ];
+
     const getRecommendedTier = () => {
         const teamSizeIndex = teamSizes.indexOf(businessData.teamSize);
         const messageVolumeIndex = messageVolumes.indexOf(
@@ -59,6 +84,137 @@ const AccountSetupStep: React.FC<AccountSetupStepProps> = ({
         if (teamSizeIndex <= 2 && messageVolumeIndex <= 2)
             return t("signup.step2.recommendation.tiers.professional");
         return t("signup.step2.recommendation.tiers.enterprise");
+    };
+
+    const validateName = (name: string) => {
+        const isValid = name.length <= 50;
+        setErrors((prev) => ({
+            ...prev,
+            ownerName:
+                isValid || name === ""
+                    ? ""
+                    : t("signup.step3.ownerName.maxLength"),
+        }));
+        return isValid;
+    };
+
+    const validatePhone = (phone: string) => {
+        const phoneWithoutCode = phone.replace(/^\+\d{1,3}/, "");
+        const isValid = /^\d{8,15}$/.test(phoneWithoutCode);
+        setErrors((prev) => ({
+            ...prev,
+            ownerPhone:
+                isValid || phone === ""
+                    ? ""
+                    : t("signup.step3.ownerPhone.invalid"),
+        }));
+        return isValid;
+    };
+
+    const validateEmail = (email: string) => {
+        const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        setErrors((prev) => ({
+            ...prev,
+            ownerEmail:
+                isValid || email === ""
+                    ? ""
+                    : t("signup.step3.ownerEmail.invalid"),
+        }));
+        return isValid;
+    };
+
+    const validatePassword = (password: string) => {
+        const hasUpperCase = /[A-Z]/.test(password);
+        const hasLowerCase = /[a-z]/.test(password);
+        const hasNumber = /\d/.test(password);
+        const hasSymbol = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+        const isMinLength = password.length >= 8;
+        const isValid =
+            hasUpperCase &&
+            hasLowerCase &&
+            hasNumber &&
+            hasSymbol &&
+            isMinLength;
+        setErrors((prev) => ({
+            ...prev,
+            ownerPassword:
+                isValid || password === ""
+                    ? ""
+                    : t("signup.step3.ownerPassword.invalid"),
+        }));
+        return isValid;
+    };
+
+    const validateConfirmPassword = (confirm: string) => {
+        const isValid = confirm === businessData.ownerPassword;
+        setErrors((prev) => ({
+            ...prev,
+            confirmPassword:
+                isValid || confirm === ""
+                    ? ""
+                    : t("signup.step3.confirmPassword.mismatch"),
+        }));
+        return isValid;
+    };
+
+    const isFormValid = () => {
+        return (
+            businessData.ownerName !== "" &&
+            businessData.ownerPhone !== "" &&
+            businessData.ownerEmail !== "" &&
+            businessData.ownerPassword !== "" &&
+            confirmPassword !== ""
+        );
+    };
+
+    const handleCompleteClick = () => {
+        const isNameValid = validateName(businessData.ownerName);
+        const isPhoneValid = validatePhone(businessData.ownerPhone);
+        const isEmailValid = validateEmail(businessData.ownerEmail);
+        const isPasswordValid = validatePassword(businessData.ownerPassword);
+        const isConfirmPasswordValid = validateConfirmPassword(confirmPassword);
+
+        if (
+            isNameValid &&
+            isPhoneValid &&
+            isEmailValid &&
+            isPasswordValid &&
+            isConfirmPasswordValid &&
+            isFormValid()
+        ) {
+            onComplete();
+        }
+    };
+
+    const handlePhoneChange = (value: string) => {
+        setPhoneNumber(value);
+        updateBusinessData("ownerPhone", selectedCountryCode + value);
+        setErrors((prev) => ({ ...prev, ownerPhone: "" }));
+    };
+
+    const handleCountryCodeChange = (code: string) => {
+        setSelectedCountryCode(code);
+        updateBusinessData("ownerPhone", code + phoneNumber);
+    };
+
+    const handleEmailChange = (value: string) => {
+        updateBusinessData("ownerEmail", value);
+        setErrors((prev) => ({ ...prev, ownerEmail: "" }));
+    };
+
+    const handleNameChange = (value: string) => {
+        updateBusinessData("ownerName", value);
+        setErrors((prev) => ({ ...prev, ownerName: "" }));
+    };
+
+    const handlePasswordChange = (value: string) => {
+        updateBusinessData("ownerPassword", value);
+        setErrors((prev) => ({ ...prev, ownerPassword: "" }));
+    };
+
+    const handleConfirmPasswordChange = (value: string) => {
+        setConfirmPassword(value);
+        setErrors((prev) => ({ ...prev, confirmPassword: "" }));
     };
 
     return (
@@ -78,18 +234,21 @@ const AccountSetupStep: React.FC<AccountSetupStepProps> = ({
                     {t("signup.step3.ownerName.label")}
                 </label>
                 <div className="relative">
-                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                    <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
                     <Input
                         type="text"
                         placeholder={t("signup.step3.ownerName.placeholder")}
                         value={businessData.ownerName}
-                        onChange={(e) =>
-                            updateBusinessData("ownerName", e.target.value)
-                        }
-                        className="pl-10 h-12"
+                        onChange={(e) => handleNameChange(e.target.value)}
+                        className={`pl-10 h-12 ${
+                            errors.ownerName ? "border-red-500" : ""
+                        }`}
                         required
                     />
                 </div>
+                {errors.ownerName && (
+                    <p className="text-xs text-red-500">{errors.ownerName}</p>
+                )}
                 <p className="text-xs text-gray-500">
                     {t("signup.step3.ownerName.helper")}
                 </p>
@@ -99,22 +258,60 @@ const AccountSetupStep: React.FC<AccountSetupStepProps> = ({
                 <label className="text-sm font-medium text-gray-700">
                     {t("signup.step3.ownerPhone.label")}
                 </label>
-                <div className="relative">
-                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-                    <Input
-                        type="text"
-                        placeholder={t("signup.step3.ownerPhone.placeholder")}
-                        value={businessData.ownerPhone}
-                        onChange={(e) =>
-                            updateBusinessData("ownerPhone", e.target.value)
-                        }
-                        className="pl-10 h-12"
-                        required
-                    />
+                <div className="flex space-x-2">
+                    <Select
+                        value={selectedCountryCode}
+                        onValueChange={handleCountryCodeChange}
+                    >
+                        <SelectTrigger className="w-32 h-12">
+                            <span>{selectedCountryCode}</span>
+                        </SelectTrigger>
+                        <SelectContent>
+                            {countryCodes.map((country) => (
+                                <SelectItem
+                                    key={country.code}
+                                    value={country.code}
+                                >
+                                    <div className="flex items-center gap-2">
+                                        <span>{country.code}</span>
+                                        <span className="text-gray-500 text-sm">
+                                            {country.label}
+                                        </span>
+                                    </div>
+                                </SelectItem>
+                            ))}
+                        </SelectContent>
+                    </Select>
+                    <div className="relative flex-1">
+                        <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                        <Input
+                            placeholder={t(
+                                "signup.step3.ownerPhone.placeholder"
+                            )}
+                            value={phoneNumber}
+                            onChange={(e) => handlePhoneChange(e.target.value)}
+                            className={`pl-10 h-12 ${
+                                errors.ownerPhone ? "border-red-500" : ""
+                            }`}
+                            required
+                        />
+                    </div>
                 </div>
+                {errors.ownerPhone && (
+                    <p className="text-xs text-red-500">{errors.ownerPhone}</p>
+                )}
                 <p className="text-xs text-gray-500">
                     {t("signup.step3.ownerPhone.helper")}
                 </p>
+                {phoneNumber && (
+                    <p className="text-xs text-gray-600">
+                        Full number:{" "}
+                        <span className="font-medium">
+                            {selectedCountryCode}
+                            {phoneNumber}
+                        </span>
+                    </p>
+                )}
             </div>
 
             <div className="space-y-2">
@@ -127,13 +324,16 @@ const AccountSetupStep: React.FC<AccountSetupStepProps> = ({
                         type="email"
                         placeholder={t("signup.step3.ownerEmail.placeholder")}
                         value={businessData.ownerEmail}
-                        onChange={(e) =>
-                            updateBusinessData("ownerEmail", e.target.value)
-                        }
-                        className="pl-10 h-12"
+                        onChange={(e) => handleEmailChange(e.target.value)}
+                        className={`pl-10 h-12 ${
+                            errors.ownerEmail ? "border-red-500" : ""
+                        }`}
                         required
                     />
                 </div>
+                {errors.ownerEmail && (
+                    <p className="text-xs text-red-500">{errors.ownerEmail}</p>
+                )}
                 <p className="text-xs text-gray-500">
                     {t("signup.step3.ownerEmail.helper")}
                 </p>
@@ -151,10 +351,10 @@ const AccountSetupStep: React.FC<AccountSetupStepProps> = ({
                             "signup.step3.ownerPassword.placeholder"
                         )}
                         value={businessData.ownerPassword}
-                        onChange={(e) =>
-                            updateBusinessData("ownerPassword", e.target.value)
-                        }
-                        className="pl-10 pr-10 h-12"
+                        onChange={(e) => handlePasswordChange(e.target.value)}
+                        className={`pl-10 pr-10 h-12 ${
+                            errors.ownerPassword ? "border-red-500" : ""
+                        }`}
                         required
                     />
                     <button
@@ -169,8 +369,57 @@ const AccountSetupStep: React.FC<AccountSetupStepProps> = ({
                         )}
                     </button>
                 </div>
+                {errors.ownerPassword && (
+                    <p className="text-xs text-red-500">
+                        {errors.ownerPassword}
+                    </p>
+                )}
                 <p className="text-xs text-gray-500">
                     {t("signup.step3.ownerPassword.helper")}
+                </p>
+            </div>
+
+            <div className="space-y-2">
+                <label className="text-sm font-medium text-gray-700">
+                    {t("signup.step3.confirmPassword.label")}
+                </label>
+                <div className="relative">
+                    <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                    <Input
+                        type={showConfirmPassword ? "text" : "password"}
+                        placeholder={t(
+                            "signup.step3.confirmPassword.placeholder"
+                        )}
+                        value={confirmPassword}
+                        onChange={(e) =>
+                            handleConfirmPasswordChange(e.target.value)
+                        }
+                        className={`pl-10 pr-10 h-12 ${
+                            errors.confirmPassword ? "border-red-500" : ""
+                        }`}
+                        required
+                    />
+                    <button
+                        type="button"
+                        onClick={() =>
+                            setShowConfirmPassword(!showConfirmPassword)
+                        }
+                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                    >
+                        {showConfirmPassword ? (
+                            <EyeOff className="h-4 w-4" />
+                        ) : (
+                            <Eye className="h-4 w-4" />
+                        )}
+                    </button>
+                </div>
+                {errors.confirmPassword && (
+                    <p className="text-xs text-red-500">
+                        {errors.confirmPassword}
+                    </p>
+                )}
+                <p className="text-xs text-gray-500">
+                    {t("signup.step3.confirmPassword.helper")}
                 </p>
             </div>
 
@@ -236,9 +485,9 @@ const AccountSetupStep: React.FC<AccountSetupStepProps> = ({
             </div>
 
             <Button
-                onClick={onComplete}
-                className="w-full h-12 bg-blue-500 hover:bg-blue-600 text-white font-medium"
-                disabled={isLoading}
+                onClick={handleCompleteClick}
+                className="w-full h-12 bg-blue-500 hover:bg-blue-600 text-white font-medium disabled:bg-gray-400 disabled:cursor-not-allowed"
+                disabled={isLoading || !isFormValid()}
             >
                 {isLoading
                     ? t("signup.step3.completing")

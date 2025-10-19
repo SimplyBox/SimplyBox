@@ -15,12 +15,17 @@
                 "Asisten AI yang dapat memahami konteks dan menyarankan respons",
                 "Papan Kanban Dasar",
                 "Analitik data sederhana"
-            ]
+            ],
+            "buttonText": {
+                "current": "Paket Demo Saat Ini",
+                "unavailable": "Demo Tidak Tersedia"
+            }
         },
         "starter": {
             "name": "Pemula",
             "description": "Sempurna untuk bisnis kecil dan solopreneur",
             "price": "Rp 399.000",
+            "discount": "17",
             "period": "/bulan",
             "features": [
                 "Semua fitur di paket Gratis",
@@ -35,12 +40,18 @@
                 "Kanban lanjutan dengan tenggat waktu",
                 "Analitik & wawasan mingguan",
                 "Dukungan email"
-            ]
+            ],
+            "buttonText": {
+                "current": "Paket Saat Ini",
+                "upgrade": "Tingkatkan ke Pemula",
+                "downgrade": "Turun ke Pemula"
+            }
         },
         "professional": {
             "name": "Profesional",
             "description": "Untuk tim yang berkembang dengan kebutuhan volume lebih tinggi",
             "price": "Rp 699.000",
+            "discount": "18",
             "period": "/bulan",
             "features": [
                 "Semua fitur di paket Starter",
@@ -54,7 +65,12 @@
                 },
                 "Analitik & pelaporan lanjutan",
                 "Dukungan prioritas"
-            ]
+            ],
+            "buttonText": {
+                "current": "Paket Saat Ini",
+                "upgrade": "Upgrade ke Profesional",
+                "downgrade": "Turun ke Profesional"
+            }
         },
         "enterprise": {
             "name": "Enterprise",
@@ -69,7 +85,11 @@
                 "Pengaturan dan integrasi GRATIS",
                 "Manajer akun khusus",
                 "Opsi white-label"
-            ]
+            ],
+            "buttonText": {
+                "current": "Paket Saat Ini",
+                "upgrade": "Hubungi Tim Penjualan"
+            }
         }
     }
 }

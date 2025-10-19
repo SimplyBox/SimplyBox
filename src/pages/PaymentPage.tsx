@@ -28,24 +28,34 @@ import {
     Smartphone,
     Shield,
     Lock,
+    Star,
+    HelpCircle,
 } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useSubscription } from "../contexts/SubscriptionContext";
 import { useAuth } from "../contexts/AuthContext";
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "../components/ui/tooltip";
 
-interface PricingFeature {
-    key: string;
-    included: boolean;
+interface FeatureItem {
+    text: string;
+    tooltip?: string;
 }
 
 interface TierData {
     name: string;
+    description: string;
+    price: string;
+    discount: number;
+    period: string;
+    popular?: boolean;
+    features: (string | FeatureItem)[];
     monthlyPrice: number;
     annualPrice: number;
-    discount: number;
-    channels: number;
-    popular?: boolean;
-    features: PricingFeature[];
 }
 
 const BANKS = [
@@ -82,49 +92,26 @@ const PaymentPage: React.FC = () => {
     const [autoRenew, setAutoRenew] = useState(false);
     const [errors, setErrors] = useState<Record<string, string>>({});
 
-    const tierFeatures: Record<string, PricingFeature[]> = {
-        starter: [
-            { key: "everythingFree", included: true },
-            { key: "channels", included: true },
-            { key: "messages", included: true },
-            { key: "fileUploads", included: true },
-            { key: "teamMembers", included: true },
-            { key: "enhancedAI", included: true },
-            { key: "advancedKanban", included: true },
-            { key: "weeklyAnalytics", included: true },
-            { key: "emailSupport", included: true },
-        ],
-        professional: [
-            { key: "everythingStarter", included: true },
-            { key: "channels", included: true },
-            { key: "messages", included: true },
-            { key: "fileUploads", included: true },
-            { key: "teamMembers", included: true },
-            { key: "advancedAI", included: true },
-            { key: "advancedAnalytics", included: true },
-            { key: "prioritySupport", included: true },
-        ],
-    };
-
-    // Ambil data tier dari terjemahan
+    const planData = t(`plans.${selectedTier}`);
+    const monthlyPrice =
+        planData.price === "Custom"
+            ? 0
+            : Number(planData.price.replace(/[^0-9]/g, ""));
+    const annualPrice = monthlyPrice
+        ? Math.round(
+              monthlyPrice * 12 * (1 - Number(planData.discount || 0) / 100)
+          )
+        : 0;
     const tierData: TierData = {
-        name: t(`payment.plans.${selectedTier}.name`),
-        monthlyPrice: Number(
-            t(`payment.plans.${selectedTier}.monthlyPrice`).replace(
-                /[^0-9]/g,
-                ""
-            )
-        ),
-        annualPrice: Number(
-            t(`payment.plans.${selectedTier}.annualPrice`).replace(
-                /[^0-9]/g,
-                ""
-            )
-        ),
-        discount: Number(t(`payment.plans.${selectedTier}.discount`)),
-        channels: Number(t(`payment.plans.${selectedTier}.channels`)),
+        name: planData.name,
+        description: planData.description,
+        price: planData.price,
+        discount: Number(planData.discount) || 0,
+        period: planData.period,
         popular: selectedTier === "starter",
-        features: tierFeatures[selectedTier] || [],
+        features: planData.features || [],
+        monthlyPrice,
+        annualPrice,
     };
 
     const calculatePrice = () => {
@@ -290,7 +277,8 @@ const PaymentPage: React.FC = () => {
                                 {t("payment.orderSummary.title")}
                                 {tierData.popular && (
                                     <Badge className="bg-gradient-to-r from-green-500 to-green-600 text-white border-0">
-                                        ⭐ {t("payment.mostPopular")}
+                                        <Star className="h-4 w-4 mr-1" />
+                                        {t("plans.mostPopular")}
                                     </Badge>
                                 )}
                             </CardTitle>
@@ -301,15 +289,8 @@ const PaymentPage: React.FC = () => {
                                 <h3 className="text-2xl font-bold text-gray-900">
                                     {tierData.name}
                                     <span className="text-lg font-normal text-gray-600 ml-2">
-                                        -{" "}
-                                        {formatCurrency(
-                                            billingCycle === "annual"
-                                                ? tierData.annualPrice / 12
-                                                : tierData.monthlyPrice
-                                        )}
-                                        {t(
-                                            `payment.plans.${selectedTier}.period`
-                                        )}
+                                        - {tierData.price}
+                                        {tierData.period}
                                     </span>
                                 </h3>
                             </div>
@@ -360,15 +341,16 @@ const PaymentPage: React.FC = () => {
                                         </Label>
                                     </div>
                                 </RadioGroup>
-                                {billingCycle === "annual" && (
-                                    <p className="text-sm text-green-600">
-                                        {t("payment.billingCycle.savings", {
-                                            amount: formatCurrency(
-                                                calculateSavings()
-                                            ),
-                                        })}
-                                    </p>
-                                )}
+                                {billingCycle === "annual" &&
+                                    tierData.annualPrice > 0 && (
+                                        <p className="text-sm text-green-600">
+                                            {t("payment.billingCycle.savings", {
+                                                amount: formatCurrency(
+                                                    calculateSavings()
+                                                ),
+                                            })}
+                                        </p>
+                                    )}
                             </div>
 
                             {/* Features */}
@@ -376,21 +358,43 @@ const PaymentPage: React.FC = () => {
                                 <Label className="text-sm font-medium">
                                     {t("payment.features.label")}
                                 </Label>
-                                <div className="space-y-2">
-                                    {tierData.features.map((feature, index) => (
-                                        <div
-                                            key={index}
-                                            className="flex items-start gap-2"
-                                        >
-                                            <Check className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                                            <span className="text-sm text-gray-600">
-                                                {t(
-                                                    `payment.plans.${selectedTier}.features.${feature.key}`
-                                                )}
-                                            </span>
-                                        </div>
-                                    ))}
-                                </div>
+                                <ul className="space-y-2">
+                                    {tierData.features.map((feature, index) => {
+                                        const item =
+                                            typeof feature === "string"
+                                                ? { text: feature }
+                                                : feature;
+                                        return (
+                                            <li
+                                                key={index}
+                                                className="flex items-start"
+                                            >
+                                                <Check className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                                                <span className="text-sm text-gray-600">
+                                                    {item.text}
+                                                    {item.tooltip && (
+                                                        <TooltipProvider>
+                                                            <Tooltip>
+                                                                <TooltipTrigger
+                                                                    asChild
+                                                                >
+                                                                    <HelpCircle className="h-4 w-4 inline-block ml-1 text-gray-400 cursor-help" />
+                                                                </TooltipTrigger>
+                                                                <TooltipContent>
+                                                                    <p className="w-64">
+                                                                        {
+                                                                            item.tooltip
+                                                                        }
+                                                                    </p>
+                                                                </TooltipContent>
+                                                            </Tooltip>
+                                                        </TooltipProvider>
+                                                    )}
+                                                </span>
+                                            </li>
+                                        );
+                                    })}
+                                </ul>
                             </div>
 
                             <Separator />
@@ -403,15 +407,16 @@ const PaymentPage: React.FC = () => {
                                         {formatCurrency(calculatePrice())}
                                     </span>
                                 </div>
-                                {billingCycle === "annual" && (
-                                    <p className="text-sm text-gray-500">
-                                        {t("payment.effectivePrice", {
-                                            amount: formatCurrency(
-                                                calculatePrice() / 12
-                                            ),
-                                        })}
-                                    </p>
-                                )}
+                                {billingCycle === "annual" &&
+                                    tierData.annualPrice > 0 && (
+                                        <p className="text-sm text-gray-500">
+                                            {t("payment.effectivePrice", {
+                                                amount: formatCurrency(
+                                                    calculatePrice() / 12
+                                                ),
+                                            })}
+                                        </p>
+                                    )}
                             </div>
                         </CardContent>
                     </Card>
@@ -748,7 +753,10 @@ const PaymentPage: React.FC = () => {
                                 <Button
                                     className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold py-3 shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-[1.02]"
                                     onClick={handlePayment}
-                                    disabled={isProcessing}
+                                    disabled={
+                                        isProcessing ||
+                                        tierData.price === "Custom"
+                                    }
                                 >
                                     {isProcessing ? (
                                         <>

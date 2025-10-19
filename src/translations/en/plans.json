@@ -15,12 +15,17 @@
                 "AI assistant that can understand context and suggest responses",
                 "Basic Kanban Board",
                 "Simple data analytics"
-            ]
+            ],
+            "buttonText": {
+                "current": "Current Demo Plan",
+                "unavailable": "Demo Not Available"
+            }
         },
         "starter": {
             "name": "Starter",
             "description": "Perfect for small businesses and solopreneurs",
             "price": "Rp 399.000",
+            "discount": "17",
             "period": "/month",
             "features": [
                 "Everything in Free",
@@ -35,12 +40,18 @@
                 "Advanced Kanban with due dates",
                 "Weekly analytics & insights",
                 "Email support"
-            ]
+            ],
+            "buttonText": {
+                "current": "Current Plan",
+                "upgrade": "Upgrade to Starter",
+                "downgrade": "Downgrade to Starter"
+            }
         },
         "professional": {
             "name": "Professional",
             "description": "For growing teams with higher volume needs",
             "price": "Rp 699.000",
+            "discount": "18",
             "period": "/month",
             "features": [
                 "Everything in Starter",
@@ -54,7 +65,12 @@
                 },
                 "Advanced analytics & reporting",
                 "Priority support"
-            ]
+            ],
+            "buttonText": {
+                "current": "Current Plan",
+                "upgrade": "Upgrade to Professional",
+                "downgrade": "Downgrade to Professional"
+            }
         },
         "enterprise": {
             "name": "Enterprise",
@@ -69,7 +85,11 @@
                 "FREE setup and integration",
                 "Dedicated account manager",
                 "White-label options"
-            ]
+            ],
+            "buttonText": {
+                "current": "Current Plan",
+                "upgrade": "Contact Sales"
+            }
         }
     }
 }

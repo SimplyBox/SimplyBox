@@ -9,7 +9,6 @@
         "orderSummary": {
             "title": "Your Plan Summary"
         },
-        "mostPopular": "Most Popular",
         "billingCycle": {
             "label": "Billing Cycle",
             "monthly": "Monthly",
@@ -65,45 +64,6 @@
         "errors": {
             "noSubscription": "No subscription found to update",
             "paymentFailed": "Failed to process payment. Please try again."
-        },
-        "plans": {
-            "starter": {
-                "name": "Starter",
-                "monthlyPrice": "399000",
-                "annualPrice": "4000000",
-                "discount": "17",
-                "channels": "5",
-                "period": "/month",
-                "features": {
-                    "everythingFree": "Everything in Free",
-                    "channels": "5 channels (WhatsApp, Instagram, E-Commerce Integration)",
-                    "messages": "600 messages/month",
-                    "fileUploads": "10 file uploads",
-                    "teamMembers": "3 Team Members",
-                    "enhancedAI": "Enhanced AI responses with better context",
-                    "advancedKanban": "Advanced Kanban with due dates",
-                    "weeklyAnalytics": "Weekly analytics & insights",
-                    "emailSupport": "Email support"
-                }
-            },
-            "professional": {
-                "name": "Professional",
-                "monthlyPrice": "699000",
-                "annualPrice": "6900000",
-                "discount": "18",
-                "channels": "12",
-                "period": "/month",
-                "features": {
-                    "everythingStarter": "Everything in Starter",
-                    "channels": "12 channels (WhatsApp, Instagram, E-Commerce Integration)",
-                    "messages": "2500 messages/month",
-                    "fileUploads": "Up to 50 file uploads",
-                    "teamMembers": "8 Team Members",
-                    "advancedAI": "Advanced AI with custom prompts",
-                    "advancedAnalytics": "Advanced analytics & reporting",
-                    "prioritySupport": "Priority support"
-                }
-            }
         }
     },
     "paymentSuccess": {

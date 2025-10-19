@@ -9,7 +9,6 @@
         "orderSummary": {
             "title": "Ringkasan Paket Anda"
         },
-        "mostPopular": "Paling Populer",
         "billingCycle": {
             "label": "Siklus Penagihan",
             "monthly": "Bulanan",
@@ -65,45 +64,6 @@
         "errors": {
             "noSubscription": "Tidak ditemukan langganan untuk diperbarui",
             "paymentFailed": "Gagal memproses pembayaran. Silakan coba lagi."
-        },
-        "plans": {
-            "starter": {
-                "name": "Pemula",
-                "monthlyPrice": "399000",
-                "annualPrice": "4000000",
-                "discount": "17",
-                "channels": "5",
-                "period": "/bulan",
-                "features": {
-                    "everythingFree": "Semua fitur di paket Gratis",
-                    "channels": "5 saluran (WhatsApp, Instagram, Integrasi E-Commerce)",
-                    "messages": "600 pesan/bulan",
-                    "fileUploads": "10 unggahan file",
-                    "teamMembers": "3 Anggota Tim",
-                    "enhancedAI": "Respons AI yang ditingkatkan dengan konteks yang lebih baik",
-                    "advancedKanban": "Kanban lanjutan dengan tenggat waktu",
-                    "weeklyAnalytics": "Analitik & wawasan mingguan",
-                    "emailSupport": "Dukungan email"
-                }
-            },
-            "professional": {
-                "name": "Profesional",
-                "monthlyPrice": "699000",
-                "annualPrice": "6900000",
-                "discount": "18",
-                "channels": "12",
-                "period": "/bulan",
-                "features": {
-                    "everythingStarter": "Semua fitur di paket Pemula",
-                    "channels": "12 saluran (WhatsApp, Instagram, Integrasi E-Commerce)",
-                    "messages": "2500 pesan/bulan",
-                    "fileUploads": "Hingga 50 unggahan file",
-                    "teamMembers": "8 Anggota Tim",
-                    "advancedAI": "AI lanjutan dengan prompt kustom",
-                    "advancedAnalytics": "Analitik & pelaporan lanjutan",
-                    "prioritySupport": "Dukungan prioritas"
-                }
-            }
         }
     },
     "paymentSuccess": {
