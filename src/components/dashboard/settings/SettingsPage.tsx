@@ -16,6 +16,7 @@ import {
     CheckCircle,
     Instagram,
     AlertTriangle,
+    Bot,
 } from "lucide-react";
 import {
     Select,
@@ -25,6 +26,7 @@ import {
     SelectValue,
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { useAuth } from "@/contexts/AuthContext";
 import { useWhatsApp } from "@/contexts/WhatsAppContext";
 import { useSubscription } from "@/contexts/SubscriptionContext";
@@ -77,6 +79,25 @@ const countryCodes = [
     { code: "+65", label: "Singapore" },
 ];
 
+const promptTemplates = [
+    {
+        name: "Default",
+        value: "You are a versatile business assistant designed to provide accurate, concise, and professional responses. Your role is to assist users with a wide range of inquiries, offering clear information, actionable advice, and a friendly tone while maintaining professionalism. Prioritize clarity, brevity, and relevance in all interactions, adapting to the user's needs as necessary.",
+    },
+    {
+        name: "Customer Support",
+        value: "You are a dedicated customer support specialist focused on delivering friendly, empathetic, and solution-oriented responses. Your primary goal is to resolve customer issues efficiently while ensuring a positive experience. Listen carefully to user concerns, provide clear explanations, and offer practical solutions. Use a warm and approachable tone, and escalate complex issues appropriately while keeping the user informed.",
+    },
+    {
+        name: "Sales",
+        value: "You are a proactive sales assistant tasked with promoting products or services by highlighting their benefits and value to the customer. Your responses should be persuasive, enthusiastic, and tailored to the user's needs. Focus on understanding the customer's goals, addressing objections, and encouraging conversions through compelling recommendations. Maintain a professional yet engaging tone to build trust and drive sales.",
+    },
+    {
+        name: "Technical Support",
+        value: "You are a highly knowledgeable technical support expert responsible for providing detailed, accurate, and clear technical guidance. Your role is to assist users with troubleshooting, explain complex technical concepts in an understandable manner, and guide them through step-by-step solutions. Use precise terminology when appropriate, but ensure explanations are accessible to users of varying technical expertise. Maintain patience and clarity in all interactions.",
+    },
+];
+
 const SettingsPage = ({ userPlan = "free", currentUsage, onUpgrade }) => {
     const { company, loading: authLoading } = useAuth();
     const {
@@ -103,6 +124,10 @@ const SettingsPage = ({ userPlan = "free", currentUsage, onUpgrade }) => {
     const [error, setError] = useState<string | null>(null);
     const [success, setSuccess] = useState<string | null>(null);
     const [isEditing, setIsEditing] = useState(false);
+    const [systemPrompt, setSystemPrompt] = useState("");
+    const [selectedTemplate, setSelectedTemplate] = useState(
+        promptTemplates[0].value
+    );
 
     useEffect(() => {
         if (company) {
@@ -122,6 +147,11 @@ const SettingsPage = ({ userPlan = "free", currentUsage, onUpgrade }) => {
                 business_email: company.business_email || "",
                 whatsapp_number: whatsappNumber,
             });
+            // Assuming company.system_prompt exists or defaults to the first template
+            setSystemPrompt(company.system_prompt || promptTemplates[0].value);
+            setSelectedTemplate(
+                company.system_prompt || promptTemplates[0].value
+            );
         }
     }, [company]);
 
@@ -210,6 +240,10 @@ const SettingsPage = ({ userPlan = "free", currentUsage, onUpgrade }) => {
                 business_email: company.business_email || "",
                 whatsapp_number: whatsappNumber,
             });
+            setSystemPrompt(company.system_prompt || promptTemplates[0].value);
+            setSelectedTemplate(
+                company.system_prompt || promptTemplates[0].value
+            );
         }
         setErrors({ type: "", business_email: "", whatsapp_number: "" });
         setIsEditing(false);
@@ -242,6 +276,7 @@ const SettingsPage = ({ userPlan = "free", currentUsage, onUpgrade }) => {
                     type: formData.type,
                     business_email: formData.business_email,
                     whatsapp_number: formData.whatsapp_number,
+                    system_prompt: systemPrompt,
                 })
                 .eq("id", company.id);
 
@@ -299,6 +334,15 @@ const SettingsPage = ({ userPlan = "free", currentUsage, onUpgrade }) => {
         } finally {
             setIsSubmitting(false);
         }
+    };
+
+    const handlePromptTemplateChange = (value: string) => {
+        setSelectedTemplate(value);
+        setSystemPrompt(value);
+    };
+
+    const handlePromptChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setSystemPrompt(e.target.value);
     };
 
     const getUsagePercentage = (used: number, limit: number) => {
@@ -969,6 +1013,115 @@ const SettingsPage = ({ userPlan = "free", currentUsage, onUpgrade }) => {
                                 </Button>
                             )}
                         </CardFooter>
+                    </Card>
+
+                    <Card>
+                        <CardHeader>
+                            <CardTitle className="flex items-center text-lg font-bold">
+                                <Bot className="h-5 w-5 mr-2" />
+                                System Prompt
+                            </CardTitle>
+                            <CardDescription>
+                                Customize the behavior of your assistant
+                            </CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="space-y-4">
+                                <div className="space-y-2">
+                                    <label className="block text-sm font-medium text-gray-700">
+                                        Select a Template
+                                    </label>
+                                    <Select
+                                        value={selectedTemplate}
+                                        onValueChange={
+                                            handlePromptTemplateChange
+                                        }
+                                    >
+                                        <SelectTrigger className="h-12">
+                                            <SelectValue placeholder="Select a prompt template" />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            {promptTemplates.map((template) => (
+                                                <SelectItem
+                                                    key={template.name}
+                                                    value={template.value}
+                                                >
+                                                    {template.name}
+                                                </SelectItem>
+                                            ))}
+                                        </SelectContent>
+                                    </Select>
+                                </div>
+                                <div className="space-y-2">
+                                    <label className="block text-sm font-medium text-gray-700">
+                                        Custom Prompt
+                                    </label>
+                                    <Textarea
+                                        value={systemPrompt}
+                                        onChange={handlePromptChange}
+                                        className="h-32 w-full rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder="Enter your custom system prompt here"
+                                    />
+                                </div>
+                            </div>
+                        </CardContent>
+                        <CardFooter className="flex justify-end space-x-2">
+                            <Button
+                                variant="outline"
+                                onClick={() => {
+                                    setSystemPrompt(promptTemplates[0].value);
+                                    setSelectedTemplate(
+                                        promptTemplates[0].value
+                                    );
+                                }}
+                                disabled={isSubmitting}
+                            >
+                                Reset to Default
+                            </Button>
+                            <Button
+                                className="bg-blue-600 hover:bg-blue-700 text-white"
+                                disabled={isSubmitting}
+                            >
+                                {isSubmitting ? "Saving..." : "Save Prompt"}
+                            </Button>
+                        </CardFooter>
+                    </Card>
+                </div>
+
+                <div className="mt-8">
+                    <Card>
+                        <CardHeader>
+                            <CardTitle className="text-lg font-bold text-red-600">
+                                Delete Account
+                            </CardTitle>
+                            <CardDescription>
+                                Permanently delete your company account and all
+                                associated data
+                            </CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="flex items-center justify-between">
+                                <p className="text-sm text-gray-600">
+                                    This action{" "}
+                                    <span className="font-bold">
+                                        cannot be undone
+                                    </span>
+                                    . All your data, including settings,
+                                    integrations, and usage history, will be{" "}
+                                    <span className="font-bold">
+                                        permanently deleted
+                                    </span>
+                                    .
+                                </p>
+                                <Button
+                                    variant="destructive"
+                                    disabled={isSubmitting}
+                                    className="ml-4"
+                                >
+                                    Delete Account
+                                </Button>
+                            </div>
+                        </CardContent>
                     </Card>
                 </div>
             </div>
