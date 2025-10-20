@@ -46,7 +46,8 @@ const KanbanBoard: React.FC<KanbanBoardProps> = ({
     userPlan = "free",
     onUpgradeClick = () => {},
 }) => {
-    const { activities, updateActivity, addActivity } = useActivity();
+    const { activities, updateActivity, addActivity, deleteActivity } =
+        useActivity(); // Added deleteActivity
     const { teamMembers, currentTeamMember } = useTeam();
     const [cards, setCards] = useState<{
         todo: KanbanCard[];
@@ -157,6 +158,18 @@ const KanbanBoard: React.FC<KanbanBoardProps> = ({
             setIsNewCardOpen(false);
         } catch (error) {
             console.error("Error creating card:", error);
+        }
+    };
+
+    const handleDeleteCard = async () => {
+        if (!selectedCard) return;
+
+        try {
+            await deleteActivity(selectedCard.id); // Call deleteActivity from ActivityContext
+            setIsDetailOpen(false); // Close the dialog
+            setSelectedCard(null); // Clear selected card
+        } catch (error) {
+            console.error("Error deleting card:", error);
         }
     };
 
@@ -306,7 +319,7 @@ const KanbanBoard: React.FC<KanbanBoardProps> = ({
                                 <Select
                                     value={
                                         selectedCard.assigned_to || "unassigned"
-                                    } // Default to "unassigned" instead of ""
+                                    }
                                     onValueChange={(value) => {
                                         const updatedCard = {
                                             ...selectedCard,
@@ -342,6 +355,12 @@ const KanbanBoard: React.FC<KanbanBoardProps> = ({
                             </div>
                         </div>
                         <DialogFooter>
+                            <Button
+                                variant="destructive"
+                                onClick={handleDeleteCard}
+                            >
+                                Delete
+                            </Button>
                             <Button
                                 variant="outline"
                                 onClick={() => setIsDetailOpen(false)}
@@ -454,7 +473,7 @@ const KanbanBoard: React.FC<KanbanBoardProps> = ({
                                 Assign To
                             </h4>
                             <Select
-                                value={newCard.assigned_to || "unassigned"} // Default to "unassigned" instead of ""
+                                value={newCard.assigned_to || "unassigned"}
                                 onValueChange={(value) =>
                                     setNewCard({
                                         ...newCard,
