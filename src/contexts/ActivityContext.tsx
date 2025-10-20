@@ -1,31 +1,34 @@
-import React, { createContext, useContext, useState, useCallback } from "react";
+import React, {
+    createContext,
+    useContext,
+    useState,
+    useEffect,
+    useCallback,
+} from "react";
+import supabase from "@/libs/supabase";
+import { useTeam } from "./TeamContext";
 
 export interface Activity {
     id: string;
-    type: "message" | "note" | "task" | "call" | "meeting";
     title: string;
     description?: string;
-    timestamp: Date;
+    channel?: "whatsapp" | "email";
+    urgency: "low" | "medium" | "high";
+    assigned_to?: string;
     status: "pending" | "in_progress" | "completed";
-    assignedTo?: string;
-    dueDate?: Date;
-    contactId?: string;
-    contactName?: string;
-    priority: "low" | "medium" | "high";
-    kanbanColumn: "todo" | "inProgress" | "done";
+    company_id: string;
+    created_at: string;
+    updated_at?: string;
 }
 
 interface ActivityContextType {
     activities: Activity[];
-    addActivity: (activity: Omit<Activity, "id">) => void;
-    updateActivity: (id: string, updates: Partial<Activity>) => void;
-    deleteActivity: (id: string) => void;
-    getActivitiesByContact: (contactId: string) => Activity[];
-    getKanbanActivities: () => Activity[];
-    moveActivityToKanban: (
-        activityId: string,
-        column: Activity["kanbanColumn"]
-    ) => void;
+    addActivity: (
+        activity: Omit<Activity, "id" | "created_at" | "updated_at">
+    ) => Promise<void>;
+    updateActivity: (id: string, updates: Partial<Activity>) => Promise<void>;
+    deleteActivity: (id: string) => Promise<void>;
+    loading: boolean;
 }
 
 const ActivityContext = createContext<ActivityContextType | undefined>(
@@ -43,110 +46,99 @@ export const useActivity = () => {
 export const ActivityProvider: React.FC<{ children: React.ReactNode }> = ({
     children,
 }) => {
-    const [activities, setActivities] = useState<Activity[]>([
-        {
-            id: "1",
-            type: "task",
-            title: "Follow up on bulk order inquiry",
-            description: "Send detailed pricing for 100+ units to Budi Santoso",
-            timestamp: new Date("2024-01-16T09:00:00"),
-            status: "pending",
-            assignedTo: "You",
-            dueDate: new Date("2024-01-18T17:00:00"),
-            contactId: "1",
-            contactName: "Budi Santoso",
-            priority: "high",
-            kanbanColumn: "todo",
-        },
-        {
-            id: "2",
-            type: "call",
-            title: "Schedule product demo call",
-            description: "Demo our latest features to Sari Dewi",
-            timestamp: new Date("2024-01-17T10:00:00"),
-            status: "pending",
-            assignedTo: "Sarah",
-            dueDate: new Date("2024-01-19T14:00:00"),
-            contactId: "2",
-            contactName: "Sari Dewi",
-            priority: "medium",
-            kanbanColumn: "inProgress",
-        },
-        {
-            id: "3",
-            type: "meeting",
-            title: "Contract negotiation meeting",
-            description: "Finalize terms with Ahmad Rahman",
-            timestamp: new Date("2024-01-15T14:30:00"),
-            status: "completed",
-            assignedTo: "John",
-            dueDate: new Date("2024-01-20T10:00:00"),
-            contactId: "3",
-            contactName: "Ahmad Rahman",
-            priority: "high",
-            kanbanColumn: "done",
-        },
-    ]);
+    const [activities, setActivities] = useState<Activity[]>([]);
+    const [loading, setLoading] = useState(true);
+    const { currentTeamMember } = useTeam();
 
-    const addActivity = useCallback((newActivity: Omit<Activity, "id">) => {
-        const activity: Activity = {
-            ...newActivity,
-            id: Date.now().toString() + Math.random().toString(36).substr(2, 9),
-        };
-        setActivities((prev) => [activity, ...prev]);
-    }, []);
+    const fetchActivities = useCallback(async () => {
+        if (!currentTeamMember?.company_id) return;
+        setLoading(true);
+        try {
+            const { data, error } = await supabase
+                .from("kanban_board")
+                .select("*")
+                .eq("company_id", currentTeamMember.company_id);
+            if (error) throw error;
+            setActivities(data || []);
+        } catch (error) {
+            console.error("Error fetching activities:", error);
+            setActivities([]);
+        } finally {
+            setLoading(false);
+        }
+    }, [currentTeamMember?.company_id]);
+
+    const addActivity = useCallback(
+        async (
+            newActivity: Omit<Activity, "id" | "created_at" | "updated_at">
+        ) => {
+            if (!currentTeamMember?.company_id) return;
+            try {
+                const { data, error } = await supabase
+                    .from("kanban_board")
+                    .insert({
+                        ...newActivity,
+                        company_id: currentTeamMember.company_id,
+                    })
+                    .select();
+                if (error) throw error;
+                if (data) setActivities((prev) => [data[0], ...prev]);
+            } catch (error) {
+                console.error("Error adding activity:", error);
+            }
+        },
+        [currentTeamMember?.company_id]
+    );
 
     const updateActivity = useCallback(
-        (id: string, updates: Partial<Activity>) => {
-            setActivities((prev) =>
-                prev.map((activity) =>
-                    activity.id === id ? { ...activity, ...updates } : activity
-                )
-            );
+        async (id: string, updates: Partial<Activity>) => {
+            try {
+                const { error } = await supabase
+                    .from("kanban_board")
+                    .update(updates)
+                    .eq("id", id);
+                if (error) throw error;
+                setActivities((prev) =>
+                    prev.map((act) =>
+                        act.id === id
+                            ? {
+                                  ...act,
+                                  ...updates,
+                                  updated_at: new Date().toISOString(),
+                              }
+                            : act
+                    )
+                );
+            } catch (error) {
+                console.error("Error updating activity:", error);
+            }
         },
         []
     );
 
-    const deleteActivity = useCallback((id: string) => {
-        setActivities((prev) => prev.filter((activity) => activity.id !== id));
+    const deleteActivity = useCallback(async (id: string) => {
+        try {
+            const { error } = await supabase
+                .from("kanban_board")
+                .delete()
+                .eq("id", id);
+            if (error) throw error;
+            setActivities((prev) => prev.filter((act) => act.id !== id));
+        } catch (error) {
+            console.error("Error deleting activity:", error);
+        }
     }, []);
 
-    const getActivitiesByContact = useCallback(
-        (contactId: string) => {
-            return activities.filter(
-                (activity) => activity.contactId === contactId
-            );
-        },
-        [activities]
-    );
-
-    const getKanbanActivities = useCallback(() => {
-        return activities.filter(
-            (activity) =>
-                activity.type === "task" ||
-                activity.type === "call" ||
-                activity.type === "meeting"
-        );
-    }, [activities]);
-
-    const moveActivityToKanban = useCallback(
-        (activityId: string, column: Activity["kanbanColumn"]) => {
-            updateActivity(activityId, {
-                kanbanColumn: column,
-                status: column === "done" ? "completed" : "pending",
-            });
-        },
-        [updateActivity]
-    );
+    useEffect(() => {
+        fetchActivities();
+    }, [fetchActivities]);
 
     const value: ActivityContextType = {
         activities,
         addActivity,
         updateActivity,
         deleteActivity,
-        getActivitiesByContact,
-        getKanbanActivities,
-        moveActivityToKanban,
+        loading,
     };
 
     return (

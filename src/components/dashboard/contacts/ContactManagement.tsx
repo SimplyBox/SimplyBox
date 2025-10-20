@@ -34,6 +34,7 @@ import {
     ChevronRight,
     SortAsc,
     SortDesc,
+    Instagram,
 } from "lucide-react";
 import {
     DropdownMenu,
@@ -88,7 +89,6 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
             id: conv.id,
             name: conv.contact.name,
             identifier: conv.contact.identifier,
-            avatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=${conv.contact.name}`,
             tags: conv.contact.tags || [],
             lastContacted: new Date(conv.lastMessage),
             mainChannel: conv.channel,
@@ -155,8 +155,8 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
         switch (channel.toLowerCase()) {
             case "whatsapp":
                 return <MessageSquare className="h-4 w-4 text-green-600" />;
-            case "email":
-                return <Mail className="h-4 w-4 text-blue-600" />;
+            case "instagram":
+                return <Instagram className="h-4 w-4 text-blue-600" />;
             case "phone":
                 return <Phone className="h-4 w-4 text-purple-600" />;
             default:
@@ -394,14 +394,8 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
                                         >
                                             <div className="flex items-center gap-3">
                                                 <Avatar>
-                                                    <AvatarImage
-                                                        src={contact.avatar}
-                                                    />
                                                     <AvatarFallback>
-                                                        {contact.name
-                                                            .split(" ")
-                                                            .map((n) => n[0])
-                                                            .join("")}
+                                                        {contact.name.charAt(0)}
                                                     </AvatarFallback>
                                                 </Avatar>
                                                 <div>
@@ -466,6 +460,32 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
                                             </div>
                                         </div>
                                     ))}
+                                    {recentContacts.length === 0 && (
+                                        <div className="text-center py-12">
+                                            <Users className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+                                            <h3 className="text-lg font-medium text-gray-900 mb-2">
+                                                {t(
+                                                    "ContactManagement.noContactsFound.title"
+                                                )}
+                                            </h3>
+                                            <p className="text-gray-600 mb-4">
+                                                {t(
+                                                    "ContactManagement.noContactsFound.description"
+                                                )}
+                                            </p>
+                                            <Button
+                                                onClick={() =>
+                                                    setShowAddContact(true)
+                                                }
+                                                className="bg-blue-500 hover:bg-blue-600"
+                                            >
+                                                <Plus className="h-4 w-4 mr-2" />
+                                                {t(
+                                                    "ContactManagement.noContactsFound.addFirstContactButton"
+                                                )}
+                                            </Button>
+                                        </div>
+                                    )}
                                 </div>
                             </CardContent>
                         </Card>
@@ -639,14 +659,8 @@ const ContactManagement: React.FC<ContactManagementProps> = ({ userPlan }) => {
                                         >
                                             <div className="flex items-center gap-4">
                                                 <Avatar>
-                                                    <AvatarImage
-                                                        src={contact.avatar}
-                                                    />
                                                     <AvatarFallback>
-                                                        {contact.name
-                                                            .split(" ")
-                                                            .map((n) => n[0])
-                                                            .join("")}
+                                                        {contact.name.charAt(0)}
                                                     </AvatarFallback>
                                                 </Avatar>
                                                 <div>

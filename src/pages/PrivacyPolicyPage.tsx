@@ -201,8 +201,8 @@ const PrivacyPolicyPage: React.FC = () => {
                                 onClick={() => {
                                     const file =
                                         language === "id"
-                                            ? "/docs/privacy-policy-id.pdf"
-                                            : "/docs/privacy-policy-en.pdf";
+                                            ? "/docs/Privacy-Policy-ID.pdf"
+                                            : "/docs/Privacy-Policy-EN.pdf";
 
                                     const link = document.createElement("a");
                                     link.href = file;
@@ -238,7 +238,11 @@ const PrivacyPolicyPage: React.FC = () => {
                                 <CardContent className="space-y-4">
                                     {t(
                                         `privacyPolicy.${section.key}.content`
-                                    ) ? (
+                                    ) &&
+                                    t(
+                                        `privacyPolicy.${section.key}.content`
+                                    ) !==
+                                        `privacyPolicy.${section.key}.content` ? (
                                         <p className="text-gray-600">
                                             {t(
                                                 `privacyPolicy.${section.key}.content`
@@ -247,7 +251,7 @@ const PrivacyPolicyPage: React.FC = () => {
                                     ) : null}
 
                                     {section.subsections && (
-                                        <div className="space-y-6 mt-4">
+                                        <div className="space-y-6">
                                             {section.subsections.map(
                                                 (subId) => (
                                                     <div
@@ -298,7 +302,7 @@ const PrivacyPolicyPage: React.FC = () => {
                                         </div>
                                     )}
                                     {section.key === "sections.7" && (
-                                        <p className="text-gray-600 mt-4">
+                                        <p className="text-gray-600">
                                             {t(
                                                 `privacyPolicy.${section.key}.contact`
                                             ) ||
@@ -306,7 +310,7 @@ const PrivacyPolicyPage: React.FC = () => {
                                         </p>
                                     )}
                                     {section.key === "sections.12" && (
-                                        <div className="mt-4">
+                                        <div>
                                             <p className="text-gray-600">
                                                 {t(
                                                     `privacyPolicy.${section.key}.companyInfo.name`

@@ -163,11 +163,8 @@ const ContactProfile: React.FC<ContactProfileProps> = ({
                         <div className="flex items-center gap-3">
                             <Avatar className="h-12 w-12">
                                 <AvatarImage src={editedContact.avatar} />
-                                <AvatarFallback className="text-lg">
-                                    {editedContact.name
-                                        .split(" ")
-                                        .map((n: string) => n[0])
-                                        .join("")}
+                                <AvatarFallback>
+                                    {contact.name.charAt(0)}
                                 </AvatarFallback>
                             </Avatar>
 

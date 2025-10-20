@@ -99,7 +99,7 @@ const AccountSetupStep: React.FC<AccountSetupStepProps> = ({
     };
 
     const validatePhone = (phone: string) => {
-        const phoneWithoutCode = phone.replace(/^\+\d{1,3}/, "");
+        const phoneWithoutCode = phone.replace(/^\+\d{1,3}\s?/, "");
         const isValid = /^\d{8,15}$/.test(phoneWithoutCode);
         setErrors((prev) => ({
             ...prev,
@@ -188,13 +188,13 @@ const AccountSetupStep: React.FC<AccountSetupStepProps> = ({
 
     const handlePhoneChange = (value: string) => {
         setPhoneNumber(value);
-        updateBusinessData("ownerPhone", selectedCountryCode + value);
+        updateBusinessData("ownerPhone", `${selectedCountryCode} ${value}`);
         setErrors((prev) => ({ ...prev, ownerPhone: "" }));
     };
 
     const handleCountryCodeChange = (code: string) => {
         setSelectedCountryCode(code);
-        updateBusinessData("ownerPhone", code + phoneNumber);
+        updateBusinessData("ownerPhone", `${code} ${phoneNumber}`);
     };
 
     const handleEmailChange = (value: string) => {
@@ -307,8 +307,7 @@ const AccountSetupStep: React.FC<AccountSetupStepProps> = ({
                     <p className="text-xs text-gray-600">
                         Full number:{" "}
                         <span className="font-medium">
-                            {selectedCountryCode}
-                            {phoneNumber}
+                            {selectedCountryCode} {phoneNumber}
                         </span>
                     </p>
                 )}

@@ -6,8 +6,8 @@
             "tagline": "Your Privacy, Our Priority",
             "title": "Privacy Policy - SimplyBox",
             "subtitle": "We are committed to protecting your personal data and information while you use SimplyBox.",
-            "lastUpdated": "Last Updated: October 14, 2025",
-            "effectiveDate": "Effective Date: October 14, 2025 - TBA"
+            "lastUpdated": "Last Updated: October 18, 2025",
+            "effectiveDate": "Effective Date: October 18, 2025 - Newly Updated Privacy Policy"
         },
         "sidebar": {
             "title": "Contents"
@@ -25,23 +25,23 @@
                         "content": [
                             "Contact Details: Name, email address, phone number, business name",
                             "Authentication Data: Login credentials, OAuth tokens for third-party integrations",
-                            "Business Information: Company name, business type, expected message volume, team size",
+                            "Business Information: Business type, expected message volume, team size",
                             "Billing Information: Payment methods, billing addresses, transaction history (processed securely through third-party payment processors)"
                         ]
                     },
                     "2": {
                         "title": "Communication Data",
                         "content": [
-                            "Email Messages: Content, sender/recipient information, timestamps, attachments",
+                            "Social Media Messages: Content, sender/recipient information, timestamps, attachments",
                             "WhatsApp Messages: Message content, phone numbers, message status, delivery confirmations",
-                            "Message Metadata: Conversation threads, response times, message classifications",
+                            "Message Metadata: Conversation threads, response times",
                             "File Attachments: Documents, images, and other files shared through integrated communication channels"
                         ]
                     },
                     "3": {
                         "title": "Usage and Analytics Data",
                         "content": [
-                            "Platform Usage: Dashboard interactions, feature usage patterns, session duration",
+                            "Platform Interactions: Dashboard interactions, feature usage patterns, session duration",
                             "Performance Data: Response times, error logs, system performance metrics",
                             "Device Information: IP addresses, browser types, operating systems, device identifiers",
                             "Communication Patterns: Message volume, peak usage times, conversation analytics"
@@ -50,8 +50,9 @@
                     "4": {
                         "title": "AI Processing Data",
                         "content": [
-                            "Knowledge Base Content: Business documents, FAQs, product information uploaded by users",
-                            "AI Training Data: Conversation patterns, response effectiveness metrics",
+                            "Default behavior: Files and documents you upload to your knowledge base are used to generate AI responses for your account only. We do not use those documents to train cross-customer models unless you explicitly opt in.",
+                            "Opt-in for cross-customer training: If you choose to opt in, we will: Request explicit consent (checkbox/consent flow). Describe how your data will be anonymized and aggregated. Allow you to withdraw consent; note that withdrawal will not remove data that has already been used in a completed training cycle.",
+                            "Knowledge Base Content: Business documents, FAQs, product, and other information uploaded by users",
                             "Processing Logs: AI model interactions, response generation metadata"
                         ]
                     }

@@ -6,8 +6,8 @@
             "tagline": "Privasi Anda, Prioritas Kami",
             "title": "Kebijakan Privasi - SimplyBox",
             "subtitle": "Kami berkomitmen untuk melindungi data dan informasi pribadi Anda saat menggunakan SimplyBox.",
-            "lastUpdated": "Terakhir Diperbarui: 14 Oktober 2025",
-            "effectiveDate": "Tanggal Berlaku: 14 Oktober 2025 - TBA"
+            "lastUpdated": "Terakhir Diperbarui: 18 Oktober 2025",
+            "effectiveDate": "Tanggal Berlaku: 18 Oktober 2025 - Pembaruan Kebijakan Privasi"
         },
         "sidebar": {
             "title": "Konten"
@@ -23,75 +23,76 @@
                     "1": {
                         "title": "Informasi Akun",
                         "content": [
-                            "Detail Kontak: Nama, alamat email, nomor telepon, nama bisnis",
-                            "Data Otentikasi: Kredensial login, token OAuth untuk integrasi pihak ketiga",
-                            "Informasi Bisnis: Nama perusahaan, jenis bisnis, volume pesan yang diharapkan, ukuran tim",
-                            "Informasi Penagihan: Metode pembayaran, alamat penagihan, riwayat transaksi (diproses dengan aman melalui penyedia layanan pembayaran pihak ketiga)"
+                            "Data kontak: nama, alamat email, nomor telepon, nama usaha.",
+                            "Data autentikasi: kredensial login, token OAuth untuk integrasi pihak ketiga.",
+                            "Informasi usaha: jenis usaha, perkiraan volume pesan, ukuran tim.",
+                            "Informasi penagihan: metode pembayaran, alamat penagihan, riwayat transaksi (diproses aman oleh payment processor)."
                         ]
                     },
                     "2": {
                         "title": "Data Komunikasi",
                         "content": [
-                            "Pesan Email: Konten, informasi pengirim/penerima, timestamp, lampiran",
-                            "Pesan WhatsApp: Konten pesan, nomor telepon, status pesan, konfirmasi pengiriman",
-                            "Metadata Pesan: Thread percakapan, waktu respons, klasifikasi pesan",
-                            "Lampiran File: Dokumen, gambar, dan file lain yang dibagikan melalui saluran komunikasi terintegrasi"
+                            "Pesan dari media sosial: isi pesan, pengirim/penerima, cap waktu, lampiran.",
+                            "Pesan WhatsApp: isi pesan, nomor telepon, status pesan, konfirmasi pengiriman.",
+                            "Metadata pesan: thread, waktu respons.",
+                            "Lampiran file: dokumen, gambar, dan file lain yang dikirim melalui saluran terintegrasi."
                         ]
                     },
                     "3": {
-                        "title": "Data Penggunaan dan Analitik",
+                        "title": "Data Penggunaan & Analitik",
                         "content": [
-                            "Penggunaan Platform: Interaksi dashboard, pola penggunaan fitur, durasi sesi",
-                            "Data Kinerja: Waktu respons, log kesalahan, metrik kinerja sistem",
-                            "Informasi Perangkat: Alamat IP, jenis browser, sistem operasi, identifikasi perangkat",
-                            "Pola Komunikasi: Volume pesan, waktu penggunaan puncak, analitik percakapan"
+                            "Interaksi platform: aktivitas dashboard, fitur yang dipakai, durasi sesi.",
+                            "Data performa: waktu respons, log error, metrik sistem.",
+                            "Informasi perangkat: alamat IP, jenis browser, sistem operasi, identifier perangkat.",
+                            "Pola komunikasi: volume pesan, jam sibuk, analitik percakapan."
                         ]
                     },
                     "4": {
-                        "title": "Data Pemrosesan AI",
+                        "title": "Data untuk Pemrosesan AI",
                         "content": [
-                            "Konten Knowledge Base: Dokumen bisnis, FAQ, informasi produk yang diunggah pengguna",
-                            "Data Pelatihan AI: Pola percakapan, metrik efektivitas respons",
-                            "Log Pemrosesan: Interaksi model AI, metadata generasi respons"
+                            "Perilaku default: file/dokumen yang Anda unggah ke knowledge base digunakan untuk menghasilkan respons AI hanya untuk akun Anda. Kami tidak menggunakan dokumen itu untuk melatih model lintas-pelanggan kecuali Anda secara eksplisit memilih (opt-in).",
+                            "Jika opt-in untuk training lintas-pelanggan: kami akan meminta persetujuan eksplisit (checkbox/flow persetujuan), menjelaskan bagaimana data dianonimkan/diagregasi, dan memberikan opsi pencabutan persetujuan (dengan catatan data yang sudah dipakai di siklus training yang telah selesai tidak dapat dihapus dari model yang sudah terbentuk).",
+                            "Konten knowledge base: dokumen usaha, FAQ, produk, dan informasi lain yang diunggah.",
+                            "Log pemrosesan: interaksi model AI, metadata generasi respons."
                         ]
                     }
                 }
             },
             "3": {
-                "title": "Bagaimana Kami Menggunakan Informasi Anda",
+                "title": "Bagaimana Kami Menggunakan Data Anda",
                 "subsections": {
                     "1": {
                         "title": "Penyediaan Layanan",
                         "content": [
-                            "Manajemen Komunikasi Terpadu: Menggabungkan dan menampilkan pesan dari berbagai saluran",
-                            "Respons Bertenaga AI: Menghasilkan respons kontekstual dan personal menggunakan pipeline RAG (Retrieval-Augmented Generation)",
-                            "Kolaborasi Tim: Memungkinkan beberapa anggota tim mengelola komunikasi",
-                            "Manajemen Pengetahuan: Menyimpan dan mengambil informasi spesifik bisnis untuk respons akurat"
+                            "Manajemen komunikasi terpadu: mengumpulkan dan menampilkan pesan dari banyak saluran.",
+                            "Respons berbasis AI: menghasilkan jawaban kontekstual melalui pipeline RAG.",
+                            "Kolaborasi tim: memberi akses bagi beberapa anggota tim untuk menangani komunikasi.",
+                            "Manajemen pengetahuan: menyimpan & mengambil informasi usaha untuk respons yang akurat."
                         ]
                     },
                     "2": {
                         "title": "Peningkatan Layanan",
                         "content": [
-                            "Optimasi Platform: Menganalisis pola penggunaan untuk meningkatkan pengalaman pengguna",
-                            "Peningkatan Model AI: Menggunakan data teragregasi dan anonim untuk meningkatkan akurasi respons",
-                            "Pengembangan Fitur: Mengembangkan fitur baru berdasarkan kebutuhan dan umpan balik pengguna",
-                            "Pemantauan Kinerja: Memastikan keandalan sistem dan kinerja optimal"
+                            "Optimalisasi platform berdasarkan pola penggunaan.",
+                            "Penyempurnaan model AI dengan data agregat yang dianonimkan.",
+                            "Pengembangan fitur baru berdasarkan umpan balik.",
+                            "Monitoring performa untuk keandalan."
                         ]
                     },
                     "3": {
-                        "title": "Komunikasi dan Dukungan",
+                        "title": "Komunikasi & Dukungan",
                         "content": [
-                            "Dukungan Pelanggan: Memberikan bantuan teknis dan mengatasi masalah",
-                            "Pembaruan Layanan: Memberi tahu pengguna tentang fitur baru, perubahan, atau pemeliharaan",
-                            "Manajemen Akun: Mengirim notifikasi penagihan, pengingat pembaruan, dan pembaruan status akun"
+                            "Dukungan pelanggan: bantuan teknis dan penyelesaian masalah.",
+                            "Pembaruan Layanan: Memberi tahu pengguna tentang fitur baru, perubahan, atau pemeliharaan.",
+                            "Manajemen Akun: Mengirim notifikasi penagihan, pengingat pembaruan, dan pembaruan status akun."
                         ]
                     },
                     "4": {
                         "title": "Legal dan Keamanan",
                         "content": [
-                            "Kepatuhan: Memenuhi kewajiban hukum di bawah undang-undang perlindungan data Indonesia (UU PDP)",
-                            "Keamanan: Mendeteksi dan mencegah aktivitas penipuan, ancaman keamanan, dan penyalahgunaan",
-                            "Operasi Bisnis: Melakukan analitik internal, pelaporan keuangan, dan perencanaan bisnis"
+                            "Kepatuhan: Memenuhi kewajiban hukum di bawah undang-undang perlindungan data Indonesia (UU PDP).",
+                            "Keamanan: Mendeteksi dan mencegah aktivitas penipuan, ancaman keamanan, dan penyalahgunaan.",
+                            "Operasi Bisnis: Melakukan analitik internal, pelaporan keuangan, dan perencanaan bisnis."
                         ]
                     }
                 }

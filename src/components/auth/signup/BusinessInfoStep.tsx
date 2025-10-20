@@ -80,7 +80,7 @@ const BusinessInfoStep: React.FC<BusinessInfoStepProps> = ({
     };
 
     const validatePhone = (phone: string) => {
-        const phoneWithoutCode = phone.replace(/^\+\d{1,3}/, "");
+        const phoneWithoutCode = phone.replace(/^\+\d{1,3}\s?/, "");
         const isValid = /^\d{8,15}$/.test(phoneWithoutCode);
         setErrors((prev) => ({
             ...prev,
@@ -126,13 +126,13 @@ const BusinessInfoStep: React.FC<BusinessInfoStepProps> = ({
 
     const handlePhoneChange = (value: string) => {
         setPhoneNumber(value);
-        updateBusinessData("businessPhone", selectedCountryCode + value);
+        updateBusinessData("businessPhone", `${selectedCountryCode} ${value}`);
         setErrors((prev) => ({ ...prev, businessPhone: "" }));
     };
 
     const handleCountryCodeChange = (code: string) => {
         setSelectedCountryCode(code);
-        updateBusinessData("businessPhone", code + phoneNumber);
+        updateBusinessData("businessPhone", `${code} ${phoneNumber}`);
     };
 
     return (
@@ -264,8 +264,7 @@ const BusinessInfoStep: React.FC<BusinessInfoStepProps> = ({
                     <p className="text-xs text-gray-600">
                         Full number:{" "}
                         <span className="font-medium">
-                            {selectedCountryCode}
-                            {phoneNumber}
+                            {selectedCountryCode} {phoneNumber}
                         </span>
                     </p>
                 )}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Loader2 } from "lucide-react";
 import { useWhatsApp } from "@/contexts/WhatsAppContext";
@@ -11,7 +11,13 @@ const OAuthCallback: React.FC = () => {
     );
     const [errorMessage, setErrorMessage] = useState("");
 
+    const hasProcessed = useRef(false);
+
     useEffect(() => {
+        if (hasProcessed.current) {
+            return;
+        }
+
         const handleOAuthCallback = async () => {
             const urlParams = new URLSearchParams(window.location.search);
             const code = urlParams.get("code");
@@ -36,6 +42,8 @@ const OAuthCallback: React.FC = () => {
             }
 
             try {
+                hasProcessed.current = true;
+
                 const { success, error } = await configureWhatsApp(code);
                 if (success) {
                     setStatus("success");
@@ -64,7 +72,7 @@ const OAuthCallback: React.FC = () => {
         };
 
         handleOAuthCallback();
-    }, [navigate, configureWhatsApp]);
+    }, []);
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-50">
