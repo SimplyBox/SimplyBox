@@ -2,6 +2,8 @@ export interface Message {
     id: string;
     contact_id: string;
     message: string;
+    media_url: string | null;
+    media_type: string | null;
     direction: string;
     message_sid: string;
     status: string;

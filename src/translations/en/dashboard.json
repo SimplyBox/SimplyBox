@@ -1,8 +1,9 @@
 {
     "layout": {
         "usage": {
-            "messages": "{{used}}/{{total}} messages",
-            "files": "{{used}}/{{total}} files"
+            "messages": "Messages",
+            "files": "Files",
+            "members": "Members"
         },
         "plan": {
             "free": "Free",
@@ -19,7 +20,9 @@
             "team": "Team",
             "files": "Files",
             "settings": "Settings"
-        }
+        },
+        "profile": "Profile",
+        "logout": "Logout"
     },
     "InboxPage": {
         "title": "Inbox",

@@ -14,7 +14,6 @@ import {
     Trash2,
     MessageSquare,
     Phone,
-    Mail,
     MoreVertical,
     Zap,
     RefreshCw,
@@ -59,6 +58,7 @@ const InteractiveInbox: React.FC<InteractiveInboxProps> = ({
     >("all");
     const [searchQuery, setSearchQuery] = useState("");
     const [isSending, setIsSending] = React.useState(false);
+    const [viewingImage, setViewingImage] = useState<string | null>(null);
     const messagesEndRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -168,7 +168,7 @@ const InteractiveInbox: React.FC<InteractiveInboxProps> = ({
     };
 
     return (
-        <div className="flex h-[calc(100vh-97px)] bg-gray-50">
+        <div className="flex h-[calc(100vh-65px)] bg-gray-50">
             {/* Conversations List */}
             <div className="w-1/3 bg-white border-r border-gray-200 flex flex-col">
                 <div className="p-4 border-b border-gray-200">
@@ -269,7 +269,6 @@ const InteractiveInbox: React.FC<InteractiveInboxProps> = ({
                                     key={conversation.id}
                                     initial={{ opacity: 0, x: -20 }}
                                     animate={{ opacity: 1, x: 0 }}
-                                    exit={{ opacity: 0, x: -20 }}
                                     className={`p-4 border-b border-gray-100 cursor-pointer hover:bg-gray-50 transition-colors ${
                                         selectedConversation === conversation.id
                                             ? "bg-blue-50 border-l-4 border-l-blue-500"
@@ -620,34 +619,67 @@ const InteractiveInbox: React.FC<InteractiveInboxProps> = ({
                                                                     : "bg-white border border-gray-200"
                                                             }`}
                                                         >
-                                                            <p className="text-sm">
-                                                                {message.message
-                                                                    .split("\n")
-                                                                    .map(
-                                                                        (
-                                                                            line,
-                                                                            index
-                                                                        ) => (
-                                                                            <span
-                                                                                key={
-                                                                                    index
-                                                                                }
-                                                                            >
-                                                                                {
-                                                                                    line
-                                                                                }
-                                                                                {index <
-                                                                                    message.message.split(
-                                                                                        "\n"
-                                                                                    )
-                                                                                        .length -
-                                                                                        1 && (
-                                                                                    <br />
-                                                                                )}
-                                                                            </span>
-                                                                        )
+                                                            <>
+                                                                {/* 1. Tampilkan gambar jika ada media_url dan tipenya 'image' */}
+                                                                {message.media_url &&
+                                                                    message.media_type?.startsWith(
+                                                                        "image/"
+                                                                    ) && (
+                                                                        <img
+                                                                            src={
+                                                                                message.media_url
+                                                                            }
+                                                                            className={`rounded-lg max-w-[300px] max-h-[300px] w-auto object-cover cursor-pointer transition-all hover:brightness-90 ${
+                                                                                message.message &&
+                                                                                message.message !==
+                                                                                    "[User sent an image]"
+                                                                                    ? "mb-2"
+                                                                                    : ""
+                                                                            }`}
+                                                                            onClick={() =>
+                                                                                setViewingImage(
+                                                                                    message.media_url
+                                                                                )
+                                                                            }
+                                                                        />
                                                                     )}
-                                                            </p>
+
+                                                                {(!message.media_url ||
+                                                                    (message.message &&
+                                                                        message.message !==
+                                                                            "[Image]")) && (
+                                                                    <p className="text-sm">
+                                                                        {message.message
+                                                                            .split(
+                                                                                "\n"
+                                                                            )
+                                                                            .map(
+                                                                                (
+                                                                                    line,
+                                                                                    index
+                                                                                ) => (
+                                                                                    <span
+                                                                                        key={
+                                                                                            index
+                                                                                        }
+                                                                                    >
+                                                                                        {
+                                                                                            line
+                                                                                        }
+                                                                                        {index <
+                                                                                            message.message.split(
+                                                                                                "\n"
+                                                                                            )
+                                                                                                .length -
+                                                                                                1 && (
+                                                                                            <br />
+                                                                                        )}
+                                                                                    </span>
+                                                                                )
+                                                                            )}
+                                                                    </p>
+                                                                )}
+                                                            </>
                                                             <div className="flex items-center justify-between mt-1">
                                                                 <span
                                                                     className={`text-xs ${
@@ -767,6 +799,25 @@ const InteractiveInbox: React.FC<InteractiveInboxProps> = ({
                     </div>
                 )}
             </div>
+            {viewingImage && (
+                <div
+                    className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+                    onClick={() => setViewingImage(null)}
+                >
+                    <button
+                        className="absolute top-4 right-4 text-white text-4xl font-bold opacity-70 hover:opacity-100 transition-opacity z-60"
+                        onClick={() => setViewingImage(null)}
+                    >
+                        &times;
+                    </button>
+
+                    <img
+                        src={viewingImage}
+                        className="max-w-[90vw] max-h-[90vh] object-contain rounded-lg shadow-xl"
+                        onClick={(e) => e.stopPropagation()}
+                    />
+                </div>
+            )}
         </div>
     );
 };

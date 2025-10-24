@@ -1,8 +1,9 @@
 {
     "layout": {
         "usage": {
-            "messages": "{{used}}/{{total}} pesan",
-            "files": "{{used}}/{{total}} berkas"
+            "messages": "Pesan",
+            "files": "File",
+            "members": "Anggota"
         },
         "plan": {
             "free": "Gratis",
@@ -17,9 +18,11 @@
             "insights": "Wawasan",
             "contacts": "Kontak",
             "team": "Tim",
-            "files": "Berkas",
+            "files": "File",
             "settings": "Pengaturan"
-        }
+        },
+        "profile": "Profil",
+        "logout": "Keluar"
     },
     "InboxPage": {
         "title": "Kotak Masuk",
