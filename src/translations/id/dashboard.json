@@ -48,6 +48,7 @@
         "selectConversationDescription": "Pilih percakapan dari daftar untuk mulai mengirim pesan",
         "whatsappWindowExpired": "Jendela balasan 24 jam telah berakhir. Anda hanya dapat mengirim pesan template atau menunggu pesan berikutnya dari pelanggan.",
         "status": {
+            "pending": "Tertunda",
             "sent": "Dikirim",
             "delivered": "Terkirim",
             "read": "Dibaca",
