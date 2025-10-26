@@ -120,6 +120,36 @@ export const useInboxService = (companyId: string | undefined) => {
         }
     };
 
+    const markConversationAsRead = async (id: string) => {
+        if (!companyId) return;
+
+        setConversations((prev) =>
+            prev.map((conv) =>
+                conv.contact.id === id && conv.contact.unread_count > 0
+                    ? {
+                          ...conv,
+                          contact: { ...conv.contact, unread_count: 0 },
+                      }
+                    : conv
+            )
+        );
+
+        try {
+            const { error } = await supabase
+                .from("contacts")
+                .update({ unread_count: 0 })
+                .eq("id", id)
+                .eq("company_id", companyId);
+
+            if (error) {
+                throw error;
+            }
+        } catch (error) {
+            console.error("Error marking as read, re-fetching:", error);
+            fetchConversations();
+        }
+    };
+
     const deleteConversation = async (id: string) => {
         if (!companyId) return;
 
@@ -361,6 +391,7 @@ export const useInboxService = (companyId: string | undefined) => {
         fetchConversations,
         togglePinConversation,
         toggleAutoRespond,
+        markConversationAsRead,
         deleteConversation,
         updateContact,
     };

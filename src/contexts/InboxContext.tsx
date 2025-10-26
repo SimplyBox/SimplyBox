@@ -26,6 +26,7 @@ export const InboxProvider: React.FC<{ children: React.ReactNode }> = ({
         loading,
         togglePinConversation,
         toggleAutoRespond,
+        markConversationAsRead,
         deleteConversation,
         updateContact,
     } = useInboxService(company?.id);
@@ -66,6 +67,7 @@ export const InboxProvider: React.FC<{ children: React.ReactNode }> = ({
         sendMessage,
         togglePinConversation,
         toggleAutoRespond,
+        markConversationAsRead,
         deleteConversation,
         updateContact,
         loading,

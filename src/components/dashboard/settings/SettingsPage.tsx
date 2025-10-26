@@ -147,11 +147,6 @@ const SettingsPage = ({ userPlan = "free", currentUsage, onUpgrade }) => {
                 business_email: company.business_email || "",
                 whatsapp_number: whatsappNumber,
             });
-            // Assuming company.system_prompt exists or defaults to the first template
-            setSystemPrompt(company.system_prompt || promptTemplates[0].value);
-            setSelectedTemplate(
-                company.system_prompt || promptTemplates[0].value
-            );
         }
     }, [company]);
 
@@ -240,10 +235,6 @@ const SettingsPage = ({ userPlan = "free", currentUsage, onUpgrade }) => {
                 business_email: company.business_email || "",
                 whatsapp_number: whatsappNumber,
             });
-            setSystemPrompt(company.system_prompt || promptTemplates[0].value);
-            setSelectedTemplate(
-                company.system_prompt || promptTemplates[0].value
-            );
         }
         setErrors({ type: "", business_email: "", whatsapp_number: "" });
         setIsEditing(false);
@@ -276,7 +267,6 @@ const SettingsPage = ({ userPlan = "free", currentUsage, onUpgrade }) => {
                     type: formData.type,
                     business_email: formData.business_email,
                     whatsapp_number: formData.whatsapp_number,
-                    system_prompt: systemPrompt,
                 })
                 .eq("id", company.id);
 
@@ -367,6 +357,58 @@ const SettingsPage = ({ userPlan = "free", currentUsage, onUpgrade }) => {
               subscription.usage.team_members_limit
           )
         : false;
+
+    const handleSavePrompt = async () => {
+        setIsSubmitting(true);
+        setError(null);
+        setSuccess(null);
+
+        if (!company?.id) {
+            setError("Company ID not found. Please re-login.");
+            setIsSubmitting(false);
+            return;
+        }
+
+        try {
+            const { data: existingConfig, error: selectError } = await supabase
+                .from("tenant_configs")
+                .select("id")
+                .eq("company_id", company.id)
+                .maybeSingle();
+
+            if (selectError) {
+                throw new Error(selectError.message);
+            }
+
+            if (existingConfig) {
+                const { error: updateError } = await supabase
+                    .from("tenant_configs")
+                    .update({ persona_prompt: systemPrompt })
+                    .eq("id", existingConfig.id);
+
+                if (updateError) {
+                    throw new Error(updateError.message);
+                }
+            } else {
+                const { error: insertError } = await supabase
+                    .from("tenant_configs")
+                    .insert({
+                        company_id: company.id,
+                        persona_prompt: systemPrompt,
+                    });
+
+                if (insertError) {
+                    throw new Error(insertError.message);
+                }
+            }
+
+            setSuccess("System prompt updated successfully!");
+        } catch (err: any) {
+            setError(err.message || "Failed to save prompt.");
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
 
     return (
         <div className="h-full bg-gray-50">
@@ -1081,6 +1123,7 @@ const SettingsPage = ({ userPlan = "free", currentUsage, onUpgrade }) => {
                             <Button
                                 className="bg-blue-600 hover:bg-blue-700 text-white"
                                 disabled={isSubmitting}
+                                onClick={handleSavePrompt}
                             >
                                 {isSubmitting ? "Saving..." : "Save Prompt"}
                             </Button>

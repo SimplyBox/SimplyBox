@@ -23,6 +23,7 @@ export interface Contact {
     created_at: string;
     updated_at: string;
     notes?: string;
+    unread_count?: number;
 }
 
 export interface Conversation {
@@ -93,6 +94,7 @@ export interface InboxContextType {
     sendMessage: (content: string) => Promise<void>;
     togglePinConversation: (id: string) => Promise<void>;
     toggleAutoRespond: (id: string) => Promise<void>;
+    markConversationAsRead: (id: string) => Promise<void>;
     deleteConversation: (id: string) => Promise<void>;
     updateContact: (id: string, updates: Partial<Contact>) => Promise<void>;
     loading: boolean;

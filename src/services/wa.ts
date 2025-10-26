@@ -60,6 +60,8 @@ export const useWhatsAppService = (
                 status: "sent",
                 created_at: new Date().toISOString(),
                 updated_at: new Date().toISOString(),
+                media_url: "",
+                media_type: "",
             };
 
             const { data, error: insertError } = await supabase

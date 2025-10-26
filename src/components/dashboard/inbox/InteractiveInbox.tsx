@@ -20,6 +20,7 @@ import {
     Search,
     Instagram,
     AlertTriangle,
+    ArrowLeft,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -45,6 +46,7 @@ const InteractiveInbox: React.FC<InteractiveInboxProps> = ({
         sendMessage,
         togglePinConversation,
         toggleAutoRespond,
+        markConversationAsRead,
         deleteConversation,
         loading,
     } = useInbox();
@@ -163,14 +165,25 @@ const InteractiveInbox: React.FC<InteractiveInboxProps> = ({
     };
 
     const handleSelectConversation = (conversationId: string) => {
+        const targetConversation = conversations.find(
+            (c) => c.id === conversationId
+        );
         setSelectedConversation(conversationId);
         navigate(`/dashboard?tab=inbox&conversation=${conversationId}`);
+
+        if (targetConversation && targetConversation.contact.unread_count > 0) {
+            markConversationAsRead(targetConversation.contact.id);
+        }
     };
 
     return (
         <div className="flex h-[calc(100vh-65px)] bg-gray-50">
             {/* Conversations List */}
-            <div className="w-1/3 bg-white border-r border-gray-200 flex flex-col">
+            <div
+                className={`w-full lg:w-1/3 bg-white border-r border-gray-200 flex flex-col ${
+                    selectedConversation ? "hidden lg:flex" : "flex"
+                }`}
+            >
                 <div className="p-4 border-b border-gray-200">
                     <h2 className="text-3xl font-bold mb-3">
                         {t("InboxPage.title")}
@@ -347,6 +360,36 @@ const InteractiveInbox: React.FC<InteractiveInboxProps> = ({
                                                     </span>
 
                                                     <div className="flex items-center space-x-1">
+                                                        {conversation.contact
+                                                            .unread_count >
+                                                            0 && (
+                                                            <motion.div
+                                                                initial={{
+                                                                    scale: 0.5,
+                                                                    opacity: 0,
+                                                                }}
+                                                                animate={{
+                                                                    scale: 1,
+                                                                    opacity: 1,
+                                                                }}
+                                                                transition={{
+                                                                    type: "spring",
+                                                                    stiffness: 500,
+                                                                    damping: 30,
+                                                                }}
+                                                            >
+                                                                <Badge
+                                                                    variant="default"
+                                                                    className="bg-blue-600 text-white text-xs h-5 w-5 rounded-full flex items-center justify-center pointer-events-none"
+                                                                >
+                                                                    {
+                                                                        conversation
+                                                                            .contact
+                                                                            .unread_count
+                                                                    }
+                                                                </Badge>
+                                                            </motion.div>
+                                                        )}
                                                         <DropdownMenu>
                                                             <DropdownMenuTrigger
                                                                 asChild
@@ -411,13 +454,31 @@ const InteractiveInbox: React.FC<InteractiveInboxProps> = ({
             </div>
 
             {/* Chat Area */}
-            <div className="flex-1 flex flex-col">
+            {/* 3. className diubah untuk responsif */}
+            <div
+                className={`flex-1 flex flex-col ${
+                    selectedConversation ? "flex" : "hidden lg:flex"
+                }`}
+            >
                 {selectedConv ? (
                     <>
                         {/* Chat Header */}
                         <div className="bg-white border-b border-gray-200 p-4">
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center space-x-3">
+                                    {/* 4. Tombol "Back" ditambahkan */}
+                                    <Button
+                                        variant="ghost"
+                                        size="icon"
+                                        className="lg:hidden"
+                                        onClick={() => {
+                                            setSelectedConversation(null);
+                                            navigate("/dashboard?tab=inbox");
+                                        }}
+                                    >
+                                        <ArrowLeft className="h-5 w-5" />
+                                    </Button>
+
                                     <Avatar
                                         className="h-10 w-10 cursor-pointer"
                                         onClick={() =>
@@ -458,7 +519,7 @@ const InteractiveInbox: React.FC<InteractiveInboxProps> = ({
                                 </div>
 
                                 <div className="flex items-center space-x-2">
-                                    <div className="flex items-center gap-3">
+                                    <div className="hidden md:flex items-center gap-3">
                                         <span className="text-gray-600 text-xs">
                                             {t("InboxPage.autoRespond")}
                                         </span>
@@ -537,6 +598,32 @@ const InteractiveInbox: React.FC<InteractiveInboxProps> = ({
                                                     ? t("InboxPage.unpin")
                                                     : t("InboxPage.pin")}
                                             </DropdownMenuItem>
+
+                                            <DropdownMenuSeparator className="md:hidden" />
+                                            <DropdownMenuItem
+                                                className="md:hidden"
+                                                onClick={() =>
+                                                    toggleAutoRespond(
+                                                        selectedConv.id
+                                                    )
+                                                }
+                                            >
+                                                <Zap className="h-4 w-4 mr-2" />
+                                                <span>
+                                                    {t("InboxPage.autoRespond")}
+                                                    :{" "}
+                                                    {selectedConv.contact
+                                                        .auto_respond
+                                                        ? t(
+                                                              "InboxPage.autoRespondOn"
+                                                          )
+                                                        : t(
+                                                              "InboxPage.autoRespondOff"
+                                                          )}
+                                                </span>
+                                            </DropdownMenuItem>
+                                            <DropdownMenuSeparator />
+
                                             <DropdownMenuItem
                                                 onClick={() =>
                                                     deleteConversation(
