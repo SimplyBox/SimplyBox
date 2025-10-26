@@ -802,13 +802,14 @@ const SettingsPage = ({ userPlan = "free", currentUsage, onUpgrade }) => {
                                     )}
                                 </div>
 
-                                <div className="flex items-center justify-between p-3 border rounded-md">
+                                <div className="border rounded-lg p-4 bg-blue-50">
                                     <div className="flex items-center gap-3 mb-2">
                                         <Instagram className="h-5 w-5 text-blue-600" />
                                         <h3 className="font-semibold text-gray-900">
                                             Instagram Integration
                                         </h3>
                                     </div>
+
                                     {igIntegration ? (
                                         <div className="flex items-center justify-between p-2 bg-blue-100 border border-blue-200 rounded-lg">
                                             <div className="flex items-center gap-2">
@@ -831,10 +832,12 @@ const SettingsPage = ({ userPlan = "free", currentUsage, onUpgrade }) => {
                                                     </p>
                                                 </div>
                                             </div>
+
                                             <Button
                                                 variant="destructive"
                                                 size="sm"
-                                                onClick={disconnectInstagram} // <-- Panggil fungsi disconnect
+                                                className="mt-0"
+                                                onClick={disconnectInstagram}
                                                 disabled={
                                                     isSubmitting || igLoading
                                                 }
@@ -856,7 +859,7 @@ const SettingsPage = ({ userPlan = "free", currentUsage, onUpgrade }) => {
                                                 className="bg-blue-600 hover:bg-blue-700 text-white flex items-center gap-2"
                                                 onClick={
                                                     handleInstagramConfigure
-                                                } // <-- Panggil fungsi dari Langkah 1
+                                                }
                                                 disabled={
                                                     isSubmitting || igLoading
                                                 }
