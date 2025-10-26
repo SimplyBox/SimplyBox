@@ -2,10 +2,12 @@ import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Loader2 } from "lucide-react";
 import { useWhatsApp } from "@/contexts/WhatsAppContext";
+import { useInstagram } from "@/contexts/InstagramContext";
 
 const OAuthCallback: React.FC = () => {
     const navigate = useNavigate();
     const { configureWhatsApp } = useWhatsApp();
+    const { configureInstagram } = useInstagram();
     const [status, setStatus] = useState<"loading" | "success" | "error">(
         "loading"
     );
@@ -22,6 +24,7 @@ const OAuthCallback: React.FC = () => {
             const urlParams = new URLSearchParams(window.location.search);
             const code = urlParams.get("code");
             const error = urlParams.get("error");
+            const type = urlParams.get("type");
 
             if (error) {
                 setStatus("error");
@@ -44,8 +47,16 @@ const OAuthCallback: React.FC = () => {
             try {
                 hasProcessed.current = true;
 
-                const { success, error } = await configureWhatsApp(code);
-                if (success) {
+                let result;
+                if (type === "instagram") {
+                    // Panggil fungsi Instagram jika tipenya 'instagram'
+                    result = await configureInstagram(code);
+                } else {
+                    // Default ke WhatsApp
+                    result = await configureWhatsApp(code);
+                }
+
+                if (result.success) {
                     setStatus("success");
                     setTimeout(() => {
                         navigate("/dashboard?tab=settings");

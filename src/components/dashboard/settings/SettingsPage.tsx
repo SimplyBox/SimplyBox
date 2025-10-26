@@ -31,6 +31,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useWhatsApp } from "@/contexts/WhatsAppContext";
 import { useSubscription } from "@/contexts/SubscriptionContext";
 import supabase from "@/libs/supabase";
+import { useInstagram } from "@/contexts/InstagramContext";
 
 const getPlanBadgeColor = (plan) => {
     switch (plan) {
@@ -106,6 +107,12 @@ const SettingsPage = ({ userPlan = "free", currentUsage, onUpgrade }) => {
         disconnectWhatsApp,
         loading: waLoading,
     } = useWhatsApp();
+    const {
+        integration: igIntegration,
+        loading: igLoading,
+        configureInstagram,
+        disconnectInstagram,
+    } = useInstagram();
     const { subscription } = useSubscription();
     const [formData, setFormData] = useState({
         name: "",
@@ -285,7 +292,7 @@ const SettingsPage = ({ userPlan = "free", currentUsage, onUpgrade }) => {
     const handleWhatsAppConfigure = async () => {
         try {
             const appId = import.meta.env.VITE_META_APP_ID;
-            const redirectUri = `${window.location.origin}/dashboard/oauth/callback`;
+            const redirectUri = `${window.location.origin}/dashboard/oauth/callback?type=whatsapp`;
 
             if (!appId || !redirectUri) {
                 throw new Error("Missing Meta App ID or Redirect URI");
@@ -303,6 +310,31 @@ const SettingsPage = ({ userPlan = "free", currentUsage, onUpgrade }) => {
         } catch (error) {
             setError("Failed to initiate WhatsApp configuration");
             console.error("WhatsApp configuration error:", error);
+        }
+    };
+
+    const handleInstagramConfigure = async () => {
+        try {
+            const appId = import.meta.env.VITE_META_APP_ID;
+            const redirectUri = `${window.location.origin}/dashboard/oauth/callback?type=instagram`;
+
+            if (!appId || !redirectUri) {
+                throw new Error("Missing Meta App ID or Redirect URI");
+            }
+
+            const scope =
+                "pages_show_list,pages_messaging,instagram_basic,instagram_manage_messages,business_management";
+
+            const authUrl = `https://www.facebook.com/v16.0/dialog/oauth?client_id=${encodeURIComponent(
+                appId
+            )}&redirect_uri=${encodeURIComponent(
+                redirectUri
+            )}&response_type=code&scope=${encodeURIComponent(scope)}`;
+
+            window.location.href = authUrl;
+        } catch (error) {
+            setError("Failed to initiate Instagram configuration");
+            console.error("Instagram configuration error:", error);
         }
     };
 
@@ -771,22 +803,69 @@ const SettingsPage = ({ userPlan = "free", currentUsage, onUpgrade }) => {
                                 </div>
 
                                 <div className="flex items-center justify-between p-3 border rounded-md">
-                                    <div className="flex items-center">
-                                        <div className="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-3">
-                                            <Instagram className="h-4 w-4 text-blue-600" />
-                                        </div>
-                                        <div>
-                                            <p className="font-medium">
-                                                Instagram
-                                            </p>
-                                            <p className="text-xs text-gray-500">
-                                                Connected
-                                            </p>
-                                        </div>
+                                    <div className="flex items-center gap-3 mb-2">
+                                        <Instagram className="h-5 w-5 text-blue-600" />
+                                        <h3 className="font-semibold text-gray-900">
+                                            Instagram Integration
+                                        </h3>
                                     </div>
-                                    <Button variant="outline" size="sm">
-                                        Configure
-                                    </Button>
+                                    {igIntegration ? (
+                                        <div className="flex items-center justify-between p-2 bg-blue-100 border border-blue-200 rounded-lg">
+                                            <div className="flex items-center gap-2">
+                                                <CheckCircle className="h-5 w-5 text-blue-600" />
+                                                <div>
+                                                    <p className="font-semibold text-blue-800">
+                                                        Instagram Connected
+                                                    </p>
+                                                    <p className="text-sm text-blue-700">
+                                                        Account: @
+                                                        {
+                                                            igIntegration.ig_username
+                                                        }
+                                                    </p>
+                                                    <p className="text-sm text-blue-700">
+                                                        Page ID:{" "}
+                                                        {
+                                                            igIntegration.meta_page_id
+                                                        }
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <Button
+                                                variant="destructive"
+                                                size="sm"
+                                                onClick={disconnectInstagram} // <-- Panggil fungsi disconnect
+                                                disabled={
+                                                    isSubmitting || igLoading
+                                                }
+                                            >
+                                                {isSubmitting
+                                                    ? "Disconnecting..."
+                                                    : "Disconnect"}
+                                            </Button>
+                                        </div>
+                                    ) : (
+                                        <div className="flex items-center justify-between p-4 bg-white border rounded-lg">
+                                            <p className="text-sm text-gray-600">
+                                                Connect your Instagram Business
+                                                account to reply to DMs
+                                            </p>
+                                            <Button
+                                                variant="default"
+                                                size="lg"
+                                                className="bg-blue-600 hover:bg-blue-700 text-white flex items-center gap-2"
+                                                onClick={
+                                                    handleInstagramConfigure
+                                                } // <-- Panggil fungsi dari Langkah 1
+                                                disabled={
+                                                    isSubmitting || igLoading
+                                                }
+                                            >
+                                                <Instagram className="h-5 w-5" />
+                                                Connect Instagram
+                                            </Button>
+                                        </div>
+                                    )}
                                 </div>
 
                                 <div className="flex items-center justify-between p-3 border rounded-md bg-gray-50">
