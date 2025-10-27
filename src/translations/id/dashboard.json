@@ -32,7 +32,6 @@
         "filterChannelAll": "Semua Channel",
         "filterChannelWhatsapp": "WhatsApp",
         "filterChannelInstagram": "Instagram",
-        "filterChannelEmail": "Email",
         "searchPlaceholder": "Cari percakapan...",
         "loadingConversations": "Memuat percakapan...",
         "noConversations": "Tidak ada percakapan ditemukan",
@@ -139,8 +138,7 @@
         },
         "channel": {
             "whatsapp": "WhatsApp",
-            "email": "Email",
-            "phone": "Telepon"
+            "instagram": "Instagram"
         },
         "timeAgo": {
             "justNow": "Baru saja",
@@ -171,8 +169,7 @@
         },
         "channel": {
             "whatsapp": "WhatsApp",
-            "email": "Email",
-            "phone": "Telepon"
+            "instagram": "Instagram"
         },
         "tags": {
             "title": "Tag",

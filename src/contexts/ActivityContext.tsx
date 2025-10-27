@@ -12,7 +12,7 @@ export interface Activity {
     id: string;
     title: string;
     description?: string;
-    channel?: "whatsapp" | "email";
+    channel?: "whatsapp" | "instagram";
     urgency: "low" | "medium" | "high";
     assigned_to?: string;
     status: "pending" | "in_progress" | "completed";

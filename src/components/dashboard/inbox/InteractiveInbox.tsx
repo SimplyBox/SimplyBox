@@ -56,7 +56,7 @@ const InteractiveInbox: React.FC<InteractiveInboxProps> = ({
     const [messageText, setMessageText] = React.useState("");
     const [filter, setFilter] = React.useState<"all" | "pinned">("all");
     const [channelFilter, setChannelFilter] = React.useState<
-        "all" | "whatsapp" | "instagram" | "email"
+        "all" | "whatsapp" | "instagram"
     >("all");
     const [searchQuery, setSearchQuery] = useState("");
     const [isSending, setIsSending] = React.useState(false);
@@ -113,8 +113,6 @@ const InteractiveInbox: React.FC<InteractiveInboxProps> = ({
                 return <MessageSquare className="h-4 w-4 text-green-600" />;
             case "instagram":
                 return <Instagram className="h-4 w-4 text-blue-600" />;
-            case "email":
-                return <Phone className="h-4 w-4 text-purple-600" />;
             default:
                 return <MessageSquare className="h-4 w-4" />;
         }
@@ -147,8 +145,13 @@ const InteractiveInbox: React.FC<InteractiveInboxProps> = ({
     };
 
     const handleSendMessage = async () => {
-        if (!messageText.trim() || isSending || isWhatsAppWindowExpired())
+        if (!messageText.trim() || isSending || !selectedConv) return;
+
+        if (selectedConv.channel === "whatsapp" && isWhatsAppWindowExpired()) {
+            console.warn("Cannot send WA message: 24-hour window expired.");
             return;
+        }
+
         setIsSending(true);
         try {
             await sendMessage(messageText);
@@ -255,11 +258,6 @@ const InteractiveInbox: React.FC<InteractiveInboxProps> = ({
                                     }
                                 >
                                     {t("InboxPage.filterChannelInstagram")}
-                                </DropdownMenuItem>
-                                <DropdownMenuItem
-                                    onClick={() => setChannelFilter("email")}
-                                >
-                                    {t("InboxPage.filterChannelEmail")}
                                 </DropdownMenuItem>
                             </DropdownMenuContent>
                         </DropdownMenu>
@@ -707,7 +705,6 @@ const InteractiveInbox: React.FC<InteractiveInboxProps> = ({
                                                             }`}
                                                         >
                                                             <>
-                                                                {/* 1. Tampilkan gambar jika ada media_url dan tipenya 'image' */}
                                                                 {message.media_url &&
                                                                     message.media_type?.startsWith(
                                                                         "image/"
@@ -823,7 +820,11 @@ const InteractiveInbox: React.FC<InteractiveInboxProps> = ({
                                             "InboxPage.messagePlaceholder"
                                         )}
                                         className="flex-1 min-h-[40px] max-h-32 resize-none"
-                                        disabled={isWhatsAppWindowExpired()}
+                                        disabled={
+                                            selectedConv.channel ===
+                                                "whatsapp" &&
+                                            isWhatsAppWindowExpired()
+                                        }
                                         onKeyDown={(e) => {
                                             if (
                                                 e.key === "Enter" &&
@@ -849,7 +850,9 @@ const InteractiveInbox: React.FC<InteractiveInboxProps> = ({
                                         disabled={
                                             !messageText.trim() ||
                                             isSending ||
-                                            isWhatsAppWindowExpired()
+                                            (selectedConv.channel ===
+                                                "whatsapp" &&
+                                                isWhatsAppWindowExpired())
                                         }
                                         className="h-10"
                                     >

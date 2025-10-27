@@ -93,7 +93,7 @@ const AccountSetupStep: React.FC<AccountSetupStepProps> = ({
             ownerName:
                 isValid || name === ""
                     ? ""
-                    : t("signup.step3.ownerName.maxLength"),
+                    : t("signup.step2.ownerName.maxLength"),
         }));
         return isValid;
     };
@@ -106,7 +106,7 @@ const AccountSetupStep: React.FC<AccountSetupStepProps> = ({
             ownerPhone:
                 isValid || phone === ""
                     ? ""
-                    : t("signup.step3.ownerPhone.invalid"),
+                    : t("signup.step2.ownerPhone.invalid"),
         }));
         return isValid;
     };
@@ -118,7 +118,7 @@ const AccountSetupStep: React.FC<AccountSetupStepProps> = ({
             ownerEmail:
                 isValid || email === ""
                     ? ""
-                    : t("signup.step3.ownerEmail.invalid"),
+                    : t("signup.step2.ownerEmail.invalid"),
         }));
         return isValid;
     };
@@ -140,7 +140,7 @@ const AccountSetupStep: React.FC<AccountSetupStepProps> = ({
             ownerPassword:
                 isValid || password === ""
                     ? ""
-                    : t("signup.step3.ownerPassword.invalid"),
+                    : t("signup.step2.ownerPassword.invalid"),
         }));
         return isValid;
     };
@@ -152,7 +152,7 @@ const AccountSetupStep: React.FC<AccountSetupStepProps> = ({
             confirmPassword:
                 isValid || confirm === ""
                     ? ""
-                    : t("signup.step3.confirmPassword.mismatch"),
+                    : t("signup.step2.confirmPassword.mismatch"),
         }));
         return isValid;
     };
@@ -222,22 +222,22 @@ const AccountSetupStep: React.FC<AccountSetupStepProps> = ({
             {/* Owner Account Setup */}
             <div className="bg-gradient-to-r from-green-500/10 to-blue-500/10 border border-green-500/20 rounded-lg p-4">
                 <h4 className="font-semibold text-gray-900 mb-2">
-                    {t("signup.step3.ownerAccount.title")}
+                    {t("signup.step2.ownerAccount.title")}
                 </h4>
                 <p className="text-sm text-gray-600">
-                    {t("signup.step3.ownerAccount.description")}
+                    {t("signup.step2.ownerAccount.description")}
                 </p>
             </div>
 
             <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-700">
-                    {t("signup.step3.ownerName.label")}
+                    {t("signup.step2.ownerName.label")}
                 </label>
                 <div className="relative">
                     <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
                     <Input
                         type="text"
-                        placeholder={t("signup.step3.ownerName.placeholder")}
+                        placeholder={t("signup.step2.ownerName.placeholder")}
                         value={businessData.ownerName}
                         onChange={(e) => handleNameChange(e.target.value)}
                         className={`pl-10 h-12 ${
@@ -250,13 +250,13 @@ const AccountSetupStep: React.FC<AccountSetupStepProps> = ({
                     <p className="text-xs text-red-500">{errors.ownerName}</p>
                 )}
                 <p className="text-xs text-gray-500">
-                    {t("signup.step3.ownerName.helper")}
+                    {t("signup.step2.ownerName.helper")}
                 </p>
             </div>
 
             <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-700">
-                    {t("signup.step3.ownerPhone.label")}
+                    {t("signup.step2.ownerPhone.label")}
                 </label>
                 <div className="flex space-x-2">
                     <Select
@@ -286,7 +286,7 @@ const AccountSetupStep: React.FC<AccountSetupStepProps> = ({
                         <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
                         <Input
                             placeholder={t(
-                                "signup.step3.ownerPhone.placeholder"
+                                "signup.step2.ownerPhone.placeholder"
                             )}
                             value={phoneNumber}
                             onChange={(e) => handlePhoneChange(e.target.value)}
@@ -301,7 +301,7 @@ const AccountSetupStep: React.FC<AccountSetupStepProps> = ({
                     <p className="text-xs text-red-500">{errors.ownerPhone}</p>
                 )}
                 <p className="text-xs text-gray-500">
-                    {t("signup.step3.ownerPhone.helper")}
+                    {t("signup.step2.ownerPhone.helper")}
                 </p>
                 {phoneNumber && (
                     <p className="text-xs text-gray-600">
@@ -315,13 +315,13 @@ const AccountSetupStep: React.FC<AccountSetupStepProps> = ({
 
             <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-700">
-                    {t("signup.step3.ownerEmail.label")}
+                    {t("signup.step2.ownerEmail.label")}
                 </label>
                 <div className="relative">
                     <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
                     <Input
                         type="email"
-                        placeholder={t("signup.step3.ownerEmail.placeholder")}
+                        placeholder={t("signup.step2.ownerEmail.placeholder")}
                         value={businessData.ownerEmail}
                         onChange={(e) => handleEmailChange(e.target.value)}
                         className={`pl-10 h-12 ${
@@ -334,20 +334,20 @@ const AccountSetupStep: React.FC<AccountSetupStepProps> = ({
                     <p className="text-xs text-red-500">{errors.ownerEmail}</p>
                 )}
                 <p className="text-xs text-gray-500">
-                    {t("signup.step3.ownerEmail.helper")}
+                    {t("signup.step2.ownerEmail.helper")}
                 </p>
             </div>
 
             <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-700">
-                    {t("signup.step3.ownerPassword.label")}
+                    {t("signup.step2.ownerPassword.label")}
                 </label>
                 <div className="relative">
                     <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
                     <Input
                         type={showPassword ? "text" : "password"}
                         placeholder={t(
-                            "signup.step3.ownerPassword.placeholder"
+                            "signup.step2.ownerPassword.placeholder"
                         )}
                         value={businessData.ownerPassword}
                         onChange={(e) => handlePasswordChange(e.target.value)}
@@ -374,20 +374,20 @@ const AccountSetupStep: React.FC<AccountSetupStepProps> = ({
                     </p>
                 )}
                 <p className="text-xs text-gray-500">
-                    {t("signup.step3.ownerPassword.helper")}
+                    {t("signup.step2.ownerPassword.helper")}
                 </p>
             </div>
 
             <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-700">
-                    {t("signup.step3.confirmPassword.label")}
+                    {t("signup.step2.confirmPassword.label")}
                 </label>
                 <div className="relative">
                     <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
                     <Input
                         type={showConfirmPassword ? "text" : "password"}
                         placeholder={t(
-                            "signup.step3.confirmPassword.placeholder"
+                            "signup.step2.confirmPassword.placeholder"
                         )}
                         value={confirmPassword}
                         onChange={(e) =>
@@ -418,19 +418,19 @@ const AccountSetupStep: React.FC<AccountSetupStepProps> = ({
                     </p>
                 )}
                 <p className="text-xs text-gray-500">
-                    {t("signup.step3.confirmPassword.helper")}
+                    {t("signup.step2.confirmPassword.helper")}
                 </p>
             </div>
 
             {/* Summary */}
             <div className="border rounded-lg p-4 bg-gray-50">
                 <h4 className="font-semibold text-gray-900 mb-3">
-                    {t("signup.step3.summary.title")}
+                    {t("signup.step2.summary.title")}
                 </h4>
                 <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
                         <span className="text-gray-600">
-                            {t("signup.step3.summary.business")}
+                            {t("signup.step2.summary.business")}
                         </span>
                         <span className="font-medium">
                             {businessData.businessName}
@@ -438,7 +438,7 @@ const AccountSetupStep: React.FC<AccountSetupStepProps> = ({
                     </div>
                     <div className="flex justify-between">
                         <span className="text-gray-600">
-                            {t("signup.step3.summary.type")}
+                            {t("signup.step2.summary.type")}
                         </span>
                         <span className="font-medium">
                             {businessData.businessType}
@@ -446,7 +446,7 @@ const AccountSetupStep: React.FC<AccountSetupStepProps> = ({
                     </div>
                     <div className="flex justify-between">
                         <span className="text-gray-600">
-                            {t("signup.step3.summary.team")}
+                            {t("signup.step2.summary.team")}
                         </span>
                         <span className="font-medium">
                             {businessData.teamSize}
@@ -454,7 +454,7 @@ const AccountSetupStep: React.FC<AccountSetupStepProps> = ({
                     </div>
                     <div className="flex justify-between">
                         <span className="text-gray-600">
-                            {t("signup.step3.summary.volume")}
+                            {t("signup.step2.summary.volume")}
                         </span>
                         <span className="font-medium">
                             {businessData.dailyMessages}
@@ -463,7 +463,7 @@ const AccountSetupStep: React.FC<AccountSetupStepProps> = ({
                     {businessData.dailyMessages && businessData.teamSize && (
                         <div className="flex justify-between pt-2 border-t">
                             <span className="text-gray-600">
-                                {t("signup.step3.summary.recommended")}
+                                {t("signup.step2.summary.recommended")}
                             </span>
                             <span className="font-medium text-blue-500">
                                 {getRecommendedTier()}
@@ -476,10 +476,10 @@ const AccountSetupStep: React.FC<AccountSetupStepProps> = ({
             {/* CTA Section */}
             <div className="bg-gradient-to-r from-green-500 to-blue-500 rounded-lg p-6 text-white text-center">
                 <h4 className="font-bold text-lg mb-2">
-                    {t("signup.step3.cta.title")}
+                    {t("signup.step2.cta.title")}
                 </h4>
                 <p className="text-sm text-green-100 mb-4">
-                    {t("signup.step3.cta.description")}
+                    {t("signup.step2.cta.description")}
                 </p>
             </div>
 
@@ -489,8 +489,8 @@ const AccountSetupStep: React.FC<AccountSetupStepProps> = ({
                 disabled={isLoading || !isFormValid()}
             >
                 {isLoading
-                    ? t("signup.step3.completing")
-                    : t("signup.step3.completeButton")}
+                    ? t("signup.step2.completing")
+                    : t("signup.step2.completeButton")}
             </Button>
         </div>
     );

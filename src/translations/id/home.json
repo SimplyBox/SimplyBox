@@ -63,7 +63,7 @@
         "steps": {
             "connect": {
                 "title": "Hubungkan Channel Anda",
-                "description": "Hubungkan akun WhatsApp Business dan Email Anda dalam hitungan menit."
+                "description": "Hubungkan akun WhatsApp Business dan Instagram Anda dalam hitungan menit."
             },
             "organize": {
                 "title": "Organisasi & Respons",
@@ -88,7 +88,7 @@
         "items": {
             "unifiedInbox": {
                 "title": "Semua Pesan Anda dalam Satu Tempat",
-                "description": "Hubungkan WhatsApp dan Email dalam satu dasbor. Tidak perlu lagi beralih antar aplikasi untuk mengelola komunikasi pelanggan.",
+                "description": "Hubungkan WhatsApp dan Instagram dalam satu dasbor. Tidak perlu lagi beralih antar aplikasi untuk mengelola komunikasi pelanggan.",
                 "benefits": [
                     "Sinkronisasi pesan real-time",
                     "Manajemen kontak terpadu",
@@ -190,7 +190,7 @@
     "footer": {
         "cta": {
             "title": "Siap untuk menyederhanakan komunikasi bisnis Anda?",
-            "subtitle": "Mengelola pesan pelanggan melalui WhatsApp, email, dan marketplace sangat menguras tenaga para pemilik bisnis",
+            "subtitle": "Mengelola pesan pelanggan melalui WhatsApp, Instagram, dan eCommerce sangat menguras tenaga para pemilik bisnis",
             "primary": "Coba Gratis",
             "secondary": "Hubungi Sales"
         },

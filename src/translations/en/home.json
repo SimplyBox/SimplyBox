@@ -63,7 +63,7 @@
         "steps": {
             "connect": {
                 "title": "Connect Your Channels",
-                "description": "Link your WhatsApp Business and Email accounts in minutes."
+                "description": "Link your WhatsApp Business and Instagram accounts in minutes."
             },
             "organize": {
                 "title": "Organize & Respond",
@@ -88,7 +88,7 @@
         "items": {
             "unifiedInbox": {
                 "title": "All Your Messages in One Place",
-                "description": "Connect WhatsApp and Email in a single dashboard. No more switching between apps to manage customer communications.",
+                "description": "Connect WhatsApp and Instagram in a single dashboard. No more switching between apps to manage customer communications.",
                 "benefits": [
                     "Real-time message synchronization",
                     "Unified contact management",
@@ -190,7 +190,7 @@
     "footer": {
         "cta": {
             "title": "Ready to simplify your business communications?",
-            "subtitle": "Managing customer messages across WhatsApp, email, and marketplaces is overwhelming most business owners",
+            "subtitle": "Managing customer messages across WhatsApp, Instagram, and eCommerce platforms is overwhelming most business owners",
             "primary": "Try Free",
             "secondary": "Contact Sales"
         },

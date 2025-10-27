@@ -325,7 +325,7 @@ const DashboardLayout = ({
         <div className="min-h-screen flex flex-col bg-gray-50">
             <header className="bg-white border-b border-gray-200 sticky top-0 z-40 flex-shrink-0">
                 <div className="mx-auto p-4 flex items-center justify-between h-16">
-                    <div className="flex items-center space-x-4">
+                    <div className="flex items-center sm:space-x-4">
                         <motion.img
                             src="/LogoHorizontal.png"
                             alt="SimplyBox"

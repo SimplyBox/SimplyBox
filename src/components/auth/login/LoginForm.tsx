@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react"; // <<< 1. TAMBAHKAN useEffect
 import { Button } from "../../ui/button";
 import { Input } from "../../ui/input";
 import { Checkbox } from "../../ui/checkbox";
@@ -14,11 +14,19 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, t }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
-    const [rememberMe, setRememberMe] = useState(false);
+    const [rememberMe, setRememberMe] = useState(false); //
     const [fieldErrors, setFieldErrors] = useState<{
         email?: string;
         password?: string;
     }>({});
+
+    useEffect(() => {
+        const rememberedEmail = localStorage.getItem("rememberedEmail");
+        if (rememberedEmail) {
+            setEmail(rememberedEmail);
+            setRememberMe(true);
+        }
+    }, []);
 
     const validateForm = () => {
         const errors: { email?: string; password?: string } = {};
@@ -44,6 +52,12 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, t }) => {
 
         if (!validateForm()) {
             return;
+        }
+
+        if (rememberMe) {
+            localStorage.setItem("rememberedEmail", email);
+        } else {
+            localStorage.removeItem("rememberedEmail");
         }
 
         try {
@@ -131,7 +145,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, t }) => {
                         checked={rememberMe}
                         onCheckedChange={(checked) =>
                             setRememberMe(checked === true)
-                        }
+                        } //
                     />
                     <label htmlFor="remember" className="text-sm text-gray-600">
                         {t("login.form.rememberMe")}

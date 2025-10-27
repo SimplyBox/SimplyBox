@@ -29,7 +29,7 @@ interface KanbanCard {
     id: string;
     title: string;
     description: string;
-    channel?: "whatsapp" | "email";
+    channel?: "whatsapp" | "instagram";
     urgency: "low" | "medium" | "high";
     assigned_to?: string;
     status?: "pending" | "in_progress" | "completed";
@@ -75,7 +75,7 @@ const KanbanBoard: React.FC<KanbanBoardProps> = ({
             id: activity.id,
             title: activity.title,
             description: activity.description || "",
-            channel: activity.channel as "whatsapp" | "email" | undefined,
+            channel: activity.channel as "whatsapp" | "instagram" | undefined,
             urgency: activity.urgency as "low" | "medium" | "high",
             assigned_to: activity.assigned_to,
             status: activity.status as "pending" | "in_progress" | "completed",
@@ -188,8 +188,8 @@ const KanbanBoard: React.FC<KanbanBoardProps> = ({
         switch (channel) {
             case "whatsapp":
                 return <Badge className="bg-green-500">WhatsApp</Badge>;
-            case "email":
-                return <Badge className="bg-blue-500">Email</Badge>;
+            case "instagram":
+                return <Badge className="bg-blue-500">Instagram</Badge>;
             default:
                 return <Badge>Unknown</Badge>;
         }
@@ -420,7 +420,7 @@ const KanbanBoard: React.FC<KanbanBoardProps> = ({
                                             ...newCard,
                                             channel: value as
                                                 | "whatsapp"
-                                                | "email",
+                                                | "instagram",
                                         })
                                     }
                                 >
@@ -431,8 +431,8 @@ const KanbanBoard: React.FC<KanbanBoardProps> = ({
                                         <SelectItem value="whatsapp">
                                             WhatsApp
                                         </SelectItem>
-                                        <SelectItem value="email">
-                                            Email
+                                        <SelectItem value="instagram">
+                                            Instagram
                                         </SelectItem>
                                     </SelectContent>
                                 </Select>

@@ -3,6 +3,7 @@ import { useAuth } from "./AuthContext";
 import { useTagService } from "@/services/tags";
 import { useInboxService } from "@/services/inbox";
 import { useWhatsAppService } from "@/services/wa";
+import { useInstagramService } from "@/services/ig";
 import { InboxContextType } from "@/types";
 
 const InboxContext = createContext<InboxContextType | undefined>(undefined);
@@ -29,6 +30,7 @@ export const InboxProvider: React.FC<{ children: React.ReactNode }> = ({
         markConversationAsRead,
         deleteConversation,
         updateContact,
+        setConversations,
     } = useInboxService(company?.id);
     const {
         availableTags,
@@ -53,12 +55,39 @@ export const InboxProvider: React.FC<{ children: React.ReactNode }> = ({
         handleSaveTagChanges,
         handleResetTags,
     } = useTagService(company?.id);
-    const { sendMessage } = useWhatsAppService(
+    const { sendMessage: sendWaMessage } = useWhatsAppService(
         company?.id,
         selectedConversation,
         conversations,
-        (conversations) => conversations
+        setConversations
     );
+    const { sendMessage: sendIgMessage } = useInstagramService(
+        company?.id,
+        selectedConversation,
+        conversations,
+        setConversations
+    );
+
+    const sendMessage = async (content: string) => {
+        if (!selectedConversation) throw new Error("No conversation selected");
+
+        const conversation = conversations.find(
+            (c) => c.id === selectedConversation
+        );
+        if (!conversation) throw new Error("Conversation not found");
+
+        if (conversation.channel === "whatsapp") {
+            return sendWaMessage(content);
+        } else if (conversation.channel === "instagram") {
+            return sendIgMessage(content);
+        } else {
+            console.error(
+                "Cannot send message: Unknown channel",
+                conversation.channel
+            );
+            throw new Error("Unknown channel");
+        }
+    };
 
     const value: InboxContextType = {
         conversations,

@@ -153,28 +153,45 @@ export const useInboxService = (companyId: string | undefined) => {
     const deleteConversation = async (id: string) => {
         if (!companyId) return;
 
+        const conversationToDelete = conversations.find(
+            (conv) => conv.id === id
+        );
+        if (!conversationToDelete) {
+            console.error(
+                "Cannot delete: Conversation not found in local state."
+            );
+            return;
+        }
+
+        setConversations((prev) => prev.filter((conv) => conv.id !== id));
+        if (selectedConversation === id) {
+            setSelectedConversation(null);
+        }
+
         try {
-            const { error: messagesError } = await supabase
-                .from("chat_log")
-                .delete()
-                .eq("contact_id", id);
+            const { error } = await supabase.functions.invoke(
+                "delete-conversation",
+                {
+                    body: {
+                        contactId: id,
+                        companyId: companyId,
+                        channel: conversationToDelete.contact.channel,
+                    },
+                }
+            );
 
-            if (messagesError) throw messagesError;
-
-            const { error: contactError } = await supabase
-                .from("contacts")
-                .delete()
-                .eq("id", id)
-                .eq("company_id", companyId);
-
-            if (contactError) throw contactError;
-
-            setConversations((prev) => prev.filter((conv) => conv.id !== id));
-            if (selectedConversation === id) {
-                setSelectedConversation(null);
+            if (error) {
+                throw error;
             }
+
+            console.log(`Conversation ${id} successfully deleted by server.`);
         } catch (error) {
-            console.error("Error deleting conversation:", error);
+            console.error(
+                "Error deleting conversation on server, rolling back UI:",
+                error
+            );
+
+            setConversations((prev) => [conversationToDelete, ...prev]);
         }
     };
 
@@ -385,6 +402,7 @@ export const useInboxService = (companyId: string | undefined) => {
 
     return {
         conversations,
+        setConversations,
         selectedConversation,
         setSelectedConversation,
         loading,

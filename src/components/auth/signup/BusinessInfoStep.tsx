@@ -8,7 +8,14 @@ import {
     SelectTrigger,
     SelectValue,
 } from "../../ui/select";
-import { Building2, Mail, Phone, FileText, ArrowRight } from "lucide-react";
+import {
+    Building2,
+    Mail,
+    Phone,
+    FileText,
+    ArrowRight,
+    Users,
+} from "lucide-react";
 
 interface BusinessData {
     businessName: string;
@@ -24,14 +31,14 @@ interface BusinessData {
     ownerPassword: string;
 }
 
-interface BusinessInfoStepProps {
+interface BudinessInfoStepProps {
     businessData: BusinessData;
     updateBusinessData: (field: keyof BusinessData, value: any) => void;
     onNext: () => void;
-    t: (key: string) => string;
+    t: (key: string, options?: Record<string, any>) => string;
 }
 
-const BusinessInfoStep: React.FC<BusinessInfoStepProps> = ({
+const BudinessInfoStep: React.FC<BudinessInfoStepProps> = ({
     businessData,
     updateBusinessData,
     onNext,
@@ -66,6 +73,33 @@ const BusinessInfoStep: React.FC<BusinessInfoStepProps> = ({
 
     const [selectedCountryCode, setSelectedCountryCode] = useState("+62");
     const [phoneNumber, setPhoneNumber] = useState("");
+
+    const teamSizes = [
+        "1 person (Solo)",
+        "2-5 people",
+        "6-15 people",
+        "15+ people",
+    ];
+
+    const messageVolumes = [
+        "Less than 20 messages",
+        "20-50 messages",
+        "50-100 messages",
+        "100+ messages",
+    ];
+
+    const getRecommendedTier = () => {
+        const teamSizeIndex = teamSizes.indexOf(businessData.teamSize);
+        const messageVolumeIndex = messageVolumes.indexOf(
+            businessData.dailyMessages
+        );
+
+        if (teamSizeIndex <= 1 && messageVolumeIndex <= 1)
+            return t("signup.step1.recommendation.tiers.starter");
+        if (teamSizeIndex <= 2 && messageVolumeIndex <= 2)
+            return t("signup.step1.recommendation.tiers.professional");
+        return t("signup.step1.recommendation.tiers.enterprise");
+    };
 
     const validateNIB = (nib: string) => {
         const isValid = /^\d{13}$/.test(nib);
@@ -110,7 +144,9 @@ const BusinessInfoStep: React.FC<BusinessInfoStepProps> = ({
             businessData.businessType !== "" &&
             businessData.businessNIB !== "" &&
             businessData.businessPhone !== "" &&
-            businessData.businessEmail !== ""
+            businessData.businessEmail !== "" &&
+            businessData.teamSize !== "" &&
+            businessData.dailyMessages !== ""
         );
     };
 
@@ -260,14 +296,6 @@ const BusinessInfoStep: React.FC<BusinessInfoStepProps> = ({
                 <p className="text-xs text-gray-500">
                     {t("signup.step1.businessPhone.helper")}
                 </p>
-                {phoneNumber && (
-                    <p className="text-xs text-gray-600">
-                        Full number:{" "}
-                        <span className="font-medium">
-                            {selectedCountryCode} {phoneNumber}
-                        </span>
-                    </p>
-                )}
             </div>
 
             <div className="space-y-2">
@@ -302,6 +330,84 @@ const BusinessInfoStep: React.FC<BusinessInfoStepProps> = ({
                 )}
             </div>
 
+            <hr className="my-6" />
+
+            <div className="space-y-2">
+                <label className="text-sm font-medium text-gray-700">
+                    {t("signup.step1.teamSize.label")}
+                </label>
+                <div className="relative">
+                    <Users className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                    <Select
+                        value={businessData.teamSize}
+                        onValueChange={(value) =>
+                            updateBusinessData("teamSize", value)
+                        }
+                    >
+                        <SelectTrigger className="pl-10 h-12">
+                            <SelectValue
+                                placeholder={t(
+                                    "signup.step1.teamSize.placeholder"
+                                )}
+                            />
+                        </SelectTrigger>
+                        <SelectContent>
+                            {teamSizes.map((size) => (
+                                <SelectItem key={size} value={size}>
+                                    {size}
+                                </SelectItem>
+                            ))}
+                        </SelectContent>
+                    </Select>
+                </div>
+            </div>
+
+            <div className="space-y-3">
+                <label className="text-sm font-medium text-gray-700">
+                    {t("signup.step1.messageVolume.label")}
+                </label>
+                <Select
+                    value={businessData.dailyMessages}
+                    onValueChange={(value) =>
+                        updateBusinessData("dailyMessages", value)
+                    }
+                >
+                    <SelectTrigger className="h-12">
+                        <SelectValue
+                            placeholder={t(
+                                "signup.step1.messageVolume.placeholder"
+                            )}
+                        />
+                    </SelectTrigger>
+                    <SelectContent>
+                        {messageVolumes.map((volume) => (
+                            <SelectItem key={volume} value={volume}>
+                                {volume}
+                            </SelectItem>
+                        ))}
+                    </SelectContent>
+                </Select>
+            </div>
+
+            {businessData.dailyMessages && businessData.teamSize && (
+                <div className="bg-gradient-to-r from-blue-500/10 to-green-500/10 border border-blue-500/20 rounded-lg p-4">
+                    <h4 className="font-semibold text-gray-900 mb-2">
+                        {t("signup.step1.recommendation.title")}
+                    </h4>
+                    <div className="flex items-center gap-2 mb-2">
+                        <span className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            {getRecommendedTier()}
+                        </span>
+                        <span className="text-sm text-gray-600">
+                            {t("signup.step1.recommendation.perfectFor")}
+                        </span>
+                    </div>
+                    <p className="text-sm text-gray-600">
+                        {t("signup.step1.recommendation.description")}
+                    </p>
+                </div>
+            )}
+
             <Button
                 onClick={handleNextClick}
                 className="w-full h-12 bg-green-500 hover:bg-green-600 text-white font-medium disabled:bg-gray-400 disabled:cursor-not-allowed"
@@ -314,4 +420,4 @@ const BusinessInfoStep: React.FC<BusinessInfoStepProps> = ({
     );
 };
 
-export default BusinessInfoStep;
+export default BudinessInfoStep;

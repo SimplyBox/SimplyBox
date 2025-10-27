@@ -15,7 +15,6 @@ import { useNavigate } from "react-router-dom";
 
 import BrandSection from "../components/auth/signup/BrandSection";
 import BusinessInfoStep from "../components/auth/signup/BusinessInfoStep";
-import SetupPreferencesStep from "../components/auth/signup/SetupPreferencesStep";
 import AccountSetupStep from "../components/auth/signup/AccountSetupStep";
 
 interface BusinessData {
@@ -63,27 +62,8 @@ const SignUpPage: React.FC = () => {
     };
 
     const handleNext = () => {
-        if (currentStep === 1) {
-            if (
-                !businessData.businessName ||
-                !businessData.businessType ||
-                !businessData.businessNIB ||
-                !businessData.businessPhone ||
-                !businessData.businessEmail
-            ) {
-                setErrorMessage(t("signup.step1.validation.fillRequired"));
-                return;
-            }
-            setErrorMessage("");
-            setCurrentStep(2);
-        } else if (currentStep === 2) {
-            if (!businessData.teamSize || !businessData.dailyMessages) {
-                setErrorMessage(t("signup.step2.validation.fillRequired"));
-                return;
-            }
-            setErrorMessage("");
-            setCurrentStep(3);
-        }
+        setErrorMessage("");
+        setCurrentStep(2);
     };
 
     const handleComplete = async () => {
@@ -93,12 +73,12 @@ const SignUpPage: React.FC = () => {
             !businessData.ownerEmail ||
             !businessData.ownerPassword
         ) {
-            setErrorMessage(t("signup.step3.validation.fillRequired"));
+            setErrorMessage(t("signup.step2.validation.fillRequired"));
             return;
         }
 
         if (businessData.ownerPassword.length < 8) {
-            setErrorMessage(t("signup.step3.validation.passwordLength"));
+            setErrorMessage(t("signup.step2.validation.passwordLength"));
             return;
         }
 
@@ -138,19 +118,16 @@ const SignUpPage: React.FC = () => {
 
     const getStepTitle = () => {
         if (currentStep === 1) return "titleStep1";
-        if (currentStep === 2) return "titleStep2";
-        return "titleStep3";
+        return "titleStep2";
     };
 
     const getStepSubtitle = () => {
         if (currentStep === 1) return "subtitleStep1";
-        if (currentStep === 2) return "subtitleStep2";
-        return "subtitleStep3";
+        return "subtitleStep2";
     };
 
     const getProgressLabel = () => {
         if (currentStep === 1) return "businessInfo";
-        if (currentStep === 2) return "setupPreferences";
         return "accountSetup";
     };
 
@@ -166,15 +143,6 @@ const SignUpPage: React.FC = () => {
                     />
                 );
             case 2:
-                return (
-                    <SetupPreferencesStep
-                        businessData={businessData}
-                        updateBusinessData={updateBusinessData}
-                        onNext={handleNext}
-                        t={t}
-                    />
-                );
-            case 3:
                 return (
                     <AccountSetupStep
                         businessData={businessData}
@@ -212,14 +180,14 @@ const SignUpPage: React.FC = () => {
                             <span className="text-sm font-medium text-gray-600">
                                 {t("signup.progress.step", {
                                     current: currentStep,
-                                    total: 3,
+                                    total: 2,
                                 })}
                             </span>
                             <span className="text-sm text-gray-500">
                                 {t(`signup.progress.${getProgressLabel()}`)}
                             </span>
                         </div>
-                        <Progress value={currentStep * 33.33} className="h-2" />
+                        <Progress value={currentStep * 50} className="h-2" />{" "}
                     </div>
 
                     <Card className="border-0 shadow-lg">

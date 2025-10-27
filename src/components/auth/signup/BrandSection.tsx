@@ -9,8 +9,7 @@ interface BrandSectionProps {
 const BrandSection: React.FC<BrandSectionProps> = ({ currentStep, t }) => {
     const getFeatures = () => {
         if (currentStep === 1) return t("signup.brand.featuresStep1");
-        if (currentStep === 2) return t("signup.brand.featuresStep2");
-        return t("signup.brand.featuresStep3");
+        return t("signup.brand.featuresStep2");
     };
 
     const getStepTitle = () => `titleStep${currentStep}`;
@@ -19,12 +18,6 @@ const BrandSection: React.FC<BrandSectionProps> = ({ currentStep, t }) => {
     const getFeatureIcon = (index: number) => {
         if (currentStep === 1)
             return <CheckCircle className="w-5 h-5 text-white" />;
-        if (currentStep === 2) {
-            const icons = [<Users />, <ArrowRight />, <CheckCircle />];
-            return React.cloneElement(icons[index % icons.length], {
-                className: "w-5 h-5 text-white",
-            });
-        }
         return <Lock className="w-5 h-5 text-white" />;
     };
 

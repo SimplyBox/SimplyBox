@@ -173,10 +173,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                                             </div>
                                             <div className="flex-1">
                                                 <div className="text-xs font-medium">
-                                                    Email
+                                                    Instagram
                                                 </div>
                                                 <div className="text-xs text-gray-600">
-                                                    Order confirmation needed
+                                                    New message
                                                 </div>
                                             </div>
                                             <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
