@@ -17,7 +17,8 @@ import { InboxProvider } from "./contexts/InboxContext";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import { ActivityProvider } from "./contexts/ActivityContext";
 import { WhatsAppProvider } from "./contexts/WhatsAppContext";
-import { InstagramProvider, useInstagram } from "./contexts/InstagramContext";
+import { InstagramProvider } from "./contexts/InstagramContext";
+import { FacebookProvider } from "./contexts/FacebookContext";
 import OAuthCallback from "./components/dashboard/settings/OAuthCallback";
 import VerifyEmailPage from "./pages/VerifyEmailPage";
 import AcceptInvitationPage from "./pages/AcceptInvitaionPage";
@@ -74,113 +75,119 @@ function App() {
                                 <ActivityProvider>
                                     <WhatsAppProvider>
                                         <InstagramProvider>
-                                            <Suspense
-                                                fallback={
-                                                    <div className="flex items-center justify-center h-screen">
-                                                        <p>Loading...</p>
-                                                    </div>
-                                                }
-                                            >
-                                                <Routes>
-                                                    {/* Public Routes */}
-                                                    <Route
-                                                        path="/"
-                                                        element={
-                                                            <HomeWrapper />
-                                                        }
-                                                    />
-                                                    <Route
-                                                        path="/privacy-policy"
-                                                        element={
-                                                            <PrivacyPolicyPage />
-                                                        }
-                                                    />
-                                                    <Route
-                                                        path="/terms-of-service"
-                                                        element={
-                                                            <TermsOfServicePage />
-                                                        }
-                                                    />
-                                                    <Route
-                                                        path="/login"
-                                                        element={<LoginPage />}
-                                                    />
-                                                    <Route
-                                                        path="/signup"
-                                                        element={<SignUpPage />}
-                                                    />
-                                                    <Route
-                                                        path="/accept-invitation"
-                                                        element={
-                                                            <AcceptInvitationPage />
-                                                        }
-                                                    />
-                                                    <Route
-                                                        path="/verify-email"
-                                                        element={
-                                                            <VerifyEmailPage />
-                                                        }
-                                                    />
-                                                    <Route
-                                                        path="/contact-sales"
-                                                        element={
-                                                            <ContactSalesPage />
-                                                        }
-                                                    />
-                                                    {/* Dashboard Routes (protected) */}
-                                                    <Route
-                                                        path="/dashboard/*"
-                                                        element={
-                                                            <Routes>
-                                                                <Route
-                                                                    index
-                                                                    element={
-                                                                        <Dashboard />
-                                                                    }
-                                                                />
-                                                                <Route
-                                                                    path="/oauth/callback"
-                                                                    element={
-                                                                        <OAuthCallback />
-                                                                    }
-                                                                />
-                                                                <Route
-                                                                    path="upgrade"
-                                                                    element={
-                                                                        <UpgradePage />
-                                                                    }
-                                                                />
-                                                                <Route
-                                                                    path="payment"
-                                                                    element={
-                                                                        <PaymentPage />
-                                                                    }
-                                                                />
-                                                                <Route
-                                                                    path="payment-success"
-                                                                    element={
-                                                                        <PaymentSuccessPage />
-                                                                    }
-                                                                />
-                                                                <Route
-                                                                    path="billing"
-                                                                    element={
-                                                                        <BillingWrapper />
-                                                                    }
-                                                                />
-                                                            </Routes>
-                                                        }
-                                                    />
+                                            <FacebookProvider>
+                                                <Suspense
+                                                    fallback={
+                                                        <div className="flex items-center justify-center h-screen">
+                                                            <p>Loading...</p>
+                                                        </div>
+                                                    }
+                                                >
+                                                    <Routes>
+                                                        {/* Public Routes */}
+                                                        <Route
+                                                            path="/"
+                                                            element={
+                                                                <HomeWrapper />
+                                                            }
+                                                        />
+                                                        <Route
+                                                            path="/privacy-policy"
+                                                            element={
+                                                                <PrivacyPolicyPage />
+                                                            }
+                                                        />
+                                                        <Route
+                                                            path="/terms-of-service"
+                                                            element={
+                                                                <TermsOfServicePage />
+                                                            }
+                                                        />
+                                                        <Route
+                                                            path="/login"
+                                                            element={
+                                                                <LoginPage />
+                                                            }
+                                                        />
+                                                        <Route
+                                                            path="/signup"
+                                                            element={
+                                                                <SignUpPage />
+                                                            }
+                                                        />
+                                                        <Route
+                                                            path="/accept-invitation"
+                                                            element={
+                                                                <AcceptInvitationPage />
+                                                            }
+                                                        />
+                                                        <Route
+                                                            path="/verify-email"
+                                                            element={
+                                                                <VerifyEmailPage />
+                                                            }
+                                                        />
+                                                        <Route
+                                                            path="/contact-sales"
+                                                            element={
+                                                                <ContactSalesPage />
+                                                            }
+                                                        />
+                                                        {/* Dashboard Routes (protected) */}
+                                                        <Route
+                                                            path="/dashboard/*"
+                                                            element={
+                                                                <Routes>
+                                                                    <Route
+                                                                        index
+                                                                        element={
+                                                                            <Dashboard />
+                                                                        }
+                                                                    />
+                                                                    <Route
+                                                                        path="/oauth/callback"
+                                                                        element={
+                                                                            <OAuthCallback />
+                                                                        }
+                                                                    />
+                                                                    <Route
+                                                                        path="upgrade"
+                                                                        element={
+                                                                            <UpgradePage />
+                                                                        }
+                                                                    />
+                                                                    <Route
+                                                                        path="payment"
+                                                                        element={
+                                                                            <PaymentPage />
+                                                                        }
+                                                                    />
+                                                                    <Route
+                                                                        path="payment-success"
+                                                                        element={
+                                                                            <PaymentSuccessPage />
+                                                                        }
+                                                                    />
+                                                                    <Route
+                                                                        path="billing"
+                                                                        element={
+                                                                            <BillingWrapper />
+                                                                        }
+                                                                    />
+                                                                </Routes>
+                                                            }
+                                                        />
 
-                                                    {/* Fallback route - redirect to home */}
-                                                    <Route
-                                                        path="*"
-                                                        element={
-                                                            <HomeWrapper />
-                                                        }
-                                                    />
-                                                </Routes>
-                                            </Suspense>
+                                                        {/* Fallback route - redirect to home */}
+                                                        <Route
+                                                            path="*"
+                                                            element={
+                                                                <HomeWrapper />
+                                                            }
+                                                        />
+                                                    </Routes>
+                                                </Suspense>
+                                            </FacebookProvider>
                                         </InstagramProvider>
                                     </WhatsAppProvider>
                                 </ActivityProvider>

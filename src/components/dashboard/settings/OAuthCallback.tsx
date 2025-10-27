@@ -3,11 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { Loader2 } from "lucide-react";
 import { useWhatsApp } from "@/contexts/WhatsAppContext";
 import { useInstagram } from "@/contexts/InstagramContext";
+import { useFacebook } from "@/contexts/FacebookContext";
 
 const OAuthCallback: React.FC = () => {
     const navigate = useNavigate();
     const { configureWhatsApp } = useWhatsApp();
     const { configureInstagram } = useInstagram();
+    const { configureFacebook } = useFacebook();
     const [status, setStatus] = useState<"loading" | "success" | "error">(
         "loading"
     );
@@ -49,10 +51,10 @@ const OAuthCallback: React.FC = () => {
 
                 let result;
                 if (type === "instagram") {
-                    // Panggil fungsi Instagram jika tipenya 'instagram'
                     result = await configureInstagram(code);
+                } else if (type === "facebook") {
+                    result = await configureFacebook(code);
                 } else {
-                    // Default ke WhatsApp
                     result = await configureWhatsApp(code);
                 }
 

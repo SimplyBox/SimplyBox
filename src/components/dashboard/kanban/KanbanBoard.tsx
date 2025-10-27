@@ -165,9 +165,9 @@ const KanbanBoard: React.FC<KanbanBoardProps> = ({
         if (!selectedCard) return;
 
         try {
-            await deleteActivity(selectedCard.id); // Call deleteActivity from ActivityContext
-            setIsDetailOpen(false); // Close the dialog
-            setSelectedCard(null); // Clear selected card
+            await deleteActivity(selectedCard.id);
+            setIsDetailOpen(false);
+            setSelectedCard(null);
         } catch (error) {
             console.error("Error deleting card:", error);
         }
@@ -196,101 +196,118 @@ const KanbanBoard: React.FC<KanbanBoardProps> = ({
     };
 
     return (
-        <div className="p-6 bg-white min-h-screen">
-            <div className="flex items-center justify-between mb-6">
-                <div>
-                    <h1 className="text-2xl font-bold">Kanban Board</h1>
-                    <p className="text-muted-foreground">Manage your tasks</p>
+        <div className="h-[calc(100vh-65px)] bg-gray-50 overflow-hidden">
+            <div className="mx-auto p-6 flex flex-col h-full">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+                    <div>
+                        <h1 className="text-3xl font-bold mb-2">
+                            Kanban Board
+                        </h1>
+                        <p className="text-gray-600">Manage your tasks</p>
+                    </div>
+                    <div className="mt-4 md:mt-0">
+                        <Button onClick={() => setIsNewCardOpen(true)}>
+                            Add Task
+                        </Button>
+                    </div>
                 </div>
-                <Button onClick={() => setIsNewCardOpen(true)}>Add Task</Button>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 h-[calc(100vh-180px)]">
-                {(["todo", "inProgress", "done"] as KanbanColumn[]).map(
-                    (column) => (
-                        <div
-                            key={column}
-                            className="bg-slate-50 rounded-lg p-4 overflow-y-auto"
-                            onDragOver={handleDragOver}
-                            onDrop={() => handleDrop(column)}
-                        >
-                            <div className="flex justify-between items-center mb-4">
-                                <h2 className="font-semibold text-lg">
-                                    {column.charAt(0).toUpperCase() +
-                                        column.slice(1)}
-                                </h2>
-                                <Badge variant="outline">
-                                    {cards[column].length}
-                                </Badge>
-                            </div>
-                            {cards[column].map((card) => (
-                                <div key={card.id} className="mb-3">
-                                    <Card
-                                        className="cursor-pointer hover:shadow-md transition-shadow"
-                                        draggable
-                                        onDragStart={() =>
-                                            handleDragStart(card, column)
-                                        }
-                                        onClick={() => openCardDetail(card)}
-                                    >
-                                        <CardHeader className="p-3 pb-0">
-                                            <CardTitle className="text-sm font-medium">
-                                                {card.title}
-                                            </CardTitle>
-                                        </CardHeader>
-                                        <CardContent className="p-3 pt-2">
-                                            <div className="flex flex-wrap gap-2 mb-2">
-                                                {card.channel &&
-                                                    renderChannelBadge(
-                                                        card.channel
-                                                    )}
-                                                {renderUrgencyBadge(
-                                                    card.urgency
-                                                )}
-                                            </div>
-                                            {card.assigned_to &&
-                                                teamMembers &&
-                                                teamMembers.length > 0 && (
-                                                    <div className="flex items-center text-xs text-muted-foreground mt-1">
-                                                        <Avatar className="h-5 w-5 mr-1">
-                                                            <AvatarImage
-                                                                src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${
-                                                                    teamMembers.find(
-                                                                        (m) =>
-                                                                            m.user_id ===
-                                                                            card.assigned_to
-                                                                    )?.name ||
-                                                                    "Unknown"
-                                                                }`}
-                                                            />
-                                                            <AvatarFallback>
-                                                                {teamMembers
-                                                                    .find(
-                                                                        (m) =>
-                                                                            m.user_id ===
-                                                                            card.assigned_to
-                                                                    )
-                                                                    ?.name?.charAt(
-                                                                        0
-                                                                    ) || "?"}
-                                                            </AvatarFallback>
-                                                        </Avatar>
-                                                        <span>
-                                                            {teamMembers.find(
-                                                                (m) =>
-                                                                    m.user_id ===
-                                                                    card.assigned_to
-                                                            )?.name ||
-                                                                "Unknown"}
-                                                        </span>
-                                                    </div>
-                                                )}
-                                        </CardContent>
-                                    </Card>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 flex-1 overflow-hidden">
+                    {(["todo", "inProgress", "done"] as KanbanColumn[]).map(
+                        (column) => (
+                            <div
+                                key={column}
+                                className="bg-gray-100 rounded-lg p-4 overflow-y-auto"
+                                onDragOver={handleDragOver}
+                                onDrop={() => handleDrop(column)}
+                            >
+                                <div className="flex justify-between items-center mb-4">
+                                    <h2 className="font-semibold text-lg">
+                                        {column === "todo"
+                                            ? "To Do"
+                                            : column === "inProgress"
+                                            ? "In Progress"
+                                            : "Done"}
+                                    </h2>
+                                    <Badge variant="outline">
+                                        {cards[column].length}
+                                    </Badge>
                                 </div>
-                            ))}
-                        </div>
-                    )
-                )}
+                                {cards[column].map((card) => (
+                                    <div key={card.id} className="mb-3">
+                                        <Card
+                                            className="cursor-pointer hover:shadow-md transition-shadow"
+                                            draggable
+                                            onDragStart={() =>
+                                                handleDragStart(card, column)
+                                            }
+                                            onClick={() => openCardDetail(card)}
+                                        >
+                                            <CardHeader className="p-3 pb-0">
+                                                <CardTitle className="text-sm font-medium">
+                                                    {card.title}
+                                                </CardTitle>
+                                            </CardHeader>
+                                            <CardContent className="p-3 pt-2">
+                                                <div className="flex flex-wrap gap-2 mb-2">
+                                                    {card.channel &&
+                                                        renderChannelBadge(
+                                                            card.channel
+                                                        )}
+                                                    {renderUrgencyBadge(
+                                                        card.urgency
+                                                    )}
+                                                </div>
+                                                {card.assigned_to &&
+                                                    teamMembers &&
+                                                    teamMembers.length > 0 && (
+                                                        <div className="flex items-center text-xs text-muted-foreground mt-1">
+                                                            <Avatar className="h-5 w-5 mr-1">
+                                                                <AvatarImage
+                                                                    src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${
+                                                                        teamMembers.find(
+                                                                            (
+                                                                                m
+                                                                            ) =>
+                                                                                m.user_id ===
+                                                                                card.assigned_to
+                                                                        )
+                                                                            ?.name ||
+                                                                        "Unknown"
+                                                                    }`}
+                                                                />
+                                                                <AvatarFallback>
+                                                                    {teamMembers
+                                                                        .find(
+                                                                            (
+                                                                                m
+                                                                            ) =>
+                                                                                m.user_id ===
+                                                                                card.assigned_to
+                                                                        )
+                                                                        ?.name?.charAt(
+                                                                            0
+                                                                        ) ||
+                                                                        "?"}
+                                                                </AvatarFallback>
+                                                            </Avatar>
+                                                            <span>
+                                                                {teamMembers.find(
+                                                                    (m) =>
+                                                                        m.user_id ===
+                                                                        card.assigned_to
+                                                                )?.name ||
+                                                                    "Unknown"}
+                                                            </span>
+                                                        </div>
+                                                    )}
+                                            </CardContent>
+                                        </Card>
+                                    </div>
+                                ))}
+                            </div>
+                        )
+                    )}
+                </div>
             </div>
             {selectedCard && (
                 <Dialog open={isDetailOpen} onOpenChange={setIsDetailOpen}>

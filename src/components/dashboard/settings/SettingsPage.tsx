@@ -17,6 +17,7 @@ import {
     Instagram,
     AlertTriangle,
     Bot,
+    Facebook,
 } from "lucide-react";
 import {
     Select,
@@ -32,6 +33,7 @@ import { useWhatsApp } from "@/contexts/WhatsAppContext";
 import { useSubscription } from "@/contexts/SubscriptionContext";
 import supabase from "@/libs/supabase";
 import { useInstagram } from "@/contexts/InstagramContext";
+import { useFacebook } from "@/contexts/FacebookContext";
 
 const getPlanBadgeColor = (plan) => {
     switch (plan) {
@@ -113,6 +115,12 @@ const SettingsPage = ({ userPlan = "free", currentUsage, onUpgrade }) => {
         configureInstagram,
         disconnectInstagram,
     } = useInstagram();
+    const {
+        integration: fbIntegration,
+        loading: fbLoading,
+        configureFacebook,
+        disconnectFacebook,
+    } = useFacebook();
     const { subscription } = useSubscription();
     const [formData, setFormData] = useState({
         name: "",
@@ -335,6 +343,30 @@ const SettingsPage = ({ userPlan = "free", currentUsage, onUpgrade }) => {
         } catch (error) {
             setError("Failed to initiate Instagram configuration");
             console.error("Instagram configuration error:", error);
+        }
+    };
+
+    const handleFacebookConfigure = async () => {
+        try {
+            const appId = import.meta.env.VITE_META_APP_ID;
+            const redirectUri = `${window.location.origin}/dashboard/oauth/callback?type=facebook`;
+
+            if (!appId || !redirectUri) {
+                throw new Error("Missing Meta App ID or Redirect URI");
+            }
+
+            const scope = "pages_show_list,pages_messaging,business_management";
+
+            const authUrl = `https://www.facebook.com/v16.0/dialog/oauth?client_id=${encodeURIComponent(
+                appId
+            )}&redirect_uri=${encodeURIComponent(
+                redirectUri
+            )}&response_type=code&scope=${encodeURIComponent(scope)}`;
+
+            window.location.href = authUrl;
+        } catch (error) {
+            setError("Failed to initiate Facebook configuration");
+            console.error("Facebook configuration error:", error);
         }
     };
 
@@ -866,6 +898,77 @@ const SettingsPage = ({ userPlan = "free", currentUsage, onUpgrade }) => {
                                             >
                                                 <Instagram className="h-5 w-5" />
                                                 Connect Instagram
+                                            </Button>
+                                        </div>
+                                    )}
+                                </div>
+
+                                <div className="border rounded-lg p-4 bg-purple-50">
+                                    <div className="flex items-center gap-3 mb-2">
+                                        {/* Ganti icon jika ada */}
+                                        <Facebook className="h-5 w-5 text-blue-800" />
+                                        <h3 className="font-semibold text-gray-900">
+                                            Facebook Messenger
+                                        </h3>
+                                    </div>
+
+                                    {fbIntegration ? (
+                                        <div className="flex items-center justify-between p-2 bg-blue-100 border border-blue-200 rounded-lg">
+                                            <div className="flex items-center gap-2">
+                                                <CheckCircle className="h-5 w-5 text-blue-600" />
+                                                <div>
+                                                    <p className="font-semibold text-blue-800">
+                                                        Facebook Page Connected
+                                                    </p>
+                                                    <p className="text-sm text-blue-700">
+                                                        Page:{" "}
+                                                        {
+                                                            fbIntegration.page_name
+                                                        }
+                                                    </p>
+                                                    <p className="text-sm text-blue-700">
+                                                        Page ID:{" "}
+                                                        {
+                                                            fbIntegration.meta_page_id
+                                                        }
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <Button
+                                                variant="destructive"
+                                                size="sm"
+                                                className="mt-0"
+                                                onClick={disconnectFacebook}
+                                                disabled={
+                                                    isSubmitting || fbLoading
+                                                }
+                                            >
+                                                {isSubmitting
+                                                    ? "Disconnecting..."
+                                                    : "Disconnect"}
+                                            </Button>
+                                        </div>
+                                    ) : (
+                                        <div className="flex items-center justify-between p-4 bg-white border rounded-lg">
+                                            <p className="text-sm text-gray-600">
+                                                Connect your Facebook Page to
+                                                reply to DMs
+                                            </p>
+                                            <Button
+                                                variant="default"
+                                                size="lg"
+                                                className="bg-blue-600 hover:bg-blue-700 text-white flex items-center gap-2"
+                                                onClick={
+                                                    handleFacebookConfigure
+                                                }
+                                                disabled={
+                                                    isSubmitting || fbLoading
+                                                }
+                                            >
+                                                {/* Ganti icon jika ada */}
+                                                <Facebook className="h-5 w-5" />
+                                                Connect Facebook
                                             </Button>
                                         </div>
                                     )}

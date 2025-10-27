@@ -154,7 +154,7 @@ const FilesPage: React.FC<FilesPageProps> = ({
     };
 
     return (
-        <div className="h-full bg-gray-50">
+        <div className="h-[calc(100vh-65px)] bg-gray-50">
             <div className="mx-auto p-6">
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
                     <div>
