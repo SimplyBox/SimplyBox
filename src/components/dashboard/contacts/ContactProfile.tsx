@@ -28,6 +28,7 @@ import {
     Link,
     Trash2,
     Instagram,
+    Facebook,
 } from "lucide-react";
 import {
     Select,
@@ -119,11 +120,13 @@ const ContactProfile: React.FC<ContactProfileProps> = ({
     };
 
     const getChannelIcon = (channel: string) => {
-        switch (channel.toLowerCase()) {
+        switch (channel) {
             case "whatsapp":
                 return <MessageSquare className="h-4 w-4 text-green-600" />;
             case "instagram":
-                return <Instagram className="h-4 w-4 text-blue-600" />;
+                return <Instagram className="h-4 w-4 text-purple-600" />;
+            case "facebook":
+                return <Facebook className="h-4 w-4 text-blue-600" />;
             default:
                 return <MessageSquare className="h-4 w-4" />;
         }

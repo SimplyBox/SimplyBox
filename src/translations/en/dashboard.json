@@ -32,6 +32,7 @@
         "filterChannelAll": "All Channels",
         "filterChannelWhatsapp": "WhatsApp",
         "filterChannelInstagram": "Instagram",
+        "filterChannelFacebook": "Facebook",
         "searchPlaceholder": "Search conversations...",
         "loadingConversations": "Loading conversations...",
         "noConversations": "No conversations found",
@@ -137,7 +138,8 @@
         },
         "channel": {
             "whatsapp": "WhatsApp",
-            "instagram": "Instagram"
+            "instagram": "Instagram",
+            "facebook": "Facebook"
         },
         "timeAgo": {
             "justNow": "Just now",
@@ -168,7 +170,8 @@
         },
         "channel": {
             "whatsapp": "WhatsApp",
-            "instagram": "Instagram"
+            "instagram": "Instagram",
+            "facebook": "Facebook"
         },
         "tags": {
             "title": "Tags",

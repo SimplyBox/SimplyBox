@@ -13,7 +13,6 @@ import {
     Pin,
     Trash2,
     MessageSquare,
-    Phone,
     MoreVertical,
     Zap,
     RefreshCw,
@@ -21,6 +20,7 @@ import {
     Instagram,
     AlertTriangle,
     ArrowLeft,
+    Facebook,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -56,7 +56,7 @@ const InteractiveInbox: React.FC<InteractiveInboxProps> = ({
     const [messageText, setMessageText] = React.useState("");
     const [filter, setFilter] = React.useState<"all" | "pinned">("all");
     const [channelFilter, setChannelFilter] = React.useState<
-        "all" | "whatsapp" | "instagram"
+        "all" | "whatsapp" | "instagram" | "facebook"
     >("all");
     const [searchQuery, setSearchQuery] = useState("");
     const [isSending, setIsSending] = React.useState(false);
@@ -112,7 +112,9 @@ const InteractiveInbox: React.FC<InteractiveInboxProps> = ({
             case "whatsapp":
                 return <MessageSquare className="h-4 w-4 text-green-600" />;
             case "instagram":
-                return <Instagram className="h-4 w-4 text-blue-600" />;
+                return <Instagram className="h-4 w-4 text-purple-600" />;
+            case "facebook":
+                return <Facebook className="h-4 w-4 text-blue-600" />;
             default:
                 return <MessageSquare className="h-4 w-4" />;
         }
@@ -258,6 +260,11 @@ const InteractiveInbox: React.FC<InteractiveInboxProps> = ({
                                     }
                                 >
                                     {t("InboxPage.filterChannelInstagram")}
+                                </DropdownMenuItem>
+                                <DropdownMenuItem
+                                    onClick={() => setChannelFilter("facebook")}
+                                >
+                                    {t("InboxPage.filterChannelFacebook")}
                                 </DropdownMenuItem>
                             </DropdownMenuContent>
                         </DropdownMenu>

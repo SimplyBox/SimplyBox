@@ -150,7 +150,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
                     } as AuthUser)
             );
 
-            // Fetch company data through team relationship
             const { data: teamData, error: teamError } = await supabase
                 .from("team")
                 .select("company_id")

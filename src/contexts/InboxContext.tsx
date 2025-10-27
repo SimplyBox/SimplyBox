@@ -4,6 +4,7 @@ import { useTagService } from "@/services/tags";
 import { useInboxService } from "@/services/inbox";
 import { useWhatsAppService } from "@/services/wa";
 import { useInstagramService } from "@/services/ig";
+import { useFacebookService } from "@/services/fb";
 import { InboxContextType } from "@/types";
 
 const InboxContext = createContext<InboxContextType | undefined>(undefined);
@@ -67,6 +68,12 @@ export const InboxProvider: React.FC<{ children: React.ReactNode }> = ({
         conversations,
         setConversations
     );
+    const { sendMessage: sendFbMessage } = useFacebookService(
+        company?.id,
+        selectedConversation,
+        conversations,
+        setConversations
+    );
 
     const sendMessage = async (content: string) => {
         if (!selectedConversation) throw new Error("No conversation selected");
@@ -80,6 +87,8 @@ export const InboxProvider: React.FC<{ children: React.ReactNode }> = ({
             return sendWaMessage(content);
         } else if (conversation.channel === "instagram") {
             return sendIgMessage(content);
+        } else if (conversation.channel === "facebook") {
+            return sendFbMessage(content);
         } else {
             console.error(
                 "Cannot send message: Unknown channel",
