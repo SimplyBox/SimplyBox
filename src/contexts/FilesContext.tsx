@@ -178,12 +178,15 @@ export const FilesProvider: React.FC<{ children: React.ReactNode }> = ({
                 "application/pdf",
                 "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
                 "text/plain",
+                "image/jpeg",
+                "image/png",
+                "image/webp",
             ];
 
             if (!allowedTypes.includes(file.type)) {
                 return {
                     success: false,
-                    error: "Unsupported file type. Only PDF, DOCX, and TXT files are allowed.",
+                    error: "Unsupported file type. Only PDF, DOCX, TXT, JPG, PNG, and WEBP are allowed.",
                 };
             }
 

@@ -11,6 +11,7 @@ import {
     Loader2,
     ArrowUpRight,
     AlertCircle,
+    Image,
 } from "lucide-react";
 import {
     Dialog,
@@ -132,6 +133,11 @@ const FilesPage: React.FC<FilesPageProps> = ({
                 return <FileText className="h-8 w-8 text-blue-500" />;
             case "txt":
                 return <File className="h-8 w-8 text-gray-500" />;
+            case "jpg":
+            case "jpeg":
+            case "png":
+            case "webp":
+                return <Image className="h-8 w-8 text-purple-500" />;
             default:
                 return <File className="h-8 w-8 text-gray-500" />;
         }

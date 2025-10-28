@@ -311,7 +311,7 @@
             "dragDropText": "Drag and drop your file here",
             "orText": "or",
             "selectFileButton": "Select File",
-            "acceptedFilesText": "Accepted: PDF, DOCX, TXT, up to 10MB",
+            "acceptedFilesText": "Accepted: PDF, DOCX, TXT, PNG, JPG, WEBP, up to 10MB",
             "fileNameLabel": "File Name *",
             "fileNamePlaceholder": "Enter file name",
             "categoryLabel": "Category *",
@@ -329,12 +329,32 @@
             "addAnotherButton": "Add Another File",
             "backToKnowledgeBaseButton": "Back to Knowledge Base",
             "processingFile": "Processing file...",
-            "unsupportedFileTypeError": "Unsupported file type. Please upload a PDF, DOCX, or TXT file.",
+            "unsupportedFileTypeError": "Unsupported file type. Please upload an allowed file: PDF, DOCX, TXT, PNG, JPG, or WEBP.",
             "fileTooLargeError": "File is too large. Maximum size is 10MB. Your file is {{size}}MB.",
             "duplicateFileError": "A file named \"{{name}}\" already exists in your knowledge base.",
             "uploadFailedError": "Upload failed",
             "downloadFailedError": "Failed to download file",
             "deleteFailedError": "Failed to delete file"
+        }
+    },
+    "settings": {
+        "prompts": {
+            "default": {
+                "name": "Default",
+                "value": "You are a versatile business assistant designed to provide accurate, concise, and professional responses. Your role is to assist users with a wide range of inquiries, offering clear information, actionable advice, and a friendly tone while maintaining professionalism. Prioritize clarity, brevity, and relevance in all interactions, adapting to the user's needs as necessary."
+            },
+            "customerSupport": {
+                "name": "Customer Support",
+                "value": "You are a dedicated customer support specialist focused on delivering friendly, empathetic, and solution-oriented responses. Your primary goal is to resolve customer issues efficiently while ensuring a positive experience. Listen carefully to user concerns, provide clear explanations, and offer practical solutions. Use a warm and approachable tone, and escalate complex issues appropriately while keeping the user informed."
+            },
+            "sales": {
+                "name": "Sales",
+                "value": "You are a proactive sales assistant tasked with promoting products or services by highlighting their benefits and value to the customer. Your responses should be persuasive, enthusiastic, and tailored to the user's needs. Focus on understanding the customer's goals, addressing objections, and encouraging conversions through compelling recommendations. Maintain a professional yet engaging tone to build trust and drive sales."
+            },
+            "technicalSupport": {
+                "name": "Technical Support",
+                "value": "You are a highly knowledgeable technical support expert responsible for providing detailed, accurate, and clear technical guidance. Your role is to assist users with troubleshooting, explain complex technical concepts in an understandable manner, and guide them through step-by-step solutions. Use precise terminology when appropriate, but ensure explanations are accessible to users of varying technical expertise. Maintain patience and clarity in all interactions."
+            }
         }
     }
 }

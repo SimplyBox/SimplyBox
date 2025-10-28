@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
     Upload,
     FileText,
     File,
+    Image,
     X,
     CheckCircle,
     AlertCircle,
@@ -38,6 +39,7 @@ const FileUploadModal: React.FC<FileUploadModalProps> = ({
     const [fileTags, setFileTags] = useState("");
     const [fileDescription, setFileDescription] = useState("");
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
+    const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
     const categories = [
         "FAQ",
@@ -49,7 +51,24 @@ const FileUploadModal: React.FC<FileUploadModalProps> = ({
         "Legal",
         "General",
     ];
-    const acceptedTypes = [".pdf", ".docx", ".txt"];
+    const acceptedTypes = [
+        ".pdf",
+        ".docx",
+        ".txt",
+        ".jpg",
+        ".jpeg",
+        ".png",
+        ".webp",
+    ];
+    const acceptedTypesForInput = acceptedTypes.join(",");
+    const acceptedMimeTypes = [
+        "application/pdf",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "text/plain",
+        "image/jpeg",
+        "image/png",
+        "image/webp",
+    ];
     const maxFileSize = 10 * 1024 * 1024; // 10MB
 
     const handleDrag = (e: React.DragEvent) => {
@@ -74,9 +93,9 @@ const FileUploadModal: React.FC<FileUploadModalProps> = ({
 
     const handleFileSelect = (file: File) => {
         setUploadError("");
+        setPreviewUrl(null);
 
-        const fileExtension = "." + file.name.split(".").pop()?.toLowerCase();
-        if (!acceptedTypes.includes(fileExtension)) {
+        if (!acceptedMimeTypes.includes(file.type)) {
             setUploadError(t("FilesPage.uploadModal.unsupportedFileTypeError"));
             return;
         }
@@ -92,7 +111,23 @@ const FileUploadModal: React.FC<FileUploadModalProps> = ({
 
         setSelectedFile(file);
         setFileName(file.name.replace(/\.[^/.]+$/, ""));
+
+        if (file.type.startsWith("image/")) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setPreviewUrl(reader.result as string);
+            };
+            reader.readAsDataURL(file);
+        }
     };
+
+    useEffect(() => {
+        return () => {
+            if (previewUrl) {
+                URL.revokeObjectURL(previewUrl);
+            }
+        };
+    }, [previewUrl]);
 
     const handleFileInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files[0]) {
@@ -120,11 +155,6 @@ const FileUploadModal: React.FC<FileUploadModalProps> = ({
             if (result.success && result.file) {
                 onFileUpload(result.file);
                 setShowSuccess(true);
-                setSelectedFile(null);
-                setFileName("");
-                setFileCategory("");
-                setFileTags("");
-                setFileDescription("");
             } else {
                 setUploadError(
                     result.error || t("FilesPage.uploadModal.uploadFailedError")
@@ -140,7 +170,11 @@ const FileUploadModal: React.FC<FileUploadModalProps> = ({
             setUploadProgress(0);
         } finally {
             clearInterval(progressInterval);
-            setUploadProgress(100);
+            if (uploadError) {
+                setUploadProgress(0);
+            } else {
+                setUploadProgress(100);
+            }
         }
     };
 
@@ -153,6 +187,7 @@ const FileUploadModal: React.FC<FileUploadModalProps> = ({
         setUploadError("");
         setUploadProgress(0);
         setShowSuccess(false);
+        setPreviewUrl(null);
         onClose();
     };
 
@@ -165,6 +200,7 @@ const FileUploadModal: React.FC<FileUploadModalProps> = ({
         setFileDescription("");
         setUploadError("");
         setUploadProgress(0);
+        setPreviewUrl(null);
     };
 
     const handleBackToKnowledgeBase = () => {
@@ -181,6 +217,11 @@ const FileUploadModal: React.FC<FileUploadModalProps> = ({
                 return <FileText className="h-8 w-8 text-blue-500" />;
             case "txt":
                 return <File className="h-8 w-8 text-gray-500" />;
+            case "jpg":
+            case "jpeg":
+            case "png":
+            case "webp":
+                return <Image className="h-8 w-8 text-purple-500" />;
             default:
                 return <File className="h-8 w-8 text-gray-500" />;
         }
@@ -234,7 +275,15 @@ const FileUploadModal: React.FC<FileUploadModalProps> = ({
                             >
                                 {selectedFile ? (
                                     <div className="flex items-center justify-center space-x-4">
-                                        {getFileIcon(selectedFile.name)}
+                                        {previewUrl ? (
+                                            <img
+                                                src={previewUrl}
+                                                alt="Preview"
+                                                className="h-16 w-16 object-cover rounded-md border"
+                                            />
+                                        ) : (
+                                            getFileIcon(selectedFile.name)
+                                        )}
                                         <div className="text-left">
                                             <p className="font-medium text-green-700">
                                                 {selectedFile.name}
@@ -270,7 +319,7 @@ const FileUploadModal: React.FC<FileUploadModalProps> = ({
                                             <input
                                                 type="file"
                                                 className="hidden"
-                                                accept=".pdf,.docx,.txt"
+                                                accept={acceptedTypesForInput}
                                                 onChange={handleFileInputChange}
                                             />
                                             {t(

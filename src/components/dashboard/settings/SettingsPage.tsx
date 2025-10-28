@@ -34,6 +34,7 @@ import { useSubscription } from "@/contexts/SubscriptionContext";
 import supabase from "@/libs/supabase";
 import { useInstagram } from "@/contexts/InstagramContext";
 import { useFacebook } from "@/contexts/FacebookContext";
+import { useLanguage } from "@/contexts/LanguageContext"; // [ADDED]
 
 const getPlanBadgeColor = (plan) => {
     switch (plan) {
@@ -82,24 +83,7 @@ const countryCodes = [
     { code: "+65", label: "Singapore" },
 ];
 
-const promptTemplates = [
-    {
-        name: "Default",
-        value: "You are a versatile business assistant designed to provide accurate, concise, and professional responses. Your role is to assist users with a wide range of inquiries, offering clear information, actionable advice, and a friendly tone while maintaining professionalism. Prioritize clarity, brevity, and relevance in all interactions, adapting to the user's needs as necessary.",
-    },
-    {
-        name: "Customer Support",
-        value: "You are a dedicated customer support specialist focused on delivering friendly, empathetic, and solution-oriented responses. Your primary goal is to resolve customer issues efficiently while ensuring a positive experience. Listen carefully to user concerns, provide clear explanations, and offer practical solutions. Use a warm and approachable tone, and escalate complex issues appropriately while keeping the user informed.",
-    },
-    {
-        name: "Sales",
-        value: "You are a proactive sales assistant tasked with promoting products or services by highlighting their benefits and value to the customer. Your responses should be persuasive, enthusiastic, and tailored to the user's needs. Focus on understanding the customer's goals, addressing objections, and encouraging conversions through compelling recommendations. Maintain a professional yet engaging tone to build trust and drive sales.",
-    },
-    {
-        name: "Technical Support",
-        value: "You are a highly knowledgeable technical support expert responsible for providing detailed, accurate, and clear technical guidance. Your role is to assist users with troubleshooting, explain complex technical concepts in an understandable manner, and guide them through step-by-step solutions. Use precise terminology when appropriate, but ensure explanations are accessible to users of varying technical expertise. Maintain patience and clarity in all interactions.",
-    },
-];
+// [REMOVED] promptTemplates dipindahkan ke dalam komponen
 
 const SettingsPage = ({ userPlan = "free", currentUsage, onUpgrade }) => {
     const { company, loading: authLoading } = useAuth();
@@ -122,6 +106,27 @@ const SettingsPage = ({ userPlan = "free", currentUsage, onUpgrade }) => {
         disconnectFacebook,
     } = useFacebook();
     const { subscription } = useSubscription();
+    const { t } = useLanguage();
+
+    const promptTemplates = [
+        {
+            name: t("settings.prompts.default.name"),
+            value: t("settings.prompts.default.value"),
+        },
+        {
+            name: t("settings.prompts.customerSupport.name"),
+            value: t("settings.prompts.customerSupport.value"),
+        },
+        {
+            name: t("settings.prompts.sales.name"),
+            value: t("settings.prompts.sales.value"),
+        },
+        {
+            name: t("settings.prompts.technicalSupport.name"),
+            value: t("settings.prompts.technicalSupport.value"),
+        },
+    ];
+
     const [formData, setFormData] = useState({
         name: "",
         type: "",
@@ -139,10 +144,10 @@ const SettingsPage = ({ userPlan = "free", currentUsage, onUpgrade }) => {
     const [error, setError] = useState<string | null>(null);
     const [success, setSuccess] = useState<string | null>(null);
     const [isEditing, setIsEditing] = useState(false);
+
     const [systemPrompt, setSystemPrompt] = useState("");
-    const [selectedTemplate, setSelectedTemplate] = useState(
-        promptTemplates[0].value
-    );
+    const [selectedTemplate, setSelectedTemplate] = useState("");
+    const [isLoadingPrompt, setIsLoadingPrompt] = useState(true);
 
     useEffect(() => {
         if (company) {
@@ -164,6 +169,59 @@ const SettingsPage = ({ userPlan = "free", currentUsage, onUpgrade }) => {
             });
         }
     }, [company]);
+
+    useEffect(() => {
+        if (company?.id || !authLoading) {
+            const fetchPrompt = async () => {
+                setIsLoadingPrompt(true);
+                const defaultPrompt = promptTemplates[0]?.value || "";
+
+                if (!company?.id) {
+                    setSystemPrompt(defaultPrompt);
+                    setSelectedTemplate(defaultPrompt);
+                    setIsLoadingPrompt(false);
+                    return;
+                }
+
+                try {
+                    const { data: config, error } = await supabase
+                        .from("tenant_configs")
+                        .select("persona_prompt")
+                        .eq("company_id", company.id)
+                        .maybeSingle();
+
+                    if (error) {
+                        throw new Error(error.message);
+                    }
+
+                    if (config && config.persona_prompt) {
+                        const savedPrompt = config.persona_prompt;
+                        setSystemPrompt(savedPrompt);
+
+                        const matchingTemplate = promptTemplates.find(
+                            (t) => t.value === savedPrompt
+                        );
+                        if (matchingTemplate) {
+                            setSelectedTemplate(matchingTemplate.value);
+                        } else {
+                            setSelectedTemplate("");
+                        }
+                    } else {
+                        setSystemPrompt(defaultPrompt);
+                        setSelectedTemplate(defaultPrompt);
+                    }
+                } catch (err: any) {
+                    setError("Failed to load system prompt: " + err.message);
+                    setSystemPrompt(defaultPrompt);
+                    setSelectedTemplate(defaultPrompt);
+                } finally {
+                    setIsLoadingPrompt(false);
+                }
+            };
+
+            fetchPrompt();
+        }
+    }, [company, authLoading, t]);
 
     const validateType = (type: string) => {
         const isValid = type !== "";
@@ -396,7 +454,17 @@ const SettingsPage = ({ userPlan = "free", currentUsage, onUpgrade }) => {
     };
 
     const handlePromptChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        setSystemPrompt(e.target.value);
+        const newPrompt = e.target.value;
+        setSystemPrompt(newPrompt);
+
+        const matchingTemplate = promptTemplates.find(
+            (t) => t.value === newPrompt
+        );
+        if (matchingTemplate) {
+            setSelectedTemplate(matchingTemplate.value);
+        } else {
+            setSelectedTemplate("");
+        }
     };
 
     const getUsagePercentage = (used: number, limit: number) => {
@@ -834,29 +902,29 @@ const SettingsPage = ({ userPlan = "free", currentUsage, onUpgrade }) => {
                                     )}
                                 </div>
 
-                                <div className="border rounded-lg p-4 bg-blue-50">
+                                <div className="border rounded-lg p-4 bg-purple-50">
                                     <div className="flex items-center gap-3 mb-2">
-                                        <Instagram className="h-5 w-5 text-blue-600" />
+                                        <Instagram className="h-5 w-5 text-purple-600" />
                                         <h3 className="font-semibold text-gray-900">
                                             Instagram Integration
                                         </h3>
                                     </div>
 
                                     {igIntegration ? (
-                                        <div className="flex items-center justify-between p-2 bg-blue-100 border border-blue-200 rounded-lg">
+                                        <div className="flex items-center justify-between p-2 bg-purple-100 border border-purple-200 rounded-lg">
                                             <div className="flex items-center gap-2">
-                                                <CheckCircle className="h-5 w-5 text-blue-600" />
+                                                <CheckCircle className="h-5 w-5 text-purple-600" />
                                                 <div>
-                                                    <p className="font-semibold text-blue-800">
+                                                    <p className="font-semibold text-purple-800">
                                                         Instagram Connected
                                                     </p>
-                                                    <p className="text-sm text-blue-700">
+                                                    <p className="text-sm text-purple-700">
                                                         Account: @
                                                         {
                                                             igIntegration.ig_username
                                                         }
                                                     </p>
-                                                    <p className="text-sm text-blue-700">
+                                                    <p className="text-sm text-purple-700">
                                                         Page ID:{" "}
                                                         {
                                                             igIntegration.meta_page_id
@@ -888,7 +956,7 @@ const SettingsPage = ({ userPlan = "free", currentUsage, onUpgrade }) => {
                                             <Button
                                                 variant="default"
                                                 size="lg"
-                                                className="bg-blue-600 hover:bg-blue-700 text-white flex items-center gap-2"
+                                                className="bg-purple-600 hover:bg-purple-700 text-white flex items-center gap-2"
                                                 onClick={
                                                     handleInstagramConfigure
                                                 }
@@ -903,7 +971,7 @@ const SettingsPage = ({ userPlan = "free", currentUsage, onUpgrade }) => {
                                     )}
                                 </div>
 
-                                <div className="border rounded-lg p-4 bg-purple-50">
+                                <div className="border rounded-lg p-4 bg-blue-50">
                                     <div className="flex items-center gap-3 mb-2">
                                         {/* Ganti icon jika ada */}
                                         <Facebook className="h-5 w-5 text-blue-800" />
@@ -1263,9 +1331,11 @@ const SettingsPage = ({ userPlan = "free", currentUsage, onUpgrade }) => {
                                         onValueChange={
                                             handlePromptTemplateChange
                                         }
+                                        disabled={isLoadingPrompt} // [MODIFIED]
                                     >
                                         <SelectTrigger className="h-12">
-                                            <SelectValue placeholder="Select a prompt template" />
+                                            {/* [MODIFIED] Tampilkan placeholder jika custom */}
+                                            <SelectValue placeholder="Custom Prompt" />
                                         </SelectTrigger>
                                         <SelectContent>
                                             {promptTemplates.map((template) => (
@@ -1287,7 +1357,12 @@ const SettingsPage = ({ userPlan = "free", currentUsage, onUpgrade }) => {
                                         value={systemPrompt}
                                         onChange={handlePromptChange}
                                         className="h-32 w-full rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                        placeholder="Enter your custom system prompt here"
+                                        placeholder={
+                                            isLoadingPrompt
+                                                ? "Loading prompt..."
+                                                : "Enter your custom system prompt here"
+                                        }
+                                        disabled={isLoadingPrompt} // [MODIFIED]
                                     />
                                 </div>
                             </div>
@@ -1296,18 +1371,19 @@ const SettingsPage = ({ userPlan = "free", currentUsage, onUpgrade }) => {
                             <Button
                                 variant="outline"
                                 onClick={() => {
-                                    setSystemPrompt(promptTemplates[0].value);
-                                    setSelectedTemplate(
-                                        promptTemplates[0].value
-                                    );
+                                    // [MODIFIED] Pastikan ini menggunakan prompt default yang sudah diterjemahkan
+                                    const defaultPrompt =
+                                        promptTemplates[0]?.value || "";
+                                    setSystemPrompt(defaultPrompt);
+                                    setSelectedTemplate(defaultPrompt);
                                 }}
-                                disabled={isSubmitting}
+                                disabled={isSubmitting || isLoadingPrompt} // [MODIFIED]
                             >
                                 Reset to Default
                             </Button>
                             <Button
                                 className="bg-blue-600 hover:bg-blue-700 text-white"
-                                disabled={isSubmitting}
+                                disabled={isSubmitting || isLoadingPrompt} // [MODIFIED]
                                 onClick={handleSavePrompt}
                             >
                                 {isSubmitting ? "Saving..." : "Save Prompt"}
