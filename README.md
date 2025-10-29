@@ -164,9 +164,9 @@ _Annual subscriptions available with significant discounts_
 
 ## 📞 **Support & Contact**
 
--   **Documentation**: [docs.simplybox.id](https://docs.simplybox.id)
+-   **Documentation**: [https://simplybox.id](https://simplybox.id)
 -   **Support Email**: support@simplybox.id
--   **Business Inquiries**: hello@simplybox.id
+-   **Business Inquiries**: admin@simplybox.id
 
 ---
 
