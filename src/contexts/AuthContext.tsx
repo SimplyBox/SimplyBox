@@ -473,7 +473,16 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
                 return { success: false, error: error.message };
             }
 
-            return { success: true };
+            if (data.user && data.session) {
+                setSession(data.session);
+                setUser(data.user as AuthUser);
+
+                await fetchUserData(data.user.id);
+
+                return { success: true };
+            } else {
+                return { success: false, error: "Login failed after success." };
+            }
         } catch (error) {
             console.error("Sign in error:", error);
             return {
