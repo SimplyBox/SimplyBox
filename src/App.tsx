@@ -6,7 +6,6 @@ import PaymentPage from "./pages/PaymentPage";
 import PaymentSuccessPage from "./pages/PaymentSuccessPage";
 import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
-import BillingPage from "./components/BillingPage";
 import Dashboard from "./pages/Dashboard";
 import UpgradePage from "./pages/UpgradePage";
 import { AuthProvider } from "./contexts/AuthContext";
@@ -47,21 +46,6 @@ function HomeWrapper() {
             onSignUpNeeded={handleSignUpNeeded}
         />
     );
-}
-
-// Wrapper untuk BillingPage
-function BillingWrapper() {
-    const navigate = useNavigate();
-
-    const handleBack = () => {
-        navigate("/");
-    };
-
-    const handleUpgrade = () => {
-        navigate("/payment");
-    };
-
-    return <BillingPage onBack={handleBack} onUpgrade={handleUpgrade} />;
 }
 
 function App() {
@@ -166,12 +150,6 @@ function App() {
                                                                         path="payment-success"
                                                                         element={
                                                                             <PaymentSuccessPage />
-                                                                        }
-                                                                    />
-                                                                    <Route
-                                                                        path="billing"
-                                                                        element={
-                                                                            <BillingWrapper />
                                                                         }
                                                                     />
                                                                 </Routes>
